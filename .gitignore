@@ -1,0 +1,15 @@
+# Dependensi
+node_modules/
+.bun/
+
+# Hasil build Nuxt
+.nuxt/
+.output/
+dist/
+.data/
+
+# Log dan sistem
+*.log
+.DS_Store
+Thumbs.db
+tmp/
