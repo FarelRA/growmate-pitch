@@ -24,7 +24,13 @@
           </div>
         </Reveal>
         <Reveal :delay="0.28" class="w-full">
-          <p class="mt-4 font-headline text-xl font-bold text-gm-muted">Matur nuwun. Terima kasih.</p>
+          <p class="mt-4 font-headline text-xl font-bold text-gm-muted">Tumbuh Maksimal, Hasil Optimal. Matur nuwun.</p>
+        </Reveal>
+        <Reveal :delay="0.32" class="w-full">
+          <div class="mt-3 flex flex-wrap items-center justify-start gap-2">
+            <span class="rounded-full bg-gm-mist px-4 py-2 font-headline text-sm font-bold text-gm-deep">Farel Reski Aditiya</span>
+            <span class="rounded-full bg-gm-mist px-4 py-2 font-headline text-sm font-bold text-gm-deep">Aulia Anindita Primastiti</span>
+          </div>
         </Reveal>
         <Reveal :delay="0.34" class="w-full">
           <div class="mt-4 flex items-center justify-start gap-3.5">

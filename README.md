@@ -59,12 +59,14 @@ fast boots can mount before the browser exposes `location.hash`.
 - `app/data/deck.ts` is the single source of truth: section order, kickers
   (without numbers), titles, subs. Slide numbers are derived from array
   position at render time. No filename, kicker, or component contains a number.
-- `app/components/sections/*.vue`: 18 semantic sections (`CoverHero`,
+- `app/components/sections/*.vue`: 24 semantic sections (`CoverHero`,
   `ProblemStory`, `MarketAlternatives`, `SystemOverview`, `PodsShowcase`,
-  `TechSquad`, `FirmwareLoop`, `FloralBrain`, `MangsaEngine`, `FieldProof`,
-  `HeadToHead`, `BusinessTraction`, `MarketScope`, `UnitEconomics`,
-  `ImpactQuad`, `OfficialEvidence`, `RoadmapAsk`, `ClosingCall`).
+  `TechSquad`, `ProductionLine`, `FirmwareLoop`, `FloralBrain`, `MangsaEngine`,
+  `FieldProof`, `HeadToHead`, `BusinessTraction`, `FieldVoices`, `MarketScope`,
+  `GoToMarket`, `PartnerGrid`, `UnitEconomics`, `ImpactQuad`, `OfficialEvidence`,
+  `RoadmapAsk`, `BusinessCanvas`, `SwotMatrix`, `ClosingCall`).
   `app/pages/index.vue` maps section id to component.
+  `VoiceCarousel` (8 testimoni foto, autoplay + counter + panah) dipakai `FieldVoices`.
 - `app/components/deck/`: layout primitives. `DeckStage` (viewport shell +
   centered scroll area), `DeckShell` (auto-numbered header, left-aligned title
   block, centered content slot; no footer), `DeckBare` (chromeless view without
@@ -104,6 +106,20 @@ then run `./scripts/assets.sh`. It center-crops + encodes to `public/photos/*.we
 
 After converting, swap the section's `src` URL to `/photos/<name>.webp`
 (or any URL) and drop the `draft` prop on `UiPhotoFigure`.
+
+16 foto dokumentasi sudah diekstrak dari deck lama (Canva, render 150dpi,
+crop ketat, WebP q80/82) dan langsung dipakai:
+
+| File | Sumber (deck lama) | Dipakai di |
+|------|--------------------|------------|
+| `prod-solder.webp` | hal 6, proses menyolder | `ProductionLine` |
+| `prod-printer.webp` | hal 9, cetak bodi 3D | `ProductionLine` |
+| `prod-bench.webp` | hal 11, breadboard tahap 1 | `ProductionLine` |
+| `prod-alpha.webp` | hal 11, alpha 6 titik tahap 2 | `ProductionLine` |
+| `testi-wabup/dkpp/dkumpp/bunda/kemenperin/dosen/kepsek/pegiat.webp` | hal 42-45, foto pejabat (crop wajah) | `VoiceCarousel` |
+| `gt-mulyo.webp` | hal 24, konsinyasi Mulyo Tani | `GoToMarket` |
+| `gt-expo.webp` | hal 25, stan Bantul Creative Expo | `GoToMarket` |
+| `mitra-matra.webp`, `mitra-toolsku.webp` | hal 38, kemitraan 3D print | `PartnerGrid` |
 
 ## 3D case file
 

@@ -10,7 +10,7 @@ const rows: Row[] = [
 const cols = [
   { name: 'Polybag manual', icon: 'lucide:shopping-bag', note: 'menyiram dengan perasaan' },
   { name: 'Hidroponik DFT', icon: 'lucide:waves', note: 'sirkulasi tanpa otak nutrisi' },
-  { name: 'Kebun impor', icon: 'lucide:package', note: 'jadwal iklim sedang, harga selangit' },
+  { name: 'Timer impor', icon: 'lucide:timer', note: 'mis. Tuya: jadwal iklim sedang' },
   { name: 'GrowMate', icon: 'lucide:sprout', note: 'sensor + AI + Pranata Mangsa' },
 ]
 
