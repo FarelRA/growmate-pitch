@@ -1,39 +1,87 @@
 <script setup lang="ts">
-const rows = [
-  { icon: 'lucide:users', title: 'Segmentasi', desc: 'Tech farmer serta pengembang properti dan perkantoran di DIY yang mendambakan kepraktisan dan efisiensi.' },
-  { icon: 'lucide:crosshair', title: 'Targeting', desc: 'Menangkan DIY dulu dengan layanan purnajual penuh, lalu naik ke 5% SAM dan ekspansi nasional bertahap.' },
-  { icon: 'lucide:compass', title: 'Positioning', desc: 'Pelopor smart farming IoT dan AI Agen lokal yang praktis, hijau, dan terjangkau.' },
-]
+import gsap from 'gsap'
+
+const root = ref<HTMLElement | null>(null)
+let ctx: gsap.Context | null = null
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  ctx = gsap.context(() => {
+    gsap.fromTo(
+      '.stp-chev',
+      { opacity: 0.2, y: -5 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.35, delay: 0.45, ease: 'power2.out' },
+    )
+    gsap.fromTo(
+      '.stp-chev',
+      { color: '#c9cfc8' },
+      { color: '#006e1c', duration: 0.4, stagger: 0.35, delay: 0.45, ease: 'power1.out' },
+    )
+  }, root.value ?? undefined)
+})
+
+onUnmounted(() => ctx?.revert())
 </script>
 
 <template>
   <DeckShell section="stp">
-    <DeckSplitPanel>
-      <template #primary>
-        <div class="flex w-full flex-col justify-center gap-2.5">
-          <Reveal v-for="(r, i) in rows" :key="r.title" :delay="i * 0.07" class="w-full">
-            <div class="flex w-full items-center justify-start gap-3 rounded-3xl border-2 border-gm-line bg-white p-3 text-left md:p-3.5">
-              <span class="grid size-11 shrink-0 place-items-center rounded-2xl bg-gm-mist md:size-12">
-                <Icon :name="r.icon" class="size-6 text-gm-primary md:size-7" />
-              </span>
-              <div>
-                <div class="font-headline text-base font-extrabold text-gm-ink md:text-lg">{{ r.title }}</div>
-                <div class="text-sm text-gm-muted">{{ r.desc }}</div>
+    <div ref="root" class="w-full">
+      <DeckSplitPanel>
+        <template #primary>
+          <div class="relative w-full pl-6 lg:pl-0">
+            <span aria-hidden="true" class="absolute bottom-2 left-2 top-2 border-l-2 border-dashed border-gm-line lg:hidden" />
+            <div class="flex w-full flex-col justify-center gap-1 md:gap-1.5">
+              <Reveal :delay="0" class="w-full">
+                <StpStep
+                  letter="S"
+                  icon="lucide:users"
+                  title="Segmentasi"
+                  desc="Tech farmer plus pengembang properti dan perkantoran di DIY. Mereka sibuk, melek teknologi, dan menuntut hasil tanpa repot."
+                  variant="segment"
+                />
+              </Reveal>
+              <div aria-hidden="true" class="stp-chev flex items-center justify-start py-0.5 pl-3 md:pl-4">
+                <Icon name="lucide:chevrons-down" class="size-4" />
               </div>
+              <Reveal :delay="0.1" class="w-full">
+                <StpStep
+                  letter="T"
+                  icon="lucide:crosshair"
+                  title="Targeting"
+                  desc="Menangkan DIY dahulu dengan layanan purnajual penuh, naik ke 5% SAM, lalu ekspansi nasional bertahap."
+                  variant="target"
+                />
+              </Reveal>
+              <div aria-hidden="true" class="stp-chev flex items-center justify-start py-0.5 pl-3 md:pl-4">
+                <Icon name="lucide:chevrons-down" class="size-4" />
+              </div>
+              <Reveal :delay="0.2" class="w-full">
+                <StpStep
+                  letter="P"
+                  icon="lucide:flag"
+                  title="Positioning"
+                  desc="Pelopor smart farming IoT dan AI Agen lokal. Praktis, hijau, terjangkau."
+                  variant="position"
+                />
+              </Reveal>
             </div>
+          </div>
+        </template>
+        <template #secondary>
+          <Reveal class="w-full">
+            <StpViewfinder
+              src="/photos/gt-expo.webp"
+              alt="Stan GrowMate di Bantul Creative Expo"
+              tag="Bukti lapangan: Bantul Creative Expo"
+            />
           </Reveal>
-        </div>
-      </template>
-      <template #secondary>
-        <Reveal class="w-full">
-          <UiPhotoFigure src="/photos/gt-expo.webp" alt="Stan GrowMate di Bantul Creative Expo" ratio="16 / 10" />
-        </Reveal>
-        <Reveal :delay="0.14" class="w-full">
-          <UiCalloutBanner icon="lucide:flag" tone="brand" class="mt-2.5 md:mt-3">
-            Semangat posisi kami: Petani Makmur, Tanpa Lumpur.
-          </UiCalloutBanner>
-        </Reveal>
-      </template>
-    </DeckSplitPanel>
+          <Reveal :delay="0.3" class="w-full">
+            <UiCalloutBanner icon="lucide:flag" tone="brand" class="mt-2 md:mt-2.5">
+              Semangat posisi kami: Petani Makmur, Tanpa Lumpur.
+            </UiCalloutBanner>
+          </Reveal>
+        </template>
+      </DeckSplitPanel>
+    </div>
   </DeckShell>
 </template>

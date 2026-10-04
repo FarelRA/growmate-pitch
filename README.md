@@ -66,6 +66,15 @@ fast boots can mount before the browser exposes `location.hash`.
   `SwotMatrix`, `SipocMap`, `OfficialEvidence`, `DocGallery`, `FieldVoices`,
   `RoadmapAsk`). `app/pages/index.vue` maps section id to component.
   `VoiceCarousel` (8 testimoni foto, autoplay + counter + panah) dipakai `FieldVoices`.
+  Helper visual per slide (SVG + koreografi GSAP/motion-v, tanpa tab, tanpa klik baru):
+  cover `decor/CoverGridSvg`; latar `LatarRiver` + `LatarValveCard`; usp `UspDuelStrip` +
+  `UspStation`; proses `ProsesConveyor` + `ProsesStamp`; kembang `KembangRiver`;
+  pasar (teras + peta inline); stp `StpStep` + `StpViewfinder`; kompetitor `DuelArena` +
+  `DuelBar`; pemasaran `GtmOrbit` + `GtmMap`; sosial `SosialVine` + `SosialTimer`;
+  quad `QuadTree`; keuangan `DanaTag`; efektivitas `BuktiDuel`; kanvas `KanvasPlot`;
+  swot `SwotQuad` (inline); sipoc `SipocStation` + `SipocPipe`; legalitas `LegalStamp` +
+  `LegalGauge`; dokumentasi `DokPost` + `DokRoute`; testimoni `SuaraTribune`;
+  scaleup `ScaleStep` + `ScaleTicket` (puncak memakai ulang `CaseViewer` 3D).
 - `app/components/deck/`: layout primitives. `DeckStage` (viewport shell +
   centered scroll area), `DeckShell` (auto-numbered header, left-aligned title
   block, centered content slot; no footer), `DeckBare` (chromeless view without

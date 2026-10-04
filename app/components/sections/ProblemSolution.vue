@@ -1,48 +1,133 @@
 <script setup lang="ts">
-const pains = [
-  { value: '29,34 jt', label: 'usaha tani berjalan pakai tebakan (BPS 2023)' },
-  { value: '13,2%', label: 'petani memakai internet untuk bertani' },
-  { value: '45 mnt', label: 'waktu rawat manual tiap hari' },
-]
+import gsap from 'gsap'
+import { useTransition } from '@vueuse/core'
+
+const PHOTO = 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop'
+
 const answers = [
   { icon: 'lucide:sprout', title: 'Pods indoor', desc: 'Pot 20x10x30 cm, 6 sensor, grow light otomatis.' },
   { icon: 'lucide:tractor', title: 'Tech lapangan', desc: 'Irigasi, nutrisi, dan hama ditakar data. Opsi surya + LTE.' },
   { icon: 'lucide:sparkles', title: 'Floral Assistant', desc: 'AI + Pranata Mangsa memutuskan kapan menyiram.' },
 ]
+
+const root = ref<HTMLElement | null>(null)
+let ctx: gsap.Context | null = null
+
+const nUsaha = ref(0)
+const nNet = ref(0)
+const nRawat = ref(0)
+const tUsaha = useTransition(nUsaha, { duration: 1600 })
+const tNet = useTransition(nNet, { duration: 1600 })
+const tRawat = useTransition(nRawat, { duration: 1600 })
+const fmtUsaha = computed(() => `${tUsaha.value.toFixed(2).replace('.', ',')} jt`)
+const fmtNet = computed(() => `${tNet.value.toFixed(1).replace('.', ',')}%`)
+const fmtRawat = computed(() => `${Math.round(tRawat.value)} mnt`)
+
+onMounted(() => {
+  nUsaha.value = 29.34
+  nNet.value = 13.2
+  nRawat.value = 45
+  ctx = gsap.context(() => {
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
+    tl.fromTo('.latar-crack', { opacity: 0.2 }, { opacity: 1, duration: 0.6 }, 0)
+      .fromTo('.latar-valve-wheel', { rotation: 0 }, { rotation: 90, duration: 0.7, transformOrigin: '50% 50%' }, 0.5)
+      .fromTo('.latar-draw', { strokeDashoffset: 120 }, { strokeDashoffset: 0, duration: 1.1 }, 0.6)
+      .to('.latar-crack', { opacity: 0.55, duration: 0.45, yoyo: true, repeat: 1 }, 1.3)
+  }, root.value ?? undefined)
+})
+onUnmounted(() => ctx?.revert())
 </script>
 
 <template>
   <DeckShell section="latar">
-    <DeckSplitPanel>
-      <template #primary>
-        <Reveal class="w-full">
-          <UiPhotoFigure
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
-            alt="Lahan pertanian tropis saat senja"
-            ratio="16 / 9"
-          />
-        </Reveal>
-        <Reveal :delay="0.12" class="w-full">
-          <DeckAutoGrid :cols="3" class="mt-2.5 md:mt-3">
-            <UiStatCard v-for="p in pains" :key="p.value" :value="p.value" :label="p.label" tone="brand" />
-          </DeckAutoGrid>
-        </Reveal>
-      </template>
-      <template #secondary>
-        <div class="flex w-full flex-col justify-center gap-2.5">
-          <Reveal v-for="(a, i) in answers" :key="a.title" :delay="i * 0.07" class="w-full">
-            <div class="flex w-full items-center justify-start gap-3 rounded-3xl border-2 border-gm-line bg-white p-3 text-left md:p-3.5">
-              <span class="grid size-11 shrink-0 place-items-center rounded-2xl bg-gm-mist md:size-12">
-                <Icon :name="a.icon" class="size-6 text-gm-primary md:size-7" />
-              </span>
-              <div>
-                <div class="font-headline text-base font-extrabold text-gm-ink md:text-lg">{{ a.title }}</div>
-                <div class="text-sm text-gm-muted">{{ a.desc }}</div>
+    <div ref="root" class="relative w-full max-w-full overflow-x-clip">
+      <DeckSplitPanel>
+        <template #primary>
+          <Reveal class="w-full lg:pr-14">
+            <div class="w-full rounded-3xl border-2 border-gm-amber/40 bg-gm-amberbg p-3 text-left md:p-4">
+              <div class="flex items-center justify-start gap-2.5">
+                <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-amber/15 md:size-10">
+                  <Icon name="lucide:triangle-alert" class="size-5 text-gm-amber md:size-6" />
+                </span>
+                <div class="min-w-0">
+                  <div class="font-headline text-base font-extrabold text-gm-ink md:text-lg">Ladang Tebakan</div>
+                  <div class="text-xs leading-snug text-gm-muted md:text-sm">Petani bekerja tanpa angka acuan.</div>
+                </div>
+                <svg viewBox="0 0 64 24" class="ml-auto h-6 w-16 shrink-0" aria-hidden="true">
+                  <polyline class="latar-crack" points="6,2 12,9 9,15 15,22" fill="none" stroke="#b7791f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline class="latar-crack" points="30,2 28,10 34,16 31,22" fill="none" stroke="#b7791f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline class="latar-crack" points="52,2 48,9 54,15 50,22" fill="none" stroke="#b7791f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </div>
+
+              <UiPhotoFigure
+                :src="PHOTO"
+                alt="Lahan pertanian tropis saat senja"
+                ratio="21 / 9"
+                class="mt-2.5 lg:hidden"
+              />
+              <div class="mt-2.5 hidden [@media(min-height:860px)]:block">
+                <UiPhotoFigure
+                  :src="PHOTO"
+                  alt="Lahan pertanian tropis saat senja"
+                  ratio="16 / 9"
+                />
+              </div>
+
+              <div class="mt-2.5 grid grid-cols-1 gap-2 sm:grid-cols-3 md:mt-3">
+                <div class="flex items-center justify-start gap-2.5 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2.5 text-left">
+                  <Icon name="lucide:triangle-alert" class="size-5 shrink-0 text-gm-amber" />
+                  <div class="min-w-0">
+                    <div class="font-headline text-base font-extrabold tabular-nums text-white md:text-lg">{{ fmtUsaha }}</div>
+                    <div class="text-[11px] leading-snug text-white/70">usaha tani berjalan pakai tebakan</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-start gap-2.5 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2.5 text-left">
+                  <Icon name="lucide:triangle-alert" class="size-5 shrink-0 text-gm-amber" />
+                  <div class="min-w-0">
+                    <div class="font-headline text-base font-extrabold tabular-nums text-white md:text-lg">{{ fmtNet }}</div>
+                    <div class="text-[11px] leading-snug text-white/70">petani memakai internet untuk bertani</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-start gap-2.5 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2.5 text-left">
+                  <Icon name="lucide:triangle-alert" class="size-5 shrink-0 text-gm-amber" />
+                  <div class="min-w-0">
+                    <div class="font-headline text-base font-extrabold tabular-nums text-white md:text-lg">{{ fmtRawat }}</div>
+                    <div class="text-[11px] leading-snug text-white/70">waktu rawat manual tiap hari</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-2 text-[11px] leading-snug text-gm-muted">Sumber: BPS 2023.</div>
             </div>
           </Reveal>
-        </div>
-      </template>
-    </DeckSplitPanel>
+        </template>
+
+        <template #secondary>
+          <div class="flex w-full flex-col items-center lg:hidden" aria-hidden="true">
+            <span class="h-5 w-1 rounded-full bg-gm-line" />
+            <span class="grid size-8 place-items-center rounded-full border-2 border-gm-primary bg-white">
+              <span class="anim-pulse-dot size-2.5 rounded-full bg-gm-primary" />
+            </span>
+            <span class="h-5 w-1 rounded-full bg-gm-primary/40" />
+          </div>
+          <div class="flex w-full items-center justify-start gap-2.5 text-left lg:pl-14">
+            <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist md:size-10">
+              <Icon name="lucide:droplets" class="size-5 text-gm-primary md:size-6" />
+            </span>
+            <div class="min-w-0">
+              <div class="font-headline text-base font-extrabold text-gm-ink md:text-lg">Ladang Terukur</div>
+              <div class="text-xs leading-snug text-gm-muted md:text-sm">Setiap tindakan ditakar oleh data.</div>
+            </div>
+          </div>
+          <div class="mt-2.5 flex w-full flex-col justify-center gap-2 md:mt-3 md:gap-2.5 lg:pl-14">
+            <Reveal v-for="(a, i) in answers" :key="a.title" :delay="0.55 + i * 0.12" class="w-full">
+              <LatarValveCard :icon="a.icon" :title="a.title" :desc="a.desc" />
+            </Reveal>
+          </div>
+        </template>
+      </DeckSplitPanel>
+
+      <LatarRiver class="absolute left-1/2 top-1/2 z-10 hidden w-28 -translate-x-1/2 -translate-y-1/2 lg:block" />
+    </div>
   </DeckShell>
 </template>
