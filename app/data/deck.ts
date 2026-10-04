@@ -30,7 +30,7 @@ export const SECTIONS: DeckSection[] = [
   { id: 'legalitas', kicker: 'Legalitas', title: 'Diuji dinas, dicatat negara', sub: 'Lulus uji kelayakan DKPP Kabupaten Bantul dengan nilai sangat baik plus kekayaan intelektual yang tercatat negara.' },
   { id: 'dokumentasi', kicker: 'Dokumentasi', title: 'Jejak kerja di lapangan', sub: 'Enam pos ekspedisi dari stan pameran hingga meja produksi. Setiap langkah terdokumentasi.' },
   { id: 'testimoni', kicker: 'Testimoni', title: 'Dipercaya pejabat, dipakai warga', sub: 'Delapan testimoni dari dinas, sekolah, dan penghobi. Delapan sudut pandang, satu kesimpulan.' },
-  { id: 'scaleup', kicker: 'Scale Up', title: 'Dari 36 unit ke ketahanan pangan', sub: 'Terasering menuju langit. Empat musim tanam dari pilot ke produk massal, dari 36 unit ke ketahanan pangan.' },
+  { id: 'scaleup', kicker: 'Scale Up', title: 'Dari 36 unit ke ketahanan pangan', sub: 'Empat jalur, tiga horizon. Dari Bantul menuju ketahanan pangan.' },
 ]
 
 export function sectionNumber(index: number) {
