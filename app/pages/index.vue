@@ -2,57 +2,49 @@
 import { useDeckStore } from '~/stores/deck'
 import { SECTIONS } from '~/data/deck'
 import CoverHero from '~/components/sections/CoverHero.vue'
-import ProblemStory from '~/components/sections/ProblemStory.vue'
-import MarketAlternatives from '~/components/sections/MarketAlternatives.vue'
-import SystemOverview from '~/components/sections/SystemOverview.vue'
-import PodsShowcase from '~/components/sections/PodsShowcase.vue'
-import TechSquad from '~/components/sections/TechSquad.vue'
+import ProblemSolution from '~/components/sections/ProblemSolution.vue'
+import UniqueSelling from '~/components/sections/UniqueSelling.vue'
 import ProductionLine from '~/components/sections/ProductionLine.vue'
-import FirmwareLoop from '~/components/sections/FirmwareLoop.vue'
-import FloralBrain from '~/components/sections/FloralBrain.vue'
-import MangsaEngine from '~/components/sections/MangsaEngine.vue'
-import FieldProof from '~/components/sections/FieldProof.vue'
-import HeadToHead from '~/components/sections/HeadToHead.vue'
-import BusinessTraction from '~/components/sections/BusinessTraction.vue'
-import FieldVoices from '~/components/sections/FieldVoices.vue'
+import ProductEvolution from '~/components/sections/ProductEvolution.vue'
 import MarketScope from '~/components/sections/MarketScope.vue'
+import StpBrief from '~/components/sections/StpBrief.vue'
+import CompetitorDuel from '~/components/sections/CompetitorDuel.vue'
 import GoToMarket from '~/components/sections/GoToMarket.vue'
-import PartnerGrid from '~/components/sections/PartnerGrid.vue'
-import UnitEconomics from '~/components/sections/UnitEconomics.vue'
+import SocialImpact from '~/components/sections/SocialImpact.vue'
 import ImpactQuad from '~/components/sections/ImpactQuad.vue'
-import OfficialEvidence from '~/components/sections/OfficialEvidence.vue'
-import RoadmapAsk from '~/components/sections/RoadmapAsk.vue'
+import BusinessTraction from '~/components/sections/BusinessTraction.vue'
+import FieldProof from '~/components/sections/FieldProof.vue'
 import BusinessCanvas from '~/components/sections/BusinessCanvas.vue'
 import SwotMatrix from '~/components/sections/SwotMatrix.vue'
-import ClosingCall from '~/components/sections/ClosingCall.vue'
+import SipocMap from '~/components/sections/SipocMap.vue'
+import OfficialEvidence from '~/components/sections/OfficialEvidence.vue'
+import DocGallery from '~/components/sections/DocGallery.vue'
+import FieldVoices from '~/components/sections/FieldVoices.vue'
+import RoadmapAsk from '~/components/sections/RoadmapAsk.vue'
 
 const store = useDeckStore()
 
 const registry: Record<string, Component> = {
   cover: CoverHero,
-  problem: ProblemStory,
-  alternatives: MarketAlternatives,
-  system: SystemOverview,
-  pods: PodsShowcase,
-  tech: TechSquad,
-  produksi: ProductionLine,
-  loop: FirmwareLoop,
-  brain: FloralBrain,
-  mangsa: MangsaEngine,
-  proof: FieldProof,
-  versus: HeadToHead,
-  business: BusinessTraction,
-  suara: FieldVoices,
-  market: MarketScope,
-  jangkau: GoToMarket,
-  mitra: PartnerGrid,
-  economics: UnitEconomics,
-  impact: ImpactQuad,
-  evidence: OfficialEvidence,
-  roadmap: RoadmapAsk,
-  kanvas: BusinessCanvas,
+  latar: ProblemSolution,
+  usp: UniqueSelling,
+  proses: ProductionLine,
+  kembang: ProductEvolution,
+  tamsamsom: MarketScope,
+  stp: StpBrief,
+  kompetitor: CompetitorDuel,
+  pemasaran: GoToMarket,
+  sosial: SocialImpact,
+  quad: ImpactQuad,
+  keuangan: BusinessTraction,
+  efektivitas: FieldProof,
+  bmc: BusinessCanvas,
   swot: SwotMatrix,
-  closing: ClosingCall,
+  sipoc: SipocMap,
+  legalitas: OfficialEvidence,
+  dokumentasi: DocGallery,
+  testimoni: FieldVoices,
+  scaleup: RoadmapAsk,
 }
 
 const current = computed(() => registry[SECTIONS[store.index]?.id ?? 'cover'] ?? CoverHero)

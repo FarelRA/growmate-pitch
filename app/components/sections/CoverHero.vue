@@ -35,6 +35,13 @@ const stats = [
             <UiPillTag icon="lucide:sparkles" tone="amber">Floral Assistant • AI</UiPillTag>
           </div>
         </Reveal>
+        <Reveal :delay="0.25" class="w-full">
+          <div class="mt-3 flex flex-wrap items-center justify-center gap-2 md:mt-4">
+            <span class="rounded-full bg-gm-mist px-4 py-1.5 font-headline text-sm font-bold text-gm-deep">Farel Reski Aditiya</span>
+            <span class="rounded-full bg-gm-mist px-4 py-1.5 font-headline text-sm font-bold text-gm-deep">Aulia Anindita Primastiti</span>
+            <span class="rounded-full bg-gm-mist px-4 py-1.5 font-headline text-sm font-bold text-gm-deep">SMAN 1 Bantul</span>
+          </div>
+        </Reveal>
         <Reveal :delay="0.3" class="w-full">
           <DeckAutoGrid :cols="4" class="mt-4 md:mt-6">
             <UiStatCard v-for="s in stats" :key="s.label" :value="s.value" :label="s.label" />

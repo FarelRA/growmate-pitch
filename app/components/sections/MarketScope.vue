@@ -1,51 +1,29 @@
 <script setup lang="ts">
 const tiers = [
-  { name: 'TAM', full: 'Total pasar Indonesia', w: '100%', c: 'bg-gm-line', big: '6.183.009', unit: 'petani + 770 properti', d: 'Seluruh usaha tani dan properti hijau nasional yang bisa memakai tani presisi.' },
-  { name: 'SAM', full: 'Pasar terjangkau DIY', w: '46%', c: 'bg-gm-soft', big: '57.006', unit: 'petani + 27 properti aktif', d: 'Petani dan properti di Yogyakarta yang terjangkau tim dan layanan purnajual.' },
-  { name: 'SOM', full: 'Pijakan awal kami', w: '22%', c: 'bg-gm-primary', big: '80 + 3', unit: 'tech farmer + properti', d: '0,14% DIY. Target operasional: 2.850 tech farmer atau 5% SAM.' },
-]
-const segments = [
-  { icon: 'lucide:smartphone', title: 'B2C • tech farmer Gen-Z', desc: 'Pods + Advance AI untuk pehobi dan petani muda.' },
-  { icon: 'lucide:building-2', title: 'B2B • gedung hijau', desc: 'Tech + dasbor untuk atap, lobi, dan kawasan.' },
+  { name: 'TAM', full: 'Total pasar nasional', big: '6.183.009', unit: 'petani + 770 properti' },
+  { name: 'SAM', full: 'Terjangkau di DIY', big: '57.006', unit: 'petani + 27 properti aktif' },
+  { name: 'SOM', full: 'Pijakan awal 2026', big: '80 + 3', unit: 'tech farmer + properti' },
 ]
 </script>
 
 <template>
-  <DeckShell section="market">
-    <DeckSplitPanel>
-      <template #primary>
-        <div class="flex w-full flex-col justify-center gap-3 md:gap-4">
-          <Reveal v-for="(t, i) in tiers" :key="t.name" :delay="i * 0.08" class="w-full">
-            <div class="w-full rounded-3xl border-2 border-gm-line bg-white p-3 text-center md:p-4">
-              <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-                <span class="rounded-xl bg-gm-ink px-3 py-1.5 font-headline text-lg font-extrabold text-white">{{ t.name }}</span>
-                <span class="font-headline text-base font-bold text-gm-muted">{{ t.full }}</span>
-              </div>
-              <div class="mt-2 flex flex-wrap items-baseline justify-center gap-x-2.5">
-                <span class="font-headline text-3xl font-extrabold tabular-nums text-gm-primary">{{ t.big }}</span>
-                <span class="font-headline text-lg font-bold text-gm-ink">{{ t.unit }}</span>
-              </div>
-              <div class="mx-auto mt-2 h-5 max-w-xl overflow-hidden rounded-full bg-gm-panel">
-                <div class="h-full rounded-full transition-all duration-1000" :class="t.c" :style="{ width: t.w }" />
-              </div>
-              <p class="mx-auto mt-2 max-w-xl text-[12px] leading-snug text-gm-muted">{{ t.d }}</p>
-            </div>
-          </Reveal>
-        </div>
-      </template>
-      <template #secondary>
-        <Reveal :delay="0.1" class="w-full">
-          <UiStatCard value="2.850" label="target 5% SAM · tech farmer dalam jangkauan layanan" tone="brand" />
+  <DeckShell section="tamsamsom">
+    <div class="flex w-full flex-1 flex-col items-center justify-center gap-3 md:gap-4">
+      <DeckAutoGrid :cols="3">
+        <Reveal v-for="(t, i) in tiers" :key="t.name" :delay="i * 0.08" class="h-full">
+          <div class="flex h-full flex-col items-center justify-center rounded-3xl border-2 p-4 text-center md:p-5" :class="i === 2 ? 'border-gm-primary bg-gm-primary text-white shadow-[0_20px_60px_rgba(0,110,28,0.35)]' : 'border-gm-line bg-white'">
+            <span class="rounded-xl px-3 py-1.5 font-headline text-lg font-extrabold" :class="i === 2 ? 'bg-white/15 text-white' : 'bg-gm-ink text-white'">{{ t.name }}</span>
+            <span class="mt-1 font-headline text-base font-bold" :class="i === 2 ? 'text-white/80' : 'text-gm-muted'">{{ t.full }}</span>
+            <span class="mt-2 font-headline text-3xl font-extrabold tabular-nums md:text-4xl" :class="i === 2 ? 'text-white' : 'text-gm-primary'">{{ t.big }}</span>
+            <span class="font-headline text-base font-bold md:text-lg" :class="i === 2 ? 'text-white/90' : 'text-gm-ink'">{{ t.unit }}</span>
+          </div>
         </Reveal>
-        <div class="mt-3 grid w-full grid-cols-1 gap-3 md:mt-4">
-          <Reveal v-for="(s, i) in segments" :key="s.title" :delay="0.16 + i * 0.07" class="w-full">
-            <UiInfoCard :icon="s.icon" :title="s.title" :desc="s.desc" />
-          </Reveal>
-          <Reveal :delay="0.3" class="w-full">
-            <UiInfoCard icon="lucide:map-pin" title="Cakupan layanan" desc="DIY penuh + ekspansi nasional bertahap." tone="tint" />
-          </Reveal>
-        </div>
-      </template>
-    </DeckSplitPanel>
+      </DeckAutoGrid>
+      <Reveal :delay="0.24" class="w-full">
+        <UiCalloutBanner icon="lucide:map-pin" tone="brand">
+          Pijakan 0,14% DIY hari ini, target operasional 2.850 tech farmer atau 5% SAM, lalu ekspansi nasional bertahap.
+        </UiCalloutBanner>
+      </Reveal>
+    </div>
   </DeckShell>
 </template>

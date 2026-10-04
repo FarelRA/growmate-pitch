@@ -59,13 +59,12 @@ fast boots can mount before the browser exposes `location.hash`.
 - `app/data/deck.ts` is the single source of truth: section order, kickers
   (without numbers), titles, subs. Slide numbers are derived from array
   position at render time. No filename, kicker, or component contains a number.
-- `app/components/sections/*.vue`: 24 semantic sections (`CoverHero`,
-  `ProblemStory`, `MarketAlternatives`, `SystemOverview`, `PodsShowcase`,
-  `TechSquad`, `ProductionLine`, `FirmwareLoop`, `FloralBrain`, `MangsaEngine`,
-  `FieldProof`, `HeadToHead`, `BusinessTraction`, `FieldVoices`, `MarketScope`,
-  `GoToMarket`, `PartnerGrid`, `UnitEconomics`, `ImpactQuad`, `OfficialEvidence`,
-  `RoadmapAsk`, `BusinessCanvas`, `SwotMatrix`, `ClosingCall`).
-  `app/pages/index.vue` maps section id to component.
+- `app/components/sections/*.vue`: 20 semantic sections (`CoverHero`,
+  `ProblemSolution`, `UniqueSelling`, `ProductionLine`, `ProductEvolution`,
+  `MarketScope`, `StpBrief`, `CompetitorDuel`, `GoToMarket`, `SocialImpact`,
+  `ImpactQuad`, `BusinessTraction`, `FieldProof`, `BusinessCanvas`,
+  `SwotMatrix`, `SipocMap`, `OfficialEvidence`, `DocGallery`, `FieldVoices`,
+  `RoadmapAsk`). `app/pages/index.vue` maps section id to component.
   `VoiceCarousel` (8 testimoni foto, autoplay + counter + panah) dipakai `FieldVoices`.
 - `app/components/deck/`: layout primitives. `DeckStage` (viewport shell +
   centered scroll area), `DeckShell` (auto-numbered header, left-aligned title

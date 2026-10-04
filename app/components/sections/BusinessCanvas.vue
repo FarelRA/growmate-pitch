@@ -13,7 +13,7 @@ const blocks = [
 </script>
 
 <template>
-  <DeckShell section="kanvas">
+  <DeckShell section="bmc">
     <div class="grid w-full flex-1 grid-cols-2 content-center gap-2 md:grid-cols-3 md:gap-2.5">
       <Reveal v-for="(b, i) in blocks" :key="b.title" :delay="i * 0.04" class="h-full">
         <div class="flex h-full flex-col justify-start rounded-2xl border-2 border-gm-line bg-white p-2.5 text-left md:p-3">

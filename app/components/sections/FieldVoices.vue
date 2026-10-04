@@ -1,5 +1,5 @@
 <template>
-  <DeckShell section="suara">
+  <DeckShell section="testimoni">
     <DeckSplitPanel>
       <template #primary>
         <Reveal class="h-full w-full">

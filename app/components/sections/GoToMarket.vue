@@ -19,7 +19,7 @@ const groups = [
 </script>
 
 <template>
-  <DeckShell section="jangkau">
+  <DeckShell section="pemasaran">
     <DeckSplitPanel>
       <template #primary>
         <div class="flex w-full flex-col justify-center gap-2.5">

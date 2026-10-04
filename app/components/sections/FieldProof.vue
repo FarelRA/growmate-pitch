@@ -1,5 +1,5 @@
 <template>
-  <DeckShell section="proof">
+  <DeckShell section="efektivitas">
     <DeckSplitPanel>
       <template #primary>
         <Reveal class="flex w-full flex-col">

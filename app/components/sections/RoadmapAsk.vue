@@ -8,12 +8,12 @@ const steps = [
 const asks = [
   { icon: 'lucide:tractor', title: '3 lahan pilot', desc: '6 m² cukup. Hardware kami yang bawa' },
   { icon: 'lucide:building-2', title: '2 mitra properti', desc: 'penghijauan atap + lobi yang menyiram sendiri' },
-  { icon: 'lucide:messages-square', title: 'Pertanyaan tersulit Anda', desc: 'tanya jawab adalah sensor terbaik kami' },
+  { icon: 'lucide:mail', title: 'contact@growmate.bond', desc: 'satu email untuk pilot, mitra, dan pertanyaan tersulit' },
 ]
 </script>
 
 <template>
-  <DeckShell section="roadmap">
+  <DeckShell section="scaleup">
     <DeckSplitPanel>
       <template #primary>
         <div class="flex w-full flex-col justify-center gap-2.5">

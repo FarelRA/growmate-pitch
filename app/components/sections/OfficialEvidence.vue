@@ -11,7 +11,7 @@ const sel = ref(0)
 </script>
 
 <template>
-  <DeckShell section="evidence">
+  <DeckShell section="legalitas">
     <DeckSplitPanel>
       <template #primary>
         <Reveal class="flex w-full flex-col">

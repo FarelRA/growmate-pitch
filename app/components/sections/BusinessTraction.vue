@@ -13,7 +13,7 @@ const stats = [
 </script>
 
 <template>
-  <DeckShell section="business">
+  <DeckShell section="keuangan">
     <div class="flex w-full flex-col items-center gap-3 md:gap-5">
       <DeckAutoGrid :cols="3">
         <Reveal v-for="(p, i) in plans" :key="p.name" :delay="i * 0.07" class="h-full">
