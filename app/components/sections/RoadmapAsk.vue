@@ -31,7 +31,6 @@ onMounted(() => {
     gsap.fromTo('.scale-step', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power2.out' })
     gsap.fromTo('.scale-shine', { xPercent: -260 }, { xPercent: 380, duration: 0.9, stagger: 0.15, delay: 0.2, ease: 'power2.inOut' })
     gsap.fromTo('.scale-summit', { y: -14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out' })
-    gsap.fromTo('.scale-ticket', { x: 44, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, delay: 0.5, ease: 'power2.out' })
   }, root.value ?? undefined)
 })
 
@@ -71,9 +70,6 @@ onUnmounted(() => ctx?.revert())
         </div>
       </div>
 
-      <div class="order-3 min-w-0 lg:col-start-2">
-        <ScaleTicket />
-      </div>
     </div>
   </DeckShell>
 </template>
