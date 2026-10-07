@@ -35,7 +35,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="pemasaran">
-    <div ref="root" class="w-full">
+    <div ref="root" class="flex min-h-full w-full flex-col justify-center">
       <DeckSplitPanel>
         <template #primary>
           <div class="flex w-full flex-col justify-center gap-1.5 text-left">

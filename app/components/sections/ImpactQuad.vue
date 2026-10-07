@@ -45,7 +45,7 @@ const tilts = ['-1.2deg', '1deg', '-0.9deg', '1.2deg']
 
 <template>
   <DeckShell section="quad">
-    <div class="flex w-full flex-1 flex-col justify-center gap-1 overflow-x-clip overflow-y-clip md:gap-1">
+    <div class="flex min-h-full w-full flex-1 flex-col justify-center gap-1 overflow-x-clip overflow-y-clip md:gap-1">
       <QuadTree />
       <DeckAutoGrid :cols="4">
         <Motion

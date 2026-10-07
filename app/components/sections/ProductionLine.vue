@@ -14,7 +14,7 @@ function onGate(v: number) {
 
 <template>
   <DeckShell section="proses">
-    <div class="flex w-full min-w-0 flex-col gap-1.5 overflow-x-clip md:gap-2 2xl:gap-3">
+    <div class="flex min-h-full w-full min-w-0 flex-col justify-between gap-1.5 overflow-x-clip md:gap-2 2xl:gap-3">
       <ProsesConveyor @gate="onGate" />
       <DeckAutoGrid :cols="3">
         <Reveal v-for="(g, i) in gates" :key="g.title" :delay="i * 0.08" class="h-full min-w-0">

@@ -39,7 +39,7 @@ const frames = [
 
 <template>
   <DeckShell section="sosial">
-    <div class="relative overflow-x-clip">
+    <div class="relative flex min-h-full flex-col justify-center overflow-x-clip">
       <svg
         viewBox="0 0 1200 620"
         preserveAspectRatio="xMidYMid slice"

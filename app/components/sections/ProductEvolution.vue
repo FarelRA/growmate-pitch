@@ -45,7 +45,7 @@ const stages = [
 
 <template>
   <DeckShell section="kembang">
-    <div class="flex w-full min-w-0 flex-col gap-2 overflow-x-clip md:gap-2.5 2xl:gap-4">
+    <div class="flex min-h-full w-full min-w-0 flex-col justify-between gap-2 overflow-x-clip md:gap-2.5 2xl:gap-4">
       <Reveal :x="-32" :y="0" :delay="0.05" class="w-full min-w-0">
         <KembangRiver :active="2" class="river-compact" />
       </Reveal>

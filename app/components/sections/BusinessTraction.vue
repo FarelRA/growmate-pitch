@@ -25,7 +25,7 @@ onMounted(() => {
 
 <template>
   <DeckShell section="keuangan">
-    <div class="flex w-full flex-col items-start gap-2">
+    <div class="flex min-h-full w-full flex-col items-start justify-between gap-2">
       <div class="grid w-full grid-cols-1 gap-2 sm:grid-cols-3">
         <Reveal v-for="(p, i) in plans" :key="p.name" :delay="i * 0.07" class="h-full">
           <DanaTag :name="p.name" :price="p.price" :for-who="p.forWho" :icon="p.icon" :hot="p.hot" />

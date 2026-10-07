@@ -74,7 +74,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="sipoc">
-    <div ref="wrap" class="relative w-full max-w-full overflow-x-clip">
+    <div ref="wrap" class="relative flex min-h-full w-full max-w-full flex-col justify-between overflow-x-clip">
       <div class="sipoc-sky relative mb-2 flex h-10 items-center gap-2 overflow-hidden rounded-xl border border-gm-line bg-gradient-to-r from-gm-mist via-white to-gm-mist px-3" aria-hidden="true">
         <Icon name="lucide:factory" class="size-6 shrink-0 text-gm-primary" />
         <span class="relative block h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-gm-mist">

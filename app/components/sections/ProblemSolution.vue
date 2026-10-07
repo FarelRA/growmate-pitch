@@ -40,7 +40,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="latar">
-    <div ref="root" class="relative w-full max-w-full overflow-x-clip">
+    <div ref="root" class="relative flex min-h-full w-full max-w-full flex-col justify-center overflow-x-clip">
       <DeckSplitPanel>
         <template #primary>
           <Reveal class="h-full w-full lg:pr-14">

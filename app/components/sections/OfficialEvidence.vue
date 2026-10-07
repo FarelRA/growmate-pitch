@@ -47,7 +47,7 @@ onUnmounted(() => {
 
 <template>
   <DeckShell section="legalitas">
-    <div ref="root" class="w-full">
+    <div ref="root" class="flex min-h-full w-full flex-col justify-center">
       <DeckSplitPanel>
         <template #primary>
           <Reveal :y="-40" class="flex w-full flex-col">

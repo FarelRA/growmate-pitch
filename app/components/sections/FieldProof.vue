@@ -17,7 +17,7 @@ onMounted(() => {
 
 <template>
   <DeckShell section="efektivitas">
-    <div class="flex w-full max-w-full flex-col gap-2.5">
+    <div class="flex min-h-full w-full max-w-full flex-col justify-between gap-2.5">
       <BuktiDuel />
       <DeckSplitPanel>
         <template #primary>

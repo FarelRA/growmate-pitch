@@ -25,7 +25,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="stp">
-    <div ref="root" class="stp-scope w-full min-w-0 overflow-x-clip">
+    <div ref="root" class="stp-scope flex min-h-full w-full min-w-0 flex-col justify-center overflow-x-clip">
       <DeckSplitPanel>
         <template #primary>
           <div class="relative w-full min-w-0 pl-5 lg:pl-0">

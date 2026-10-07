@@ -148,7 +148,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="bmc">
-    <div ref="root" class="relative w-full overflow-hidden rounded-2xl bg-gm-cream p-2 text-left md:p-2">
+    <div ref="root" class="relative flex min-h-full w-full flex-col justify-between overflow-hidden rounded-2xl bg-gm-cream p-2 text-left md:p-2">
       <svg aria-hidden="true" class="pointer-events-none absolute inset-0 size-full" viewBox="0 0 1000 600" preserveAspectRatio="none">
         <g fill="none" stroke="#e5e8e3" stroke-width="2" opacity="0.55">
           <path d="M -20 120 C 220 100, 420 150, 700 120 S 950 140, 1030 120" />

@@ -87,7 +87,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="kompetitor">
-    <div ref="root" class="w-full text-left">
+    <div ref="root" class="flex min-h-full w-full flex-col justify-between text-left">
       <DeckSplitPanel>
         <template #primary>
           <DuelArena class="w-full" />

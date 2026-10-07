@@ -130,7 +130,7 @@ const trans = (i: number) => ({
 
 <template>
   <DeckShell section="swot">
-    <div class="relative w-full overflow-hidden rounded-2xl border border-gm-line bg-gm-panel p-2 text-left shadow-sm">
+    <div class="relative flex min-h-full w-full flex-col justify-center overflow-hidden rounded-2xl border border-gm-line bg-gm-panel p-2 text-left shadow-sm">
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 hidden lg:block">
         <div class="absolute bottom-2 left-1/2 top-2 w-px bg-gm-line lg:ml-[53px]" />
         <div class="absolute left-2 right-2 top-1/2 h-px bg-gm-line" />

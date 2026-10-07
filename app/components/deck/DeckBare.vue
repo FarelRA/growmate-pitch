@@ -9,7 +9,7 @@
 <template>
   <section class="mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-4 py-4 sm:px-6 md:px-10 md:py-5">
     <div class="mx-auto grid w-full flex-1 place-items-center">
-      <div class="w-full">
+      <div class="flex h-full w-full min-w-0 flex-col">
         <slot />
       </div>
     </div>

@@ -82,7 +82,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="scaleup">
-    <section ref="root" class="flex w-full flex-1 flex-col gap-1.5 text-left">
+    <section ref="root" class="flex min-h-full w-full flex-1 flex-col justify-between gap-1.5 text-left">
       <!-- Pita langit lebar. Matahari bersinar, awan hanyut, bintang data berkelip, -->
       <!-- pesawat penarik spanduk melintas tiap 9 detik menuju puncak berbendera. -->
       <div class="relative overflow-hidden rounded-2xl border border-gm-line">

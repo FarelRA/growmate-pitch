@@ -25,7 +25,7 @@ onUnmounted(pause)
 
 <template>
   <DeckShell section="dokumentasi">
-    <div class="relative mx-auto w-full max-w-5xl overflow-x-clip rounded-3xl border border-gm-line bg-gm-amberbg/50 py-3 pl-11 pr-3 md:p-3 lg:p-4">
+    <div class="relative mx-auto flex min-h-full w-full max-w-5xl flex-col justify-center overflow-x-clip rounded-3xl border border-gm-line bg-gm-amberbg/50 py-3 pl-11 pr-3 md:p-3 lg:p-4">
       <DokRoute />
       <div class="absolute right-3 top-3 z-10 grid size-11 place-items-center rounded-full border border-gm-line bg-white/90 shadow-sm lg:size-12" role="img" aria-label="Kompas peta ekspedisi">
         <svg viewBox="0 0 24 24" class="size-7" aria-hidden="true">
