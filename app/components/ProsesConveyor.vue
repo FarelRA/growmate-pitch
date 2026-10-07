@@ -44,7 +44,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <div ref="trackEl" class="w-full min-w-0">
-    <div class="relative hidden h-10 w-full overflow-hidden rounded-xl border-2 border-gm-line bg-gm-panel md:block">
+    <div class="relative hidden h-8 w-full overflow-hidden rounded-xl border-2 border-gm-line bg-gm-panel md:block">
       <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 1000 40" aria-hidden="true">
         <rect x="0" y="24" width="1000" height="7" rx="3.5" fill="#e5e8e3" />
         <line x1="12" y1="27.5" x2="988" y2="27.5" stroke="#006e1c" stroke-width="2.5" stroke-linecap="round" class="anim-flow" />
@@ -59,15 +59,15 @@ onUnmounted(() => ctx?.revert())
         <span class="block font-headline text-[10px] font-extrabold uppercase leading-none tracking-wide" :class="active === i ? 'text-gm-primary' : 'text-gm-muted'">{{ lb }}</span>
       </div>
       <div ref="hParcel" class="absolute top-1/2 z-10 -translate-x-1/2 -translate-y-1/2" style="left: 6%">
-        <span class="relative grid size-7 place-items-center rounded-full bg-gm-primary shadow-md ring-4 ring-gm-mist">
-          <Icon name="lucide:package" class="size-4 text-white" />
+        <span class="relative grid size-6 place-items-center rounded-full bg-gm-primary shadow-md ring-4 ring-gm-mist">
+          <Icon name="lucide:package" class="size-3.5 text-white" />
           <span class="absolute -right-1 -top-1 grid size-3.5 place-items-center rounded-full bg-white shadow">
             <Icon name="lucide:sprout" class="size-2.5 text-gm-primary" />
           </span>
         </span>
       </div>
     </div>
-    <div class="flex gap-2.5 rounded-2xl border-2 border-gm-line bg-gm-panel p-2 md:hidden">
+    <div class="flex gap-1.5 rounded-2xl border-2 border-gm-line bg-gm-panel p-1.5 md:hidden">
       <div class="relative w-9 shrink-0 overflow-hidden rounded-xl bg-white">
         <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 36 300" aria-hidden="true">
           <rect x="15" y="4" width="6" height="292" rx="3" fill="#e5e8e3" />

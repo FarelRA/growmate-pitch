@@ -12,7 +12,9 @@ const props = withDefaults(defineProps<{
   proofMain: string
   proofSub: string
   countTo?: number
-}>(), { countTo: 0 })
+  slotLabel?: string
+  slotSpec?: string
+}>(), { countTo: 0, src: '', alt: '', slotLabel: '', slotSpec: '' })
 
 const cardClass = computed(() => (
   props.variant === 'ink'
@@ -107,7 +109,8 @@ onMounted(() => {
       </div>
 
       <div class="relative mt-2">
-        <UiPhotoFigure :src="src" :alt="alt" ratio="16 / 10" />
+        <UiPhotoSlot v-if="slotLabel" ratio="16 / 10" :label="slotLabel" :spec="slotSpec" />
+        <UiPhotoFigure v-else :src="src" :alt="alt" ratio="16 / 10" />
       </div>
 
       <p class="relative mt-2 text-xs leading-snug md:text-[13px]" :class="variant === 'ink' ? 'text-white/80' : 'text-gm-muted'">{{ desc }}</p>

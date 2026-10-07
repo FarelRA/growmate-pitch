@@ -9,7 +9,7 @@ const nodes = [
 </script>
 
 <template>
-  <div class="w-full rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left md:p-3">
+  <div class="w-full rounded-3xl border-2 border-gm-line bg-white p-2 text-left md:p-2.5">
     <div class="flex items-center justify-start gap-2">
       <span class="grid size-7 shrink-0 place-items-center rounded-lg bg-gm-mist">
         <Icon name="lucide:satellite" class="size-4 text-gm-primary" />
@@ -22,7 +22,7 @@ const nodes = [
         <span class="text-[11px] font-semibold text-gm-muted">sinyal aktif</span>
       </span>
     </div>
-    <div class="relative mt-2">
+    <div class="relative mt-1.5">
       <div class="absolute left-[10%] right-[10%] top-4 h-0.5 rounded-full bg-gm-amber/50" aria-hidden="true" />
       <div class="grid grid-cols-5 gap-1 md:gap-1.5">
         <div v-for="n in nodes" :key="n.handle" class="gtm-orbit-node flex min-w-0 flex-col items-center gap-1 text-center">

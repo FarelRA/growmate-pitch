@@ -3,7 +3,7 @@ import gsap from 'gsap'
 
 const props = defineProps<{ active: number }>()
 
-/* Same order as the voices in VoiceCarousel.vue. Passive display only, no clicks. */
+/* Urutan sama dengan suara di VoiceCarousel. Tampilan pasif tanpa interaksi. */
 const items = [
   { photo: '/photos/testi-wabup.webp', name: 'Aris Suharyanto' },
   { photo: '/photos/testi-dkpp.webp', name: 'Joko Waluyo' },
@@ -20,7 +20,7 @@ const rowRef = ref<HTMLElement | null>(null)
 const coneRef = ref<HTMLElement | null>(null)
 const glowRef = ref<HTMLElement | null>(null)
 
-/* Gentle arc: edge coins sit lower, center coins sit higher. */
+/* Lengkung lembut. Koin tepi lebih rendah dan koin tengah lebih tinggi. */
 function arcTop(i: number) {
   return Math.round(Math.abs(i - 3.5) * 4)
 }
@@ -85,7 +85,7 @@ onUnmounted(() => {
           :key="p.photo"
           :title="p.name"
           class="relative z-10 grid shrink-0 place-items-center rounded-full bg-white p-0.5 transition-all duration-500 ease-out"
-          :class="i === active ? 'size-10 scale-[1.15] ring-2 ring-gm-primary ring-offset-2 ring-offset-gm-cream md:size-11' : 'size-9 opacity-60 ring-1 ring-gm-line md:size-10'"
+          :class="i === active ? 'size-9 scale-[1.15] ring-2 ring-gm-primary ring-offset-2 ring-offset-gm-cream md:size-11' : 'size-8 opacity-60 ring-1 ring-gm-line md:size-10'"
           :style="{ marginTop: `${arcTop(i)}px` }"
         >
           <img :src="p.photo" :alt="p.name" class="size-full rounded-full object-cover" loading="lazy" decoding="async" draggable="false" />

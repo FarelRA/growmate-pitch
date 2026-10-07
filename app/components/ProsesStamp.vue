@@ -17,11 +17,11 @@ onMounted(() => {
   <div class="flex w-full justify-center">
     <div
       ref="stamp"
-      class="w-full rotate-[-1deg] rounded-xl border-[3px] border-gm-primary bg-white px-3 py-1.5 text-center shadow-sm md:w-auto md:px-6 md:py-2"
+      class="w-full rotate-[-1deg] rounded-xl border-[3px] border-gm-primary bg-white px-3 py-1 text-center shadow-sm md:w-auto md:px-5 md:py-1.5"
     >
       <div class="flex items-center justify-center gap-2">
         <Icon name="lucide:factory" class="size-5 shrink-0 text-gm-primary" />
-        <p class="font-headline text-[13px] font-extrabold uppercase leading-tight tracking-wide text-gm-primary md:text-base">
+        <p class="font-headline text-xs font-extrabold uppercase leading-tight tracking-wide text-gm-primary md:text-sm">
           Lolos tiga gerbang. Garansi 3 bulan ganti baru.
         </p>
         <Icon name="lucide:badge-check" class="size-5 shrink-0 text-gm-primary" />

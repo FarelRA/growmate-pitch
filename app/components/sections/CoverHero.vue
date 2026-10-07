@@ -111,41 +111,33 @@ onMounted(() => {
       </template>
 
       <template #secondary>
-        <div class="flex w-full min-w-0 flex-col items-center overflow-x-clip">
+        <div class="flex w-full min-w-0 flex-col items-center overflow-x-clip text-left">
           <Motion :initial="{ opacity: 0, x: 60 }" :animate="{ opacity: 1, x: 0 }" :transition="t(0.25, 0.7)" class="flex w-full justify-center">
             <div class="relative w-full max-w-[360px] xl:max-w-[400px]" style="perspective: 1200px;">
               <div class="anim-float absolute inset-0 translate-x-3 translate-y-3 rounded-[1.75rem] bg-gm-mist" aria-hidden="true" />
-              <div class="tilt-inner relative rounded-[1.75rem] shadow-[0_24px_60px_rgba(0,110,28,0.28)]">
+              <div class="tilt-inner relative overflow-hidden rounded-[1.75rem] shadow-[0_24px_60px_rgba(0,110,28,0.28)]">
                 <UiPhotoFigure src="/photos/hero.webp" alt="GrowMate Pods dengan bunga soka di ruang kendali tani" ratio="4 / 5" />
+                <div class="absolute inset-x-3 bottom-3 flex max-w-[calc(100%-1.5rem)] flex-col items-start gap-1.5">
+                  <Motion :initial="{ opacity: 0, y: 12 }" :animate="{ opacity: 1, y: 0 }" :transition="t(0.55, 0.45)" class="max-w-full">
+                    <div class="flex max-w-full items-center gap-1.5 rounded-full bg-white/95 py-1 pl-2 pr-3 shadow-lg backdrop-blur">
+                      <Icon name="lucide:droplets" class="size-3.5 shrink-0 text-gm-sky" />
+                      <span class="truncate font-headline text-xs font-extrabold text-gm-ink">Tanah 62%</span>
+                      <span class="shrink-0 font-mono text-[10px] text-gm-muted">Sensor GPIO13</span>
+                    </div>
+                  </Motion>
+                  <Motion :initial="{ opacity: 0, y: 12 }" :animate="{ opacity: 1, y: 0 }" :transition="t(0.65, 0.45)" class="max-w-full">
+                    <div class="flex max-w-full items-start gap-1.5 rounded-full bg-white/95 px-2.5 py-1.5 text-left shadow-lg backdrop-blur">
+                      <Icon name="lucide:sparkles" class="mt-0.5 size-3.5 shrink-0 text-gm-primary" />
+                      <span class="min-w-0">
+                        <span class="block font-headline text-xs font-extrabold leading-tight text-gm-ink">Floral Assistant: Hujan Kanem terbaca.</span>
+                        <span class="block font-mono text-[10px] leading-tight text-gm-muted">Tunda siram hari ini.</span>
+                      </span>
+                    </div>
+                  </Motion>
+                </div>
               </div>
             </div>
           </Motion>
-
-          <div class="mt-3 grid w-full max-w-[360px] grid-cols-2 gap-2 xl:max-w-[400px]">
-            <Motion :initial="{ opacity: 0, y: 24 }" :animate="{ opacity: 1, y: 0 }" :transition="t(0.55, 0.5)">
-              <div class="flex h-full items-start gap-2 rounded-2xl border-2 border-gm-line bg-white px-3 py-2.5 text-left">
-                <Icon name="lucide:droplets" class="mt-0.5 size-5 shrink-0 text-gm-sky" />
-                <div class="min-w-0">
-                  <div class="font-headline text-sm font-extrabold text-gm-ink">Tanah 62%</div>
-                  <div class="mt-0.5 font-mono text-[11px] leading-snug text-gm-muted">Bacaan sensor GPIO13.</div>
-                </div>
-              </div>
-            </Motion>
-            <Motion
-              :initial="{ opacity: 0, y: 24, backgroundColor: '#faf3e3' }"
-              :animate="{ opacity: 1, y: 0, backgroundColor: '#ffffff' }"
-              :transition="t(0.65, 0.9)"
-              class="rounded-2xl"
-            >
-              <div class="flex h-full items-start gap-2 rounded-2xl border-2 border-gm-line px-3 py-2.5 text-left">
-                <Icon name="lucide:sparkles" class="mt-0.5 size-5 shrink-0 text-gm-primary" />
-                <div class="min-w-0">
-                  <div class="font-headline text-sm font-extrabold text-gm-ink">Floral Assistant: Jangan disiram.</div>
-                  <div class="mt-0.5 font-mono text-[11px] leading-snug text-gm-muted">Hujan Kanem terbaca.</div>
-                </div>
-              </div>
-            </Motion>
-          </div>
         </div>
       </template>
     </DeckSplitPanel>

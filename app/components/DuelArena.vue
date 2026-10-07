@@ -3,18 +3,19 @@ import gsap from 'gsap'
 
 interface DuelRow {
   label: string
-  tag?: string
-  foe: 'yes' | 'mid' | 'no'
+  foe: 'yes' | 'no'
 }
 
+// Tujuh indikator sesuai tabel referensi. Baris 1 dan 2 milik semua.
+// Baris 3 sampai 7 hanya milik GrowMate. Skor akhir 7 lawan 2.
 const rows: DuelRow[] = [
-  { label: 'Otak AI dari data nyata', tag: 'AI', foe: 'no' },
-  { label: 'Dataset tanaman tropis', tag: 'Tropis', foe: 'no' },
-  { label: 'Otomatisasi irigasi penuh', foe: 'mid' },
-  { label: 'Kendali web dan aplikasi', foe: 'yes' },
-  { label: 'Komunitas dan marketplace', tag: 'Lokal', foe: 'no' },
-  { label: 'Servis dan garansi lokal', foe: 'no' },
-  { label: 'Harga ramah konsumen', tag: 'Murah', foe: 'no' },
+  { label: 'Otomatisasi', foe: 'yes' },
+  { label: 'Konektivitas Web/App', foe: 'yes' },
+  { label: 'Integrasi AI Agen', foe: 'no' },
+  { label: 'Harga lebih kompetitif', foe: 'no' },
+  { label: 'Fleksibilitas ukuran lahan', foe: 'no' },
+  { label: 'Fitur Komunitas', foe: 'no' },
+  { label: 'Fitur Marketplace', foe: 'no' },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -78,7 +79,7 @@ onUnmounted(() => ctx?.revert())
 <template>
   <div
     ref="root"
-    class="relative w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white p-3 text-left md:p-3.5"
+    class="relative w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left md:p-3"
   >
     <div class="flex items-center justify-center gap-2">
       <span class="font-headline text-[10px] font-extrabold uppercase tracking-[0.14em] text-gm-muted">
@@ -91,23 +92,40 @@ onUnmounted(() => ctx?.revert())
       </span>
     </div>
 
-    <div class="mt-2 grid grid-cols-[1fr_auto_1fr] items-stretch gap-1.5 md:gap-2">
-      <div class="flex min-w-0 items-center gap-1.5 rounded-2xl border border-gm-line bg-gm-panel px-2 py-1.5">
-        <svg viewBox="0 0 48 48" class="size-9 shrink-0 md:size-10" aria-hidden="true">
-          <path d="M25 9 C22 7 20 5 19 2.5" fill="none" stroke="#8a918e" stroke-width="2.5" stroke-linecap="round" />
-          <circle cx="18.5" cy="2.5" r="1.8" fill="#8a918e" />
-          <path d="M39 4 h5 l-5 6 h5" fill="none" stroke="#8a918e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-          <rect x="9" y="9" width="30" height="28" rx="7" fill="#b9c0bd" />
-          <rect x="9" y="9" width="30" height="28" rx="7" fill="none" stroke="#8a918e" stroke-width="2" />
-          <line x1="15" y1="20" x2="21" y2="21.5" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
-          <line x1="27" y1="21.5" x2="33" y2="20" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
-          <line x1="19" y1="30" x2="29" y2="30" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
-        </svg>
-        <div class="min-w-0">
-          <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-muted md:text-sm">
-            Impor
-          </p>
-          <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">pewaktu umum</p>
+    <div class="mt-1.5 grid grid-cols-[1fr_auto_1fr] items-stretch gap-1.5 md:gap-2">
+      <div class="flex min-w-0 flex-col justify-center gap-1 rounded-2xl border border-gm-line bg-gm-panel px-2 py-1.5">
+        <div class="flex min-w-0 items-center gap-1.5">
+          <svg viewBox="0 0 48 48" class="size-7 shrink-0 md:size-8" aria-hidden="true">
+            <path d="M25 9 C22 7 20 5 19 2.5" fill="none" stroke="#8a918e" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="18.5" cy="2.5" r="1.8" fill="#8a918e" />
+            <path d="M39 4 h5 l-5 6 h5" fill="none" stroke="#8a918e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="9" y="9" width="30" height="28" rx="7" fill="#b9c0bd" />
+            <rect x="9" y="9" width="30" height="28" rx="7" fill="none" stroke="#8a918e" stroke-width="2" />
+            <line x1="15" y1="20" x2="21" y2="21.5" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="27" y1="21.5" x2="33" y2="20" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="19" y1="30" x2="29" y2="30" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
+          </svg>
+          <div class="min-w-0">
+            <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">
+              Tuya
+            </p>
+            <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">platform IoT umum</p>
+          </div>
+        </div>
+        <div class="flex min-w-0 items-center gap-1.5">
+          <svg viewBox="0 0 48 48" class="size-7 shrink-0 md:size-8" aria-hidden="true">
+            <path d="M24 12 C21 7 16 5 12 7 C14 12 19 14 24 12 Z" fill="#9aa3a0" />
+            <path d="M24 12 C27 7 32 5 36 7 C34 12 29 14 24 12 Z" fill="#6b7270" />
+            <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="#b9c0bd" />
+            <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="none" stroke="#6b7270" stroke-width="2" stroke-linejoin="round" />
+            <rect x="12" y="16" width="24" height="5" rx="2" fill="#8a918e" />
+          </svg>
+          <div class="min-w-0">
+            <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">
+              Click &amp; Grow
+            </p>
+            <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">kebun pintar impor</p>
+          </div>
         </div>
       </div>
 
@@ -144,12 +162,12 @@ onUnmounted(() => ctx?.revert())
       </div>
     </div>
 
-    <div class="mt-2 flex flex-col gap-1.5 md:gap-2">
-      <DuelBar v-for="r in rows" :key="r.label" :label="r.label" :tag="r.tag" :foe="r.foe" />
+    <div class="mt-1.5 flex flex-col gap-1 md:gap-1.5">
+      <DuelBar v-for="r in rows" :key="r.label" :label="r.label" :foe="r.foe" />
     </div>
 
-    <p class="mt-2 text-[10px] leading-snug text-gm-muted md:text-[11px]">
-      Pembanding: pewaktu impor umum.
+    <p class="mt-1.5 text-[10px] leading-snug text-gm-muted md:text-[11px]">
+      Ronde 1 melawan Tuya dan Click &amp; Grow.
     </p>
 
     <div
@@ -158,7 +176,7 @@ onUnmounted(() => ctx?.revert())
       aria-hidden="true"
     >
       <p class="font-headline text-[10px] font-extrabold uppercase leading-tight tracking-[0.12em] text-gm-amber/90 md:text-[11px]">
-        Hanya GrowMate yang berpikir
+        Unggul 7 lawan 2
       </p>
     </div>
   </div>

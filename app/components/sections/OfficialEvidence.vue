@@ -11,6 +11,19 @@ const pages = [
 
 const sel = ref(0)
 
+function nextDoc() {
+  if (typeof document !== 'undefined' && document.hidden) return
+  sel.value = (sel.value + 1) % pages.length
+}
+
+const { pause: pauseCycle, resume: resumeCycle } = useIntervalFn(nextDoc, 4000)
+
+function selectDoc(i: number) {
+  sel.value = i
+  pauseCycle()
+  resumeCycle()
+}
+
 const root = ref<HTMLElement | null>(null)
 let ctx: gsap.Context | null = null
 
@@ -26,7 +39,10 @@ onMounted(() => {
   }, root.value)
 })
 
-onUnmounted(() => ctx?.revert())
+onUnmounted(() => {
+  pauseCycle()
+  ctx?.revert()
+})
 </script>
 
 <template>
@@ -56,19 +72,27 @@ onUnmounted(() => ctx?.revert())
                   />
                 </Transition>
               </div>
-              <div class="mt-3 grid w-full grid-cols-5 gap-2">
+              <div class="mt-1.5 flex h-1.5 items-center justify-center gap-1.5" aria-hidden="true">
+                <span
+                  v-for="(p, i) in pages"
+                  :key="p.src"
+                  class="h-1.5 rounded-full transition-all duration-300"
+                  :class="i === sel ? 'w-6 bg-gm-primary' : 'w-1.5 bg-gm-line'"
+                />
+              </div>
+              <div class="mt-2 grid w-full grid-cols-5 gap-2">
                 <button
                   v-for="(p, i) in pages"
                   :key="p.src"
                   class="overflow-hidden rounded-xl border-2 transition-all"
                   :class="i === sel ? 'border-gm-primary shadow-md' : 'border-gm-line opacity-70 hover:opacity-100'"
                   :aria-label="`Lihat ${p.label}`"
-                  @click="sel = i"
+                  @click="selectDoc(i)"
                 >
-                  <img :src="p.src" :alt="p.label" class="h-14 w-full object-cover object-top sm:h-16" draggable="false" />
+                  <img :src="p.src" :alt="p.label" class="h-12 w-full object-cover object-top sm:h-14" draggable="false" />
                 </button>
               </div>
-              <p class="mt-2.5 text-center text-sm font-semibold text-gm-muted md:text-base">
+              <p class="mt-2 text-center text-sm font-semibold text-gm-muted md:text-base">
                 {{ pages[sel]!.label }} • DKPP Kabupaten Bantul
               </p>
             </div>

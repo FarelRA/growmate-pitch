@@ -1,18 +1,112 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 
-type Plot = { title: string; icon: string; items: string[]; hero?: boolean; ribbon?: string }
+type Cell = {
+  id: string
+  title: string
+  sub: string
+  icon: string
+  items: string[]
+  hero?: boolean
+  place: string
+}
 
-const plots: Plot[] = [
-  { title: 'Mitra Kunci', icon: 'lucide:truck', items: ['Komponen IoT', 'Kemasan hijau', 'Cloud dan AI', 'DKPP Bantul dan ritel tani'] },
-  { title: 'Aktivitas Kunci', icon: 'lucide:factory', items: ['Riset', 'Produksi', 'Pemasaran', 'Platform web'] },
-  { title: 'Hubungan Pelanggan', icon: 'lucide:heart-handshake', items: ['AI yang hidup', 'Komunitas', 'Garansi 3 bulan', 'Layanan purnajual'] },
-  { title: 'Sumber Daya Utama', icon: 'lucide:cpu', items: ['Modal usaha', 'Dataset tani', 'Tenaga ahli', 'Web dan alat'] },
-  { title: 'Proposisi Nilai', icon: 'lucide:sprout', hero: true, ribbon: 'Bintang utama', items: ['Floral Assistant', 'Rawat otomatis', 'Pantau cerdas', 'Komunitas dan harga terjangkau'] },
-  { title: 'Segmen Pelanggan', icon: 'lucide:users', items: ['Tech farmer DIY', 'Properti', 'Kantor hijau'] },
-  { title: 'Struktur Biaya', icon: 'lucide:coins', items: ['Riset AI', 'Produksi', 'Server', 'Gaji tim'] },
-  { title: 'Kanal', icon: 'lucide:store', items: ['Shopee dan website', 'Ritel, kafe, kantor'] },
-  { title: 'Arus Pendapatan', icon: 'lucide:banknote', items: ['Pods', 'Tech', 'Langganan AI'] },
+const cells: Cell[] = [
+  {
+    id: 'kp',
+    title: 'Mitra Kunci',
+    sub: 'Key Partners',
+    icon: 'lucide:truck',
+    items: [
+      'Pemasok komponen elektronik dan sensor IoT',
+      'Pemasok kemasan ramah lingkungan',
+      'Penyedia cloud dan API AI',
+      'DKPP Kab. Bantul',
+      'DKUMPP Kab. Bantul',
+      'Balai Tekkomdik DIY',
+      'Komunitas tech farmer',
+      'Mitra ritel dan distributor',
+    ],
+    place: 'md:col-start-1 md:row-start-1 md:row-span-2',
+  },
+  {
+    id: 'ka',
+    title: 'Aktivitas Kunci',
+    sub: 'Key Activities',
+    icon: 'lucide:factory',
+    items: ['Riset dan pengembangan', 'Produksi dan perakitan', 'Pemasaran dan edukasi', 'Perawatan web'],
+    place: 'md:col-start-2 md:row-start-1',
+  },
+  {
+    id: 'kr',
+    title: 'Sumber Daya Kunci',
+    sub: 'Key Resources',
+    icon: 'lucide:cpu',
+    items: ['Modal', 'Dataset pertanian', 'Tenaga kompeten', 'Web GrowMate', 'Peralatan'],
+    place: 'md:col-start-2 md:row-start-2',
+  },
+  {
+    id: 'vp',
+    title: 'Proposisi Nilai',
+    sub: 'Value Propositions',
+    icon: 'lucide:sprout',
+    hero: true,
+    items: [
+      'AI agen',
+      'Perawatan otomatis',
+      'Pemantauan cerdas',
+      'Fleksibilitas kustom',
+      'Komunitas terintegrasi',
+      'Harga terjangkau',
+    ],
+    place: 'md:col-start-3 md:row-start-1 md:row-span-2',
+  },
+  {
+    id: 'cr',
+    title: 'Hubungan Pelanggan',
+    sub: 'Customer Relationships',
+    icon: 'lucide:heart-handshake',
+    items: [
+      'Interaksi AI agen',
+      'Komunitas GrowMate',
+      'Garansi 3 bulan ganti baru',
+      'Konsultasi daring',
+      'Purnajual',
+    ],
+    place: 'md:col-start-4 md:row-start-1',
+  },
+  {
+    id: 'ch',
+    title: 'Kanal',
+    sub: 'Channels',
+    icon: 'lucide:store',
+    items: ['Daring Shopee dan website', 'Luring ritel, distributor, hotel, kafe, kantor'],
+    place: 'md:col-start-4 md:row-start-2',
+  },
+  {
+    id: 'cs',
+    title: 'Segmen Pelanggan',
+    sub: 'Customer Segments',
+    icon: 'lucide:users',
+    items: ['Tech farmer', 'Pengembang properti dan perkantoran'],
+    place: 'md:col-start-5 md:row-start-1 md:row-span-2',
+  },
+  {
+    id: 'cost',
+    title: 'Struktur Biaya',
+    sub: 'Cost Structure',
+    icon: 'lucide:coins',
+    items: ['Riset AI IoT', 'Produksi', 'Server', 'Gaji'],
+    place: 'md:col-start-1 md:col-span-2 md:row-start-3',
+  },
+  {
+    id: 'rev',
+    title: 'Arus Pendapatan',
+    sub: 'Revenue Streams',
+    icon: 'lucide:banknote',
+    items: ['Penjualan Pods', 'Penjualan Tech', 'Langganan AI'],
+    place: 'md:col-start-3 md:col-span-3 md:row-start-3',
+  },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -26,11 +120,6 @@ onMounted(() => {
       { scale: 0.7, y: 24, opacity: 0 },
       { scale: 1, y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out' },
     )
-    gsap.fromTo(
-      '.kanvas-ribbon',
-      { scale: 0.6, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.5, delay: 1.15, ease: 'back.out(2.2)' },
-    )
   }, root.value ?? undefined)
 })
 
@@ -39,7 +128,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="bmc">
-    <div ref="root" class="relative w-full overflow-hidden rounded-2xl bg-gm-cream p-2 sm:p-3 md:p-4">
+    <div ref="root" class="relative w-full overflow-hidden rounded-2xl bg-gm-cream p-2 sm:p-3 md:p-3">
       <svg aria-hidden="true" class="pointer-events-none absolute inset-0 size-full" viewBox="0 0 1000 600" preserveAspectRatio="none">
         <g fill="none" stroke="#e5e8e3" stroke-width="2" opacity="0.55">
           <path d="M -20 120 C 220 100, 420 150, 700 120 S 950 140, 1030 120" />
@@ -52,35 +141,9 @@ onUnmounted(() => ctx?.revert())
         </g>
       </svg>
 
-      <svg aria-hidden="true" class="pointer-events-none absolute inset-0 hidden size-full sm:block" viewBox="0 0 1000 600" preserveAspectRatio="none">
-        <path
-          d="M 150 105 H 470 V 295 H 840"
-          fill="none"
-          stroke="#4caf50"
-          stroke-width="4"
-          stroke-linecap="round"
-          opacity="0.6"
-          class="anim-flow"
-        />
-        <g fill="#4caf50" opacity="0.6">
-          <circle cx="150" cy="105" r="7" />
-          <circle cx="470" cy="105" r="7" />
-          <circle cx="470" cy="295" r="7" />
-          <circle cx="840" cy="295" r="7" />
-        </g>
-      </svg>
-
-      <div aria-hidden="true" class="anim-float pointer-events-none absolute left-6 top-2 h-5 w-16 rounded-full bg-white/80 shadow-sm" />
-      <div aria-hidden="true" class="anim-float pointer-events-none absolute right-8 top-5 h-4 w-12 rounded-full bg-white/70 shadow-sm" style="animation-delay: -2.5s" />
-
-      <div class="relative grid w-full grid-cols-2 content-center gap-1.5 md:grid-cols-3 md:gap-2.5">
-        <div
-          v-for="p in plots"
-          :key="p.title"
-          class="kanvas-plot min-w-0"
-          :class="p.hero ? 'order-first col-span-2 md:order-none md:col-span-1' : 'col-span-1'"
-        >
-          <KanvasPlot :title="p.title" :icon="p.icon" :items="p.items" :hero="p.hero" :ribbon="p.ribbon" />
+      <div class="relative grid w-full grid-cols-1 content-center gap-1.5 md:grid-cols-5 md:gap-2">
+        <div v-for="c in cells" :key="c.id" class="min-w-0" :class="c.place">
+          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hero="c.hero" />
         </div>
       </div>
     </div>

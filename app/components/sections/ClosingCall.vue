@@ -28,7 +28,9 @@
         </Reveal>
         <Reveal :delay="0.34" class="w-full">
           <div class="mt-4 flex items-center justify-start gap-3.5">
-            <img src="/photos/farmer.webp" alt="Petani memegang unit GrowMate Tech" class="h-28 w-22 shrink-0 rounded-2xl border-2 border-gm-line object-cover md:h-36" draggable="false" loading="lazy" decoding="async" />
+            <div class="w-22 shrink-0 md:w-28">
+              <UiPhotoSlot ratio="11 / 14" label="Foto petani mitra" spec="Petani memegang unit Tech, potret, 11/14" />
+            </div>
             <div>
               <div class="font-headline text-lg font-extrabold text-gm-ink">Petani mitra, Bantul</div>
               <div class="text-sm text-gm-muted">memegang unit Tech pertamanya</div>

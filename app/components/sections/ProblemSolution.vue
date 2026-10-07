@@ -44,7 +44,7 @@ onUnmounted(() => ctx?.revert())
       <DeckSplitPanel>
         <template #primary>
           <Reveal class="w-full lg:pr-14">
-            <div class="w-full rounded-3xl border-2 border-gm-amber/40 bg-gm-amberbg p-3 text-left md:p-4">
+            <div class="w-full rounded-3xl border-2 border-gm-amber/40 bg-gm-amberbg p-2.5 text-left md:p-3">
               <div class="flex items-center justify-start gap-2.5">
                 <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-amber/15 md:size-10">
                   <Icon name="lucide:triangle-alert" class="size-5 text-gm-amber md:size-6" />
@@ -64,9 +64,9 @@ onUnmounted(() => ctx?.revert())
                 :src="PHOTO"
                 alt="Lahan pertanian tropis saat senja"
                 ratio="21 / 9"
-                class="mt-2.5 lg:hidden"
+                class="mt-2 lg:hidden"
               />
-              <div class="mt-2.5 hidden [@media(min-height:860px)]:block">
+              <div class="mt-2 hidden [@media(min-height:860px)]:block">
                 <UiPhotoFigure
                   :src="PHOTO"
                   alt="Lahan pertanian tropis saat senja"
@@ -74,30 +74,49 @@ onUnmounted(() => ctx?.revert())
                 />
               </div>
 
-              <div class="mt-2.5 grid grid-cols-1 gap-2 sm:grid-cols-3 md:mt-3">
-                <div class="flex items-center justify-start gap-2.5 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2.5 text-left">
+              <div class="mt-2 grid grid-cols-1 items-stretch gap-1.5 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center sm:gap-1">
+                <div class="flex items-center justify-start gap-2 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2 text-left">
                   <Icon name="lucide:triangle-alert" class="size-5 shrink-0 text-gm-amber" />
                   <div class="min-w-0">
+                    <div class="text-[10px] font-bold uppercase leading-none tracking-wider text-gm-amber/90">Total</div>
                     <div class="font-headline text-base font-extrabold tabular-nums text-white md:text-lg">{{ fmtUsaha }}</div>
-                    <div class="text-[11px] leading-snug text-white/70">usaha tani berjalan pakai tebakan</div>
+                    <div class="text-[11px] leading-snug text-white/70">usaha tani perorangan di Indonesia (BPS ST2023), menyusut 7,45% dalam sedekade</div>
                   </div>
                 </div>
-                <div class="flex items-center justify-start gap-2.5 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2.5 text-left">
-                  <Icon name="lucide:triangle-alert" class="size-5 shrink-0 text-gm-amber" />
+                <span aria-hidden="true" class="mx-auto grid place-items-center sm:mx-0">
+                  <Icon name="lucide:chevron-down" class="size-4 text-gm-amber sm:hidden" />
+                  <Icon name="lucide:chevron-right" class="hidden size-4 shrink-0 text-gm-amber sm:block" />
+                </span>
+                <div class="flex items-center justify-start gap-2 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2 text-left">
+                  <Icon name="lucide:wifi-off" class="size-5 shrink-0 text-gm-amber" />
                   <div class="min-w-0">
+                    <div class="text-[10px] font-bold uppercase leading-none tracking-wider text-gm-amber/90">Terhubung</div>
                     <div class="font-headline text-base font-extrabold tabular-nums text-white md:text-lg">{{ fmtNet }}</div>
-                    <div class="text-[11px] leading-snug text-white/70">petani memakai internet untuk bertani</div>
+                    <div class="text-[11px] leading-snug text-white/70">saja yang memakai internet untuk bertani</div>
                   </div>
                 </div>
-                <div class="flex items-center justify-start gap-2.5 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2.5 text-left">
-                  <Icon name="lucide:triangle-alert" class="size-5 shrink-0 text-gm-amber" />
+                <span aria-hidden="true" class="mx-auto grid place-items-center sm:mx-0">
+                  <Icon name="lucide:chevron-down" class="size-4 text-gm-amber sm:hidden" />
+                  <Icon name="lucide:chevron-right" class="hidden size-4 shrink-0 text-gm-amber sm:block" />
+                </span>
+                <div class="flex items-center justify-start gap-2 rounded-2xl border-2 border-gm-ink bg-gm-ink p-2 text-left">
+                  <Icon name="lucide:timer" class="size-5 shrink-0 text-gm-amber" />
                   <div class="min-w-0">
+                    <div class="text-[10px] font-bold uppercase leading-none tracking-wider text-gm-amber/90">Dampak</div>
                     <div class="font-headline text-base font-extrabold tabular-nums text-white md:text-lg">{{ fmtRawat }}</div>
                     <div class="text-[11px] leading-snug text-white/70">waktu rawat manual tiap hari</div>
                   </div>
                 </div>
               </div>
-              <div class="mt-2 text-[11px] leading-snug text-gm-muted">Sumber: BPS 2023.</div>
+              <div class="mt-1.5 flex items-center gap-2 rounded-xl border border-gm-amber/30 bg-white/70 px-2 py-1.5 text-left">
+                <Icon name="lucide:trending-down" class="size-4 shrink-0 text-gm-amber" />
+                <p class="min-w-0 flex-1 text-[11px] leading-snug text-gm-ink">2013: 31,71 jt ke 2023: 29,34 jt usaha tani. Petani menyusut, tebakan tetap.</p>
+                <span aria-hidden="true" class="w-20 shrink-0 space-y-1 md:w-24">
+                  <span class="block h-1 overflow-hidden rounded-full bg-gm-amber/25"><span class="block h-full w-full rounded-full bg-gm-amber/50" /></span>
+                  <span class="block h-1 overflow-hidden rounded-full bg-gm-amber/25"><span class="block h-full rounded-full bg-gm-amber" style="width: 92.5%;" /></span>
+                </span>
+              </div>
+              <div class="mt-1.5 text-[11px] leading-snug text-gm-muted">Sumber: BPS ST2023.</div>
             </div>
           </Reveal>
         </template>
@@ -119,7 +138,7 @@ onUnmounted(() => ctx?.revert())
               <div class="text-xs leading-snug text-gm-muted md:text-sm">Setiap tindakan ditakar oleh data.</div>
             </div>
           </div>
-          <div class="mt-2.5 flex w-full flex-col justify-center gap-2 md:mt-3 md:gap-2.5 lg:pl-14">
+          <div class="mt-2 flex w-full flex-col justify-center gap-1.5 md:mt-2 md:gap-2 lg:pl-14">
             <Reveal v-for="(a, i) in answers" :key="a.title" :delay="0.55 + i * 0.12" class="w-full">
               <LatarValveCard :icon="a.icon" :title="a.title" :desc="a.desc" />
             </Reveal>

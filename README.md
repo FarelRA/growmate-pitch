@@ -66,15 +66,16 @@ fast boots can mount before the browser exposes `location.hash`.
   `SwotMatrix`, `SipocMap`, `OfficialEvidence`, `DocGallery`, `FieldVoices`,
   `RoadmapAsk`). `app/pages/index.vue` maps section id to component.
   `VoiceCarousel` (8 testimoni foto, autoplay + counter + panah) dipakai `FieldVoices`.
-  Helper visual per slide (SVG + koreografi GSAP/motion-v, tanpa tab, tanpa klik baru):
+  Helper visual per slide (SVG + koreografi GSAP/motion-v; aturan klik: hanya panah slide + thumbnail bukti):
   cover `decor/CoverGridSvg`; latar `LatarRiver` + `LatarValveCard`; usp `UspDuelStrip` +
-  `UspStation`; proses `ProsesConveyor` + `ProsesStamp`; kembang `KembangRiver`;
-  pasar (teras + peta inline); stp `StpStep` + `StpViewfinder`; kompetitor `DuelArena` +
-  `DuelBar`; pemasaran `GtmOrbit` + `GtmMap`; sosial `SosialVine` + `SosialTimer`;
-  quad `QuadTree`; keuangan `DanaTag`; efektivitas `BuktiDuel`; kanvas `KanvasPlot`;
-  swot `SwotQuad` (inline); sipoc `SipocStation` + `SipocPipe`; legalitas `LegalStamp` +
-  `LegalGauge`; dokumentasi `DokPost` + `DokRoute`; testimoni `SuaraTribune`;
-  scaleup `ScaleStep` + `ScaleTicket` (puncak memakai ulang `CaseViewer` 3D).
+  `UspStation` (slot foto); proses `ProsesConveyor` + `ProsesStamp`; kembang `KembangRiver`;
+  pasar (teras + peta GADM inline); stp (slot foto); kompetitor `DuelArena` +
+  `DuelBar` (lawan: Tuya, Click & Grow, sesuai PDF); pemasaran `GtmOrbit` + bingkai platform;
+  sosial `SosialVine` + `SosialTimer`; quad `QuadTree`; keuangan `DanaTag`;
+  efektivitas `BuktiDuel`; kanvas `KanvasPlot` (grid BMC standar); swot (inline);
+  sipoc `SipocStation` + `SipocPipe`; legalitas `LegalStamp` + `LegalGauge` (siklus otomatis);
+  dokumentasi `DokPost` + `DokRoute`; testimoni `SuaraTribune` (siklus otomatis, nol klik);
+  scaleup (langit SVG + matriks 4x3).
 - `app/components/deck/`: layout primitives. `DeckStage` (viewport shell +
   centered scroll area), `DeckShell` (auto-numbered header, left-aligned title
   block, centered content slot; no footer), `DeckBare` (chromeless view without
@@ -118,16 +119,22 @@ After converting, swap the section's `src` URL to `/photos/<name>.webp`
 16 foto dokumentasi sudah diekstrak dari deck lama (Canva, render 150dpi,
 crop ketat, WebP q80/82) dan langsung dipakai:
 
-| File | Sumber (deck lama) | Dipakai di |
-|------|--------------------|------------|
-| `prod-solder.webp` | hal 6, proses menyolder | `ProductionLine` |
-| `prod-printer.webp` | hal 9, cetak bodi 3D | `ProductionLine` |
-| `prod-bench.webp` | hal 11, breadboard tahap 1 | `ProductionLine` |
-| `prod-alpha.webp` | hal 11, alpha 6 titik tahap 2 | `ProductionLine` |
-| `testi-wabup/dkpp/dkumpp/bunda/kemenperin/dosen/kepsek/pegiat.webp` | hal 42-45, foto pejabat (crop wajah) | `VoiceCarousel` |
-| `gt-mulyo.webp` | hal 24, konsinyasi Mulyo Tani | `GoToMarket` |
-| `gt-expo.webp` | hal 25, stan Bantul Creative Expo | `GoToMarket` |
-| `mitra-matra.webp`, `mitra-toolsku.webp` | hal 38, kemitraan 3D print | `PartnerGrid` |
+ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
+
+| File | Dipakai di (terkunci) |
+|------|------------------------|
+| `hero.webp` | `CoverHero` |
+| `tech.webp` | `ProductEvolution` tahap 3 |
+| `tech-field.webp` | `CompetitorDuel` |
+| `farmer.webp` | `SocialImpact` |
+| `roadmap.webp` | `ImpactQuad` |
+| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder/prod-printer.webp` | `DocGallery` pos 1-6 |
+| `prod-bench/alpha.webp` | `ProductEvolution` tahap 1-2 |
+| `testi-*.webp` (8) | `FieldVoices` |
+| `bukti/*.webp` (5) | `OfficialEvidence` |
+
+Slide lain memakai `UiPhotoSlot` (bingkai penanda: `ratio` + `label` + `spec` foto yang
+dibutuhkan). Saat foto asli tiba, ganti slot dengan `UiPhotoFigure` dan catat di tabel ini.
 
 ## 3D case file
 
