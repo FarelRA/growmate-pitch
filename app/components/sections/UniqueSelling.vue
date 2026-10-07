@@ -30,8 +30,8 @@ import UspStation from '~/components/UspStation.vue'
           eyebrow="Station 02"
           title="Skala fleksibel"
           desc="Satu pot meja sampai lahan di atas 1 hektar. Satu aplikasi mengendalikan semua."
-          src="/photos/usp-tech-sawah.webp"
-          alt="Unit Tech terpasang di sawah mitra"
+          src="/photos/usp-tech-box.webp"
+          alt="Boks kayu unit GrowMate Tech"
           proofMain="20 cm ke 1 hektar"
           proofSub="satu aplikasi semua skala"
         />

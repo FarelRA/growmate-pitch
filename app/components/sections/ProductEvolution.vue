@@ -17,27 +17,27 @@ onMounted(() => {
 
 const stages = [
   {
-    src: '/photos/prod-bench.webp',
-    alt: 'Rangkaian breadboard tahap validasi konsep GrowMate',
+    src: '/photos/kembang-proto-1.webp',
+    alt: 'Prototipe 1 Arduino dan breadboard GrowMate',
     badge: 'Tahap 1',
     title: 'Validasi Konsep',
     desc: 'Rangkaian terbuka pada breadboard. Satu sensor statis dan kendali relai manual.',
     icon: 'lucide:flask-conical',
   },
   {
-    src: '/photos/prod-alpha.webp',
-    alt: 'Modul PCB tahap integrasi GrowMate',
+    src: '/photos/kembang-proto-2.webp',
+    alt: 'Prototipe 2 smart pot dengan sensor tanah',
     badge: 'Tahap 2',
     title: 'Integrasi Modular',
     desc: 'Papan PCB permanen dalam rumah awal. Jaringan baca meluas hingga 6 titik sensor.',
     icon: 'lucide:cpu',
   },
   {
-    src: '/photos/tech.webp',
-    alt: 'Unit final GrowMate Tech siap produksi',
+    src: '/photos/kembang-addon.webp',
+    alt: 'Tech Add-on mandiri surya GrowMate',
     badge: 'Tahap 3',
-    title: 'Produk Final',
-    desc: 'Mode luring cadangan, antarmuka web, dan Floral Assistant terpadu. Siap produksi massal.',
+    title: 'Tech Add-on',
+    desc: 'Boks kayu mandiri surya dan LTE. Mode luring cadangan dan Floral Assistant terpadu.',
     icon: 'lucide:rocket',
   },
 ]

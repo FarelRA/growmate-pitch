@@ -128,9 +128,11 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `tech-field.webp` | lama | `CompetitorDuel` |
 | `farmer.webp` | lama | `SocialImpact` |
 | `roadmap.webp` | lama | `ImpactQuad` |
-| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder/prod-printer.webp` | lama | `DocGallery` pos 1-6 |
-| `prod-bench/alpha.webp` | lama | `ProductEvolution` tahap 1-2 |
-| `usp-pods-glow/sensor-sawah/tech-sawah.webp` | P1680706 / DSC02273 / DSC02269 | `UniqueSelling` st 1-3 |
+| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder.webp` | lama | `DocGallery` pos 1-5 |
+| `kembang-proto-1/2.webp` | KTI Images Arduino + smart pot | `ProductEvolution` tahap 1-2 |
+| `kembang-addon.webp` | PU Images boks surya | `ProductEvolution` tahap 3 Tech Add-on |
+| `dok-printer.webp` | KTI Images printer 3D | `DocGallery` pos 6 |
+| `usp-pods-glow/sensor-sawah.webp` + `usp-tech-box.webp` | Profil usaha + PU Images boks kayu | `UniqueSelling` st 1-3 |
 | `closing-petani.webp` | DSC02284 | `ClosingCall` |
 | `sipoc-kalibrasi/pods/serah.webp` | DSC02277 / P1680691 / DSC02286 | `SipocMap` Proses/Keluaran/Pelanggan |
 | `sipoc-pemasok/masukan.webp` | PU Images toko elektronik / isi kemasan | `SipocMap` Pemasok/Masukan |

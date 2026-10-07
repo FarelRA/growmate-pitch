@@ -8,7 +8,7 @@ const stops: Array<{ src: string; alt: string; label: string; spec?: string }> =
   { src: '/photos/mitra-matra.webp', alt: 'Kemitraan produksi bersama Matra 3D', label: 'Kemitraan produksi Matra 3D' },
   { src: '/photos/mitra-toolsku.webp', alt: 'Kemitraan fabrikasi bersama Toolsku', label: 'Kemitraan fabrikasi Toolsku' },
   { src: '/photos/prod-solder.webp', alt: 'Perakitan dan penyolderan unit GrowMate', label: 'Perakitan dan penyolderan unit' },
-  { src: '/photos/prod-printer.webp', alt: 'Cetak bodi unit dengan printer 3D', label: 'Cetak bodi dengan printer 3D' },
+  { src: '/photos/dok-printer.webp', alt: 'Printer 3D mencetak bodi putih GrowMate', label: 'Cetak bodi dengan printer 3D' },
   { src: '/photos/dok-pengguna.webp', alt: 'Pengguna memegang Pods dengan grow light', label: 'Pods di tangan pengguna' },
   { src: '/photos/dok-demo.webp', alt: 'Demo unit GrowMate ke pengunjung', label: 'Demo unit ke pengunjung' },
 ]
