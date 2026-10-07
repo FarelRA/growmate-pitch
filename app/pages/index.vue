@@ -21,6 +21,7 @@ import OfficialEvidence from '~/components/sections/OfficialEvidence.vue'
 import DocGallery from '~/components/sections/DocGallery.vue'
 import FieldVoices from '~/components/sections/FieldVoices.vue'
 import RoadmapAsk from '~/components/sections/RoadmapAsk.vue'
+import ClosingCall from '~/components/sections/ClosingCall.vue'
 
 const store = useDeckStore()
 
@@ -45,6 +46,7 @@ const registry: Record<string, Component> = {
   dokumentasi: DocGallery,
   testimoni: FieldVoices,
   scaleup: RoadmapAsk,
+  closing: ClosingCall,
 }
 
 const current = computed(() => registry[SECTIONS[store.index]?.id ?? 'cover'] ?? CoverHero)

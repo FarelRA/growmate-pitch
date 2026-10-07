@@ -31,6 +31,7 @@ export const SECTIONS: DeckSection[] = [
   { id: 'dokumentasi', kicker: 'Dokumentasi', title: 'Jejak kerja di lapangan', sub: 'Enam pos ekspedisi dari stan pameran hingga meja produksi. Setiap langkah terdokumentasi.' },
   { id: 'testimoni', kicker: 'Testimoni', title: 'Dipercaya pejabat, dipakai warga', sub: 'Delapan testimoni dari dinas, sekolah, dan penghobi. Delapan sudut pandang, satu kesimpulan.' },
   { id: 'scaleup', kicker: 'Scale Up', title: 'Dari 36 unit ke ketahanan pangan', sub: 'Empat jalur, tiga horizon. Dari Bantul menuju ketahanan pangan.' },
+  { id: 'closing', kicker: 'Penutup', title: 'Tumbuh bersama kami', sub: 'Pilot, atap hijau, atau satu pertanyaan tajam. Setiap jalan menumbuhkan dataset.' },
 ]
 
 export function sectionNumber(index: number) {
