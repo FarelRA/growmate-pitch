@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 
+type Hue = 'sky' | 'amber' | 'brand' | 'deep'
+
 type Cell = {
   id: string
   title: string
@@ -8,15 +10,17 @@ type Cell = {
   icon: string
   items: string[]
   hero?: boolean
+  hue: Hue
   place: string
 }
 
-const cells: Cell[] = [
+const topCells: Cell[] = [
   {
     id: 'kp',
     title: 'Mitra Kunci',
     sub: 'Key Partners',
     icon: 'lucide:truck',
+    hue: 'sky',
     items: [
       'Pemasok komponen elektronik dan sensor IoT',
       'Pemasok kemasan ramah lingkungan',
@@ -34,6 +38,7 @@ const cells: Cell[] = [
     title: 'Aktivitas Kunci',
     sub: 'Key Activities',
     icon: 'lucide:factory',
+    hue: 'amber',
     items: ['Riset dan pengembangan', 'Produksi dan perakitan', 'Pemasaran dan edukasi', 'Perawatan web'],
     place: 'md:col-start-2 md:row-start-1',
   },
@@ -42,6 +47,7 @@ const cells: Cell[] = [
     title: 'Sumber Daya Kunci',
     sub: 'Key Resources',
     icon: 'lucide:cpu',
+    hue: 'deep',
     items: ['Modal', 'Dataset pertanian', 'Tenaga kompeten', 'Web GrowMate', 'Peralatan'],
     place: 'md:col-start-2 md:row-start-2',
   },
@@ -51,6 +57,7 @@ const cells: Cell[] = [
     sub: 'Value Propositions',
     icon: 'lucide:sprout',
     hero: true,
+    hue: 'brand',
     items: [
       'AI agen',
       'Perawatan otomatis',
@@ -66,6 +73,7 @@ const cells: Cell[] = [
     title: 'Hubungan Pelanggan',
     sub: 'Customer Relationships',
     icon: 'lucide:heart-handshake',
+    hue: 'sky',
     items: [
       'Interaksi AI agen',
       'Komunitas GrowMate',
@@ -80,6 +88,7 @@ const cells: Cell[] = [
     title: 'Kanal',
     sub: 'Channels',
     icon: 'lucide:store',
+    hue: 'amber',
     items: ['Daring Shopee dan website', 'Luring ritel, distributor, hotel, kafe, kantor'],
     place: 'md:col-start-4 md:row-start-2',
   },
@@ -88,24 +97,30 @@ const cells: Cell[] = [
     title: 'Segmen Pelanggan',
     sub: 'Customer Segments',
     icon: 'lucide:users',
+    hue: 'deep',
     items: ['Tech farmer', 'Pengembang properti dan perkantoran'],
     place: 'md:col-start-5 md:row-start-1 md:row-span-2',
   },
+]
+
+const bottomCells: Cell[] = [
   {
     id: 'cost',
     title: 'Struktur Biaya',
     sub: 'Cost Structure',
     icon: 'lucide:coins',
+    hue: 'deep',
     items: ['Riset AI IoT', 'Produksi', 'Server', 'Gaji'],
-    place: 'md:col-start-1 md:col-span-2 md:row-start-3',
+    place: '',
   },
   {
     id: 'rev',
     title: 'Arus Pendapatan',
     sub: 'Revenue Streams',
     icon: 'lucide:banknote',
+    hue: 'amber',
     items: ['Penjualan Pods', 'Penjualan Tech', 'Langganan AI'],
-    place: 'md:col-start-3 md:col-span-3 md:row-start-3',
+    place: '',
   },
 ]
 
@@ -118,7 +133,12 @@ onMounted(() => {
     gsap.fromTo(
       '.kanvas-plot',
       { scale: 0.7, y: 24, opacity: 0 },
-      { scale: 1, y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out' },
+      { scale: 1, y: 0, opacity: 1, duration: 0.45, stagger: 0.07, ease: 'power2.out' },
+    )
+    gsap.fromTo(
+      '.plot-tile',
+      { scale: 0, rotation: -12, opacity: 0 },
+      { scale: 1, rotation: 0, opacity: 1, duration: 0.55, stagger: 0.07, ease: 'back.out(2)', delay: 0.15 },
     )
   }, root.value ?? undefined)
 })
@@ -142,8 +162,14 @@ onUnmounted(() => ctx?.revert())
       </svg>
 
       <div class="relative grid w-full grid-cols-1 content-center gap-1.5 md:grid-cols-5 md:gap-2">
-        <div v-for="c in cells" :key="c.id" class="min-w-0" :class="c.place">
-          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hero="c.hero" />
+        <div v-for="(c, i) in topCells" :key="c.id" class="min-w-0" :class="c.place">
+          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hero="c.hero" :hue="c.hue" :index="i" />
+        </div>
+      </div>
+
+      <div class="relative mt-1.5 grid w-full grid-cols-1 gap-1.5 md:mt-2 md:grid-cols-2 md:gap-2">
+        <div v-for="(c, i) in bottomCells" :key="c.id" class="min-w-0">
+          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hue="c.hue" :index="topCells.length + i" />
         </div>
       </div>
     </div>

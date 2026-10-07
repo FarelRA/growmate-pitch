@@ -121,17 +121,20 @@ crop ketat, WebP q80/82) dan langsung dipakai:
 
 ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 
-| File | Dipakai di (terkunci) |
-|------|------------------------|
-| `hero.webp` | `CoverHero` |
-| `tech.webp` | `ProductEvolution` tahap 3 |
-| `tech-field.webp` | `CompetitorDuel` |
-| `farmer.webp` | `SocialImpact` |
-| `roadmap.webp` | `ImpactQuad` |
-| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder/prod-printer.webp` | `DocGallery` pos 1-6 |
-| `prod-bench/alpha.webp` | `ProductEvolution` tahap 1-2 |
-| `testi-*.webp` (8) | `FieldVoices` |
-| `bukti/*.webp` (5) | `OfficialEvidence` |
+| File | Sumber | Dipakai di (terkunci) |
+|------|--------|------------------------|
+| `hero.webp` | lama | `CoverHero` |
+| `tech.webp` | lama | `ProductEvolution` tahap 3 |
+| `tech-field.webp` | lama | `CompetitorDuel` |
+| `farmer.webp` | lama | `SocialImpact` |
+| `roadmap.webp` | lama | `ImpactQuad` |
+| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder/prod-printer.webp` | lama | `DocGallery` pos 1-6 |
+| `prod-bench/alpha.webp` | lama | `ProductEvolution` tahap 1-2 |
+| `usp-pods-glow/sensor-sawah/tech-sawah.webp` | P1680706 / DSC02273 / DSC02269 | `UniqueSelling` st 1-3 |
+| `closing-petani.webp` | DSC02284 | `ClosingCall` |
+| `sipoc-kalibrasi/pods/serah.webp` | DSC02277 / P1680691 / DSC02286 | `SipocMap` Proses/Keluaran/Pelanggan |
+| `testi-*.webp` (8) | lama | `FieldVoices` |
+| `bukti/*.webp` (5) | lama | `OfficialEvidence` |
 
 Slide lain memakai `UiPhotoSlot` (bingkai penanda: `ratio` + `label` + `spec` foto yang
 dibutuhkan). Saat foto asli tiba, ganti slot dengan `UiPhotoFigure` dan catat di tabel ini.

@@ -36,9 +36,9 @@ onMounted(() => {
           <SuaraTribune :active="activeVoice" />
         </Reveal>
         <Reveal :delay="0.1" class="w-full">
-          <div class="mt-2 flex w-full flex-col justify-center gap-1 rounded-2xl bg-gm-ink p-3 text-left text-white md:mt-2.5 md:p-3.5">
+          <div class="mt-2 flex w-full flex-col justify-center gap-0.5 rounded-2xl bg-gm-ink p-2.5 text-left text-white md:mt-2.5 md:p-3">
             <span class="flex items-center gap-2 font-headline text-sm font-extrabold md:text-base">
-              <Icon name="lucide:compass" class="size-5 text-emerald-300" /> Posisi kami di pasar
+              <Icon name="lucide:compass" class="size-4 text-emerald-300 md:size-5" /> Posisi kami di pasar
             </span>
             <p class="text-xs leading-snug text-white/80 md:text-sm">
               Pelopor smart farming IoT dan AI Agen lokal untuk tech farmer dan properti di DIY.
@@ -47,7 +47,7 @@ onMounted(() => {
           </div>
         </Reveal>
         <Reveal :delay="0.18" class="w-full">
-          <div class="mt-2 grid grid-cols-1 gap-1.5 sm:grid-cols-3 md:mt-2.5">
+          <div class="mt-2 grid grid-cols-3 gap-1.5 md:mt-2.5">
             <UiStatCard :value="vA" label="Testimoni terdokumentasi" tone="brand" />
             <UiStatCard :value="vB" label="Instansi resmi mendukung" tone="brand" />
             <UiStatCard :value="vC" label="Segmen pengguna aktif" tone="brand" />

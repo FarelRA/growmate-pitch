@@ -79,7 +79,7 @@ onUnmounted(() => ctx?.revert())
 <template>
   <div
     ref="root"
-    class="relative w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left md:p-3"
+    class="relative w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white p-2 text-left md:p-2.5"
   >
     <div class="flex items-center justify-center gap-2">
       <span class="font-headline text-[10px] font-extrabold uppercase tracking-[0.14em] text-gm-muted">
@@ -94,7 +94,7 @@ onUnmounted(() => ctx?.revert())
 
     <div class="mt-1.5 grid grid-cols-[1fr_auto_1fr] items-stretch gap-1.5 md:gap-2">
       <div class="flex min-w-0 flex-col justify-center gap-1 rounded-2xl border border-gm-line bg-gm-panel px-2 py-1.5">
-        <div class="flex min-w-0 items-center gap-1.5">
+        <div class="flex min-w-0 flex-wrap items-center gap-1.5">
           <svg viewBox="0 0 48 48" class="size-7 shrink-0 md:size-8" aria-hidden="true">
             <path d="M25 9 C22 7 20 5 19 2.5" fill="none" stroke="#8a918e" stroke-width="2.5" stroke-linecap="round" />
             <circle cx="18.5" cy="2.5" r="1.8" fill="#8a918e" />
@@ -105,14 +105,15 @@ onUnmounted(() => ctx?.revert())
             <line x1="27" y1="21.5" x2="33" y2="20" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
             <line x1="19" y1="30" x2="29" y2="30" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
           </svg>
-          <div class="min-w-0">
+          <div class="min-w-0 flex-1">
             <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">
               Tuya
             </p>
             <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">platform IoT umum</p>
           </div>
+          <BrandMark brand="tuya" />
         </div>
-        <div class="flex min-w-0 items-center gap-1.5">
+        <div class="flex min-w-0 flex-wrap items-center gap-1.5">
           <svg viewBox="0 0 48 48" class="size-7 shrink-0 md:size-8" aria-hidden="true">
             <path d="M24 12 C21 7 16 5 12 7 C14 12 19 14 24 12 Z" fill="#9aa3a0" />
             <path d="M24 12 C27 7 32 5 36 7 C34 12 29 14 24 12 Z" fill="#6b7270" />
@@ -120,12 +121,13 @@ onUnmounted(() => ctx?.revert())
             <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="none" stroke="#6b7270" stroke-width="2" stroke-linejoin="round" />
             <rect x="12" y="16" width="24" height="5" rx="2" fill="#8a918e" />
           </svg>
-          <div class="min-w-0">
+          <div class="min-w-0 flex-1">
             <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">
               Click &amp; Grow
             </p>
             <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">kebun pintar impor</p>
           </div>
+          <BrandMark brand="clickgrow" />
         </div>
       </div>
 
@@ -137,7 +139,7 @@ onUnmounted(() => ctx?.revert())
         </span>
       </div>
 
-      <div class="flex min-w-0 items-center gap-1.5 rounded-2xl border-2 border-gm-primary/40 bg-gm-mist px-2 py-1.5">
+      <div class="flex min-w-0 flex-wrap items-center gap-1.5 rounded-2xl border-2 border-gm-primary/40 bg-gm-mist px-2 py-1.5">
         <svg viewBox="0 0 48 48" class="anim-float size-9 shrink-0 md:size-10" aria-hidden="true">
           <path d="M15 9 a9 9 0 0 1 18 0" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round" />
           <path d="M19 6 a5 5 0 0 1 10 0" fill="none" stroke="#4caf50" stroke-width="1.6" stroke-linecap="round" />
@@ -153,12 +155,13 @@ onUnmounted(() => ctx?.revert())
           <circle cx="29" cy="24.5" r="1.5" fill="#1a1c1c" />
           <path d="M19 32 Q24 35 29 32" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
         </svg>
-        <div class="min-w-0">
+        <div class="min-w-0 flex-1">
           <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-primary md:text-sm">
             GrowMate
           </p>
           <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">AI Agen lokal</p>
         </div>
+        <BrandMark brand="growmate" />
       </div>
     </div>
 

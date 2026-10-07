@@ -16,7 +16,7 @@ function nextDoc() {
   sel.value = (sel.value + 1) % pages.length
 }
 
-const { pause: pauseCycle, resume: resumeCycle } = useIntervalFn(nextDoc, 4000)
+const { pause: pauseCycle, resume: resumeCycle } = useIntervalFn(nextDoc, 3000)
 
 function selectDoc(i: number) {
   sel.value = i

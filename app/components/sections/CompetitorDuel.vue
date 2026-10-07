@@ -8,6 +8,7 @@ interface PriceCell {
 
 interface PriceCard {
   name: string
+  brand: 'tuya' | 'clickgrow' | 'growmate'
   tag: string
   price: string
   score: string
@@ -21,6 +22,7 @@ interface PriceCard {
 const cards: PriceCard[] = [
   {
     name: 'GrowMate',
+    brand: 'growmate',
     tag: 'Hero lokal cerdas',
     price: 'Rp803 rb hingga Rp2.409 jt',
     score: '7 dari 7',
@@ -36,6 +38,7 @@ const cards: PriceCard[] = [
   },
   {
     name: 'Tuya',
+    brand: 'tuya',
     tag: 'Platform IoT umum',
     price: 'harga bervariasi',
     score: '2 dari 7',
@@ -50,6 +53,7 @@ const cards: PriceCard[] = [
   },
   {
     name: 'Click & Grow',
+    brand: 'clickgrow',
     tag: 'Kebun pintar impor',
     price: 'harga premium impor',
     score: '2 dari 7',
@@ -108,7 +112,7 @@ onUnmounted(() => ctx?.revert())
         </template>
       </DeckSplitPanel>
 
-      <div class="price-round mt-2.5 w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-2.5 text-left md:mt-3 md:p-3">
+      <div class="price-round mt-2 w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-2 text-left md:mt-2.5 md:p-2.5">
         <div class="flex items-center justify-between gap-2">
           <p class="font-headline text-[10px] font-extrabold uppercase tracking-[0.14em] text-gm-muted md:text-[11px]">
             Ronde 2 • Kartu harga dan fitur
@@ -124,16 +128,17 @@ onUnmounted(() => ctx?.revert())
             class="price-card rounded-2xl border-2 p-2 text-left md:p-2.5"
             :class="c.hero ? 'border-gm-primary/50 bg-gm-mist' : 'border-gm-line bg-white'"
           >
-            <div class="flex items-center gap-1.5">
+            <div class="flex flex-wrap items-center gap-1.5">
               <span aria-hidden="true" class="size-2 shrink-0 rounded-full" :class="c.hero ? 'bg-gm-primary' : 'bg-gm-muted'" />
               <p
-                class="truncate font-headline text-xs font-extrabold uppercase tracking-wide md:text-sm"
+                class="min-w-0 flex-1 truncate font-headline text-xs font-extrabold uppercase tracking-wide md:text-sm"
                 :class="c.hero ? 'text-gm-primary' : 'text-gm-ink'"
               >
                 {{ c.name }}
               </p>
+              <BrandMark :brand="c.brand" />
               <span
-                class="ml-auto shrink-0 rounded-full px-1.5 py-px font-headline text-[9px] font-extrabold tabular-nums md:text-[10px]"
+                class="shrink-0 rounded-full px-1.5 py-px font-headline text-[9px] font-extrabold tabular-nums md:text-[10px]"
                 :class="c.hero ? 'bg-gm-primary text-white' : 'border border-gm-line bg-gm-panel text-gm-muted'"
               >
                 {{ c.score }}

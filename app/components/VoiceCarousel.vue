@@ -24,12 +24,12 @@ function badgeClass(role: string) {
 /* Satu sumber kebenaran untuk bingkai utama. Nilai idx yang sama diteruskan ke tribun. */
 const idx = ref(0)
 
-/* Siklus otomatis 0 sampai 7 tiap 5 detik. Dilewati saat tab tersembunyi. Berhenti saat lepas dan mulai lagi saat pasang. */
+/* Siklus otomatis 0 sampai 7 tiap 3 detik. Dilewati saat tab tersembunyi. Berhenti saat lepas dan mulai lagi saat pasang. */
 const { pause, resume } = useIntervalFn(() => {
   if (typeof document !== 'undefined' && document.hidden) return
   idx.value = (idx.value + 1) % voices.length
   emit('select', idx.value)
-}, 5000)
+}, 3000)
 
 onMounted(() => {
   emit('select', idx.value)
@@ -42,42 +42,35 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white text-left">
-    <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(ellipse_at_top,rgba(183,121,31,0.16),transparent_70%)]" aria-hidden="true" />
-    <svg class="pointer-events-none absolute -right-8 -top-10 size-52 md:size-60" viewBox="0 0 200 170" fill="none" aria-hidden="true">
-      <path d="M100 8 C118 40 152 66 160 112 C164 136 152 150 138 146 C130 158 114 162 100 162 C86 162 70 158 62 146 C48 150 36 136 40 112 C48 66 82 40 100 8 Z" fill="#e9f4ea" />
-      <path d="M78 140 C74 110 80 80 100 52 M122 140 C126 110 120 80 100 52" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
-      <text x="100" y="128" text-anchor="middle" font-size="92" font-family="Georgia, serif" font-weight="700" fill="#006e1c" opacity="0.1">“</text>
-    </svg>
+  <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white text-left md:h-[308px] md:max-h-[308px]">
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[radial-gradient(ellipse_at_top,rgba(183,121,31,0.14),transparent_70%)]" aria-hidden="true" />
 
-    <p class="relative flex items-center gap-1.5 px-4 pt-3 font-headline text-[11px] font-extrabold uppercase tracking-[0.12em] text-gm-muted md:px-5 md:text-xs">
+    <p class="relative flex shrink-0 items-center gap-1.5 px-4 pt-2.5 font-headline text-[11px] font-extrabold uppercase tracking-[0.12em] text-gm-muted md:px-5 md:text-xs">
       <span class="anim-pulse-dot size-2 rounded-full bg-gm-amber" aria-hidden="true" />
       <Icon name="lucide:mic" class="size-3.5 text-gm-amber" /> Kursi sorot
     </p>
 
-    <div class="relative flex-1 px-4 pt-1.5 md:px-5">
+    <div class="relative min-h-0 flex-1 px-4 pb-2 pt-1.5 md:px-5">
       <Transition name="voice-spot" mode="out-in">
-        <div :key="voices[idx]!.name" class="flex h-full flex-col justify-center pb-1">
-          <div class="relative flex items-center justify-start gap-3">
-            <img :src="voices[idx]!.photo" :alt="voices[idx]!.name" class="size-16 shrink-0 rounded-2xl border-2 border-gm-line object-cover" loading="lazy" decoding="async" draggable="false" />
-            <div class="min-w-0">
-              <div class="font-headline text-base font-extrabold leading-tight text-gm-ink md:text-lg">{{ voices[idx]!.name }}</div>
-              <span class="mt-1 inline-flex rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide" :class="badgeClass(voices[idx]!.role)">{{ voices[idx]!.role }}</span>
+        <div :key="voices[idx]!.name" class="flex h-full flex-col gap-3 md:flex-row md:items-stretch md:gap-4">
+          <div class="h-48 w-full shrink-0 overflow-hidden rounded-xl border-2 border-gm-line bg-gm-panel md:h-[224px] md:w-[42%]">
+            <img :src="voices[idx]!.photo" :alt="voices[idx]!.name" class="size-full object-cover" loading="lazy" decoding="async" draggable="false" />
+          </div>
+          <div class="flex min-w-0 min-h-0 flex-1 flex-col justify-center text-left">
+            <p class="font-headline text-xl font-extrabold leading-tight text-gm-ink">{{ voices[idx]!.name }}</p>
+            <span class="mt-1.5 inline-flex w-fit rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide" :class="badgeClass(voices[idx]!.role)">{{ voices[idx]!.role }}</span>
+            <p class="mt-2 line-clamp-4 overflow-hidden font-headline text-base font-bold leading-snug text-gm-ink md:text-lg">“{{ voices[idx]!.quote }}”</p>
+            <div class="mt-2 flex shrink-0 items-center justify-start">
+              <div class="rounded-full bg-gm-panel px-3.5 py-1.5 font-headline text-xs font-bold tabular-nums text-gm-primary">
+                Suara {{ idx + 1 }} / {{ voices.length }}
+              </div>
             </div>
           </div>
-          <p class="relative mt-2.5 font-headline text-base font-bold leading-snug text-gm-ink md:text-lg">“{{ voices[idx]!.quote }}”</p>
         </div>
       </Transition>
     </div>
 
-    <div class="relative mt-1 flex items-center justify-between gap-2 px-4 pb-2.5 md:px-5 md:pb-3">
-      <div class="flex items-center gap-1.5 rounded-full bg-gm-panel px-3.5 py-1.5 font-headline text-xs font-bold text-gm-primary">
-        Suara {{ idx + 1 }} / {{ voices.length }}
-      </div>
-      <p class="text-[11px] font-semibold text-gm-muted md:text-xs">Berganti otomatis tiap 5 detik</p>
-    </div>
-
-    <div class="relative h-1.5 bg-gradient-to-r from-gm-primary via-gm-amber to-gm-primary" aria-hidden="true" />
+    <div class="relative h-1.5 shrink-0 bg-gradient-to-r from-gm-primary via-gm-amber to-gm-primary" aria-hidden="true" />
   </div>
 </template>
 
@@ -102,7 +95,7 @@ onUnmounted(() => {
 }
 .voice-spot-leave-to {
   opacity: 0;
-  transform: translateX(-16px);
+  transform: translateX(0);
 }
 @media (prefers-reduced-motion: reduce) {
   .voice-spot-enter-active,

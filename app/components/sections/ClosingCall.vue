@@ -29,7 +29,7 @@
         <Reveal :delay="0.34" class="w-full">
           <div class="mt-4 flex items-center justify-start gap-3.5">
             <div class="w-22 shrink-0 md:w-28">
-              <UiPhotoSlot ratio="11 / 14" label="Foto petani mitra" spec="Petani memegang unit Tech, potret, 11/14" />
+              <UiPhotoFigure src="/photos/closing-petani.webp" alt="Petani mitra memegang unit Tech" ratio="11 / 14" />
             </div>
             <div>
               <div class="font-headline text-lg font-extrabold text-gm-ink">Petani mitra, Bantul</div>
