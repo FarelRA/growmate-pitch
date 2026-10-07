@@ -19,10 +19,6 @@
               alt="Perangkat GrowMate Tech terpasang di sawah"
               ratio="16 / 10"
             />
-            <p class="mt-1.5 flex items-center justify-start gap-1.5 text-[11px] leading-snug text-gm-muted md:text-xs">
-              <span aria-hidden="true" class="size-1.5 shrink-0 rounded-full bg-gm-primary" />
-              Terpasang dan bekerja di sawah nyata.
-            </p>
           </div>
           <UiCalloutBanner icon="lucide:crown" tone="brand" class="mt-2 md:mt-2.5">
             AI Agen, komunitas, dan marketplace: hanya ada di GrowMate.

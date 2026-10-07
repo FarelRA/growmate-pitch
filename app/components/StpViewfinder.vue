@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ src: string; alt: string; tag: string }>()
+defineProps<{ src: string; alt: string }>()
 </script>
 
 <template>
@@ -11,9 +11,5 @@ defineProps<{ src: string; alt: string; tag: string }>()
       <span aria-hidden="true" class="absolute -bottom-2 -right-2 z-10 size-5 rounded-br-lg border-b-[3px] border-r-[3px] border-gm-amber" />
       <UiPhotoFigure :src="src" :alt="alt" ratio="16 / 10" />
     </div>
-    <figcaption class="mt-2.5 flex items-center justify-start gap-1.5 px-2 text-xs leading-snug text-gm-muted">
-      <Icon name="lucide:camera" class="size-4 shrink-0 text-gm-amber" />
-      {{ tag }}
-    </figcaption>
   </figure>
 </template>

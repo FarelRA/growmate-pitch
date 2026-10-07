@@ -72,7 +72,6 @@ onUnmounted(() => ctx?.revert())
             <StpViewfinder
               src="/photos/gt-expo.webp"
               alt="Stan GrowMate di Bantul Creative Expo"
-              tag="Bukti lapangan: Bantul Creative Expo"
             />
           </Reveal>
           <Reveal :delay="0.3" class="w-full">

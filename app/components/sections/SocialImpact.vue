@@ -113,9 +113,6 @@ const frames = [
         <template #secondary>
           <div class="flex min-w-0 flex-col text-left">
             <UiPhotoFigure src="/photos/farmer.webp" alt="Petani mitra memegang unit GrowMate Tech di lapangan" ratio="21 / 10" />
-            <p class="mt-1.5 rounded-xl border border-gm-line bg-white px-2.5 py-1.5 text-left text-xs leading-snug text-gm-muted md:text-[13px]">
-              Potret mitra memegang unit Tech di lapangan.
-            </p>
             <div class="mt-2 px-1">
               <SosialTimer />
             </div>
