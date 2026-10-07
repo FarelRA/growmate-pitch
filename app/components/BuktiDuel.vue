@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <div class="w-full max-w-full overflow-hidden rounded-2xl border border-gm-line bg-gm-panel px-2 py-1">
+  <div class="w-full max-w-full overflow-hidden rounded-2xl border border-gm-line bg-gm-panel px-3 py-1.5 text-left">
     <svg
       viewBox="0 0 800 96"
-      class="h-[88px] w-full max-w-full md:h-[96px]"
+      class="h-[92px] w-full max-w-full lg:h-[96px]"
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
       focusable="false"
@@ -14,8 +14,8 @@
       <rect x="8" y="8" width="336" height="80" rx="14" fill="#f3ede3" />
       <rect x="456" y="8" width="336" height="80" rx="14" fill="#e6f3ea" />
 
-      <text x="28" y="28" font-size="11" font-weight="800" fill="#7d6a58" letter-spacing="1">Sebelum</text>
-      <text x="476" y="28" font-size="11" font-weight="800" fill="#006e1c" letter-spacing="1">Sesudah</text>
+      <text x="28" y="28" font-size="16" font-weight="800" fill="#7d6a58" letter-spacing="1">Sebelum</text>
+      <text x="476" y="28" font-size="16" font-weight="800" fill="#006e1c" letter-spacing="1">Sesudah</text>
 
       <g>
         <ellipse cx="150" cy="64" rx="40" ry="7" fill="#6b5d4f" />
@@ -34,8 +34,8 @@
       <g>
         <circle cx="272" cy="40" r="15" fill="#ffffff" stroke="#b9c1b8" stroke-width="2" />
         <path d="M272 40 L272 31 M272 40 L279 43" stroke="#5a6658" stroke-width="2" stroke-linecap="round" />
-        <text x="272" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#5a6658">45 menit per hari</text>
-        <text x="272" y="85" text-anchor="middle" font-size="10" font-weight="600" fill="#8a9389">layu dan kering</text>
+        <text x="272" y="70" text-anchor="middle" font-size="16" font-weight="700" fill="#5a6658">45 menit sehari</text>
+        <text x="272" y="87" text-anchor="middle" font-size="16" font-weight="600" fill="#8a9389">layu</text>
       </g>
 
       <g>
@@ -58,13 +58,13 @@
       <g>
         <circle cx="712" cy="52" r="12" fill="#ffffff" stroke="#9ec7a8" stroke-width="2" />
         <path d="M712 52 L712 45 M712 52 L717 54" stroke="#006e1c" stroke-width="2" stroke-linecap="round" />
-        <text x="706" y="74" text-anchor="middle" font-size="11" font-weight="700" fill="#006e1c">5 menit per hari</text>
-        <text x="706" y="86" text-anchor="middle" font-size="10" font-weight="600" fill="#4a7a58">segar dan tegak</text>
+        <text x="706" y="72" text-anchor="middle" font-size="16" font-weight="700" fill="#006e1c">5 menit sehari</text>
+        <text x="706" y="88" text-anchor="middle" font-size="16" font-weight="600" fill="#4a7a58">segar</text>
       </g>
 
       <line x1="400" y1="14" x2="400" y2="84" stroke="#c9cfc8" stroke-width="2" />
-      <rect x="384" y="8" width="32" height="16" rx="8" fill="#006e1c" />
-      <text x="400" y="20" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">VS</text>
+      <rect x="384" y="8" width="32" height="18" rx="8" fill="#006e1c" />
+      <text x="400" y="21" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">VS</text>
       <g>
         <path d="M400 30 c7 9 12 15 12 21.5 a12 12 0 0 1 -24 0 c0 -6.5 5 -12.5 12 -21.5z" fill="#2aa7de" stroke="#157aa5" stroke-width="2" />
         <circle cx="395.5" cy="50" r="2.2" fill="#ffffff" />

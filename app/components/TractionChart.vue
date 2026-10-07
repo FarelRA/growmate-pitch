@@ -13,14 +13,15 @@ const cumul = [0.67, 1.34, 2.02, 3.38, 11.61, 24.73, 35.91, 45.6, 59.07]
 const MEI = 4
 
 const option = {
-  grid: { left: 52, right: 52, top: 52, bottom: 40 },
+  grid: { left: 48, right: 48, top: 52, bottom: 44 },
   tooltip: {
     trigger: 'axis',
+    textStyle: { fontSize: 16 },
     valueFormatter: (v: number) => `Rp${String(v).replace('.', ',')} jt`,
   },
   legend: {
     top: 0,
-    textStyle: { fontSize: 15, fontWeight: 700 },
+    textStyle: { fontSize: 16, fontWeight: 700 },
     data: ['Pendapatan bulanan', 'Kumulatif'],
   },
   xAxis: {
@@ -28,20 +29,20 @@ const option = {
     data: months,
     axisLine: { lineStyle: { color: '#c9cfc8' } },
     axisTick: { show: false },
-    axisLabel: { fontSize: 15, color: '#3f4a3c', fontWeight: 600 },
+    axisLabel: { fontSize: 16, color: '#3f4a3c', fontWeight: 600, rotate: 0 },
   },
   yAxis: [
     {
       type: 'value',
       max: 15,
       splitLine: { lineStyle: { color: '#eef1ec' } },
-      axisLabel: { fontSize: 14, color: '#3f4a3c', formatter: '{value}' },
+      axisLabel: { fontSize: 16, color: '#3f4a3c', formatter: '{value}' },
     },
     {
       type: 'value',
       max: 65,
       splitLine: { show: false },
-      axisLabel: { fontSize: 14, color: '#b7791f', formatter: '{value}' },
+      axisLabel: { fontSize: 16, color: '#b7791f', formatter: '{value}' },
     },
   ],
   series: [
@@ -55,19 +56,19 @@ const option = {
       ),
       barWidth: '52%',
       itemStyle: { color: '#006e1c', borderRadius: [12, 12, 0, 0], shadowBlur: 12, shadowColor: 'rgba(0,110,28,0.35)', shadowOffsetY: 4 },
-      label: { show: true, position: 'top', fontSize: 14, fontWeight: 800, color: '#006e1c', formatter: (p: { value: number }) => `${String(p.value).replace('.', ',')}` },
+      label: { show: true, position: 'top', fontSize: 16, fontWeight: 800, color: '#006e1c', formatter: (p: { value: number }) => `${String(p.value).replace('.', ',')}` },
       markPoint: {
         symbol: 'roundRect',
-        symbolSize: [96, 30],
+        symbolSize: [112, 34],
         itemStyle: { color: '#b7791f', shadowBlur: 12, shadowColor: 'rgba(183,121,31,0.5)' },
-        label: { show: true, color: '#fff', fontSize: 12, fontWeight: 800, formatter: 'Titik lepas' },
+        label: { show: true, color: '#fff', fontSize: 16, fontWeight: 800, formatter: 'Titik lepas' },
         data: [{ name: 'Titik lepas', xAxis: 'Mei', yAxis: 10.6 }],
       },
       markLine: {
         symbol: 'none',
         silent: true,
         lineStyle: { color: '#b7791f', type: 'dashed', width: 2, opacity: 0.85 },
-        label: { color: '#b7791f', fontSize: 12, fontWeight: 800, formatter: 'Mei', position: 'insideEndTop' },
+        label: { color: '#b7791f', fontSize: 16, fontWeight: 800, formatter: 'Mei', position: 'insideEndTop' },
         data: [{ name: 'Mei', xAxis: 'Mei' }],
       },
       animationDuration: 1300,
@@ -92,12 +93,12 @@ const option = {
     {
       query: { maxWidth: 640 },
       option: {
-        grid: { left: 34, right: 34, top: 56, bottom: 56 },
-        legend: { textStyle: { fontSize: 11 } },
-        xAxis: { axisLabel: { fontSize: 11, rotate: 40 } },
-        yAxis: [{ axisLabel: { fontSize: 11 } }, { axisLabel: { fontSize: 11 } }],
+        grid: { left: 44, right: 44, top: 60, bottom: 60 },
+        legend: { textStyle: { fontSize: 16 } },
+        xAxis: { axisLabel: { fontSize: 16, rotate: 40 } },
+        yAxis: [{ axisLabel: { fontSize: 16 } }, { axisLabel: { fontSize: 16 } }],
         series: [
-          { label: { fontSize: 11 }, markPoint: { symbolSize: [84, 26], label: { fontSize: 10 } } },
+          { label: { fontSize: 16 }, markPoint: { symbolSize: [112, 34], label: { fontSize: 16 } } },
           {},
         ],
       },
@@ -110,8 +111,8 @@ const option = {
   <ClientOnly>
     <div class="relative h-full w-full">
       <VChart :option="option" autoresize class="h-full w-full" />
-      <span class="traction-plane pointer-events-none absolute left-[2%] top-[16%] z-10 grid size-7 place-items-center rounded-full bg-gm-deep text-white shadow-lg" aria-hidden="true">
-        <Icon name="lucide:plane" class="size-4" />
+      <span class="traction-plane pointer-events-none absolute left-[2%] top-[16%] z-10 grid size-8 place-items-center rounded-full bg-gm-deep text-white shadow-lg lg:size-9" aria-hidden="true">
+        <Icon name="lucide:plane" class="size-5 lg:size-6" />
       </span>
     </div>
     <template #fallback>

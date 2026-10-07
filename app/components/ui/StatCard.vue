@@ -12,6 +12,6 @@ const toneClass = computed(() => ({
 <template>
   <div class="flex h-full flex-col items-center justify-center rounded-3xl border-2 p-3 text-center md:p-4" :class="toneClass">
     <div class="font-headline text-2xl font-extrabold tabular-nums md:text-3xl">{{ value }}</div>
-    <div class="mt-1 text-xs leading-snug md:text-sm" :class="tone === 'light' ? 'text-gm-muted' : 'text-white/75'">{{ label }}</div>
+    <div class="mt-1 text-base leading-snug" :class="tone === 'light' ? 'text-gm-muted' : 'text-white/75'">{{ label }}</div>
   </div>
 </template>

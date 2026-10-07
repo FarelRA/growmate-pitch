@@ -41,12 +41,12 @@ const quads: Quad[] = [
     iconAnim: 'anim-float',
     iconTone: 'text-white',
     items: [
-      'Agen AI dan perawatan otomatis',
-      'Pemantauan cerdas multititik sensor',
-      'Komunitas dan kemasan hijau',
-      'Harga terjangkau, servis lokal',
+      'Agen AI dan rawat otomatis',
+      'Pantau cerdas sensor titik',
+      'Komunitas dan kemas hijau',
+      'Harga hemat servis lokal',
     ],
-    reply: 'Aksi SO: rebut pasar milenial dengan AI, harga, dan komunitas.',
+    reply: 'Aksi SO: rebut pasar milenial.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-primary bg-gm-primary rounded-2xl rounded-tl-3xl shadow-[0_14px_32px_rgba(0,77,19,0.30)]',
     itemText: 'text-white/90',
@@ -67,7 +67,7 @@ const quads: Quad[] = [
       'Asta Cita 2 dan SDGs 12',
       'Kanal luring masih luas',
     ],
-    reply: 'Aksi ST: pandu AI dan komunitas agar langganan tetap jalan.',
+    reply: 'Aksi ST: jaga langganan lewat AI.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line bg-gm-mist rounded-2xl shadow-[0_10px_24px_rgba(0,77,19,0.12)]',
     itemText: 'text-gm-ink',
@@ -88,7 +88,7 @@ const quads: Quad[] = [
       'Komponen kadang langka',
       'Kemasan rentan lembap',
     ],
-    reply: 'Aksi WO: amankan stok, kemas tahan lembap, latih AI dengan data pasar.',
+    reply: 'Aksi WO: amankan stok dan kemasan.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line border-l-4 border-l-gm-amber bg-white rounded-2xl shadow-[0_10px_24px_rgba(183,121,31,0.12)]',
     itemText: 'text-gm-ink',
@@ -105,11 +105,11 @@ const quads: Quad[] = [
     iconTone: 'text-gm-danger',
     items: [
       'Adopsi petani konvensional sulit',
-      'Cuaca ekstrem menggagalkan panen',
+      'Cuaca ekstrem gagalkan panen',
       'Kompetitor sejenis bermunculan',
-      'Pengguna enggan perpanjang',
+      'Enggan perpanjang langganan',
     ],
-    reply: 'Aksi WT: minimkan gangguan, jaga kemasan, jaga reputasi.',
+    reply: 'Aksi WT: cegah gangguan jaga nama.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line border-l-4 border-l-gm-danger bg-white rounded-2xl shadow-[0_10px_24px_rgba(192,57,43,0.12)]',
     itemText: 'text-gm-ink',
@@ -130,14 +130,14 @@ const trans = (i: number) => ({
 
 <template>
   <DeckShell section="swot">
-    <div class="relative w-full overflow-hidden rounded-3xl border border-gm-line bg-gm-panel p-2 shadow-sm md:p-2.5">
+    <div class="relative w-full overflow-hidden rounded-2xl border border-gm-line bg-gm-panel p-2 text-left shadow-sm">
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 hidden lg:block">
         <div class="absolute bottom-2 left-1/2 top-2 w-px bg-gm-line lg:ml-[53px]" />
         <div class="absolute left-2 right-2 top-1/2 h-px bg-gm-line" />
       </div>
 
       <div aria-hidden="true" class="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block lg:ml-[53px]">
-        <span class="grid size-14 place-items-center rounded-full border border-gm-line bg-white shadow-md">
+        <span class="grid size-16 place-items-center rounded-full border border-gm-line bg-white shadow-md">
           <svg ref="compass" width="56" height="56" viewBox="0 0 56 56" role="img" aria-label="Kompas Pranata Mangsa">
             <circle cx="28" cy="28" r="25" fill="#ffffff" />
             <circle cx="28" cy="28" r="19" fill="#f6f8f5" stroke="#006e1c" stroke-opacity="0.25" stroke-width="1" />
@@ -149,17 +149,17 @@ const trans = (i: number) => ({
             </g>
             <circle cx="28" cy="28" r="4.5" fill="#006e1c" />
             <circle cx="28" cy="28" r="1.8" fill="#ffffff" />
-            <text x="28" y="8.5" text-anchor="middle" font-size="8" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">S</text>
-            <text x="49.5" y="31" text-anchor="middle" font-size="8" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">W</text>
-            <text x="28" y="53.5" text-anchor="middle" font-size="8" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">O</text>
-            <text x="6.5" y="31" text-anchor="middle" font-size="8" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">T</text>
+            <text x="28" y="14" text-anchor="middle" font-size="16" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">S</text>
+            <text x="45" y="33" text-anchor="middle" font-size="16" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">W</text>
+            <text x="28" y="52" text-anchor="middle" font-size="16" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">O</text>
+            <text x="11" y="33" text-anchor="middle" font-size="16" font-weight="800" fill="#004d13" font-family="Manrope, sans-serif">T</text>
           </svg>
         </span>
       </div>
 
-      <div class="relative grid w-full grid-cols-1 gap-2 lg:grid-cols-[96px_1fr_1fr] lg:gap-2.5">
+      <div class="relative grid w-full grid-cols-1 gap-1.5 lg:grid-cols-[96px_1fr_1fr]">
         <div class="hidden min-w-0 items-center justify-start lg:flex lg:order-1">
-          <span class="rounded-full border border-gm-line bg-white px-2 py-1 text-left font-headline text-[10px] font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor dalam</span>
+          <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor dalam</span>
         </div>
         <Motion
           v-for="(q, i) in quads"
@@ -170,11 +170,11 @@ const trans = (i: number) => ({
           :class="q.order"
           class="min-w-0"
         >
-          <article :class="q.card" class="flex h-full min-w-0 flex-col border-2 p-2 text-left md:p-2.5">
+          <article :class="q.card" class="flex h-full min-w-0 flex-col border-2 p-2.5 text-left">
             <div
               v-if="q.title === 'Kekuatan'"
               aria-hidden="true"
-              class="relative h-[44px] w-full shrink-0 overflow-hidden rounded-xl bg-white/10 md:h-[50px]"
+              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-white/10 lg:h-[44px]"
             >
               <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
                 <line x1="14" y1="46" x2="206" y2="46" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" />
@@ -205,7 +205,7 @@ const trans = (i: number) => ({
             <div
               v-else-if="q.title === 'Kelemahan'"
               aria-hidden="true"
-              class="relative h-[44px] w-full shrink-0 overflow-hidden rounded-xl bg-[#eef0ea] md:h-[50px]"
+              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-[#eef0ea] lg:h-[44px]"
             >
               <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
                 <g class="swot-drift-a" fill="#c9cfc9">
@@ -231,7 +231,7 @@ const trans = (i: number) => ({
             <div
               v-else-if="q.title === 'Peluang'"
               aria-hidden="true"
-              class="relative h-[44px] w-full shrink-0 overflow-hidden rounded-xl bg-white md:h-[50px]"
+              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-white lg:h-[44px]"
             >
               <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
                 <line x1="30" y1="44" x2="130" y2="44" stroke="#006e1c" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round" />
@@ -255,7 +255,7 @@ const trans = (i: number) => ({
             <div
               v-else
               aria-hidden="true"
-              class="relative h-[44px] w-full shrink-0 overflow-hidden rounded-xl bg-[#2e3533] md:h-[50px]"
+              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-[#2e3533] lg:h-[44px]"
             >
               <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
                 <g stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5" stroke-linecap="round">
@@ -275,26 +275,26 @@ const trans = (i: number) => ({
               </svg>
             </div>
 
-            <div class="mt-1 flex min-w-0 items-center justify-start gap-1.5">
-              <span class="grid size-7 shrink-0 place-items-center rounded-lg" :class="q.title === 'Kekuatan' ? 'bg-white/15' : 'bg-white'">
-                <Icon :name="q.icon" :class="[q.iconTone, q.iconAnim]" class="size-4 md:size-5" />
+            <div class="mt-2 flex min-w-0 items-center justify-start gap-2 text-left">
+              <span class="grid size-8 shrink-0 place-items-center rounded-lg" :class="q.title === 'Kekuatan' ? 'bg-white/15' : 'bg-white'">
+                <Icon :name="q.icon" :class="[q.iconTone, q.iconAnim]" class="size-5" />
               </span>
-              <h2 class="min-w-0 font-headline text-[13px] font-extrabold leading-tight md:text-sm" :class="q.title === 'Kekuatan' ? 'text-white' : 'text-gm-ink'">{{ q.title }}</h2>
+              <h2 class="min-w-0 text-left font-headline text-base font-extrabold leading-tight" :class="q.title === 'Kekuatan' ? 'text-white' : 'text-gm-ink'">{{ q.title }}</h2>
             </div>
-            <ul class="mt-1 space-y-0.5">
-              <li v-for="it in q.items" :key="it" :class="q.itemText" class="flex min-w-0 items-start gap-1.5 break-words text-left text-[11px] leading-snug md:text-xs">
+            <ul class="mt-2 space-y-0.5 text-left">
+              <li v-for="it in q.items" :key="it" :class="q.itemText" class="flex min-w-0 items-start gap-2 break-words text-left text-base leading-snug">
                 <span aria-hidden="true" :class="q.dot" class="mt-0 shrink-0 font-bold">•</span>
                 <span class="min-w-0">{{ it }}</span>
               </li>
             </ul>
-            <div :class="q.replyBar" class="mt-1 flex min-w-0 items-start gap-1.5 rounded-xl px-2 py-1 text-left text-[11px] font-bold leading-snug md:text-xs">
-              <Icon :name="q.replyIcon" :class="q.replyIconTone" class="mt-0.5 size-3.5 shrink-0" />
+            <div :class="q.replyBar" class="mt-2 flex min-w-0 items-start gap-2 rounded-xl px-2.5 py-1 text-left text-base font-bold leading-snug">
+              <Icon :name="q.replyIcon" :class="q.replyIconTone" class="mt-0.5 size-4 shrink-0" />
               <span class="min-w-0 break-words">{{ q.reply }}</span>
             </div>
           </article>
         </Motion>
         <div class="hidden min-w-0 items-center justify-start lg:flex lg:order-4">
-          <span class="rounded-full border border-gm-line bg-white px-2 py-1 text-left font-headline text-[10px] font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor luar</span>
+          <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor luar</span>
         </div>
       </div>
     </div>

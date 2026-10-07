@@ -4,10 +4,10 @@ import { useTransition } from '@vueuse/core'
 
 // Bingkai tangkapan layar per kanal. Ganti UiPhotoSlot dengan foto asli saat aset tersedia.
 const phones = [
-  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Tangkapan feed Instagram grow.mateai, 9/16', src: '', alt: '' },
-  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Tangkapan chat WhatsApp konsultasi, 9/16', src: '', alt: '' },
-  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Tangkapan profil TikTok growmate.41, 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
-  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Tangkapan etalase Shopee grow_mate, 9/16', src: '', alt: '' },
+  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Feed Instagram 9/16', src: '', alt: '' },
+  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '', alt: '' },
+  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Profil TikTok 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
+  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Etalase Shopee 9/16', src: '', alt: '' },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -38,17 +38,17 @@ onUnmounted(() => ctx?.revert())
     <div ref="root" class="w-full">
       <DeckSplitPanel>
         <template #primary>
-          <div class="flex w-full flex-col justify-center gap-2 text-left md:gap-2.5">
+          <div class="flex w-full flex-col justify-center gap-1.5 text-left">
             <GtmOrbit />
-            <div class="grid w-full grid-cols-4 gap-2 md:gap-2.5">
+            <div class="grid w-full max-w-[540px] grid-cols-4 gap-0.5">
               <Reveal v-for="(p, i) in phones" :key="p.label" :delay="0.15 + i * 0.07" class="w-full">
-                <UiPhotoFigure v-if="p.src" :src="p.src" :alt="p.alt" ratio="9 / 16" class="gtm-frame slot-tight" />
+                <UiPhotoFigure v-if="p.src" :src="p.src" :alt="p.alt" ratio="9 / 16" class="gtm-frame" />
                 <UiPhotoSlot v-else ratio="9 / 16" :label="p.label" :spec="p.spec" :icon="p.icon" class="gtm-frame slot-tight" />
               </Reveal>
             </div>
-            <p class="flex items-center justify-start gap-1.5 text-left text-[11px] font-semibold text-gm-muted md:text-xs">
-              <span class="gtm-kanal-dot size-1.5 shrink-0 rounded-full bg-gm-amber" aria-hidden="true" />
-              <span><span class="font-headline font-extrabold tabular-nums text-gm-ink">{{ cKanal }}</span> kanal digital aktif dalam satu alur penemuan.</span>
+            <p class="flex items-center justify-start gap-1.5 text-left text-base font-semibold leading-tight text-gm-muted">
+              <span class="gtm-kanal-dot size-2 shrink-0 rounded-full bg-gm-amber" aria-hidden="true" />
+              <span><span class="font-headline text-xl font-extrabold tabular-nums text-gm-ink">{{ cKanal }}</span> kanal digital aktif dalam satu alur penemuan.</span>
             </p>
           </div>
         </template>
@@ -57,9 +57,9 @@ onUnmounted(() => ctx?.revert())
             <Reveal :delay="0.2" class="w-full">
               <UiPhotoFigure src="/photos/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" class="gtm-frame" />
             </Reveal>
-            <div class="gtm-banner mt-2 w-full md:mt-2.5">
+            <div class="gtm-banner mt-1 w-full">
               <Reveal :delay="0.35" class="w-full">
-                <UiCalloutBanner icon="lucide:qr-code" tone="brand">
+                <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
                   Katalog dan demo live selalu terbuka di growmate.bond.
                 </UiCalloutBanner>
               </Reveal>
@@ -73,11 +73,37 @@ onUnmounted(() => ctx?.revert())
 
 <style scoped>
 :deep(.slot-tight) {
-  padding: 0.375rem;
-  gap: 0.125rem;
-  border-radius: 0.75rem;
+  padding: 0.5rem;
+  gap: 0.25rem;
+  border-radius: 1rem;
+}
+:deep(.slot-tight > span:first-child) {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+:deep(.slot-tight svg) {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 :deep(.slot-tight p) {
   line-height: 1.25;
+  font-size: 1rem !important;
+  text-align: left !important;
+}
+:deep(.slot-tight) {
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+:deep(.banner-fix) {
+  justify-content: flex-start !important;
+  text-align: left !important;
+  padding: 0.5rem 0.75rem !important;
+  gap: 0.5rem !important;
+  border-radius: 1rem !important;
+}
+:deep(.banner-fix p) {
+  font-size: 1rem !important;
+  line-height: 1.4;
+  text-align: left !important;
 }
 </style>

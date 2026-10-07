@@ -22,7 +22,7 @@ const glowRef = ref<HTMLElement | null>(null)
 
 /* Lengkung lembut. Koin tepi lebih rendah dan koin tengah lebih tinggi. */
 function arcTop(i: number) {
-  return Math.round(Math.abs(i - 3.5) * 4)
+  return Math.round(Math.abs(i - 3.5) * 5)
 }
 
 function reducedMotion() {
@@ -65,36 +65,36 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="w-full overflow-hidden rounded-2xl border-2 border-gm-line bg-gm-cream px-3 pb-2.5 pt-2 text-left md:px-3.5" aria-label="Tribun delapan saksi">
+  <div class="w-full overflow-hidden rounded-2xl border-2 border-gm-line bg-gm-cream px-3 pb-3 pt-2 text-left" aria-label="Tribun delapan saksi">
     <div class="flex items-center justify-between gap-2">
-      <p class="flex items-center gap-1.5 font-headline text-[11px] font-extrabold uppercase tracking-[0.12em] text-gm-muted md:text-xs">
-        <Icon name="lucide:users" class="size-3.5 text-gm-amber" /> Tribun 8 saksi
+      <p class="flex items-center gap-1.5 font-headline text-base font-extrabold uppercase tracking-[0.12em] text-gm-muted">
+        <Icon name="lucide:users" class="size-4 text-gm-amber" /> Tribun 8 saksi
       </p>
-      <p class="text-[11px] font-semibold text-gm-muted md:text-xs">Mengikuti sorot otomatis</p>
+      <p class="text-base font-semibold text-gm-muted">Mengikuti sorot otomatis</p>
     </div>
     <div ref="wrapRef" class="relative mt-1">
       <div
         ref="coneRef"
-        class="pointer-events-none absolute left-0 top-0 h-12 w-14"
+        class="pointer-events-none absolute left-0 top-0 h-12 w-20"
         style="background: linear-gradient(to bottom, rgba(183,121,31,0.38), rgba(183,121,31,0.05)); clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%)"
         aria-hidden="true"
       />
-      <div ref="rowRef" class="relative flex items-start justify-between gap-1">
+      <div ref="rowRef" class="relative flex flex-wrap items-start justify-start gap-1.5">
         <div
           v-for="(p, i) in items"
           :key="p.photo"
           :title="p.name"
-          class="relative z-10 grid shrink-0 place-items-center rounded-full bg-white p-0.5 transition-all duration-500 ease-out"
-          :class="i === active ? 'size-9 scale-[1.15] ring-2 ring-gm-primary ring-offset-2 ring-offset-gm-cream md:size-11' : 'size-8 opacity-60 ring-1 ring-gm-line md:size-10'"
+          class="relative z-10 grid aspect-square shrink-0 place-items-center rounded-full bg-white p-0.5 transition-all duration-500 ease-out"
+          :class="i === active ? 'size-12 scale-[1.15] ring-2 ring-gm-primary ring-offset-2 ring-offset-gm-cream md:size-14' : 'size-12 opacity-60 ring-1 ring-gm-line md:size-14'"
           :style="{ marginTop: `${arcTop(i)}px` }"
         >
-          <img :src="p.photo" :alt="p.name" class="size-full rounded-full object-cover" loading="lazy" decoding="async" draggable="false" />
+          <img :src="p.photo" :alt="p.name" class="aspect-square size-full rounded-full object-cover" loading="lazy" decoding="async" draggable="false" />
           <span v-if="i === active" class="anim-pulse-dot absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-gm-primary ring-2 ring-white" aria-hidden="true" />
         </div>
       </div>
       <div
         ref="glowRef"
-        class="pointer-events-none absolute -bottom-0.5 left-0 h-2.5 w-14 rounded-full"
+        class="pointer-events-none absolute -bottom-0.5 left-0 h-3 w-20 rounded-full"
         style="background: radial-gradient(ellipse at center, rgba(183,121,31,0.5), transparent 70%)"
         aria-hidden="true"
       />

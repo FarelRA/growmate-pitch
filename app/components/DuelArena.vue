@@ -79,68 +79,69 @@ onUnmounted(() => ctx?.revert())
 <template>
   <div
     ref="root"
-    class="relative w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white p-2 text-left md:p-2.5"
+    class="relative w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white p-1.5 text-left"
   >
-    <div class="flex items-center justify-center gap-2">
-      <span class="font-headline text-[10px] font-extrabold uppercase tracking-[0.14em] text-gm-muted">
+    <div class="flex flex-wrap items-center justify-start gap-x-2.5 gap-y-1 text-left">
+      <span class="font-headline text-base font-extrabold uppercase tracking-[0.14em] text-gm-muted">
         Skor duel
       </span>
       <span
-        class="rounded-lg bg-gm-ink px-2.5 py-0.5 font-headline text-sm font-extrabold tabular-nums text-white md:text-base"
+        class="rounded-lg bg-gm-ink px-3 py-1 font-headline text-base font-extrabold tabular-nums text-white"
       >
         <span ref="gmNum">0</span> : <span ref="foeNum">0</span>
       </span>
+      <span class="ml-auto break-words text-right text-base text-gm-muted">Ronde 1 melawan Tuya dan Click &amp; Grow.</span>
     </div>
 
-    <div class="mt-1.5 grid grid-cols-[1fr_auto_1fr] items-stretch gap-1.5 md:gap-2">
-      <div class="flex min-w-0 flex-col justify-center gap-1 rounded-2xl border border-gm-line bg-gm-panel px-2 py-1.5">
-        <div class="flex min-w-0 flex-wrap items-center gap-1.5">
-          <svg viewBox="0 0 48 48" class="size-7 shrink-0 md:size-8" aria-hidden="true">
-            <path d="M25 9 C22 7 20 5 19 2.5" fill="none" stroke="#8a918e" stroke-width="2.5" stroke-linecap="round" />
-            <circle cx="18.5" cy="2.5" r="1.8" fill="#8a918e" />
-            <path d="M39 4 h5 l-5 6 h5" fill="none" stroke="#8a918e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            <rect x="9" y="9" width="30" height="28" rx="7" fill="#b9c0bd" />
-            <rect x="9" y="9" width="30" height="28" rx="7" fill="none" stroke="#8a918e" stroke-width="2" />
-            <line x1="15" y1="20" x2="21" y2="21.5" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
-            <line x1="27" y1="21.5" x2="33" y2="20" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
-            <line x1="19" y1="30" x2="29" y2="30" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
-          </svg>
-          <div class="min-w-0 flex-1">
-            <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">
+    <div class="mt-1 grid grid-cols-[1fr_auto_1fr] items-stretch gap-1.5">
+      <div class="grid min-w-0 grid-cols-2 justify-center gap-1.5 rounded-2xl border border-gm-line bg-gm-panel px-2 py-1">
+        <div class="flex min-w-0 flex-col items-start gap-0.5">
+          <BrandMark brand="tuya" />
+          <div class="flex w-full min-w-0 items-center gap-1">
+            <svg viewBox="0 0 48 48" class="size-6 shrink-0" aria-hidden="true">
+              <path d="M25 9 C22 7 20 5 19 2.5" fill="none" stroke="#8a918e" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="18.5" cy="2.5" r="1.8" fill="#8a918e" />
+              <path d="M39 4 h5 l-5 6 h5" fill="none" stroke="#8a918e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <rect x="9" y="9" width="30" height="28" rx="7" fill="#b9c0bd" />
+              <rect x="9" y="9" width="30" height="28" rx="7" fill="none" stroke="#8a918e" stroke-width="2" />
+              <line x1="15" y1="20" x2="21" y2="21.5" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
+              <line x1="27" y1="21.5" x2="33" y2="20" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
+              <line x1="19" y1="30" x2="29" y2="30" stroke="#5c6360" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+            <p class="min-w-0 flex-1 break-words font-headline text-base font-extrabold uppercase leading-none tracking-wide text-gm-ink">
               Tuya
             </p>
-            <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">platform IoT umum</p>
           </div>
-          <BrandMark brand="tuya" />
+          <p class="w-full break-words text-base font-medium leading-tight text-gm-muted">platform IoT umum</p>
         </div>
-        <div class="flex min-w-0 flex-wrap items-center gap-1.5">
-          <svg viewBox="0 0 48 48" class="size-7 shrink-0 md:size-8" aria-hidden="true">
-            <path d="M24 12 C21 7 16 5 12 7 C14 12 19 14 24 12 Z" fill="#9aa3a0" />
-            <path d="M24 12 C27 7 32 5 36 7 C34 12 29 14 24 12 Z" fill="#6b7270" />
-            <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="#b9c0bd" />
-            <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="none" stroke="#6b7270" stroke-width="2" stroke-linejoin="round" />
-            <rect x="12" y="16" width="24" height="5" rx="2" fill="#8a918e" />
-          </svg>
-          <div class="min-w-0 flex-1">
-            <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">
+        <div class="flex min-w-0 flex-col items-start gap-0.5">
+          <BrandMark brand="clickgrow" />
+          <div class="flex w-full min-w-0 items-center gap-1">
+            <svg viewBox="0 0 48 48" class="size-6 shrink-0" aria-hidden="true">
+              <path d="M24 12 C21 7 16 5 12 7 C14 12 19 14 24 12 Z" fill="#9aa3a0" />
+              <path d="M24 12 C27 7 32 5 36 7 C34 12 29 14 24 12 Z" fill="#6b7270" />
+              <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="#b9c0bd" />
+              <path d="M14 20 h20 l-2.5 18 h-15 Z" fill="none" stroke="#6b7270" stroke-width="2" stroke-linejoin="round" />
+              <rect x="12" y="16" width="24" height="5" rx="2" fill="#8a918e" />
+            </svg>
+            <p class="min-w-0 flex-1 break-words font-headline text-base font-extrabold uppercase leading-none tracking-wide text-gm-ink">
               Click &amp; Grow
             </p>
-            <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">kebun pintar impor</p>
           </div>
-          <BrandMark brand="clickgrow" />
+          <p class="w-full break-words text-base font-medium leading-tight text-gm-muted">kebun pintar impor</p>
         </div>
       </div>
 
       <div class="grid place-items-center px-0.5">
         <span
-          class="duel-vs grid size-9 place-items-center rounded-full bg-gm-ink font-headline text-[11px] font-extrabold text-white md:size-10 md:text-xs"
+          class="duel-vs grid size-9 place-items-center rounded-full bg-gm-ink font-headline text-xl font-extrabold text-white"
         >
           VS
         </span>
       </div>
 
-      <div class="flex min-w-0 flex-wrap items-center gap-1.5 rounded-2xl border-2 border-gm-primary/40 bg-gm-mist px-2 py-1.5">
-        <svg viewBox="0 0 48 48" class="anim-float size-9 shrink-0 md:size-10" aria-hidden="true">
+      <div class="flex min-w-0 flex-wrap items-center gap-1.5 rounded-2xl border-2 border-gm-primary/40 bg-gm-mist px-2 py-1">
+        <svg viewBox="0 0 48 48" class="anim-float size-11 shrink-0" aria-hidden="true">
           <path d="M15 9 a9 9 0 0 1 18 0" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round" />
           <path d="M19 6 a5 5 0 0 1 10 0" fill="none" stroke="#4caf50" stroke-width="1.6" stroke-linecap="round" />
           <path d="M24 13 C20 7 14 6 10 8 C12 13 18 15 24 13 Z" fill="#4caf50" />
@@ -156,29 +157,25 @@ onUnmounted(() => ctx?.revert())
           <path d="M19 32 Q24 35 29 32" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
         </svg>
         <div class="min-w-0 flex-1">
-          <p class="truncate font-headline text-xs font-extrabold uppercase tracking-wide text-gm-primary md:text-sm">
+          <p class="break-words font-headline text-base font-extrabold uppercase leading-none tracking-wide text-gm-primary">
             GrowMate
           </p>
-          <p class="truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">AI Agen lokal</p>
+          <p class="break-words text-base font-medium leading-tight text-gm-muted">AI Agen lokal</p>
         </div>
         <BrandMark brand="growmate" />
       </div>
     </div>
 
-    <div class="mt-1.5 flex flex-col gap-1 md:gap-1.5">
+    <div class="mt-1 flex flex-col gap-0.5">
       <DuelBar v-for="r in rows" :key="r.label" :label="r.label" :foe="r.foe" />
     </div>
-
-    <p class="mt-1.5 text-[10px] leading-snug text-gm-muted md:text-[11px]">
-      Ronde 1 melawan Tuya dan Click &amp; Grow.
-    </p>
 
     <div
       class="duel-stamp pointer-events-none absolute right-2 top-[30%] z-10 max-w-[44%] border-[2.5px] border-gm-amber/70 bg-white/50 px-2 py-1 text-center md:right-3"
       style="transform: rotate(-6deg)"
       aria-hidden="true"
     >
-      <p class="font-headline text-[10px] font-extrabold uppercase leading-tight tracking-[0.12em] text-gm-amber/90 md:text-[11px]">
+      <p class="font-headline text-base font-extrabold uppercase leading-tight tracking-[0.12em] text-gm-amber/90">
         Unggul 7 lawan 2
       </p>
     </div>

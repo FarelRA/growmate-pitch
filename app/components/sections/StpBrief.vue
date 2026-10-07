@@ -25,37 +25,37 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="stp">
-    <div ref="root" class="w-full">
+    <div ref="root" class="stp-scope w-full min-w-0 overflow-x-clip">
       <DeckSplitPanel>
         <template #primary>
-          <div class="relative w-full pl-6 lg:pl-0">
+          <div class="relative w-full min-w-0 pl-5 lg:pl-0">
             <span aria-hidden="true" class="absolute bottom-2 left-2 top-2 border-l-2 border-dashed border-gm-line lg:hidden" />
-            <div class="flex w-full flex-col justify-center gap-1 md:gap-1.5">
-              <Reveal :delay="0" class="w-full">
+            <div class="flex w-full min-w-0 flex-col justify-center gap-1 md:gap-1.5">
+              <Reveal :delay="0" class="w-full min-w-0">
                 <StpStep
                   letter="S"
                   icon="lucide:users"
                   title="Segmentasi"
-                  desc="Tech farmer plus pengembang properti dan perkantoran di DIY. Mereka sibuk, melek teknologi, dan menuntut hasil tanpa repot."
+                  desc="Tech farmer, properti dan kantor DIY yang sibuk dan melek teknologi."
                   variant="segment"
                 />
               </Reveal>
-              <div aria-hidden="true" class="stp-chev flex items-center justify-start py-0.5 pl-3 md:pl-4">
-                <Icon name="lucide:chevrons-down" class="size-4" />
+              <div aria-hidden="true" class="stp-chev flex items-center justify-start py-0.5 pl-4 md:pl-5">
+                <Icon name="lucide:chevrons-down" class="size-6" />
               </div>
-              <Reveal :delay="0.1" class="w-full">
+              <Reveal :delay="0.1" class="w-full min-w-0">
                 <StpStep
                   letter="T"
                   icon="lucide:crosshair"
                   title="Targeting"
-                  desc="Menangkan DIY dahulu dengan layanan purnajual penuh, naik ke 5% SAM, lalu ekspansi nasional bertahap."
+                  desc="Kuasai DIY dengan purnajual penuh, capai 5% SAM nasional."
                   variant="target"
                 />
               </Reveal>
-              <div aria-hidden="true" class="stp-chev flex items-center justify-start py-0.5 pl-3 md:pl-4">
-                <Icon name="lucide:chevrons-down" class="size-4" />
+              <div aria-hidden="true" class="stp-chev flex items-center justify-start py-0.5 pl-4 md:pl-5">
+                <Icon name="lucide:chevrons-down" class="size-6" />
               </div>
-              <Reveal :delay="0.2" class="w-full">
+              <Reveal :delay="0.2" class="w-full min-w-0">
                 <StpStep
                   letter="P"
                   icon="lucide:flag"
@@ -68,11 +68,11 @@ onUnmounted(() => ctx?.revert())
           </div>
         </template>
         <template #secondary>
-          <Reveal class="w-full">
+          <Reveal class="w-full min-w-0">
             <UiPhotoFigure src="/photos/stp-stan.webp" alt="Demo stan GrowMate bersama pengunjung" ratio="16 / 10" />
           </Reveal>
-          <Reveal :delay="0.3" class="w-full">
-            <UiCalloutBanner icon="lucide:flag" tone="brand" class="mt-2 md:mt-2.5">
+          <Reveal :delay="0.3" class="w-full min-w-0">
+            <UiCalloutBanner icon="lucide:flag" tone="brand" class="banner-compact mt-2">
               Semangat posisi kami: Petani Makmur, Tanpa Lumpur.
             </UiCalloutBanner>
           </Reveal>
@@ -81,3 +81,27 @@ onUnmounted(() => ctx?.revert())
     </div>
   </DeckShell>
 </template>
+
+<style scoped>
+:deep(.stp-scope .min-w-0 .font-headline) {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+:deep(.stp-scope .min-w-0 p) {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+:deep(.stp-scope .min-w-0 span) {
+  font-size: 1rem;
+}
+:deep(.banner-compact) {
+  padding: 0.875rem 1.25rem;
+  border-radius: 1.25rem;
+  gap: 0.75rem;
+}
+:deep(.banner-compact p) {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: left;
+}
+</style>

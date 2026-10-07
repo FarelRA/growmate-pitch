@@ -37,11 +37,11 @@ body {
   line-height: 1.08;
 }
 @utility text-lead {
-  font-size: clamp(0.9rem, 0.78rem + 0.5vw, 1.05rem);
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.1rem);
   line-height: 1.5;
 }
 @utility text-body-fluid {
-  font-size: clamp(0.9rem, 0.82rem + 0.35vw, 1.1rem);
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1rem);
 }
 
 /* ---------- motion ---------- */

@@ -44,7 +44,7 @@ onUnmounted(() => ctx?.revert())
 </script>
 
 <template>
-  <div ref="box" aria-hidden="true" class="pointer-events-none absolute inset-y-0 left-0 w-7 md:w-9">
+  <div ref="box" aria-hidden="true" class="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-10">
     <svg viewBox="0 0 80 600" preserveAspectRatio="xMidYMid meet" class="hidden h-full w-full md:block">
       <path
         ref="deskPath"

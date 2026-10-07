@@ -15,7 +15,7 @@ const toneClass = computed(() => ({
       <Icon :name="icon" :class="[tone === 'brand' ? 'text-white' : 'text-gm-primary', compact ? 'size-4 md:size-5' : 'size-5 md:size-6']" />
     </span>
     <div class="mt-2 font-headline font-extrabold leading-tight" :class="compact ? 'text-base md:text-lg' : 'text-lg md:text-xl'">{{ title }}</div>
-    <p v-if="desc" class="mt-1 text-xs leading-snug md:text-sm" :class="tone === 'brand' ? 'text-white/75' : 'text-gm-muted'">{{ desc }}</p>
+    <p v-if="desc" class="mt-1 text-base leading-snug" :class="tone === 'brand' ? 'text-white/75' : 'text-gm-muted'">{{ desc }}</p>
     <div v-if="$slots.default" class="mt-2 w-full">
       <slot />
     </div>

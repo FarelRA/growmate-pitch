@@ -27,8 +27,8 @@ withDefaults(defineProps<{
     <span class="grid size-8 shrink-0 place-items-center rounded-full bg-white shadow-sm">
       <Icon :name="icon" class="size-4 text-gm-primary" />
     </span>
-    <p class="font-headline text-[11px] font-extrabold leading-tight text-gm-deep md:text-xs">SLOT FOTO</p>
-    <p class="text-[11px] font-bold leading-snug text-gm-ink">{{ label }}</p>
-    <p v-if="spec" class="max-w-full text-[10px] leading-snug text-gm-muted">{{ spec }}</p>
+    <p class="font-headline text-base font-extrabold leading-tight text-gm-deep">SLOT FOTO</p>
+    <p class="text-base font-bold leading-snug text-gm-ink">{{ label }}</p>
+    <p v-if="spec" class="max-w-full text-base leading-snug text-gm-muted">{{ spec }}</p>
   </div>
 </template>

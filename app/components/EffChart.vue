@@ -38,7 +38,7 @@ const heroFill = {
 }
 
 const option = {
-  grid: { left: 56, right: 24, top: 38, bottom: 40 },
+  grid: { left: 56, right: 16, top: 38, bottom: 36 },
   tooltip: {
     trigger: 'axis',
     valueFormatter: (v: number) => fmtPct(v),
@@ -54,16 +54,16 @@ const option = {
     type: 'value',
     max: 100,
     splitLine: { lineStyle: { color: '#eef1ec' } },
-    axisLabel: { fontSize: 14, color: '#3f4a3c', formatter: '{value}%' },
+    axisLabel: { fontSize: 16, color: '#3f4a3c', formatter: '{value}%' },
   },
   series: [
     {
       name: 'Hemat',
       type: 'bar',
       data: [42.8, 27.4, 25.0, '-'],
-      barWidth: '46%',
+      barWidth: '62%',
       barGap: '-100%',
-      barCategoryGap: '32%',
+      barCategoryGap: '24%',
       showBackground: true,
       backgroundStyle: { color: 'rgba(0,110,28,0.08)', borderRadius: [14, 14, 0, 0] },
       itemStyle: {
@@ -90,9 +90,9 @@ const option = {
       name: 'Hemat hero',
       type: 'bar',
       data: ['-', '-', '-', 88.9],
-      barWidth: '64%',
+      barWidth: '80%',
       barGap: '-100%',
-      barCategoryGap: '32%',
+      barCategoryGap: '24%',
       showBackground: true,
       backgroundStyle: { color: 'rgba(0,110,28,0.08)', borderRadius: [14, 14, 0, 0] },
       itemStyle: {
@@ -124,7 +124,7 @@ const option = {
       symbolPosition: 'end',
       symbolOffset: [0, -4],
       symbolSize: (val: number, params: { dataIndex: number }) =>
-        params.dataIndex === 3 ? [58, 12] : [38, 9],
+        params.dataIndex === 3 ? [70, 14] : [48, 11],
       itemStyle: { color: '#bfe6c8', shadowBlur: 6, shadowColor: 'rgba(0,110,28,0.15)' },
       tooltip: { show: false },
       animationDuration: 1300,
@@ -137,12 +137,12 @@ const option = {
     {
       query: { maxWidth: 640 },
       option: {
-        grid: { left: 36, right: 12, top: 32, bottom: 36 },
-        xAxis: { axisLabel: { fontSize: 11 } },
-        yAxis: { axisLabel: { fontSize: 11 } },
+        grid: { left: 44, right: 12, top: 30, bottom: 32 },
+        xAxis: { axisLabel: { fontSize: 16 } },
+        yAxis: { axisLabel: { fontSize: 16 } },
         series: [
-          { barWidth: '50%', label: { fontSize: 11 } },
-          { barWidth: '70%', label: { fontSize: 13 } },
+          { barWidth: '62%', label: { fontSize: 16 } },
+          { barWidth: '80%', label: { fontSize: 16 } },
           {},
         ],
       },
@@ -191,7 +191,7 @@ onBeforeUnmount(() => {
   <ClientOnly>
     <VChart ref="chartRef" :option="option" autoresize class="h-full w-full" />
     <template #fallback>
-      <div class="grid h-full place-items-center text-[16px] text-gm-muted">Memuat grafik…</div>
+      <div class="grid h-full place-items-center text-left text-base text-gm-muted">Memuat grafik…</div>
     </template>
   </ClientOnly>
 </template>

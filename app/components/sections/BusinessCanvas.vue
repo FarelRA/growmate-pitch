@@ -22,14 +22,14 @@ const topCells: Cell[] = [
     icon: 'lucide:truck',
     hue: 'sky',
     items: [
-      'Pemasok komponen elektronik dan sensor IoT',
-      'Pemasok kemasan ramah lingkungan',
-      'Penyedia cloud dan API AI',
-      'DKPP Kab. Bantul',
-      'DKUMPP Kab. Bantul',
-      'Balai Tekkomdik DIY',
-      'Komunitas tech farmer',
-      'Mitra ritel dan distributor',
+      'Komponen IoT',
+      'Kemasan hijau',
+      'Cloud dan AI',
+      'DKPP Bantul',
+      'DKUMPP Bantul',
+      'Tekkomdik DIY',
+      'Petani teknologi',
+      'Ritel distributor',
     ],
     place: 'md:col-start-1 md:row-start-1 md:row-span-2',
   },
@@ -39,7 +39,7 @@ const topCells: Cell[] = [
     sub: 'Key Activities',
     icon: 'lucide:factory',
     hue: 'amber',
-    items: ['Riset dan pengembangan', 'Produksi dan perakitan', 'Pemasaran dan edukasi', 'Perawatan web'],
+    items: ['Riset produk', 'Produksi', 'Edukasi pasar', 'Perawatan web'],
     place: 'md:col-start-2 md:row-start-1',
   },
   {
@@ -48,7 +48,7 @@ const topCells: Cell[] = [
     sub: 'Key Resources',
     icon: 'lucide:cpu',
     hue: 'deep',
-    items: ['Modal', 'Dataset pertanian', 'Tenaga kompeten', 'Web GrowMate', 'Peralatan'],
+    items: ['Modal', 'Data tani', 'Tim ahli', 'Web GrowMate', 'Alat kerja'],
     place: 'md:col-start-2 md:row-start-2',
   },
   {
@@ -59,12 +59,12 @@ const topCells: Cell[] = [
     hero: true,
     hue: 'brand',
     items: [
-      'AI agen',
-      'Perawatan otomatis',
-      'Pemantauan cerdas',
-      'Fleksibilitas kustom',
-      'Komunitas terintegrasi',
-      'Harga terjangkau',
+      'Agen AI',
+      'Rawat otomatis',
+      'Pantau cerdas',
+      'Kustom fleksibel',
+      'Komunitas aktif',
+      'Harga hemat',
     ],
     place: 'md:col-start-3 md:row-start-1 md:row-span-2',
   },
@@ -75,11 +75,11 @@ const topCells: Cell[] = [
     icon: 'lucide:heart-handshake',
     hue: 'sky',
     items: [
-      'Interaksi AI agen',
+      'AI interaktif',
       'Komunitas GrowMate',
-      'Garansi 3 bulan ganti baru',
+      'Garansi ganti baru',
       'Konsultasi daring',
-      'Purnajual',
+      'Layan purnajual',
     ],
     place: 'md:col-start-4 md:row-start-1',
   },
@@ -89,7 +89,7 @@ const topCells: Cell[] = [
     sub: 'Channels',
     icon: 'lucide:store',
     hue: 'amber',
-    items: ['Daring Shopee dan website', 'Luring ritel, distributor, hotel, kafe, kantor'],
+    items: ['Shopee dan web', 'Luring mitra usaha'],
     place: 'md:col-start-4 md:row-start-2',
   },
   {
@@ -98,7 +98,7 @@ const topCells: Cell[] = [
     sub: 'Customer Segments',
     icon: 'lucide:users',
     hue: 'deep',
-    items: ['Tech farmer', 'Pengembang properti dan perkantoran'],
+    items: ['Petani teknologi', 'Properti kantor'],
     place: 'md:col-start-5 md:row-start-1 md:row-span-2',
   },
 ]
@@ -119,7 +119,7 @@ const bottomCells: Cell[] = [
     sub: 'Revenue Streams',
     icon: 'lucide:banknote',
     hue: 'amber',
-    items: ['Penjualan Pods', 'Penjualan Tech', 'Langganan AI'],
+    items: ['Jual Pods', 'Jual Tech', 'Langganan AI'],
     place: '',
   },
 ]
@@ -148,7 +148,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="bmc">
-    <div ref="root" class="relative w-full overflow-hidden rounded-2xl bg-gm-cream p-2 sm:p-3 md:p-3">
+    <div ref="root" class="relative w-full overflow-hidden rounded-2xl bg-gm-cream p-2 text-left md:p-2">
       <svg aria-hidden="true" class="pointer-events-none absolute inset-0 size-full" viewBox="0 0 1000 600" preserveAspectRatio="none">
         <g fill="none" stroke="#e5e8e3" stroke-width="2" opacity="0.55">
           <path d="M -20 120 C 220 100, 420 150, 700 120 S 950 140, 1030 120" />
@@ -161,13 +161,13 @@ onUnmounted(() => ctx?.revert())
         </g>
       </svg>
 
-      <div class="relative grid w-full grid-cols-1 content-center gap-1.5 md:grid-cols-5 md:gap-2">
+      <div class="relative grid w-full grid-cols-1 content-center gap-1 md:grid-cols-5 md:gap-1">
         <div v-for="(c, i) in topCells" :key="c.id" class="min-w-0" :class="c.place">
           <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hero="c.hero" :hue="c.hue" :index="i" />
         </div>
       </div>
 
-      <div class="relative mt-1.5 grid w-full grid-cols-1 gap-1.5 md:mt-2 md:grid-cols-2 md:gap-2">
+      <div class="relative mt-1 grid w-full grid-cols-1 gap-1 md:mt-1 md:grid-cols-2 md:gap-1">
         <div v-for="(c, i) in bottomCells" :key="c.id" class="min-w-0">
           <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hue="c.hue" :index="topCells.length + i" />
         </div>

@@ -64,39 +64,39 @@ const tileShadow
       <path d="M216 91v10M211 96h10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
     </svg>
 
-    <div class="relative flex min-w-0 items-center gap-2">
+    <div class="relative flex min-w-0 items-center gap-2.5 text-left">
       <span
-        class="plot-tile plot-float relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-2xl"
+        class="plot-tile plot-float relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-xl"
         :class="tileBg"
         :style="{ boxShadow: tileShadow, animationDelay: floatDelay }"
       >
         <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-white/30 via-white/0 to-black/25" />
-        <Icon :name="icon" class="relative size-4 text-white drop-shadow-sm md:size-[18px]" />
+        <Icon :name="icon" class="relative size-5 text-white drop-shadow-sm" />
       </span>
-      <div class="min-w-0">
+      <div class="min-w-0 text-left">
         <h3
-          class="font-headline text-[11px] font-extrabold uppercase leading-tight tracking-wide md:text-xs"
+          class="text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide"
           :class="hero ? 'text-white' : 'text-gm-primary'"
         >
           {{ title }}
         </h3>
         <p
           v-if="sub"
-          class="text-[9px] font-bold uppercase leading-tight tracking-[0.14em]"
+          class="text-left text-base font-bold uppercase leading-tight tracking-wide"
           :class="hero ? 'text-white/75' : 'text-gm-primary/60'"
         >
           {{ sub }}
         </p>
       </div>
     </div>
-    <ul class="relative mt-1.5 space-y-1">
+    <ul class="relative mt-1.5 space-y-0 text-left">
       <li
         v-for="item in items"
         :key="item"
-        class="flex items-start gap-1.5 text-[11px] leading-snug"
+        class="flex items-start gap-1.5 text-left text-base leading-tight"
         :class="hero ? 'text-white/95' : 'text-gm-ink'"
       >
-        <span aria-hidden="true" class="mt-[5px] size-1.5 shrink-0 rounded-full" :class="dotBg" />
+        <span aria-hidden="true" class="mt-[7px] size-1.5 shrink-0 rounded-full" :class="dotBg" />
         <span class="min-w-0 break-words">{{ item }}</span>
       </li>
     </ul>

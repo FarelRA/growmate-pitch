@@ -13,8 +13,8 @@ const frames = [
   {
     no: 'Estafet 1',
     icon: 'lucide:sprout',
-    title: 'Regenerasi tech farmer',
-    desc: 'Mentor AI membimbing anak muda mengambil keputusan berbasis data. Minat bertani kembali tumbuh.',
+    title: 'Regenerasi petani teknologi',
+    desc: 'Mentor AI membimbing anak muda bertani dengan data.',
     halo: true,
     leaf: false,
   },
@@ -22,7 +22,7 @@ const frames = [
     no: 'Estafet 2',
     icon: 'lucide:handshake',
     title: 'Transfer antargenerasi',
-    desc: 'Komunitas GrowMate menjadi wadah tukar pengetahuan petani senior dan junior.',
+    desc: 'Komunitas GrowMate mempertemukan petani senior dan junior.',
     halo: false,
     leaf: false,
   },
@@ -30,7 +30,7 @@ const frames = [
     no: 'Estafet 3',
     icon: 'lucide:timer',
     title: 'Biaya operasional turun',
-    desc: 'Waktu rawat 45 menit menjadi 5 menit sehari. Air dan pupuk tepat sasaran tanpa boros.',
+    desc: 'Rawat 45 menit menjadi 5 menit. Air dan pupuk tepat sasaran.',
     halo: false,
     leaf: true,
   },
@@ -72,9 +72,9 @@ const frames = [
 
       <DeckSplitPanel class="sosial-split relative z-10">
         <template #primary>
-          <div class="relative min-w-0 pl-8 text-left md:pl-11">
+          <div class="relative min-w-0 pl-8 text-left md:pl-10">
             <SosialVine />
-            <div class="relative z-10 flex w-full flex-col justify-center gap-2 md:gap-2.5">
+            <div class="relative z-10 flex w-full flex-col justify-center gap-2.5">
               <Motion
                 v-for="(f, i) in frames"
                 :key="f.title"
@@ -83,26 +83,26 @@ const frames = [
                 :transition="spring(0.12 + i * 0.12)"
                 class="w-full"
               >
-                <article class="flex w-full items-start justify-start gap-2.5 rounded-2xl border-2 border-gm-line bg-white p-2.5 text-left md:p-3">
-                  <span class="relative grid size-10 shrink-0 place-items-center rounded-xl bg-gm-mist md:size-11">
-                    <Icon :name="f.icon" class="size-5 text-gm-primary md:size-6" />
+                <article class="flex w-full items-start justify-start gap-3 rounded-2xl border-2 border-gm-line bg-white p-4 text-left">
+                  <span class="relative grid size-11 shrink-0 place-items-center rounded-xl bg-gm-mist lg:size-12">
+                    <Icon :name="f.icon" class="size-6 text-gm-primary lg:size-7" />
                     <span
                       v-if="f.halo"
-                      class="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-gm-ink ring-2 ring-gm-soft/60"
+                      class="absolute -right-1 -top-1 grid size-6 place-items-center rounded-full bg-gm-ink ring-2 ring-gm-soft/60"
                     >
-                      <Icon name="lucide:sparkles" class="size-3 text-emerald-300" />
+                      <Icon name="lucide:sparkles" class="size-3.5 text-emerald-300" />
                     </span>
                     <span
                       v-if="f.leaf"
-                      class="absolute -bottom-1 -right-1 grid size-5 place-items-center rounded-full bg-gm-primary ring-2 ring-white"
+                      class="absolute -bottom-1 -right-1 grid size-6 place-items-center rounded-full bg-gm-primary ring-2 ring-white"
                     >
-                      <Icon name="lucide:leaf" class="size-3 text-white" />
+                      <Icon name="lucide:leaf" class="size-3.5 text-white" />
                     </span>
                   </span>
                   <span class="min-w-0 text-left">
-                    <span class="inline-block rounded-full bg-gm-mist px-2 py-0.5 font-headline text-[10px] font-extrabold uppercase tracking-wide text-gm-deep md:text-[11px]">{{ f.no }}</span>
-                    <span class="mt-1 block font-headline text-sm font-extrabold leading-tight text-gm-ink md:text-base">{{ f.title }}</span>
-                    <span class="mt-0.5 block text-xs leading-snug text-gm-muted md:text-[13px]">{{ f.desc }}</span>
+                    <span class="inline-block rounded-full bg-gm-mist px-2.5 py-0.5 font-headline text-base font-extrabold uppercase tracking-wide text-gm-deep">{{ f.no }}</span>
+                    <span class="mt-1 block font-headline text-base font-extrabold leading-tight text-gm-ink lg:text-lg">{{ f.title }}</span>
+                    <span class="mt-1 block text-base leading-snug text-gm-muted">{{ f.desc }}</span>
                   </span>
                 </article>
               </Motion>
@@ -111,14 +111,14 @@ const frames = [
         </template>
 
         <template #secondary>
-          <div class="flex min-w-0 flex-col text-left">
-            <UiPhotoFigure src="/photos/farmer.webp" alt="Petani mitra memegang unit GrowMate Tech di lapangan" ratio="21 / 10" />
-            <div class="mt-2 px-1">
+          <div class="flex w-full min-w-0 max-w-[390px] flex-col text-left 2xl:max-w-[560px]">
+            <UiPhotoFigure src="/photos/farmer.webp" alt="Petani mitra memegang unit GrowMate Tech di lapangan" ratio="4 / 3" />
+            <div class="mt-2 px-0.5">
               <SosialTimer />
             </div>
-            <div class="mt-2 flex items-center justify-start gap-2 rounded-2xl bg-gm-primary px-3 py-2 text-left text-white">
-              <Icon name="lucide:badge-check" class="size-5 shrink-0" />
-              <p class="font-headline text-sm font-extrabold leading-tight md:text-base">8 testimoni resmi terdokumentasi</p>
+            <div class="mt-2 flex items-center justify-start gap-2.5 rounded-2xl bg-gm-primary px-4 py-2.5 text-left text-white">
+              <Icon name="lucide:badge-check" class="size-6 shrink-0 lg:size-7" />
+              <p class="font-headline text-base font-extrabold leading-tight lg:text-lg">8 testimoni resmi terdokumentasi</p>
             </div>
           </div>
         </template>

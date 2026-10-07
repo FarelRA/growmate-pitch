@@ -9,29 +9,29 @@ const nodes = [
 </script>
 
 <template>
-  <div class="w-full rounded-3xl border-2 border-gm-line bg-white p-2 text-left md:p-2.5">
-    <div class="flex items-center justify-start gap-2">
-      <span class="grid size-7 shrink-0 place-items-center rounded-lg bg-gm-mist">
-        <Icon name="lucide:satellite" class="size-4 text-gm-primary" />
+  <div class="w-full rounded-3xl border-2 border-gm-line bg-white p-2 text-left">
+    <div class="flex items-center justify-start gap-2 text-left">
+      <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist">
+        <Icon name="lucide:satellite" class="size-5 text-gm-primary" />
       </span>
-      <p class="font-headline text-xs font-extrabold uppercase tracking-[0.08em] text-gm-primary md:text-sm">
+      <p class="font-headline text-lg font-extrabold uppercase tracking-[0.08em] text-gm-primary">
         Penemuan daring
       </p>
       <span class="ml-auto flex shrink-0 items-center gap-1.5">
-        <span class="anim-pulse-dot size-1.5 rounded-full bg-gm-amber" aria-hidden="true" />
-        <span class="text-[11px] font-semibold text-gm-muted">sinyal aktif</span>
+        <span class="anim-pulse-dot size-2 rounded-full bg-gm-amber" aria-hidden="true" />
+        <span class="text-base font-semibold text-gm-muted">sinyal aktif</span>
       </span>
     </div>
-    <div class="relative mt-1.5">
-      <div class="absolute left-[10%] right-[10%] top-4 h-0.5 rounded-full bg-gm-amber/50" aria-hidden="true" />
-      <div class="grid grid-cols-5 gap-1 md:gap-1.5">
-        <div v-for="n in nodes" :key="n.handle" class="gtm-orbit-node flex min-w-0 flex-col items-center gap-1 text-center">
+    <div class="relative mt-1">
+      <div class="absolute left-[10%] right-[10%] top-[16px] h-0.5 rounded-full bg-gm-amber/50" aria-hidden="true" />
+      <div class="grid grid-cols-5 gap-1">
+        <div v-for="n in nodes" :key="n.handle" class="gtm-orbit-node flex min-w-0 flex-col items-center gap-0.5 text-center">
           <span class="relative z-10 grid size-8 shrink-0 place-items-center rounded-full bg-gm-ink ring-4 ring-white">
-            <Icon :name="n.icon" class="size-4 text-gm-amber" />
+            <Icon :name="n.icon" class="size-5 text-gm-amber" />
           </span>
           <span class="min-w-0">
-            <span class="block text-[11px] font-extrabold leading-tight text-gm-ink">{{ n.name }}</span>
-            <span class="block break-all text-[10px] font-medium leading-tight text-gm-muted md:text-[11px]">{{ n.handle }}</span>
+            <span class="block text-base font-extrabold leading-none text-gm-ink">{{ n.name }}</span>
+            <span class="block break-all text-base font-medium leading-none text-gm-muted">{{ n.handle }}</span>
           </span>
         </div>
       </div>

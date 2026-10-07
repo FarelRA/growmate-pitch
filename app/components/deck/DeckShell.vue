@@ -33,8 +33,8 @@ const meta = computed(() => SECTIONS.find(s => s.id === props.section)!)
       </p>
     </div>
 
-    <div class="mx-auto mt-3 grid w-full flex-1 place-items-center md:mt-4">
-      <div class="w-full">
+    <div class="mx-auto mt-3 grid w-full flex-1 place-items-stretch md:mt-4">
+      <div class="flex h-full w-full min-w-0 flex-col">
         <slot />
       </div>
     </div>

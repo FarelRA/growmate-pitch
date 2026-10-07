@@ -72,11 +72,11 @@ onMounted(() => {
 
 <template>
   <Motion :whileHover="{ y: -6 }" :transition="{ duration: 0.25, ease: 'easeOut' }" class="h-full">
-    <article class="relative flex h-full flex-col overflow-hidden rounded-3xl border-2 p-3 text-left" :class="cardClass">
-      <span aria-hidden="true" class="pointer-events-none absolute -top-3 right-1 select-none font-headline text-[64px] font-extrabold leading-none md:text-[72px]" :class="numeralClass">{{ num }}</span>
+    <article class="relative flex h-full flex-col overflow-hidden rounded-3xl border-2 p-4 text-left md:p-5" :class="cardClass">
+      <span aria-hidden="true" class="pointer-events-none absolute -top-3 right-1 select-none font-headline text-[56px] font-extrabold leading-none md:text-[64px]" :class="numeralClass">{{ num }}</span>
 
-      <div class="relative flex items-center gap-2">
-        <span class="relative grid size-10 shrink-0 place-items-center overflow-hidden rounded-2xl" :class="iconWrapClass">
+      <div class="relative flex items-center gap-2.5">
+        <span class="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-2xl" :class="iconWrapClass">
           <svg v-if="variant === 'ink'" viewBox="0 0 40 40" fill="none" class="usp-wheel absolute inset-0 size-full" aria-hidden="true">
             <circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-opacity="0.5" stroke-width="2.4" stroke-dasharray="4.7 3.4" />
             <circle cx="20" cy="20" r="9.5" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" />
@@ -100,24 +100,24 @@ onMounted(() => {
             </g>
             <circle cx="77" cy="22" r="1.4" fill="currentColor" stroke="none" />
           </svg>
-          <Icon :name="heroIcon" class="anim-float relative size-5" :class="heroIconColor" />
+          <Icon :name="heroIcon" class="anim-float relative size-7" :class="heroIconColor" />
         </span>
         <div class="relative min-w-0">
-          <p class="font-headline text-[10px] font-extrabold uppercase tracking-[0.08em] opacity-70 md:text-[11px]">{{ eyebrow }}</p>
-          <h3 class="truncate font-headline text-sm font-extrabold md:text-base">{{ title }}</h3>
+          <p class="font-headline text-base font-extrabold uppercase tracking-[0.08em] opacity-70">{{ eyebrow }}</p>
+          <h3 class="truncate font-headline text-lg font-extrabold">{{ title }}</h3>
         </div>
       </div>
 
-      <div class="relative mt-2">
+      <div class="relative mt-2.5 flex-1">
         <UiPhotoSlot v-if="slotLabel" ratio="16 / 10" :label="slotLabel" :spec="slotSpec" />
         <UiPhotoFigure v-else :src="src" :alt="alt" ratio="16 / 10" />
       </div>
 
-      <p class="relative mt-2 text-xs leading-snug md:text-[13px]" :class="variant === 'ink' ? 'text-white/80' : 'text-gm-muted'">{{ desc }}</p>
+      <p class="relative mt-2.5 text-base leading-snug" :class="variant === 'ink' ? 'text-white/80' : 'text-gm-muted'">{{ desc }}</p>
 
-      <div class="relative mt-auto pt-2">
-        <div class="flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 font-headline text-xs font-extrabold md:text-[13px]" :class="proofClass">
-          <Icon name="lucide:badge-check" class="size-4 shrink-0" :class="variant === 'amber' ? 'text-gm-amber' : variant === 'mist' ? 'text-gm-primary' : 'text-emerald-300'" />
+      <div class="relative mt-auto pt-2.5">
+        <div class="flex items-center gap-2.5 rounded-xl px-4 py-2.5 font-headline text-base font-extrabold" :class="proofClass">
+          <Icon name="lucide:badge-check" class="size-6 shrink-0" :class="variant === 'amber' ? 'text-gm-amber' : variant === 'mist' ? 'text-gm-primary' : 'text-emerald-300'" />
           <span v-if="countTo > 0" class="truncate"><span class="tabular-nums">{{ shown }}</span> {{ proofSub }}</span>
           <span v-else class="truncate">{{ proofMain }}</span>
         </div>

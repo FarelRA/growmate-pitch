@@ -25,13 +25,13 @@ const option = computed(() => ({
       center: ['50%', '88%'],
       progress: {
         show: true,
-        width: 12,
+        width: 14,
         roundCap: true,
         itemStyle: { color: '#006e1c' },
       },
       axisLine: {
         roundCap: true,
-        lineStyle: { width: 12, color: [[1, '#e9f4ea']] },
+        lineStyle: { width: 14, color: [[1, '#e9f4ea']] },
       },
       pointer: { show: false },
       axisTick: { show: false },
@@ -55,19 +55,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex w-full flex-col text-center">
+  <div class="flex w-full flex-col text-left">
     <div class="relative w-full">
       <ClientOnly>
-        <VChart :option="option" autoresize class="h-[104px] w-full" />
+        <VChart :option="option" autoresize class="h-[124px] w-full lg:h-[136px]" />
         <template #fallback>
-          <div class="grid h-[104px] w-full place-items-center text-[11px] text-gm-muted">Memuat skor…</div>
+          <div class="grid h-[124px] w-full place-items-center text-base text-gm-muted lg:h-[136px]">Memuat skor…</div>
         </template>
       </ClientOnly>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 text-center">
-        <span class="font-headline text-xl font-extrabold tabular-nums text-gm-primary md:text-2xl">{{ shown }}</span><span class="font-headline text-xs font-bold tabular-nums text-gm-muted">/{{ max }}</span>
+        <span class="font-headline text-3xl font-extrabold tabular-nums text-gm-primary">{{ shown }}</span><span class="font-headline text-xl font-bold tabular-nums text-gm-muted">/{{ max }}</span>
       </div>
     </div>
-    <p class="mt-0.5 font-headline text-xs font-extrabold uppercase tracking-wide text-gm-ink md:text-sm">{{ label }}</p>
-    <p class="text-[11px] leading-snug text-gm-muted">{{ caption }}</p>
+    <p class="mt-1 text-left font-headline text-base font-extrabold uppercase tracking-wide text-gm-ink">{{ label }}</p>
+    <p class="text-left text-base leading-snug text-gm-muted">{{ caption }}</p>
   </div>
 </template>

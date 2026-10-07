@@ -10,7 +10,7 @@ const props = withDefaults(
 const stampRef = ref<HTMLElement | null>(null)
 let tl: ReturnType<typeof gsap.timeline> | null = null
 
-const boxClass = computed(() => (props.size === 'sm' ? 'size-20' : 'size-24 md:size-28'))
+const boxClass = computed(() => (props.size === 'sm' ? 'size-24' : 'size-28 md:size-32'))
 
 const checks = [
   { x: 64, y: 0 },
@@ -57,8 +57,8 @@ onUnmounted(() => {
           stroke-width="2.5"
           stroke-linejoin="round"
         />
-        <text x="60" y="80" text-anchor="middle" font-size="15.5" font-weight="800" fill="#006e1c" letter-spacing="1.5" font-family="Manrope, sans-serif">LULUS UJI</text>
-        <text x="60" y="93" text-anchor="middle" font-size="8" font-weight="700" fill="#006e1c" letter-spacing="2.5" font-family="Manrope, sans-serif">DKPP BANTUL</text>
+        <text x="60" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#006e1c" letter-spacing="0.5" font-family="Manrope, sans-serif" textLength="76" lengthAdjust="spacingAndGlyphs">LULUS UJI</text>
+        <text x="60" y="94" text-anchor="middle" font-size="16" font-weight="700" fill="#006e1c" letter-spacing="0.5" font-family="Manrope, sans-serif" textLength="76" lengthAdjust="spacingAndGlyphs">DKPP BANTUL</text>
       </svg>
     </div>
     <template v-if="burst">
@@ -68,9 +68,9 @@ onUnmounted(() => {
         :initial="{ opacity: 0, scale: 0, x: 0, y: 0 }"
         :animate="{ opacity: 1, scale: 1, x: c.x, y: c.y }"
         :transition="{ duration: 0.45, delay: 0.9 + i * 0.06, ease: [0.22, 1, 0.36, 1] }"
-        class="absolute left-1/2 top-1/2 grid size-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gm-primary text-white shadow-md"
+        class="absolute left-1/2 top-1/2 grid size-6 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gm-primary text-white shadow-md"
       >
-        <Icon name="lucide:check" class="size-3" />
+        <Icon name="lucide:check" class="size-4" />
       </Motion>
     </template>
   </div>

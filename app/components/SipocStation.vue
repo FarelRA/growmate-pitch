@@ -14,11 +14,11 @@ defineProps<{
 
 <template>
   <article
-    class="sipoc-station relative flex h-full min-w-0 flex-1 flex-col overflow-hidden rounded-2xl border-2 p-1.5 text-left md:p-2"
+    class="sipoc-station relative flex h-full min-w-0 flex-1 flex-col justify-between overflow-hidden rounded-2xl border-2 p-3 text-left lg:p-4"
     :class="hero ? 'border-gm-primary bg-gm-primary text-white shadow-md' : 'border-gm-line bg-white'"
   >
     <div
-      class="sipoc-scene relative mb-1 h-10 w-full shrink-0 overflow-hidden rounded-xl border"
+      class="sipoc-scene relative mb-2 h-12 w-full shrink-0 overflow-hidden rounded-xl border lg:h-14"
       :class="hero ? 'hot border-white/25 bg-white/10' : 'border-gm-line bg-gm-panel'"
       aria-hidden="true"
     >
@@ -104,29 +104,29 @@ defineProps<{
         <i class="s1" />
       </span>
     </div>
-    <div class="relative flex items-center justify-start gap-1.5">
-      <span class="grid size-7 shrink-0 place-items-center rounded-full" :class="hero ? 'bg-white/15' : 'bg-gm-mist'">
-        <Icon :name="icon" class="size-3.5 md:size-4" :class="hero ? 'text-white' : 'text-gm-primary'" aria-hidden="true" />
+    <div class="relative flex items-center justify-start gap-2.5">
+      <span class="grid size-10 shrink-0 place-items-center rounded-full lg:size-11" :class="hero ? 'bg-white/15' : 'bg-gm-mist'">
+        <Icon :name="icon" class="size-6" :class="hero ? 'text-white' : 'text-gm-primary'" aria-hidden="true" />
       </span>
       <h3
-        class="font-headline text-[11px] font-extrabold uppercase tracking-wide md:text-xs"
+        class="font-headline text-base font-extrabold uppercase tracking-wide"
         :class="hero ? 'text-white' : 'text-gm-primary'"
       >
         {{ title }}
       </h3>
     </div>
     <ul
-      class="relative mt-1 space-y-0.5 border-t pt-1"
+      class="relative mt-2 space-y-1 border-t pt-2"
       :class="hero ? 'border-white/20' : 'border-gm-line'"
     >
       <li
         v-for="it in items"
         :key="it"
-        class="flex items-start justify-start gap-1.5 text-left text-[11px] leading-snug md:text-xs"
+        class="flex items-start justify-start gap-1.5 text-left text-base leading-tight"
         :class="hero ? 'text-white/90' : 'text-gm-ink'"
       >
         <span
-          class="mt-1.5 size-1 shrink-0 rounded-full"
+          class="mt-2 size-1.5 shrink-0 rounded-full"
           :class="hero ? 'bg-white/70' : 'bg-gm-soft'"
           aria-hidden="true"
         />
@@ -138,14 +138,14 @@ defineProps<{
       :src="src"
       :alt="alt ?? title"
       ratio="16 / 10"
-      class="sipoc-slot mb-0 mt-auto pt-0"
+      class="sipoc-slot mb-0 mt-auto pt-2"
     />
     <UiPhotoSlot
       v-else-if="slotLabel"
       ratio="16 / 10"
       :label="slotLabel"
       :spec="slotSpec"
-      class="sipoc-slot mb-0 mt-auto pt-0"
+      class="sipoc-slot mb-0 mt-auto pt-2"
     />
   </article>
 </template>
@@ -174,21 +174,21 @@ defineProps<{
   transform: translateY(2px);
 }
 :deep(.sipoc-slot) {
-  padding: 0.375rem;
-  gap: 0.125rem;
+  padding: 0.5rem;
+  gap: 0.375rem;
   border-radius: 0.75rem;
-  margin-top: 0.375rem;
+  margin-top: 0.5rem;
 }
 :deep(.sipoc-slot p) {
   line-height: 1.25;
 }
 :deep(.sipoc-slot .size-8) {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 :deep(.sipoc-slot .size-4) {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .sipoc-gear-a,
 .sipoc-gear-b {

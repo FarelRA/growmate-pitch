@@ -26,7 +26,7 @@ onMounted(async () => {
     </div>
     <div class="min-w-0 flex-1">
       <div class="font-headline text-lg font-extrabold leading-tight text-gm-ink md:text-xl">{{ label }}</div>
-      <div class="mt-1 truncate font-mono text-xs text-gm-muted md:text-sm">{{ sub ?? text }}</div>
+      <div class="mt-1 truncate font-mono text-base text-gm-muted">{{ sub ?? text }}</div>
     </div>
   </div>
 </template>

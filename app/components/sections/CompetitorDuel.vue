@@ -93,69 +93,69 @@ onUnmounted(() => ctx?.revert())
           <DuelArena class="w-full" />
         </template>
         <template #secondary>
-          <div class="flex w-full flex-col text-left">
-            <div class="relative w-full px-3 pb-1 pt-3 md:px-4 md:pt-4">
-              <span aria-hidden="true" class="absolute left-0 top-0 h-7 w-7 rounded-tl-xl border-l-4 border-t-4 border-gm-primary" />
-              <span aria-hidden="true" class="absolute right-0 top-0 h-7 w-7 rounded-tr-xl border-r-4 border-t-4 border-gm-primary" />
-              <span aria-hidden="true" class="absolute bottom-0 left-0 h-7 w-7 rounded-bl-xl border-b-4 border-l-4 border-gm-primary" />
-              <span aria-hidden="true" class="absolute bottom-0 right-0 h-7 w-7 rounded-br-xl border-b-4 border-r-4 border-gm-primary" />
+          <div class="flex h-full w-full flex-col justify-between text-left">
+            <div class="relative w-full">
+              <span aria-hidden="true" class="absolute left-0 top-0 h-5 w-5 rounded-tl-xl border-l-4 border-t-4 border-gm-primary" />
+              <span aria-hidden="true" class="absolute right-0 top-0 h-5 w-5 rounded-tr-xl border-r-4 border-t-4 border-gm-primary" />
+              <span aria-hidden="true" class="absolute bottom-0 left-0 h-5 w-5 rounded-bl-xl border-b-4 border-l-4 border-gm-primary" />
+              <span aria-hidden="true" class="absolute bottom-0 right-0 h-5 w-5 rounded-br-xl border-b-4 border-r-4 border-gm-primary" />
               <UiPhotoFigure
                 src="/photos/tech-field.webp"
                 alt="Perangkat GrowMate Tech terpasang di sawah"
-                ratio="16 / 7"
+                ratio="16 / 9"
               />
             </div>
-            <UiCalloutBanner icon="lucide:crown" tone="brand" class="mt-2 md:mt-2.5">
-              AI Agen, komunitas, dan marketplace: hanya ada di GrowMate.
+            <UiCalloutBanner icon="lucide:crown" tone="brand" class="banner-fix mt-1">
+              AI Agen, komunitas, marketplace: hanya di GrowMate.
             </UiCalloutBanner>
           </div>
         </template>
       </DeckSplitPanel>
 
-      <div class="price-round mt-2 w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-2 text-left md:mt-2.5 md:p-2.5">
-        <div class="flex items-center justify-between gap-2">
-          <p class="font-headline text-[10px] font-extrabold uppercase tracking-[0.14em] text-gm-muted md:text-[11px]">
+      <div class="price-round mt-1 w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-1.5 text-left">
+        <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
+          <p class="min-w-0 truncate font-headline text-base font-extrabold uppercase tracking-[0.14em] text-gm-muted">
             Ronde 2 • Kartu harga dan fitur
           </p>
-          <p class="shrink-0 text-[10px] text-gm-muted md:text-[11px]">
+          <p class="shrink-0 text-base text-gm-muted">
             6 fitur penentu pilihan
           </p>
         </div>
-        <div class="mt-1.5 grid grid-cols-1 gap-1.5 md:mt-2 md:grid-cols-3 md:gap-2">
+        <div class="mt-1 grid grid-cols-1 gap-1.5 md:grid-cols-3">
           <article
             v-for="c in cards"
             :key="c.name"
-            class="price-card rounded-2xl border-2 p-2 text-left md:p-2.5"
+            class="price-card rounded-2xl border-2 p-1.5 text-left"
             :class="c.hero ? 'border-gm-primary/50 bg-gm-mist' : 'border-gm-line bg-white'"
           >
             <div class="flex flex-wrap items-center gap-1.5">
-              <span aria-hidden="true" class="size-2 shrink-0 rounded-full" :class="c.hero ? 'bg-gm-primary' : 'bg-gm-muted'" />
+              <span aria-hidden="true" class="size-2.5 shrink-0 rounded-full" :class="c.hero ? 'bg-gm-primary' : 'bg-gm-muted'" />
               <p
-                class="min-w-0 flex-1 truncate font-headline text-xs font-extrabold uppercase tracking-wide md:text-sm"
+                class="min-w-0 flex-1 break-words font-headline text-base font-extrabold uppercase tracking-wide"
                 :class="c.hero ? 'text-gm-primary' : 'text-gm-ink'"
               >
                 {{ c.name }}
               </p>
               <BrandMark :brand="c.brand" />
               <span
-                class="shrink-0 rounded-full px-1.5 py-px font-headline text-[9px] font-extrabold tabular-nums md:text-[10px]"
+                class="shrink-0 rounded-full px-2.5 py-0.5 font-headline text-base font-extrabold tabular-nums"
                 :class="c.hero ? 'bg-gm-primary text-white' : 'border border-gm-line bg-gm-panel text-gm-muted'"
               >
                 {{ c.score }}
               </span>
             </div>
-            <p class="mt-0.5 truncate text-[10px] leading-snug text-gm-muted md:text-[11px]">
+            <p class="truncate text-base leading-tight text-gm-muted">
               {{ c.tag }} • {{ c.price }}
             </p>
-            <ul class="mt-1.5 grid grid-cols-2 gap-x-2 gap-y-1">
-              <li v-for="f in c.cells" :key="f.label" class="flex min-w-0 items-center gap-1">
+            <ul class="mt-1 grid grid-cols-2 gap-x-2 gap-y-0.5">
+              <li v-for="f in c.cells" :key="f.label" class="flex min-w-0 items-center gap-1.5">
                 <Icon
                   :name="f.ok ? 'lucide:check' : 'lucide:x'"
-                  class="size-3.5 shrink-0"
+                  class="size-6 shrink-0"
                   :class="f.ok ? 'text-gm-primary' : 'text-red-500'"
                   aria-hidden="true"
                 />
-                <span class="truncate text-[10px] leading-tight md:text-[11px]" :class="f.ok ? 'text-gm-ink' : 'text-gm-muted'">
+                <span class="truncate text-base leading-none" :class="f.ok ? 'text-gm-ink' : 'text-gm-muted'">
                   {{ f.label }}
                 </span>
               </li>
@@ -166,3 +166,20 @@ onUnmounted(() => ctx?.revert())
     </div>
   </DeckShell>
 </template>
+
+<style scoped>
+:deep(.banner-fix) {
+  justify-content: flex-start !important;
+  text-align: left !important;
+  padding: 0.375rem 0.75rem !important;
+}
+:deep(.banner-fix svg) {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
+:deep(.banner-fix p) {
+  font-size: 1rem !important;
+  line-height: 1.4;
+  text-align: left !important;
+}
+</style>

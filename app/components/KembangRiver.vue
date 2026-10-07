@@ -47,7 +47,7 @@ onUnmounted(() => ctx?.revert())
 </script>
 
 <template>
-  <div ref="riverBox" class="w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-gm-panel px-3 pb-1 pt-2">
+  <div ref="riverBox" class="w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-gm-panel px-4 pb-1 pt-2">
     <svg
       viewBox="0 0 1200 112"
       class="block h-auto w-full"
@@ -56,41 +56,41 @@ onUnmounted(() => ctx?.revert())
       aria-label="Alur evolusi produk dari tahap satu ke tahap tiga"
     >
       <!-- Kabel jumper kusut di sekitar tahap satu -->
-      <g fill="none" stroke-linecap="round" stroke-width="3" opacity="0.85">
+      <g fill="none" stroke-linecap="round" stroke-width="4" opacity="0.85">
         <path d="M 112 86 C 150 50 180 86 220 40 C 245 18 275 26 296 50" stroke="#c0392b" />
         <path d="M 110 72 C 160 72 175 32 225 52 C 265 68 290 38 326 56" stroke="#b7791f" />
         <path d="M 120 94 C 160 86 190 28 240 44 C 280 58 296 82 336 74" stroke="#2471a3" />
       </g>
       <!-- Jejak PCB siku di bawah tahap dua -->
-      <g fill="none" stroke="#004d13" stroke-width="3">
+      <g fill="none" stroke="#004d13" stroke-width="4">
         <path d="M 600 62 L 600 86 L 660 86" />
         <path d="M 716 62 L 716 82 L 752 82" />
       </g>
       <g fill="#004d13">
-        <rect x="654" y="80" width="12" height="12" rx="2" />
-        <rect x="746" y="76" width="12" height="12" rx="2" />
-        <circle cx="628" cy="86" r="4" />
+        <rect x="653" y="79" width="14" height="14" rx="2" />
+        <rect x="745" y="75" width="14" height="14" rx="2" />
+        <circle cx="628" cy="86" r="5" />
       </g>
       <!-- Selang bening pembungkus dan air hijau di dalamnya -->
-      <path ref="casing" :d="RIVER_D" fill="none" stroke="#dfe6df" stroke-width="20" stroke-linecap="round" />
-      <path ref="water" id="kembang-flow" :d="RIVER_D" fill="none" stroke="#006e1c" stroke-width="7" stroke-linecap="round" class="anim-flow" />
+      <path ref="casing" :d="RIVER_D" fill="none" stroke="#dfe6df" stroke-width="26" stroke-linecap="round" />
+      <path ref="water" id="kembang-flow" :d="RIVER_D" fill="none" stroke="#006e1c" stroke-width="9" stroke-linecap="round" class="anim-flow" />
       <!-- Gelembung statis di tahap tiga -->
-      <g fill="#ffffff" stroke="#006e1c" stroke-width="2.5">
-        <circle cx="985" cy="42" r="6">
+      <g fill="#ffffff" stroke="#006e1c" stroke-width="3">
+        <circle cx="985" cy="42" r="8">
           <animate attributeName="cy" values="46;34;46" dur="3.2s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.55;1;0.55" dur="3.2s" repeatCount="indefinite" />
         </circle>
-        <circle cx="1052" cy="36" r="8">
+        <circle cx="1052" cy="36" r="10">
           <animate attributeName="cy" values="40;28;40" dur="4s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.55;1;0.55" dur="4s" repeatCount="indefinite" />
         </circle>
-        <circle cx="1122" cy="44" r="5">
+        <circle cx="1122" cy="44" r="7">
           <animate attributeName="cy" values="48;38;48" dur="2.6s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.55;1;0.55" dur="2.6s" repeatCount="indefinite" />
         </circle>
       </g>
       <!-- Satu gelembung berjalan dari tahap satu ke tahap tiga tiap empat detik -->
-      <circle r="7" fill="#ffffff" stroke="#006e1c" stroke-width="3">
+      <circle r="9" fill="#ffffff" stroke="#006e1c" stroke-width="3.5">
         <animateMotion dur="4s" repeatCount="indefinite">
           <mpath href="#kembang-flow" />
         </animateMotion>
@@ -101,17 +101,17 @@ onUnmounted(() => ctx?.revert())
           v-if="i === active"
           :cx="n.x"
           cy="52"
-          r="27"
+          r="33"
           fill="none"
           stroke="#006e1c"
-          stroke-width="3"
+          stroke-width="3.5"
           opacity="0.45"
           class="anim-pulse-dot"
           style="transform-box: fill-box; transform-origin: center"
         />
-        <circle :cx="n.x" cy="52" r="18" fill="#ffffff" :stroke="i === active ? '#006e1c' : '#1a1c1c'" stroke-width="3.5" />
-        <text :x="n.x" y="52" text-anchor="middle" dy="0.35em" font-size="14" font-weight="800" :fill="i === active ? '#006e1c' : '#1a1c1c'" font-family="Manrope, sans-serif">{{ n.no }}</text>
-        <text :x="n.x" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#3f4a3c" font-family="Manrope, sans-serif">{{ n.short }}</text>
+        <circle :cx="n.x" cy="52" r="22" fill="#ffffff" :stroke="i === active ? '#006e1c' : '#1a1c1c'" stroke-width="4" />
+        <text :x="n.x" y="52" text-anchor="middle" dy="0.35em" font-size="16" font-weight="800" :fill="i === active ? '#006e1c' : '#1a1c1c'" font-family="Manrope, sans-serif">{{ n.no }}</text>
+        <text :x="n.x" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#3f4a3c" font-family="Manrope, sans-serif">{{ n.short }}</text>
       </g>
     </svg>
   </div>

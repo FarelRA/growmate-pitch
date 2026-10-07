@@ -3,9 +3,9 @@ import { useTransition } from '@vueuse/core'
 import DanaTag from '~/components/DanaTag.vue'
 
 const plans = [
-  { name: 'Pods', price: 'Rp803 rb', forWho: 'pehobi indoor', icon: 'lucide:flower-2', hot: false },
+  { name: 'Pods', price: 'Rp803 rb', forWho: 'penghobi dalam ruang', icon: 'lucide:flower-2', hot: false },
   { name: 'Tech', price: 'Rp2.083 jt', forWho: 'lahan terbuka', icon: 'lucide:tractor', hot: true },
-  { name: 'Tech Add-on', price: 'Rp2.409 jt', forWho: 'mandiri surya + LTE', icon: 'lucide:solar-panel', hot: false },
+  { name: 'Tech Add-on', price: 'Rp2.409 jt', forWho: 'mandiri surya dan LTE', icon: 'lucide:solar-panel', hot: false },
 ]
 
 const stats = [
@@ -25,31 +25,31 @@ onMounted(() => {
 
 <template>
   <DeckShell section="keuangan">
-    <div class="flex w-full flex-col items-center gap-2 md:gap-2.5">
-      <div class="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:gap-2.5">
+    <div class="flex w-full flex-col items-start gap-2">
+      <div class="grid w-full grid-cols-1 gap-2 sm:grid-cols-3">
         <Reveal v-for="(p, i) in plans" :key="p.name" :delay="i * 0.07" class="h-full">
           <DanaTag :name="p.name" :price="p.price" :for-who="p.forWho" :icon="p.icon" :hot="p.hot" />
         </Reveal>
       </div>
-      <p class="text-[11px] font-semibold tracking-wide text-gm-muted md:text-xs">
-        Semua harga sudah termasuk kemasan eco.
+      <p class="text-left text-base font-semibold tracking-wide text-gm-muted">
+        Semua harga termasuk kemasan eco.
       </p>
       <Reveal :delay="0.12" class="w-full">
-        <div class="flex w-full flex-col rounded-3xl border-2 border-gm-line bg-white p-3 text-center md:p-4">
-          <div class="font-headline text-base font-extrabold text-gm-ink md:text-lg">Pendapatan bulanan (bar) + kumulatif (garis), juta Rp</div>
-          <div class="mt-1.5 aspect-[16/10] min-h-40 w-full sm:aspect-[16/8] lg:aspect-[7/1]">
+        <div class="flex w-full flex-col rounded-3xl border-2 border-gm-line bg-white p-4 text-left">
+          <div class="text-left font-headline text-base font-extrabold text-gm-ink lg:text-lg">Bulanan (batang) dan kumulatif (garis), juta Rp</div>
+          <div class="mt-1.5 h-[200px] w-full sm:h-[220px] lg:h-[232px] 2xl:h-[300px]">
             <TractionChart />
           </div>
-          <div class="mt-2.5 grid grid-cols-2 gap-2 text-left md:mt-3 xl:grid-cols-4">
-            <div class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-amber/60 bg-gm-amberbg p-2.5 md:p-3">
-              <span class="size-2 rounded-full bg-gm-amber anim-pulse-dot" aria-hidden="true" />
-              <div class="mt-1.5 font-headline text-xl font-extrabold tabular-nums text-gm-ink md:text-2xl">{{ heroTotal }}</div>
-              <div class="text-[11px] leading-snug text-gm-muted md:text-xs">total 9 bulan</div>
+          <div class="mt-2 grid grid-cols-2 gap-2 text-left xl:grid-cols-4">
+            <div class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-amber/60 bg-gm-amberbg p-4">
+              <span class="size-2.5 rounded-full bg-gm-amber anim-pulse-dot" aria-hidden="true" />
+              <div class="mt-1.5 font-headline text-2xl font-extrabold tabular-nums text-gm-ink 2xl:text-3xl">{{ heroTotal }}</div>
+              <div class="mt-0.5 text-base leading-snug text-gm-muted">total 9 bulan</div>
             </div>
-            <div v-for="s in stats" :key="s.label" class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-line bg-white p-2.5 md:p-3">
-              <span class="size-2 rounded-full bg-gm-amber anim-pulse-dot" aria-hidden="true" />
-              <div class="mt-1.5 font-headline text-xl font-extrabold tabular-nums text-gm-ink md:text-2xl">{{ s.value }}</div>
-              <div class="text-[11px] leading-snug text-gm-muted md:text-xs">{{ s.label }}</div>
+            <div v-for="s in stats" :key="s.label" class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-line bg-white p-4">
+              <span class="size-2.5 rounded-full bg-gm-amber anim-pulse-dot" aria-hidden="true" />
+              <div class="mt-1.5 font-headline text-2xl font-extrabold tabular-nums text-gm-ink 2xl:text-3xl">{{ s.value }}</div>
+              <div class="mt-0.5 text-base leading-snug text-gm-muted">{{ s.label }}</div>
             </div>
           </div>
         </div>

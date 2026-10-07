@@ -42,26 +42,26 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white text-left md:h-[308px] md:max-h-[308px]">
-    <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[radial-gradient(ellipse_at_top,rgba(183,121,31,0.14),transparent_70%)]" aria-hidden="true" />
+  <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white text-left md:h-[340px] md:max-h-[340px] xl:h-[400px] xl:max-h-[400px]">
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[radial-gradient(ellipse_at_top,rgba(183,121,31,0.14),transparent_70%)]" aria-hidden="true" />
 
-    <p class="relative flex shrink-0 items-center gap-1.5 px-4 pt-2.5 font-headline text-[11px] font-extrabold uppercase tracking-[0.12em] text-gm-muted md:px-5 md:text-xs">
+    <p class="relative flex shrink-0 items-center gap-1.5 px-4 pt-3 font-headline text-lg font-extrabold uppercase tracking-[0.12em] text-gm-muted md:px-5">
       <span class="anim-pulse-dot size-2 rounded-full bg-gm-amber" aria-hidden="true" />
-      <Icon name="lucide:mic" class="size-3.5 text-gm-amber" /> Kursi sorot
+      <Icon name="lucide:mic" class="size-4 text-gm-amber" /> Kursi sorot
     </p>
 
-    <div class="relative min-h-0 flex-1 px-4 pb-2 pt-1.5 md:px-5">
+    <div class="relative min-h-0 flex-1 px-4 pb-3 pt-2 md:px-5">
       <Transition name="voice-spot" mode="out-in">
-        <div :key="voices[idx]!.name" class="flex h-full flex-col gap-3 md:flex-row md:items-stretch md:gap-4">
-          <div class="h-48 w-full shrink-0 overflow-hidden rounded-xl border-2 border-gm-line bg-gm-panel md:h-[224px] md:w-[42%]">
-            <img :src="voices[idx]!.photo" :alt="voices[idx]!.name" class="size-full object-cover" loading="lazy" decoding="async" draggable="false" />
+        <div :key="voices[idx]!.name" class="flex h-full flex-col gap-3 md:flex-row md:items-center md:gap-4">
+          <div class="w-full max-w-[280px] shrink-0 md:w-[46%] md:max-w-[260px] xl:max-w-[300px]">
+            <UiPhotoFigure :src="voices[idx]!.photo" :alt="voices[idx]!.name" ratio="1 / 1" />
           </div>
-          <div class="flex min-w-0 min-h-0 flex-1 flex-col justify-center text-left">
-            <p class="font-headline text-xl font-extrabold leading-tight text-gm-ink">{{ voices[idx]!.name }}</p>
-            <span class="mt-1.5 inline-flex w-fit rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide" :class="badgeClass(voices[idx]!.role)">{{ voices[idx]!.role }}</span>
-            <p class="mt-2 line-clamp-4 overflow-hidden font-headline text-base font-bold leading-snug text-gm-ink md:text-lg">“{{ voices[idx]!.quote }}”</p>
+          <div class="flex min-h-0 min-w-0 flex-1 flex-col justify-center text-left">
+            <p class="font-headline text-2xl font-extrabold leading-tight text-gm-ink">{{ voices[idx]!.name }}</p>
+            <span class="mt-1.5 inline-flex w-fit rounded-full px-3 py-1 text-base font-bold uppercase leading-snug tracking-wide" :class="badgeClass(voices[idx]!.role)">{{ voices[idx]!.role }}</span>
+            <p class="mt-2 line-clamp-4 overflow-hidden font-headline text-xl font-bold leading-snug text-gm-ink">“{{ voices[idx]!.quote }}”</p>
             <div class="mt-2 flex shrink-0 items-center justify-start">
-              <div class="rounded-full bg-gm-panel px-3.5 py-1.5 font-headline text-xs font-bold tabular-nums text-gm-primary">
+              <div class="rounded-full bg-gm-panel px-3 py-1 font-headline text-base font-bold tabular-nums text-gm-primary">
                 Suara {{ idx + 1 }} / {{ voices.length }}
               </div>
             </div>
@@ -70,7 +70,7 @@ onUnmounted(() => {
       </Transition>
     </div>
 
-    <div class="relative h-1.5 shrink-0 bg-gradient-to-r from-gm-primary via-gm-amber to-gm-primary" aria-hidden="true" />
+    <div class="relative h-2 shrink-0 bg-gradient-to-r from-gm-primary via-gm-amber to-gm-primary" aria-hidden="true" />
   </div>
 </template>
 

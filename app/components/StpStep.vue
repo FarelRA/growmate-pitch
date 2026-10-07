@@ -56,25 +56,25 @@ onUnmounted(() => ctx?.revert())
 </script>
 
 <template>
-  <div class="relative w-full rounded-2xl border-2 border-gm-line bg-white p-2.5 text-left md:p-3">
+  <div class="relative w-full rounded-2xl border-2 border-gm-line bg-white p-4 text-left">
     <span
       aria-hidden="true"
       class="pointer-events-none absolute right-2 top-1 z-0 select-none font-headline text-[64px] font-extrabold leading-none text-gm-mist lg:right-3 lg:top-1/2 lg:-translate-y-1/2 lg:text-[92px]"
     >
       {{ letter }}
     </span>
-    <div class="relative z-10 flex items-center justify-start gap-2.5 pr-14 lg:pr-24">
-      <span class="grid size-8 shrink-0 place-items-center rounded-xl transition-colors duration-500 md:size-9" :class="chipClass">
+    <div class="relative z-10 flex items-center justify-start gap-3 pr-14 lg:pr-24">
+      <span class="grid size-11 shrink-0 place-items-center rounded-xl transition-colors duration-500 md:size-12" :class="chipClass">
         <span ref="crossIcon" class="grid place-items-center" :class="variant === 'position' ? 'anim-float' : ''">
-          <Icon :name="icon" class="size-4 md:size-5" :class="iconClass" />
+          <Icon :name="icon" class="size-6" :class="iconClass" />
         </span>
       </span>
       <div class="min-w-0">
-        <div class="font-headline text-sm font-extrabold text-gm-ink md:text-base">{{ title }}</div>
-        <p class="text-xs leading-snug text-gm-muted md:text-[13px]">{{ desc }}</p>
-        <p v-if="variant === 'target'" class="mt-0.5 flex h-4 items-center justify-start gap-1.5 text-[11px] font-bold">
+        <div class="font-headline text-base font-extrabold text-gm-ink">{{ title }}</div>
+        <p class="text-base leading-snug text-gm-muted">{{ desc }}</p>
+        <p v-if="variant === 'target'" class="mt-1 flex h-6 items-center justify-start gap-1.5 text-base font-bold">
           <span v-if="locked" class="flex items-center justify-start gap-1.5 text-gm-primary">
-            <span class="anim-pulse-dot size-1.5 rounded-full bg-gm-primary" />
+            <span class="anim-pulse-dot size-2 rounded-full bg-gm-primary" />
             Target terkunci
           </span>
           <span v-else class="text-gm-amber">Mengunci target</span>

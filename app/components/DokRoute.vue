@@ -47,21 +47,21 @@ onUnmounted(() => ctx?.revert())
         :d="ROUTE_D"
         fill="none"
         stroke="#b7791f"
-        stroke-width="3"
+        stroke-width="4"
         stroke-linecap="round"
         :class="reduced === 'reduce' ? 'anim-flow' : ''"
       />
-      <circle :cx="END_X" :cy="END_Y" r="11" fill="#b7791f" class="dok-rest" />
-      <circle v-if="reduced !== 'reduce'" r="7" fill="#b7791f" stroke="#faf6ec" stroke-width="2.5">
+      <circle :cx="END_X" :cy="END_Y" r="13" fill="#b7791f" class="dok-rest" />
+      <circle v-if="reduced !== 'reduce'" r="8" fill="#b7791f" stroke="#faf6ec" stroke-width="2.5">
         <animateMotion dur="2.5s" fill="freeze">
           <mpath href="#dok-route-main" />
         </animateMotion>
       </circle>
-      <circle v-else :cx="END_X" :cy="END_Y" r="7" fill="#b7791f" stroke="#faf6ec" stroke-width="2.5" />
+      <circle v-else :cx="END_X" :cy="END_Y" r="8" fill="#b7791f" stroke="#faf6ec" stroke-width="2.5" />
     </svg>
-    <div class="absolute bottom-3 left-[17px] top-3 w-[3px] md:hidden">
+    <div class="absolute bottom-3 left-[17px] top-3 w-1 md:hidden">
       <div class="dok-rail absolute inset-0 rounded-full bg-gm-amber/70" />
-      <div class="dok-drop absolute top-1 size-3.5 rounded-full border-2 border-white bg-gm-amber shadow" />
+      <div class="dok-drop absolute top-1 size-5 rounded-full border-2 border-white bg-gm-amber shadow" />
     </div>
   </div>
 </template>
@@ -86,12 +86,12 @@ onUnmounted(() => ctx?.revert())
 }
 .dok-drop {
   left: 50%;
-  margin-left: -7px;
+  margin-left: -10px;
   animation: dok-drop 2.5s ease-in-out 0.2s both, gm-pulse-dot 1.8s ease-in-out 2.7s infinite;
 }
 @keyframes dok-drop {
   from { top: 4px; }
-  to { top: calc(100% - 18px); }
+  to { top: calc(100% - 24px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .dok-rail, .dok-drop, .dok-rest {
@@ -99,6 +99,6 @@ onUnmounted(() => ctx?.revert())
   }
   .dok-rail { transform: none; }
   .dok-rest { opacity: 0.25; }
-  .dok-drop { top: calc(100% - 18px); }
+  .dok-drop { top: calc(100% - 24px); }
 }
 </style>
