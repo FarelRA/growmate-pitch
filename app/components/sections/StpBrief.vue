@@ -69,7 +69,7 @@ onUnmounted(() => ctx?.revert())
         </template>
         <template #secondary>
           <Reveal class="w-full">
-            <UiPhotoSlot ratio="16 / 10" label="Foto stan pameran GrowMate" spec="Stan ramai pengunjung, banner terbaca, 16/10" />
+            <UiPhotoFigure src="/photos/stp-stan.webp" alt="Demo stan GrowMate bersama pengunjung" ratio="16 / 10" />
           </Reveal>
           <Reveal :delay="0.3" class="w-full">
             <UiCalloutBanner icon="lucide:flag" tone="brand" class="mt-2 md:mt-2.5">

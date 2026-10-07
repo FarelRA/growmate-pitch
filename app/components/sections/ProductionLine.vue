@@ -2,9 +2,9 @@
 const active = ref(0)
 
 const gates = [
-  { icon: 'lucide:clipboard-list', title: 'Pra', desc: 'Riset sebelum rakit', items: ['Brainstorming dan riset', 'Validasi pasar', 'Desain 3D CAD', 'Kode firmware dan UI'], card: 'bg-white', chip: 'bg-gm-mist', slotLabel: 'Foto meja riset dan desain CAD', slotSpec: 'Layar CAD bodi Pods plus sketsa, 16/10' },
-  { icon: 'lucide:factory', title: 'Produksi', desc: 'Mutu selama rakit', items: ['Solder dan perakitan', 'Flashing firmware', 'Kalibrasi sensor', 'Quality control lolos'], card: 'bg-gm-mist', chip: 'bg-white', slotLabel: 'Foto perakitan dan QC', slotSpec: 'Tangan menyolder PCB plus multimeter, 16/10' },
-  { icon: 'lucide:package-check', title: 'Pasca', desc: 'Garansi setelah kirim', items: ['Kemas eco tanpa plastik', 'Pengiriman tercatat', 'Garansi 3 bulan ganti baru', 'Purnajual dan komunitas'], card: 'bg-gm-amberbg', chip: 'bg-white', slotLabel: 'Foto pengemasan eco', slotSpec: 'Kardus honeycomb dan jerami siap kirim, 16/10' },
+  { icon: 'lucide:clipboard-list', title: 'Pra', desc: 'Riset sebelum rakit', items: ['Brainstorming dan riset', 'Validasi pasar', 'Desain 3D CAD', 'Kode firmware dan UI'], card: 'bg-white', chip: 'bg-gm-mist', src: '/photos/proses-riset.webp', alt: 'Desain bodi Pods di Blender' },
+  { icon: 'lucide:factory', title: 'Produksi', desc: 'Mutu selama rakit', items: ['Solder dan perakitan', 'Flashing firmware', 'Kalibrasi sensor', 'Quality control lolos'], card: 'bg-gm-mist', chip: 'bg-white', src: '/photos/proses-rakit.webp', alt: 'Perakitan unit oleh tim' },
+  { icon: 'lucide:package-check', title: 'Pasca', desc: 'Garansi setelah kirim', items: ['Kemas eco tanpa plastik', 'Pengiriman tercatat', 'Garansi 3 bulan ganti baru', 'Purnajual dan komunitas'], card: 'bg-gm-amberbg', chip: 'bg-white', src: '/photos/proses-kemas.webp', alt: 'Unit Tech dan kemasan siap kirim' },
 ]
 
 function onGate(v: number) {
@@ -22,7 +22,8 @@ function onGate(v: number) {
             class="flex h-full min-w-0 flex-col gap-1.5 rounded-2xl border-2 p-2 text-left transition-all duration-300"
             :class="[g.card, active === i ? 'scale-[1.03] border-gm-primary shadow-md' : 'border-gm-line']"
           >
-            <UiPhotoSlot ratio="16 / 10" :label="g.slotLabel" :spec="g.slotSpec" class="slot-compact" />
+            <UiPhotoFigure v-if="g.src" :src="g.src" :alt="g.alt" ratio="16 / 10" class="slot-compact" />
+            <UiPhotoSlot v-else ratio="16 / 10" :label="g.slotLabel" :spec="g.slotSpec" class="slot-compact" />
             <div class="flex items-center justify-start gap-1.5">
               <span class="grid size-7 shrink-0 place-items-center rounded-lg bg-white shadow-sm ring-1 ring-gm-line md:size-8">
                 <Icon :name="g.icon" class="size-4 text-gm-primary md:size-5" />

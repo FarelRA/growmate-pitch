@@ -4,10 +4,10 @@ import { useTransition } from '@vueuse/core'
 
 // Bingkai tangkapan layar per kanal. Ganti UiPhotoSlot dengan foto asli saat aset tersedia.
 const phones = [
-  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Tangkapan feed Instagram grow.mateai, 9/16' },
-  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Tangkapan chat WhatsApp konsultasi, 9/16' },
-  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Tangkapan feed TikTok growmate.41, 9/16' },
-  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Tangkapan etalase Shopee grow_mate, 9/16' },
+  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Tangkapan feed Instagram grow.mateai, 9/16', src: '', alt: '' },
+  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Tangkapan chat WhatsApp konsultasi, 9/16', src: '', alt: '' },
+  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Tangkapan profil TikTok growmate.41, 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
+  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Tangkapan etalase Shopee grow_mate, 9/16', src: '', alt: '' },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -42,7 +42,8 @@ onUnmounted(() => ctx?.revert())
             <GtmOrbit />
             <div class="grid w-full grid-cols-4 gap-2 md:gap-2.5">
               <Reveal v-for="(p, i) in phones" :key="p.label" :delay="0.15 + i * 0.07" class="w-full">
-                <UiPhotoSlot ratio="9 / 16" :label="p.label" :spec="p.spec" :icon="p.icon" class="gtm-frame slot-tight" />
+                <UiPhotoFigure v-if="p.src" :src="p.src" :alt="p.alt" ratio="9 / 16" class="gtm-frame slot-tight" />
+                <UiPhotoSlot v-else ratio="9 / 16" :label="p.label" :spec="p.spec" :icon="p.icon" class="gtm-frame slot-tight" />
               </Reveal>
             </div>
             <p class="flex items-center justify-start gap-1.5 text-left text-[11px] font-semibold text-gm-muted md:text-xs">
@@ -54,7 +55,7 @@ onUnmounted(() => ctx?.revert())
         <template #secondary>
           <div class="flex w-full flex-col justify-center text-left">
             <Reveal :delay="0.2" class="w-full">
-              <UiPhotoSlot ratio="16 / 10" label="Situs growmate.bond" spec="Tangkapan situs growmate.bond desktop, 16/10" icon="lucide:globe" class="gtm-frame" />
+              <UiPhotoFigure src="/photos/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" class="gtm-frame" />
             </Reveal>
             <div class="gtm-banner mt-2 w-full md:mt-2.5">
               <Reveal :delay="0.35" class="w-full">

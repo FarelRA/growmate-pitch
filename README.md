@@ -133,6 +133,11 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `usp-pods-glow/sensor-sawah/tech-sawah.webp` | P1680706 / DSC02273 / DSC02269 | `UniqueSelling` st 1-3 |
 | `closing-petani.webp` | DSC02284 | `ClosingCall` |
 | `sipoc-kalibrasi/pods/serah.webp` | DSC02277 / P1680691 / DSC02286 | `SipocMap` Proses/Keluaran/Pelanggan |
+| `sipoc-pemasok/masukan.webp` | PU Images toko elektronik / isi kemasan | `SipocMap` Pemasok/Masukan |
+| `stp-stan.webp` | PU Images demo stan | `StpBrief` |
+| `proses-riset/rakit/kemas.webp` | KTI Images Blender/rakit/kemas | `ProductionLine` Pra/Produksi/Pasca |
+| `gtm-tiktok/situs.webp` | PU Images tangkapan asli | `GoToMarket` TikTok + Situs |
+| `dok-pengguna/demo.webp` | PU Images pengguna/demo | `DocGallery` pos 7-8 |
 | `testi-*.webp` (8) | lama | `FieldVoices` |
 | `bukti/*.webp` (5) | lama | `OfficialEvidence` |
 

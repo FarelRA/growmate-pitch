@@ -5,8 +5,8 @@ const wrap = ref<HTMLElement | null>(null)
 let ctx: gsap.Context | null = null
 
 const cols = [
-  { icon: 'lucide:truck', title: 'Pemasok', items: ['Komponen IoT', 'Cetak bodi 3D', 'Cloud dan AI', 'Kemasan hijau'], hero: false, slotLabel: 'Foto gudang komponen', slotSpec: 'Rak komponen IoT pemasok, 16/10', scene: 'supplier' },
-  { icon: 'lucide:package', title: 'Masukan', items: ['Mikrokontroler dan relai', 'Bodi Pods dan Tech', 'Firmware dan model AI', 'Dataset tanaman', 'Kardus, honeycomb, jerami'], hero: false, slotLabel: 'Foto kit dan bodi', slotSpec: 'Mikrokontroler, bodi Pods dan Tech, 16/10', scene: 'input' },
+  { icon: 'lucide:truck', title: 'Pemasok', items: ['Komponen IoT', 'Cetak bodi 3D', 'Cloud dan AI', 'Kemasan hijau'], hero: false, src: '/photos/sipoc-pemasok.webp', alt: 'Tim belanja komponen di toko elektronik', scene: 'supplier' },
+  { icon: 'lucide:package', title: 'Masukan', items: ['Mikrokontroler dan relai', 'Bodi Pods dan Tech', 'Firmware dan model AI', 'Dataset tanaman', 'Kardus, honeycomb, jerami'], hero: false, src: '/photos/sipoc-masukan.webp', alt: 'Isi kemasan Pods dan buku panduan', scene: 'input' },
   { icon: 'lucide:cog', title: 'Proses', items: ['Desain 3D', 'Rakit dan solder', 'Flashing firmware', 'Kalibrasi', 'Kemas', 'Dampingi'], hero: true, src: '/photos/sipoc-kalibrasi.webp', alt: 'Kalibrasi sensor GrowMate di tanah', scene: 'process' },
   { icon: 'lucide:shopping-bag', title: 'Keluaran', items: ['Pods indoor', 'Tech dan Add-on lapangan', 'Dasbor + Floral Assistant', 'Data telemetri'], hero: false, src: '/photos/sipoc-pods.webp', alt: 'Pods dan tanaman siap pakai', scene: 'output' },
   { icon: 'lucide:users', title: 'Pelanggan', items: ['Tech farmer', 'Pengembang properti', 'Perkantoran hijau', 'Komunitas urban farming'], hero: false, src: '/photos/sipoc-serah.webp', alt: 'Serah terima unit ke petani mitra', scene: 'customer' },
@@ -97,11 +97,11 @@ onUnmounted(() => ctx?.revert())
       </div>
       <div class="flex w-full min-w-0 flex-col items-stretch lg:flex-row">
         <Reveal :delay="0" class="flex w-full min-w-0 lg:flex-1">
-          <SipocStation :icon="cols[0]!.icon" :title="cols[0]!.title" :items="cols[0]!.items" :scene="cols[0]!.scene" :slot-label="cols[0]!.slotLabel" :slot-spec="cols[0]!.slotSpec" />
+          <SipocStation :icon="cols[0]!.icon" :title="cols[0]!.title" :items="cols[0]!.items" :scene="cols[0]!.scene" :src="cols[0]!.src" :alt="cols[0]!.alt" />
         </Reveal>
         <SipocPipe />
         <Reveal :delay="0.05" class="flex w-full min-w-0 lg:flex-1">
-          <SipocStation :icon="cols[1]!.icon" :title="cols[1]!.title" :items="cols[1]!.items" :scene="cols[1]!.scene" :slot-label="cols[1]!.slotLabel" :slot-spec="cols[1]!.slotSpec" />
+          <SipocStation :icon="cols[1]!.icon" :title="cols[1]!.title" :items="cols[1]!.items" :scene="cols[1]!.scene" :src="cols[1]!.src" :alt="cols[1]!.alt" />
         </Reveal>
         <SipocPipe pulse />
         <Reveal :delay="0.1" class="flex w-full min-w-0 lg:flex-1">

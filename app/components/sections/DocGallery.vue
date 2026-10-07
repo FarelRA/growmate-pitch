@@ -9,8 +9,8 @@ const stops: Array<{ src: string; alt: string; label: string; spec?: string }> =
   { src: '/photos/mitra-toolsku.webp', alt: 'Kemitraan fabrikasi bersama Toolsku', label: 'Kemitraan fabrikasi Toolsku' },
   { src: '/photos/prod-solder.webp', alt: 'Perakitan dan penyolderan unit GrowMate', label: 'Perakitan dan penyolderan unit' },
   { src: '/photos/prod-printer.webp', alt: 'Cetak bodi unit dengan printer 3D', label: 'Cetak bodi dengan printer 3D' },
-  { src: '', alt: 'Foto panen mitra', label: 'Foto panen mitra', spec: 'Petani memanen hasil rawatan GrowMate, 16/10' },
-  { src: '', alt: 'Foto demo sekolah', label: 'Foto demo sekolah', spec: 'Demo unit di sekolah Bantul, 16/10' },
+  { src: '/photos/dok-pengguna.webp', alt: 'Pengguna memegang Pods dengan grow light', label: 'Pods di tangan pengguna' },
+  { src: '/photos/dok-demo.webp', alt: 'Demo unit GrowMate ke pengunjung', label: 'Demo unit ke pengunjung' },
 ]
 
 const tilts = [-1.2, 0.8, -0.6, 1, -0.9, 0.5, -0.7, 0.9]
