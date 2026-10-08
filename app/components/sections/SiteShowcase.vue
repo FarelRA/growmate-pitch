@@ -55,7 +55,7 @@ onUnmounted(() => ctx?.revert())
               </span>
             </div>
             <div class="p-1.5">
-              <UiPhotoSlot ratio="9 / 16" label="Situs mobile growmate.bond" spec="Tampilan mobile 9/16" icon="lucide:smartphone" class="slot-tight" />
+              <UiPhotoFigure src="/photos/gtm-situs-mobile.webp" alt="Tampilan mobile situs growmate.bond" ratio="9 / 16" />
             </div>
           </div>
         </Reveal>

@@ -4,10 +4,10 @@ import { useTransition } from '@vueuse/core'
 
 // Bingkai tangkapan layar per kanal. Ganti UiPhotoSlot dengan foto asli saat aset tersedia.
 const phones = [
-  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Feed Instagram 9/16', src: '', alt: '' },
-  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '', alt: '' },
+  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Feed Instagram 9/16', src: '/photos/gtm-instagram.webp', alt: 'Profil Instagram GrowMate dengan pengikut dan bio' },
+  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '/photos/gtm-whatsapp.webp', alt: 'Profil WhatsApp Business GrowMate dengan katalog' },
   { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Profil TikTok 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
-  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Etalase Shopee 9/16', src: '', alt: '' },
+  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Etalase Shopee 9/16', src: '/photos/gtm-shopee.webp', alt: 'Toko Shopee GrowMate dengan harga produk' },
 ]
 
 const root = ref<HTMLElement | null>(null)

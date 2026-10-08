@@ -138,7 +138,9 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `sipoc-pemasok/masukan.webp` | PU Images toko elektronik / isi kemasan | `SipocMap` Pemasok/Masukan |
 | `stp-stan.webp` | PU Images demo stan | `StpBrief` |
 | `proses-riset/rakit/kemas.webp` | KTI Images Blender/rakit/kemas | `ProductionLine` Pra/Produksi/Pasca |
-| `gtm-tiktok/situs.webp` | PU Images tangkapan asli | `GoToMarket` TikTok + Situs |
+| `gtm-tiktok/situs.webp` | PU Images tangkapan asli | `GoToMarket` TikTok + `SiteShowcase` situs |
+| `gtm-instagram/whatsapp/shopee.webp` | tangkapan asli (crop tengah 9/16) | `GoToMarket` Instagram + WhatsApp + Shopee |
+| `gtm-situs-mobile.webp` | tangkapan asli (crop atas 9/16) | `SiteShowcase` bingkai mobile |
 | `dok-pengguna/demo.webp` | PU Images pengguna/demo | `DocGallery` pos 7-8 |
 | `testi-*.webp` (8) | lama | `FieldVoices` |
 | `bukti/*.webp` (5) | lama | `OfficialEvidence` |
