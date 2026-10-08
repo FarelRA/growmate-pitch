@@ -5,8 +5,8 @@ import DokRoute from '~/components/DokRoute.vue'
 const stops: Array<{ src: string; alt: string; label: string; spec?: string; ratio: string }> = [
   { src: '/photos/gt-expo.webp', alt: 'Founder menjelaskan produk GrowMate ke pengunjung stan', label: 'Edukasi pengunjung di stan pameran', ratio: '16 / 9' },
   { src: '/photos/gt-mulyo.webp', alt: 'Penandatanganan dokumen konsinyasi bersama Mulyo Tani', label: 'Penandatanganan konsinyasi Mulyo Tani', ratio: '4 / 3' },
-  { src: '/photos/mitra-matra.webp', alt: 'Penandatanganan kemitraan produksi bersama Matra', label: 'Kemitraan produksi Matra 3D', ratio: '3 / 4' },
-  { src: '/photos/mitra-toolsku.webp', alt: 'Penandatanganan kemitraan fabrikasi bersama Toolsku', label: 'Kemitraan fabrikasi Toolsku', ratio: '3 / 4' },
+  { src: '/photos/mitra-matra.webp', alt: 'Penandatanganan kemitraan produksi bersama Matra', label: 'Kemitraan produksi Matra 3D', ratio: '4 / 3' },
+  { src: '/photos/mitra-toolsku.webp', alt: 'Penandatanganan kemitraan fabrikasi bersama Toolsku', label: 'Kemitraan fabrikasi Toolsku', ratio: '4 / 3' },
   { src: '/photos/prod-solder.webp', alt: 'Penyolderan dan perakitan unit GrowMate oleh founder', label: 'Perakitan dan penyolderan unit', ratio: '16 / 9' },
   { src: '/photos/dok-printer.webp', alt: 'Printer 3D mencetak bodi putih GrowMate', label: 'Cetak bodi dengan printer 3D', ratio: '16 / 10' },
   { src: '/photos/dok-pengguna.webp', alt: 'Pengguna memegang Pods dengan grow light', label: 'Pods di tangan pengguna', ratio: '16 / 10' },
@@ -35,7 +35,7 @@ onUnmounted(pause)
         </svg>
       </div>
       <div class="relative z-[1] grid grid-cols-1 gap-1.5 md:grid-cols-4">
-        <Reveal v-for="(s, i) in stops" :key="s.label" :delay="0.1 + i * 0.08" :y="24" :class="(i === 2 || i === 3) ? 'mx-auto h-full w-full max-w-[190px]' : 'h-full w-full'">
+        <Reveal v-for="(s, i) in stops" :key="s.label" :delay="0.1 + i * 0.08" :y="24" class="h-full w-full">
           <DokPost
             :src="s.src"
             :alt="s.alt"
