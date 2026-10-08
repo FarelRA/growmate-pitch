@@ -9,6 +9,20 @@ const facts = [
   { icon: 'lucide:shopping-bag', text: 'Tautan Shopee dan WhatsApp tersedia di setiap halaman.' },
 ]
 
+const appFacts = [
+  { icon: 'lucide:gauge', text: 'Ringkasan live: tanah, cahaya, tangki, dan jadwal dalam satu layar.' },
+  { icon: 'lucide:store', text: 'Pasar resmi dan komunitas: beli unit, jual panen, tukar tips.' },
+  { icon: 'lucide:messages-square', text: 'Floral Assistant menjawab soal gejala dan dosis perawatan.' },
+]
+
+const appScreens = [
+  { src: '/photos/app-dash.webp', alt: 'Ringkasan sensor live di aplikasi GrowMate' },
+  { src: '/photos/app-pasar.webp', alt: 'Pasar perlengkapan dan panen di aplikasi GrowMate' },
+  { src: '/photos/app-komunitas.webp', alt: 'Feed komunitas pengguna di aplikasi GrowMate' },
+]
+
+const mode = ref<'situs' | 'aplikasi'>('situs')
+
 const root = ref<HTMLElement | null>(null)
 let ctx: gsap.Context | null = null
 
@@ -26,7 +40,27 @@ onUnmounted(() => ctx?.revert())
 <template>
   <DeckShell section="situs">
     <div ref="root" class="flex min-h-full w-full flex-col justify-center gap-2">
-      <div class="flex w-full items-center justify-center gap-3">
+      <div class="flex w-full items-center justify-start gap-1.5" role="tablist" aria-label="Pilih platform">
+        <button
+          role="tab"
+          :aria-selected="mode === 'situs'"
+          class="rounded-full border-2 px-3 py-1 text-left font-headline text-base font-extrabold transition-all"
+          :class="mode === 'situs' ? 'border-gm-primary bg-gm-primary text-white shadow-md' : 'border-gm-line bg-white text-gm-muted hover:border-gm-primary/50'"
+          @click="mode = 'situs'"
+        >
+          Situs
+        </button>
+        <button
+          role="tab"
+          :aria-selected="mode === 'aplikasi'"
+          class="rounded-full border-2 px-3 py-1 text-left font-headline text-base font-extrabold transition-all"
+          :class="mode === 'aplikasi' ? 'border-gm-primary bg-gm-primary text-white shadow-md' : 'border-gm-line bg-white text-gm-muted hover:border-gm-primary/50'"
+          @click="mode = 'aplikasi'"
+        >
+          Aplikasi
+        </button>
+      </div>
+      <div v-if="mode === 'situs'" class="flex w-full items-center justify-center gap-3">
         <Reveal :delay="0.1" class="w-full min-w-0 max-w-[560px]">
           <div class="situs-frame w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white">
             <div class="flex items-center gap-1.5 border-b-2 border-gm-line bg-gm-panel px-2.5 py-1.5">
@@ -60,8 +94,24 @@ onUnmounted(() => ctx?.revert())
           </div>
         </Reveal>
       </div>
+      <div v-if="mode === 'aplikasi'" class="flex w-full items-start justify-center gap-3">
+        <Reveal v-for="(s, i) in appScreens" :key="s.src" :delay="0.1 + i * 0.08" class="w-[150px] shrink-0 md:w-[165px]">
+          <div class="situs-frame w-full overflow-hidden rounded-[1.75rem] border-2 border-gm-ink bg-white">
+            <div class="flex flex-col items-center gap-1 border-b-2 border-gm-line bg-gm-panel px-2 pb-1.5 pt-2">
+              <span class="h-1.5 w-16 shrink-0 rounded-full bg-gm-ink" aria-hidden="true" />
+              <span class="flex w-full min-w-0 items-center justify-start gap-1 rounded-full bg-white px-2 py-0.5 text-left">
+                <Icon name="lucide:sprout" class="size-3.5 shrink-0 text-gm-primary" />
+                <span class="truncate text-base font-semibold text-gm-ink">GrowMate App</span>
+              </span>
+            </div>
+            <div class="p-1.5">
+              <UiPhotoFigure :src="s.src" :alt="s.alt" ratio="9 / 16" />
+            </div>
+          </div>
+        </Reveal>
+      </div>
       <div class="grid w-full grid-cols-1 gap-1.5 sm:grid-cols-3">
-        <Reveal v-for="(f, i) in facts" :key="f.text" :delay="0.25 + i * 0.07" class="situs-fact w-full">
+        <Reveal v-for="(f, i) in (mode === 'situs' ? facts : appFacts)" :key="f.text" :delay="0.25 + i * 0.07" class="situs-fact w-full">
           <span class="flex h-full w-full items-start justify-start gap-2 rounded-2xl border-2 border-gm-line bg-white p-2 text-left">
             <span class="grid size-8 shrink-0 place-items-center rounded-xl bg-gm-mist">
               <Icon :name="f.icon" class="size-4 text-gm-primary" />

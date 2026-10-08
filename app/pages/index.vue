@@ -4,6 +4,9 @@ import { SECTIONS } from '~/data/deck'
 import CoverHero from '~/components/sections/CoverHero.vue'
 import ProblemSolution from '~/components/sections/ProblemSolution.vue'
 import UniqueSelling from '~/components/sections/UniqueSelling.vue'
+import PodsBedah from '~/components/sections/PodsBedah.vue'
+import TechBedah from '~/components/sections/TechBedah.vue'
+import AddonBedah from '~/components/sections/AddonBedah.vue'
 import ProductionLine from '~/components/sections/ProductionLine.vue'
 import ProductEvolution from '~/components/sections/ProductEvolution.vue'
 import MarketScope from '~/components/sections/MarketScope.vue'
@@ -30,6 +33,9 @@ const registry: Record<string, Component> = {
   cover: CoverHero,
   latar: ProblemSolution,
   usp: UniqueSelling,
+  pods: PodsBedah,
+  tech: TechBedah,
+  addon: AddonBedah,
   proses: ProductionLine,
   kembang: ProductEvolution,
   tamsamsom: MarketScope,

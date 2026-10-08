@@ -152,6 +152,8 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `dok-demo.webp` | PU Images demo (asli) | `StpBrief` |
 | `testi-*.webp` (8) | foto grup asli utuh 16/9 | `FieldVoices` |
 | `bukti/*.webp` (8) | uji DKPP + NIB + Cipta + Desain | `OfficialEvidence` |
+| `bedah-pods/tech/addon.webp` | render produk Tahap 3 (dengan titik sorot) | `PodsBedah` + `TechBedah` + `AddonBedah` |
+| `app-dash/pasar/komunitas.webp` | Buku Manual tangkapan asli | `SiteShowcase` mode Aplikasi |
 
 Slide lain memakai `UiPhotoSlot` (bingkai penanda: `ratio` + `label` + `spec` foto yang
 dibutuhkan). Saat foto asli tiba, ganti slot dengan `UiPhotoFigure` dan catat di tabel ini.
