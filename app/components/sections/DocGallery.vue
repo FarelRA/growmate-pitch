@@ -3,14 +3,14 @@ import DokPost from '~/components/DokPost.vue'
 import DokRoute from '~/components/DokRoute.vue'
 
 const stops: Array<{ src: string; alt: string; label: string; spec?: string; ratio: string }> = [
-  { src: '/photos/gt-expo.webp', alt: 'Founder menjelaskan produk GrowMate ke pengunjung stan', label: 'Edukasi pengunjung di stan pameran', ratio: '16 / 9' },
+  { src: '/photos/gt-expo.webp', alt: 'Founder melayani pengunjung di stan bazar GrowMate', label: 'Edukasi pengunjung di stan bazar', ratio: '4 / 3' },
   { src: '/photos/gt-mulyo.webp', alt: 'Penandatanganan dokumen konsinyasi bersama Mulyo Tani', label: 'Penandatanganan konsinyasi Mulyo Tani', ratio: '4 / 3' },
   { src: '/photos/mitra-matra.webp', alt: 'Penandatanganan kemitraan produksi bersama Matra', label: 'Kemitraan produksi Matra 3D', ratio: '4 / 3' },
   { src: '/photos/mitra-toolsku.webp', alt: 'Penandatanganan kemitraan fabrikasi bersama Toolsku', label: 'Kemitraan fabrikasi Toolsku', ratio: '4 / 3' },
-  { src: '/photos/prod-solder.webp', alt: 'Penyolderan dan perakitan unit GrowMate oleh founder', label: 'Perakitan dan penyolderan unit', ratio: '16 / 9' },
-  { src: '/photos/dok-printer.webp', alt: 'Printer 3D mencetak bodi putih GrowMate', label: 'Cetak bodi dengan printer 3D', ratio: '16 / 10' },
-  { src: '/photos/dok-pengguna.webp', alt: 'Pengguna memegang Pods dengan grow light', label: 'Pods di tangan pengguna', ratio: '16 / 10' },
-  { src: '/photos/dok-demo.webp', alt: 'Demo unit GrowMate ke pengunjung', label: 'Demo unit ke pengunjung', ratio: '16 / 10' },
+  { src: '/photos/prod-solder.webp', alt: 'Penyolderan dan perakitan unit GrowMate oleh founder', label: 'Perakitan dan penyolderan unit', ratio: '4 / 3' },
+  { src: '/photos/dok-printer.webp', alt: 'Printer 3D mencetak bodi putih GrowMate', label: 'Cetak bodi dengan printer 3D', ratio: '4 / 3' },
+  { src: '/photos/dok-pengguna.webp', alt: 'Pengguna memegang Pods dengan grow light', label: 'Pods di tangan pengguna', ratio: '4 / 3' },
+  { src: '/photos/dok-demo.webp', alt: 'Demo unit GrowMate ke pengunjung', label: 'Demo unit ke pengunjung', ratio: '4 / 3' },
 ]
 
 const tilts = [-1.2, 0.8, -0.6, 1, -0.9, 0.5, -0.7, 0.9]
