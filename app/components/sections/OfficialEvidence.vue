@@ -145,7 +145,6 @@ onUnmounted(() => {
                   </span>
                 </div>
               </div>
-              <p class="mt-2 text-left text-base leading-snug text-white/70">Salinan pindaian tersedia untuk verifikasi panitia.</p>
             </div>
           </Reveal>
         </template>

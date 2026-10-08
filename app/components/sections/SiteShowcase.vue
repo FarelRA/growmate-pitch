@@ -47,10 +47,6 @@ onUnmounted(() => ctx?.revert())
                 </div>
               </div>
             </Reveal>
-            <p class="flex items-center justify-start gap-1.5 text-left text-base font-semibold text-gm-muted">
-              <Icon name="lucide:monitor" class="size-5 shrink-0 text-gm-primary" />
-              <span>Bingkai desktop 16/10, tampil penuh tanpa potong.</span>
-            </p>
           </div>
         </template>
         <template #secondary>

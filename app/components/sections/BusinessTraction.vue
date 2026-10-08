@@ -31,9 +31,6 @@ onMounted(() => {
           <DanaTag :name="p.name" :price="p.price" :for-who="p.forWho" :icon="p.icon" :hot="p.hot" />
         </Reveal>
       </div>
-      <p class="text-left text-base font-semibold tracking-wide text-gm-muted">
-        Semua harga termasuk kemasan eco.
-      </p>
       <Reveal :delay="0.12" class="w-full">
         <div class="flex w-full flex-col rounded-3xl border-2 border-gm-line bg-white p-4 text-left">
           <div class="text-left font-headline text-base font-extrabold text-gm-ink lg:text-lg">Bulanan (batang) dan kumulatif (garis), juta Rp</div>

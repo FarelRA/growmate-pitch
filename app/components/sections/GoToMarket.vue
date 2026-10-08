@@ -82,10 +82,6 @@ onUnmounted(() => ctx?.revert())
                   Katalog dan demo live selalu terbuka di growmate.bond.
                 </UiCalloutBanner>
               </Reveal>
-              <p class="mt-1 flex items-center justify-start gap-1.5 text-left text-base font-semibold text-gm-muted">
-                <Icon name="lucide:monitor-smartphone" class="size-5 shrink-0 text-gm-primary" />
-                <span>Detail situs ada di halaman Platform Digital.</span>
-              </p>
             </div>
           </div>
         </template>

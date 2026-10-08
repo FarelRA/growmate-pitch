@@ -23,17 +23,17 @@ const cols = [
   {
     icon: 'lucide:cpu', title: 'Inovasi Teknologi',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: 'Telemetri cloud, latih Floral. Mode Liburan firmware. Dasbor hemat plus pembaruan berkala.' },
-      { h: 'Menengah • 2-5 thn', t: 'API BMKG, model cloud. Dosing EC pH presisi. ESP32-CAM hama plus notifikasi WA.' },
-      { h: 'Panjang • >5 thn', t: 'Gateway MQTT, edge AI offline. ML panen multimusim. Kalender multidaerah plus dukungan ahli lokal.' },
+      { h: 'Pendek • 1-12 bln', t: 'Telemetri cloud, latih Floral. Mode Liburan firmware. Dasbor hemat plus pembaruan berkala otomatis terjadwal.' },
+      { h: 'Menengah • 2-5 thn', t: 'API BMKG, model cloud. Dosing EC pH presisi. ESP32-CAM hama plus notifikasi WA instan harian.' },
+      { h: 'Panjang • >5 thn', t: 'Gateway MQTT, edge AI offline. ML panen multimusim. Kalender multidaerah plus pendampingan ahli lokal terjadwal rutin.' },
     ],
   },
   {
     icon: 'lucide:trending-up', title: 'Pertumbuhan Usaha',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: '8 ke 12 unit per bulan. Rp201 jt (3,4x). 95 AI. Margin 28 persen plus langganan AI.' },
-      { h: 'Menengah • 2-5 thn', t: '20 ke 100 per bulan, 2.390 total. Rp175 jt per bulan. 1.459 AI plus paket langganan lanjutan.' },
-      { h: 'Panjang • >5 thn', t: '10.000 unit tahun ke-9. Rp500 jt per bulan. 6.100 AI plus refurbish terjadwal regional.' },
+      { h: 'Pendek • 1-12 bln', t: '8 ke 12 unit per bulan. Rp201 jt (3,4x). 95 AI. Margin 28 persen plus langganan AI bulanan terjangkau untuk petani.' },
+      { h: 'Menengah • 2-5 thn', t: '20 ke 100 per bulan, 2.390 total. Rp175 jt per bulan. 1.459 AI plus paket langganan lanjutan tahunan hemat untuk reseller.' },
+      { h: 'Panjang • >5 thn', t: '10.000 unit tahun ke-9. Rp500 jt per bulan. 6.100 AI plus unit refurbish terjadwal regional berkala.' },
     ],
   },
 ]
