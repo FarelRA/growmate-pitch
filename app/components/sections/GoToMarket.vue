@@ -4,10 +4,10 @@ import { useTransition } from '@vueuse/core'
 
 // Bingkai tangkapan layar per kanal. Ganti UiPhotoSlot dengan foto asli saat aset tersedia.
 const phones = [
-  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', cap: 'Instagram', sub: '@grow.mateai', spec: 'Feed Instagram 9/16', src: '', alt: '' },
-  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', cap: 'WhatsApp', sub: '+62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '', alt: '' },
-  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', cap: 'TikTok', sub: '@growmate.41', spec: 'Profil TikTok 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
-  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', cap: 'Shopee', sub: 'grow_mate', spec: 'Etalase Shopee 9/16', src: '', alt: '' },
+  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Feed Instagram 9/16', src: '', alt: '' },
+  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '', alt: '' },
+  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Profil TikTok 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
+  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Etalase Shopee 9/16', src: '', alt: '' },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -46,10 +46,6 @@ onUnmounted(() => ctx?.revert())
               <UiPhotoFigure v-if="p.src" :src="p.src" :alt="p.alt" ratio="9 / 16" class="gtm-frame" />
               <UiPhotoSlot v-else ratio="9 / 16" :label="p.label" :spec="p.spec" :icon="p.icon" class="gtm-frame slot-tight" />
             </div>
-            <p class="mx-auto mt-1 w-full max-w-[150px] text-left">
-              <span class="block truncate text-base font-extrabold leading-tight text-gm-ink">{{ p.cap }}</span>
-              <span class="block truncate text-base font-medium leading-tight text-gm-muted">{{ p.sub }}</span>
-            </p>
           </Reveal>
         </div>
       </div>
