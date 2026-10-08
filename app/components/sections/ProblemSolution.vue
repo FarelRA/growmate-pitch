@@ -44,7 +44,7 @@ onUnmounted(() => ctx?.revert())
       <DeckSplitPanel>
         <template #primary>
           <Reveal class="h-full w-full lg:pr-14">
-            <div class="flex h-full w-full flex-col justify-between gap-2 rounded-3xl border-2 border-gm-amber/40 bg-gm-amberbg p-4 text-left md:p-5">
+            <div class="flex h-full w-full flex-col justify-center gap-2.5 rounded-3xl border-2 border-gm-amber/40 bg-gm-amberbg p-4 text-left md:p-5">
               <div class="flex items-center justify-start gap-3">
                 <span class="grid size-12 shrink-0 place-items-center rounded-xl bg-gm-amber/15">
                   <Icon name="lucide:triangle-alert" class="size-7 text-gm-amber" />
@@ -138,7 +138,7 @@ onUnmounted(() => ctx?.revert())
               <div class="text-base leading-snug text-gm-muted">Setiap tindakan ditakar dengan data.</div>
             </div>
           </div>
-          <div class="mt-2.5 flex w-full flex-1 flex-col justify-around gap-2 md:gap-2.5 lg:pl-14">
+          <div class="mt-2.5 flex w-full flex-1 flex-col justify-center gap-2 md:gap-2.5 lg:pl-14">
             <Reveal v-for="(a, i) in answers" :key="a.title" :delay="0.55 + i * 0.12" class="w-full">
               <LatarValveCard :icon="a.icon" :title="a.title" :desc="a.desc" />
             </Reveal>

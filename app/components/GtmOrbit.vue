@@ -4,7 +4,6 @@ const nodes = [
   { icon: 'lucide:message-circle', name: 'WhatsApp', handle: '+62 877-8445-4555' },
   { icon: 'lucide:music-2', name: 'TikTok', handle: '@growmate.41' },
   { icon: 'lucide:shopping-bag', name: 'Shopee', handle: 'grow_mate' },
-  { icon: 'lucide:globe', name: 'Situs', handle: 'growmate.bond' },
 ]
 </script>
 
@@ -24,7 +23,7 @@ const nodes = [
     </div>
     <div class="relative mt-1">
       <div class="absolute left-[10%] right-[10%] top-[16px] h-0.5 rounded-full bg-gm-amber/50" aria-hidden="true" />
-      <div class="grid grid-cols-5 gap-1">
+      <div class="grid grid-cols-4 gap-1">
         <div v-for="n in nodes" :key="n.handle" class="gtm-orbit-node flex min-w-0 flex-col items-center gap-0.5 text-center">
           <span class="relative z-10 grid size-8 shrink-0 place-items-center rounded-full bg-gm-ink ring-4 ring-white">
             <Icon :name="n.icon" class="size-5 text-gm-amber" />

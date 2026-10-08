@@ -78,7 +78,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <div ref="box" aria-hidden="true" class="pointer-events-none w-full shrink-0 overflow-hidden rounded-2xl border border-gm-line">
-    <svg viewBox="0 0 1200 300" preserveAspectRatio="none" class="hidden h-[190px] w-full md:block lg:h-[240px] 2xl:h-[300px]">
+    <svg viewBox="0 0 1200 300" preserveAspectRatio="none" class="hidden h-[210px] w-full md:block lg:h-[280px] 2xl:h-[340px]">
       <defs>
         <linearGradient id="quadSky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#dceffa" />

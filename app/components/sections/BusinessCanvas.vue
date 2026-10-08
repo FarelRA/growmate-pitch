@@ -41,6 +41,7 @@ const topCells: Cell[] = [
     sub: 'Key Activities',
     icon: 'lucide:factory',
     hue: 'amber',
+    art: 'activities',
     items: ['Riset produk', 'Produksi', 'Edukasi pasar', 'Perawatan web'],
     place: 'md:col-start-2 md:row-start-1',
   },
@@ -50,6 +51,7 @@ const topCells: Cell[] = [
     sub: 'Key Resources',
     icon: 'lucide:cpu',
     hue: 'deep',
+    art: 'resources',
     items: ['Modal', 'Data tani', 'Tim ahli', 'Web GrowMate', 'Alat kerja'],
     place: 'md:col-start-2 md:row-start-2',
   },
@@ -76,6 +78,7 @@ const topCells: Cell[] = [
     sub: 'Customer Relationships',
     icon: 'lucide:heart-handshake',
     hue: 'sky',
+    art: 'relations',
     items: [
       'AI interaktif',
       'Komunitas GrowMate',

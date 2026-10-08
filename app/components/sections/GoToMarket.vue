@@ -39,7 +39,7 @@ onUnmounted(() => ctx?.revert())
       <div class="mx-auto w-full max-w-5xl">
         <GtmOrbit />
       </div>
-      <div class="mx-auto grid w-full max-w-5xl grid-cols-5 gap-2">
+      <div class="mx-auto grid w-full max-w-5xl grid-cols-4 gap-2">
         <div v-for="(p, i) in phones" :key="p.label" class="min-w-0">
           <Reveal :delay="0.15 + i * 0.07" class="w-full">
             <div class="mx-auto w-full max-w-[150px]">
@@ -49,21 +49,6 @@ onUnmounted(() => ctx?.revert())
             <p class="mx-auto mt-1 w-full max-w-[150px] text-left">
               <span class="block truncate text-base font-extrabold leading-tight text-gm-ink">{{ p.cap }}</span>
               <span class="block truncate text-base font-medium leading-tight text-gm-muted">{{ p.sub }}</span>
-            </p>
-          </Reveal>
-        </div>
-        <div class="min-w-0">
-          <Reveal :delay="0.43" class="w-full">
-            <div class="gtm-frame mx-auto flex w-full max-w-[150px] flex-col items-center gap-1 rounded-2xl border-2 border-dashed border-gm-primary/50 bg-gm-mist/60 p-2 text-center">
-              <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-white shadow-sm">
-                <Icon name="lucide:globe" class="size-5 text-gm-primary" />
-              </span>
-              <span class="text-base font-extrabold leading-tight text-gm-ink">Situs</span>
-              <span class="break-all text-base font-medium leading-tight text-gm-muted">growmate.bond</span>
-            </div>
-            <p class="mx-auto mt-1 w-full max-w-[150px] text-left">
-              <span class="block truncate text-base font-extrabold leading-tight text-gm-ink">Situs</span>
-              <span class="block truncate text-base font-medium leading-tight text-gm-muted">desktop dan mobile</span>
             </p>
           </Reveal>
         </div>
@@ -87,7 +72,7 @@ onUnmounted(() => ctx?.revert())
             </span>
             <span class="min-w-0">
               <span class="block truncate font-headline text-base font-extrabold leading-tight text-gm-ink">Agenda Bantul</span>
-              <span class="block text-base font-medium leading-snug text-gm-muted">Expo dan demo tani terjadwal.</span>
+              <span class="block text-base font-medium leading-snug text-gm-muted">Expo dan demo tani terlaksana.</span>
             </span>
           </div>
         </Reveal>

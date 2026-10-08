@@ -38,7 +38,7 @@ onMounted(() => {
       <template #primary>
         <div class="relative flex h-full w-full min-w-0 flex-col overflow-x-clip rounded-[2rem] bg-gm-ink p-5 text-left md:p-7">
           <CoverGridSvg />
-          <div class="relative flex h-full w-full min-w-0 flex-col justify-between gap-2.5">
+          <div class="relative flex h-full w-full min-w-0 flex-col justify-center gap-4">
             <Motion :initial="{ opacity: 0 }" :animate="{ opacity: 1 }" :transition="t(0, 0.5)">
               <div class="flex w-full min-w-0 flex-wrap items-center gap-2.5">
                 <span class="anim-pulse-dot inline-block size-3 shrink-0 rounded-full bg-gm-soft" aria-hidden="true" />
@@ -87,20 +87,20 @@ onMounted(() => {
             </Motion>
 
             <Motion :initial="{ opacity: 0, y: 14 }" :animate="{ opacity: 1, y: 0 }" :transition="t(0.6, 0.5)" class="hidden lg:block">
-              <div class="mt-3 grid w-full grid-cols-4 gap-2">
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-left">
+              <div class="mt-3 grid w-full grid-cols-4 gap-2.5">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ airText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">hemat air</div>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ liveText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">kesintasan</div>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ roiText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">ROI</div>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ timeText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">hemat waktu</div>
                 </div>
@@ -113,7 +113,7 @@ onMounted(() => {
       <template #secondary>
         <div class="flex h-full w-full min-w-0 flex-col items-center justify-center overflow-x-clip text-left">
           <Motion :initial="{ opacity: 0, x: 60 }" :animate="{ opacity: 1, x: 0 }" :transition="t(0.25, 0.7)" class="flex w-full justify-center">
-            <div class="relative w-full max-w-[440px] xl:max-w-[480px]" style="perspective: 1200px;">
+            <div class="relative w-full max-w-[480px] xl:max-w-[520px]" style="perspective: 1200px;">
               <div class="anim-float absolute inset-0 translate-x-3 translate-y-3 rounded-[1.75rem] bg-gm-mist" aria-hidden="true" />
               <div class="tilt-inner relative overflow-hidden rounded-[1.75rem] shadow-[0_24px_60px_rgba(0,110,28,0.28)]">
                 <UiPhotoFigure src="/photos/hero.webp" alt="GrowMate Pods dengan bunga soka di ruang kendali tani" ratio="6 / 5" />

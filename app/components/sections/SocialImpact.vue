@@ -111,8 +111,7 @@ const frames = [
         </template>
 
         <template #secondary>
-          <div class="flex w-full min-w-0 max-w-none flex-col text-left lg:max-w-[450px] xl:max-w-[460px] 2xl:max-w-[680px]">
-            <UiPhotoFigure src="/photos/farmer.webp" alt="Petani mitra memegang unit GrowMate Tech di lapangan" ratio="4 / 3" />
+          <div class="flex w-full min-w-0 flex-col text-left">
             <div class="mt-1.5 w-full px-0.5">
               <SosialTimer />
             </div>

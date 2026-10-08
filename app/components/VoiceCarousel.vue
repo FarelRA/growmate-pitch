@@ -42,7 +42,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white text-left md:h-[340px] md:max-h-[340px] xl:h-[400px] xl:max-h-[400px]">
+  <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white text-center md:h-full">
     <div class="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[radial-gradient(ellipse_at_top,rgba(183,121,31,0.14),transparent_70%)]" aria-hidden="true" />
 
     <p class="relative flex shrink-0 items-center gap-1.5 px-4 pt-3 font-headline text-lg font-extrabold uppercase tracking-[0.12em] text-gm-muted md:px-5">
@@ -52,15 +52,15 @@ onUnmounted(() => {
 
     <div class="relative min-h-0 flex-1 px-4 pb-3 pt-2 md:px-5">
       <Transition name="voice-spot" mode="out-in">
-        <div :key="voices[idx]!.name" class="flex h-full flex-col gap-3 md:flex-row md:items-center md:gap-4">
-          <div class="w-full max-w-[280px] shrink-0 md:w-[46%] md:max-w-[260px] xl:max-w-[300px]">
+        <div :key="voices[idx]!.name" class="flex h-full flex-col items-center gap-2 text-center md:gap-3">
+          <div class="mx-auto w-full max-w-[220px] shrink-0 md:max-w-[200px] xl:max-w-[220px]">
             <UiPhotoFigure :src="voices[idx]!.photo" :alt="voices[idx]!.name" ratio="1 / 1" />
           </div>
-          <div class="flex min-h-0 min-w-0 flex-1 flex-col justify-center text-left">
-            <p class="font-headline text-2xl font-extrabold leading-tight text-gm-ink">{{ voices[idx]!.name }}</p>
+          <div class="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center text-center">
+            <p class="font-headline text-xl font-extrabold leading-tight text-gm-ink md:text-2xl">{{ voices[idx]!.name }}</p>
             <span class="mt-1.5 inline-flex w-fit rounded-full px-3 py-1 text-base font-bold uppercase leading-snug tracking-wide" :class="badgeClass(voices[idx]!.role)">{{ voices[idx]!.role }}</span>
-            <p class="mt-2 line-clamp-4 overflow-hidden font-headline text-xl font-bold leading-snug text-gm-ink">“{{ voices[idx]!.quote }}”</p>
-            <div class="mt-2 flex shrink-0 items-center justify-start">
+            <p class="mt-2 line-clamp-3 overflow-hidden font-headline text-lg font-bold leading-snug text-gm-ink md:text-xl">“{{ voices[idx]!.quote }}”</p>
+            <div class="mt-2 flex shrink-0 items-center justify-center">
               <div class="rounded-full bg-gm-panel px-3 py-1 font-headline text-base font-bold tabular-nums text-gm-primary">
                 Suara {{ idx + 1 }} / {{ voices.length }}
               </div>

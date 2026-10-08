@@ -87,32 +87,12 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="kompetitor">
-    <div ref="root" class="flex min-h-full w-full flex-col justify-between text-left">
-      <DeckSplitPanel>
-        <template #primary>
-          <DuelArena class="w-full" />
-        </template>
-        <template #secondary>
-          <div class="flex h-full w-full flex-col justify-between text-left">
-            <div class="relative w-full">
-              <span aria-hidden="true" class="absolute left-0 top-0 h-5 w-5 rounded-tl-xl border-l-4 border-t-4 border-gm-primary" />
-              <span aria-hidden="true" class="absolute right-0 top-0 h-5 w-5 rounded-tr-xl border-r-4 border-t-4 border-gm-primary" />
-              <span aria-hidden="true" class="absolute bottom-0 left-0 h-5 w-5 rounded-bl-xl border-b-4 border-l-4 border-gm-primary" />
-              <span aria-hidden="true" class="absolute bottom-0 right-0 h-5 w-5 rounded-br-xl border-b-4 border-r-4 border-gm-primary" />
-              <UiPhotoFigure
-                src="/photos/tech-field.webp"
-                alt="Perangkat GrowMate Tech terpasang di sawah"
-                ratio="16 / 9"
-              />
-            </div>
-            <UiCalloutBanner icon="lucide:crown" tone="brand" class="banner-fix mt-1">
-              AI Agen, komunitas, marketplace: hanya di GrowMate.
-            </UiCalloutBanner>
-          </div>
-        </template>
-      </DeckSplitPanel>
-
-      <div class="price-round mt-1 w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-1.5 text-left">
+    <div ref="root" class="flex min-h-full w-full flex-col justify-center gap-1 text-left">
+      <DuelArena class="w-full" />
+      <UiCalloutBanner icon="lucide:crown" tone="brand" class="banner-fix w-full">
+        AI Agen, komunitas, marketplace: hanya di GrowMate.
+      </UiCalloutBanner>
+      <div class="price-round w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-1 text-left">
         <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
           <p class="min-w-0 truncate font-headline text-base font-extrabold uppercase tracking-[0.14em] text-gm-muted">
             Ronde 2 • Kartu harga dan fitur
@@ -125,7 +105,7 @@ onUnmounted(() => ctx?.revert())
           <article
             v-for="c in cards"
             :key="c.name"
-            class="price-card rounded-2xl border-2 p-1.5 text-left"
+            class="price-card rounded-2xl border-2 p-1 text-left"
             :class="c.hero ? 'border-gm-primary/50 bg-gm-mist' : 'border-gm-line bg-white'"
           >
             <div class="flex flex-wrap items-center gap-1.5">
@@ -151,7 +131,7 @@ onUnmounted(() => ctx?.revert())
               <li v-for="f in c.cells" :key="f.label" class="flex min-w-0 items-center gap-1.5">
                 <Icon
                   :name="f.ok ? 'lucide:check' : 'lucide:x'"
-                  class="size-6 shrink-0"
+                  class="size-5 shrink-0"
                   :class="f.ok ? 'text-gm-primary' : 'text-red-500'"
                   aria-hidden="true"
                 />
@@ -171,7 +151,7 @@ onUnmounted(() => ctx?.revert())
 :deep(.banner-fix) {
   justify-content: flex-start !important;
   text-align: left !important;
-  padding: 0.375rem 0.75rem !important;
+  padding: 0.25rem 0.75rem !important;
 }
 :deep(.banner-fix svg) {
   width: 1.25rem !important;

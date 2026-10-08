@@ -166,7 +166,7 @@ onUnmounted(() => ctx?.revert())
       </div>
     </div>
 
-    <div class="mt-1 flex flex-col gap-0.5">
+    <div class="mt-1.5 flex flex-col gap-1">
       <DuelBar v-for="r in rows" :key="r.label" :label="r.label" :foe="r.foe" />
     </div>
 

@@ -27,7 +27,7 @@ onUnmounted(() => ctx?.revert())
   <DeckShell section="situs">
     <div ref="root" class="flex min-h-full w-full flex-col justify-center gap-2">
       <div class="flex w-full items-center justify-center gap-3">
-        <Reveal :delay="0.1" class="w-full min-w-0 max-w-[520px]">
+        <Reveal :delay="0.1" class="w-full min-w-0 max-w-[560px]">
           <div class="situs-frame w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white">
             <div class="flex items-center gap-1.5 border-b-2 border-gm-line bg-gm-panel px-2.5 py-1.5">
               <span class="flex shrink-0 items-center gap-1" aria-hidden="true">
@@ -45,7 +45,7 @@ onUnmounted(() => ctx?.revert())
             </div>
           </div>
         </Reveal>
-        <Reveal :delay="0.2" class="w-[150px] shrink-0 md:w-[170px]">
+        <Reveal :delay="0.2" class="w-[170px] shrink-0 md:w-[190px]">
           <div class="situs-frame w-full overflow-hidden rounded-[1.75rem] border-2 border-gm-ink bg-white">
             <div class="flex flex-col items-center gap-1 border-b-2 border-gm-line bg-gm-panel px-2 pb-1.5 pt-2">
               <span class="h-1.5 w-16 shrink-0 rounded-full bg-gm-ink" aria-hidden="true" />
@@ -68,13 +68,6 @@ onUnmounted(() => ctx?.revert())
             </span>
             <span class="min-w-0 text-base font-medium leading-snug text-gm-ink">{{ f.text }}</span>
           </span>
-        </Reveal>
-      </div>
-      <div class="situs-banner w-full">
-        <Reveal :delay="0.4" class="w-full">
-          <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
-            Katalog dan demo live selalu terbuka di growmate.bond.
-          </UiCalloutBanner>
         </Reveal>
       </div>
     </div>

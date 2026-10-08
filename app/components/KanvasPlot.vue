@@ -104,7 +104,7 @@ const tileShadow
     <div v-if="art === 'segments' || art === 'channels' || art === 'cost' || art === 'revenue' || art === 'partners'" aria-hidden="true" class="pointer-events-none relative mt-auto pt-1.5">
       <svg
         v-if="art === 'segments'"
-        class="h-16 w-full opacity-90 2xl:h-24"
+        class="h-16 w-full opacity-90 2xl:h-28"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -147,7 +147,7 @@ const tileShadow
       </svg>
       <svg
         v-else-if="art === 'channels'"
-        class="h-10 w-full opacity-90 2xl:h-16"
+        class="h-10 w-full opacity-90 2xl:h-20"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -188,7 +188,7 @@ const tileShadow
       </svg>
       <svg
         v-else-if="art === 'cost'"
-        class="h-8 w-full opacity-90 2xl:h-14"
+        class="h-8 w-full opacity-90 2xl:h-16"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -232,7 +232,7 @@ const tileShadow
       </svg>
       <svg
         v-else-if="art === 'revenue'"
-        class="h-8 w-full opacity-90 2xl:h-14"
+        class="h-8 w-full opacity-90 2xl:h-16"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -264,7 +264,7 @@ const tileShadow
       </svg>
       <svg
         v-else-if="art === 'partners'"
-        class="h-10 w-full opacity-90 2xl:h-16"
+        class="h-10 w-full opacity-90 2xl:h-20"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -304,6 +304,52 @@ const tileShadow
         <path d="M30 12 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#0e7a2e" opacity="0.75" />
       </svg>
       
+      <div class="mt-1 hidden 2xl:block" aria-hidden="true">
+        <svg v-if="art === 'activities'" class="h-16 w-full opacity-90" viewBox="0 0 200 56" preserveAspectRatio="xMidYMax meet">
+          <ellipse cx="100" cy="50" rx="58" ry="4.5" fill="#0a3d1a" opacity="0.12" />
+          <circle cx="46" cy="40" r="11" fill="#0a3d1a" opacity="0.2" />
+          <g fill="#3f7a52">
+            <rect x="43.5" y="28" width="5" height="24" rx="1.8" />
+            <rect x="34" y="37.5" width="24" height="5" rx="1.8" />
+            <circle cx="46" cy="40" r="8.5" />
+          </g>
+          <circle cx="46" cy="40" r="4" fill="#fff7e8" />
+          <rect x="72" y="12" width="52" height="38" rx="5" fill="#0a3d1a" opacity="0.22" />
+          <rect x="70" y="10" width="52" height="38" rx="5" fill="#fff7e8" stroke="#d8c9a6" stroke-width="1.2" />
+          <rect x="88" y="5" width="16" height="9" rx="3" fill="#8a5f2e" />
+          <path d="M78 26h22M78 33h22M78 40h14" stroke="#8a7a5c" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+          <path d="M110 24 l3 3 6 -7" fill="none" stroke="#0e7a2e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M110 31 l3 3 6 -7" fill="none" stroke="#0e7a2e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          <rect x="138" y="16" width="8" height="26" rx="2.5" fill="#e7b45a" stroke="#ffffff" stroke-width="1" transform="rotate(18 142 29)" />
+        </svg>
+        <svg v-if="art === 'resources'" class="h-16 w-full opacity-90" viewBox="0 0 200 56" preserveAspectRatio="xMidYMax meet">
+          <ellipse cx="100" cy="51" rx="58" ry="4" fill="#0a3d1a" opacity="0.12" />
+          <circle cx="102" cy="30" r="22" fill="#0e7a2e" opacity="0.12" />
+          <g stroke="#8a9389" stroke-width="2" stroke-linecap="round">
+            <path d="M86 20v-8M96 20v-8M106 20v-8M116 20v-8" />
+            <path d="M86 42v8M96 42v8M106 42v8M116 42v8" />
+            <path d="M80 24h-8M80 32h-8M80 40h-8" />
+            <path d="M124 24h8M124 32h8M124 40h8" />
+          </g>
+          <rect x="80" y="18" width="42" height="24" rx="6" fill="#14632f" stroke="#ffffff" stroke-width="1.2" />
+          <circle cx="101" cy="30" r="8" fill="#f6d488" stroke="#ffffff" stroke-width="1.2" />
+          <ellipse cx="48" cy="43" rx="10" ry="5" fill="#e7b45a" stroke="#ffffff" stroke-width="1" />
+          <ellipse cx="58" cy="41" rx="10" ry="5" fill="#f6d488" stroke="#ffffff" stroke-width="1" />
+          <g stroke="#0e7a2e" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85">
+            <path d="M152 48 v-9 M148 41 q4 -4 8 0" />
+          </g>
+        </svg>
+        <svg v-if="art === 'relations'" class="h-16 w-full opacity-90" viewBox="0 0 200 56" preserveAspectRatio="xMidYMax meet">
+          <ellipse cx="100" cy="51" rx="58" ry="4" fill="#0a3d1a" opacity="0.12" />
+          <rect x="36" y="24" width="68" height="22" rx="9" fill="#eef7ee" stroke="#0e7a2e" stroke-width="1.2" />
+          <polygon points="52,46 58,54 64,46" fill="#eef7ee" stroke="#0e7a2e" stroke-width="1.2" />
+          <path d="M46 31h30M46 37h22" stroke="#0e7a2e" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+          <rect x="96" y="24" width="68" height="22" rx="9" fill="#fff7e8" stroke="#d8c9a6" stroke-width="1.2" />
+          <polygon points="142,46 148,54 154,46" fill="#fff7e8" stroke="#d8c9a6" stroke-width="1.2" />
+          <path d="M130 33 c-4.5 -6 -14 -3 -12.5 3.5 c1 4.5 7 8 12.5 11 c5.5 -3 11.5 -6.5 12.5 -11 c1.5 -6.5 -8 -9.5 -12.5 -3.5z" fill="#c0392b" stroke="#ffffff" stroke-width="1.2" />
+          <path d="M62 8 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#0e7a2e" opacity="0.7" />
+        </svg>
+      </div>
     </div>
   </article>
 </template>

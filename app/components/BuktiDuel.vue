@@ -43,16 +43,16 @@
         <g stroke="#ffcf5c" stroke-width="2" stroke-linecap="round">
           <path d="M748 12 L748 16 M730 30 L734 30 M762 30 L766 30 M735 17 L738 20 M761 17 L758 20" />
         </g>
-        <ellipse cx="636" cy="72" rx="46" ry="7" fill="#3a2e26" />
-        <path d="M588 76 L596 96 L676 96 L684 76 Z" fill="#c96f2e" stroke="#9a5220" stroke-width="2" stroke-linejoin="round" />
-        <rect x="584" y="69" width="104" height="10" rx="3" fill="#b35f26" />
-        <path d="M636 70 C630 48 622 36 606 24 C622 22 638 36 642 60 Z" fill="#0f7a2e" />
-        <path d="M638 70 C640 46 646 34 662 24 C668 38 656 56 644 68 Z" fill="#1a9a3c" />
-        <path d="M636 70 C626 52 624 38 628 26 C640 32 644 50 640 66 Z" fill="#2fb457" />
-        <path d="M640 70 C648 52 650 38 646 26 C658 32 656 52 646 68 Z" fill="#4caf6d" />
-        <path d="M612 40 c3 4 5 6.5 5 9 a5 5 0 0 1 -10 0 c0 -2.5 2 -5 5 -9z" fill="#2aa7de" />
-        <path d="M664 38 c2.5 3.5 4 5.5 4 7.5 a4 4 0 0 1 -8 0 c0 -2 1.5 -4 4 -7.5z" fill="#2aa7de" opacity="0.9" />
-        <path d="M588 44 c2 3 3.5 4.8 3.5 6.8 a3.5 3.5 0 0 1 -7 0 c0 -2 1.5 -3.8 3.5 -6.8z" fill="#5cc0e8" />
+        <ellipse cx="620" cy="72" rx="46" ry="7" fill="#3a2e26" />
+        <path d="M568 76 L576 96 L672 96 L680 76 Z" fill="#c96f2e" stroke="#9a5220" stroke-width="2" stroke-linejoin="round" />
+        <rect x="564" y="69" width="112" height="10" rx="3" fill="#b35f26" />
+        <path d="M620 70 C614 48 606 36 590 24 C606 22 622 36 626 60 Z" fill="#0f7a2e" />
+        <path d="M622 70 C624 46 630 34 646 24 C652 38 640 56 628 68 Z" fill="#1a9a3c" />
+        <path d="M620 70 C610 52 608 38 612 26 C624 32 628 50 624 66 Z" fill="#2fb457" />
+        <path d="M624 70 C632 52 634 38 630 26 C642 32 640 52 630 68 Z" fill="#4caf6d" />
+        <path d="M596 40 c3 4 5 6.5 5 9 a5 5 0 0 1 -10 0 c0 -2.5 2 -5 5 -9z" fill="#2aa7de" />
+        <path d="M648 38 c2.5 3.5 4 5.5 4 7.5 a4 4 0 0 1 -8 0 c0 -2 1.5 -4 4 -7.5z" fill="#2aa7de" opacity="0.9" />
+        <path d="M572 44 c2 3 3.5 4.8 3.5 6.8 a3.5 3.5 0 0 1 -7 0 c0 -2 1.5 -3.8 3.5 -6.8z" fill="#5cc0e8" />
       </g>
 
       <g>
