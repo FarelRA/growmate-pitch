@@ -8,16 +8,16 @@ const cols = [
     icon: 'lucide:map', title: 'Ekspansi Pasar',
     rows: [
       { h: 'Pendek • 1-12 bln', t: 'Bantul: referral, studi kasus. DIY: DKPP, komunitas, sekolah. Luar DIY: Pods online plus demo stan.' },
-      { h: 'Menengah • 2-5 thn', t: 'Jateng Jatim: reseller. Jabodetabek Bandung: marketplace. Luar Jawa: pilot pemda plus pendampingan.' },
-      { h: 'Panjang • >5 thn', t: 'Luar Jawa: distributor. B2B greenhouse, UMKM. Ekspor ASEAN tropis plus layanan purna jual.' },
+      { h: 'Menengah • 2-5 thn', t: 'Jateng Jatim: reseller. Jabodetabek Bandung: marketplace. Luar Jawa: pilot pemda plus pendampingan intensif terjadwal.' },
+      { h: 'Panjang • >5 thn', t: 'Luar Jawa: distributor. B2B greenhouse, UMKM. Ekspor ASEAN tropis plus layanan purna jual bergaransi resmi.' },
     ],
   },
   {
     icon: 'lucide:flask-conical', title: 'Inovasi Lanjutan',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: 'Validasi 12 mangsa, data lokal. Mode Liburan. Hemat air, nutrisi, energi plus panduan harian.' },
+      { h: 'Pendek • 1-12 bln', t: 'Validasi 12 mangsa, data lokal. Mode Liburan. Hemat air, nutrisi, energi plus panduan harian bergambar praktis.' },
       { h: 'Menengah • 2-5 thn', t: 'Mangsa Engine 2.0. Anomali iklim. Dosis fase tumbuh. Deteksi hama plus rekomendasi harian.' },
-      { h: 'Panjang • >5 thn', t: 'Farm multi-zona komersial. Prediksi panen, jadwal tanam. Kalender multidaerah plus kurikulum tani.' },
+      { h: 'Panjang • >5 thn', t: 'Farm multi-zona komersial. Prediksi panen, jadwal tanam. Kalender multidaerah plus kurikulum tani lokal terapan.' },
     ],
   },
   {
