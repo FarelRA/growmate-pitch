@@ -52,11 +52,11 @@ onUnmounted(() => {
 
     <div class="relative min-h-0 flex-1 px-4 pb-3 pt-2 md:px-5">
       <Transition name="voice-spot" mode="out-in">
-        <div :key="voices[idx]!.name" class="flex h-full flex-col items-center gap-2 text-center md:gap-3">
-          <div class="mx-auto w-full max-w-[220px] shrink-0 md:max-w-[200px] xl:max-w-[220px]">
-            <UiPhotoFigure :src="voices[idx]!.photo" :alt="voices[idx]!.name" ratio="1 / 1" />
+        <div :key="voices[idx]!.name" class="flex h-full flex-col items-center justify-center gap-2 text-center md:gap-3">
+          <div class="mx-auto flex h-[240px] w-full shrink-0 items-center justify-center md:h-[240px] xl:h-[280px] 2xl:h-[340px]">
+            <img :src="voices[idx]!.photo" :alt="voices[idx]!.name" class="h-full w-auto max-w-full rounded-3xl border-2 border-gm-line object-contain" loading="lazy" decoding="async" draggable="false" />
           </div>
-          <div class="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center text-center">
+          <div class="flex min-w-0 flex-col items-center justify-center text-center">
             <p class="font-headline text-xl font-extrabold leading-tight text-gm-ink md:text-2xl">{{ voices[idx]!.name }}</p>
             <span class="mt-1.5 inline-flex w-fit rounded-full px-3 py-1 text-base font-bold uppercase leading-snug tracking-wide" :class="badgeClass(voices[idx]!.role)">{{ voices[idx]!.role }}</span>
             <p class="mt-2 line-clamp-3 overflow-hidden font-headline text-lg font-bold leading-snug text-gm-ink md:text-xl">“{{ voices[idx]!.quote }}”</p>

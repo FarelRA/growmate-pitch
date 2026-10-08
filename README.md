@@ -142,7 +142,7 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `gtm-instagram/whatsapp/shopee.webp` | tangkapan asli (crop tengah 9/16) | `GoToMarket` Instagram + WhatsApp + Shopee |
 | `gtm-situs-mobile.webp` | tangkapan asli (crop atas 9/16) | `SiteShowcase` bingkai mobile |
 | `dok-pengguna/demo.webp` | PU Images pengguna/demo | `DocGallery` pos 7-8 |
-| `testi-*.webp` (8) | lama | `FieldVoices` |
+| `testi-*.webp` (8) | foto grup asli utuh 16/9 | `FieldVoices` |
 | `bukti/*.webp` (5) | lama | `OfficialEvidence` |
 
 Slide lain memakai `UiPhotoSlot` (bingkai penanda: `ratio` + `label` + `spec` foto yang
