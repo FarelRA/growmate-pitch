@@ -134,8 +134,8 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `dok-printer.webp` | KTI Images printer 3D | `DocGallery` pos 6 |
 | `usp-pods-glow/sensor-sawah.webp` + `usp-tech-box.webp` | Profil usaha + PU Images boks kayu | `UniqueSelling` st 1-3 |
 | `closing-petani.webp` | DSC02284 | `ClosingCall` |
-| `sipoc-kalibrasi/pods/serah.webp` | DSC02277 / P1680691 / DSC02286 | `SipocMap` Proses/Keluaran/Pelanggan |
-| `sipoc-pemasok/masukan.webp` | PU Images toko elektronik / isi kemasan | `SipocMap` Pemasok/Masukan |
+| `sipoc-solder/pods/serah.webp` | rakit solder / P1680691 / DSC02286 | `SipocMap` Proses/Keluaran/Pelanggan |
+| `sipoc-pemasok/mikro.webp` | PU Images toko elektronik / papan mikro | `SipocMap` Pemasok/Masukan |
 | `stp-stan.webp` | PU Images demo stan | `StpBrief` |
 | `proses-riset/rakit/kemas.webp` | KTI Images Blender/rakit/kemas | `ProductionLine` Pra/Produksi/Pasca |
 | `gtm-tiktok/situs.webp` | PU Images tangkapan asli | `GoToMarket` TikTok + `SiteShowcase` situs |

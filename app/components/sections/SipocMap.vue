@@ -6,8 +6,8 @@ let ctx: gsap.Context | null = null
 
 const cols = [
   { icon: 'lucide:truck', title: 'Pemasok', items: ['Komponen IoT', 'Bodi 3D', 'Cloud AI', 'Kemas hijau'], hero: false, src: '/photos/sipoc-pemasok.webp', alt: 'Tim belanja komponen di toko elektronik', scene: 'supplier' },
-  { icon: 'lucide:package', title: 'Masukan', items: ['Mikrokontroler relai', 'Bodi Pods Tech', 'Firmware AI', 'Dataset tanaman', 'Kardus jerami'], hero: false, src: '/photos/sipoc-masukan.webp', alt: 'Isi kemasan Pods dan buku panduan', scene: 'input' },
-  { icon: 'lucide:cog', title: 'Proses', items: ['Desain 3D', 'Rakit solder', 'Flash firmware', 'Kalibrasi', 'Kemas', 'Dampingi'], hero: true, src: '/photos/sipoc-kalibrasi.webp', alt: 'Kalibrasi sensor GrowMate di tanah', scene: 'process' },
+  { icon: 'lucide:package', title: 'Masukan', items: ['Mikrokontroler relai', 'Bodi Pods Tech', 'Firmware AI', 'Dataset tanaman', 'Kardus jerami'], hero: false, src: '/photos/sipoc-mikro.webp', alt: 'Papan mikrokontroler sebagai komponen masukan', scene: 'input' },
+  { icon: 'lucide:cog', title: 'Proses', items: ['Desain 3D', 'Rakit solder', 'Flash firmware', 'Kalibrasi', 'Kemas', 'Dampingi'], hero: true, src: '/photos/sipoc-solder.webp', alt: 'Perakitan dan solder unit GrowMate', scene: 'process' },
   { icon: 'lucide:shopping-bag', title: 'Keluaran', items: ['Pods indoor', 'Tech lapangan', 'Dasbor Floral', 'Data telemetri'], hero: false, src: '/photos/sipoc-pods.webp', alt: 'Pods dan tanaman siap pakai', scene: 'output' },
   { icon: 'lucide:users', title: 'Pelanggan', items: ['Tech farmer', 'Properti', 'Kantor hijau', 'Tani kota'], hero: false, src: '/photos/sipoc-serah.webp', alt: 'Serah terima unit ke petani mitra', scene: 'customer' },
 ]
