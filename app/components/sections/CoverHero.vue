@@ -88,19 +88,19 @@ onMounted(() => {
 
             <Motion :initial="{ opacity: 0, y: 14 }" :animate="{ opacity: 1, y: 0 }" :transition="t(0.6, 0.5)" class="hidden lg:block">
               <div class="mt-3 grid w-full grid-cols-4 gap-2.5">
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ airText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">hemat air</div>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ liveText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">kesintasan</div>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ roiText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">ROI</div>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-left">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ timeText }}</div>
                   <div class="mt-1 text-base font-bold leading-snug text-white/70">hemat waktu</div>
                 </div>
@@ -143,19 +143,19 @@ onMounted(() => {
     </DeckSplitPanel>
 
     <div class="mt-3 grid w-full grid-cols-2 gap-2 lg:hidden">
-      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-left">
+      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ airText }}</div>
         <div class="mt-1 text-base font-bold leading-snug text-gm-muted">hemat air</div>
       </div>
-      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-left">
+      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ liveText }}</div>
         <div class="mt-1 text-base font-bold leading-snug text-gm-muted">kesintasan</div>
       </div>
-      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-left">
+      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ roiText }}</div>
         <div class="mt-1 text-base font-bold leading-snug text-gm-muted">ROI</div>
       </div>
-      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-left">
+      <div class="rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ timeText }}</div>
         <div class="mt-1 text-base font-bold leading-snug text-gm-muted">hemat waktu</div>
       </div>
