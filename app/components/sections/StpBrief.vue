@@ -35,7 +35,7 @@ onUnmounted(() => ctx?.revert())
                 <StpStep
                   letter="S"
                   icon="lucide:users"
-                  title="Segmentasi"
+                  title="Segmentation"
                   desc="Tech farmer, properti dan kantor DIY yang sibuk dan melek teknologi."
                   variant="segment"
                 />

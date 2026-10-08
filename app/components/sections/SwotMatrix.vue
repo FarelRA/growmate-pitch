@@ -36,7 +36,7 @@ type Quad = {
 
 const quads: Quad[] = [
   {
-    title: 'Kekuatan',
+    title: 'Strengths',
     icon: 'lucide:sun',
     iconAnim: '',
     iconTone: 'text-white',
@@ -46,7 +46,7 @@ const quads: Quad[] = [
       'Komunitas dan kemas hijau',
       'Harga hemat servis lokal',
     ],
-    reply: 'Aksi SO: rebut pasar milenial.',
+    reply: 'Action SO: rebut pasar milenial.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-primary bg-gm-primary rounded-2xl rounded-tl-3xl shadow-[0_14px_32px_rgba(0,77,19,0.30)]',
     itemText: 'text-white/90',
@@ -57,7 +57,7 @@ const quads: Quad[] = [
     order: 'order-1 lg:order-2',
   },
   {
-    title: 'Peluang',
+    title: 'Opportunities',
     icon: 'lucide:sprout',
     iconAnim: '',
     iconTone: 'text-gm-primary',
@@ -67,7 +67,7 @@ const quads: Quad[] = [
       'Asta Cita 2 dan SDGs 12',
       'Kanal luring masih luas',
     ],
-    reply: 'Aksi ST: jaga langganan lewat AI.',
+    reply: 'Action ST: jaga langganan lewat AI.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line bg-gm-mist rounded-2xl shadow-[0_10px_24px_rgba(0,77,19,0.12)]',
     itemText: 'text-gm-ink',
@@ -78,7 +78,7 @@ const quads: Quad[] = [
     order: 'order-2 lg:order-5',
   },
   {
-    title: 'Kelemahan',
+    title: 'Weaknesses',
     icon: 'lucide:wrench',
     iconAnim: '',
     iconTone: 'text-gm-amber',
@@ -88,7 +88,7 @@ const quads: Quad[] = [
       'Komponen kadang langka',
       'Kemasan rentan lembap',
     ],
-    reply: 'Aksi WO: amankan stok dan kemasan.',
+    reply: 'Action WO: amankan stok dan kemasan.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line border-l-4 border-l-gm-amber bg-white rounded-2xl shadow-[0_10px_24px_rgba(183,121,31,0.12)]',
     itemText: 'text-gm-ink',
@@ -99,7 +99,7 @@ const quads: Quad[] = [
     order: 'order-3 lg:order-3',
   },
   {
-    title: 'Ancaman',
+    title: 'Threats',
     icon: 'lucide:cloud-lightning',
     iconAnim: '',
     iconTone: 'text-gm-danger',
@@ -109,7 +109,7 @@ const quads: Quad[] = [
       'Kompetitor sejenis bermunculan',
       'Enggan perpanjang langganan',
     ],
-    reply: 'Aksi WT: cegah gangguan jaga nama.',
+    reply: 'Action WT: cegah gangguan jaga nama.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line border-l-4 border-l-gm-danger bg-white rounded-2xl shadow-[0_10px_24px_rgba(192,57,43,0.12)]',
     itemText: 'text-gm-ink',
@@ -159,7 +159,7 @@ const trans = (i: number) => ({
 
       <div class="relative grid w-full flex-1 grid-cols-1 content-stretch gap-1.5 lg:auto-rows-fr lg:grid-cols-[96px_1fr_1fr]">
         <div class="hidden min-w-0 items-center justify-start lg:flex lg:order-1">
-          <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor dalam</span>
+          <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Internal factors</span>
         </div>
         <Motion
           v-for="(q, i) in quads"
@@ -172,7 +172,7 @@ const trans = (i: number) => ({
         >
           <article :class="q.card" class="flex h-full min-w-0 flex-col border-2 p-2.5 text-left">
             <div
-              v-if="q.title === 'Kekuatan'"
+              v-if="q.title === 'Strengths'"
               aria-hidden="true"
               class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-white/10 lg:h-[60px]"
             >
@@ -203,7 +203,7 @@ const trans = (i: number) => ({
             </div>
 
             <div
-              v-else-if="q.title === 'Kelemahan'"
+              v-else-if="q.title === 'Weaknesses'"
               aria-hidden="true"
               class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-[#eef0ea] lg:h-[60px]"
             >
@@ -229,7 +229,7 @@ const trans = (i: number) => ({
             </div>
 
             <div
-              v-else-if="q.title === 'Peluang'"
+              v-else-if="q.title === 'Opportunities'"
               aria-hidden="true"
               class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-white lg:h-[60px]"
             >
@@ -276,10 +276,10 @@ const trans = (i: number) => ({
             </div>
 
             <div class="mt-2 flex min-w-0 items-center justify-start gap-2 text-left">
-              <span class="grid size-8 shrink-0 place-items-center rounded-lg" :class="q.title === 'Kekuatan' ? 'bg-white/15' : 'bg-white'">
+              <span class="grid size-8 shrink-0 place-items-center rounded-lg" :class="q.title === 'Strengths' ? 'bg-white/15' : 'bg-white'">
                 <Icon :name="q.icon" :class="[q.iconTone, q.iconAnim]" class="size-5" />
               </span>
-              <h2 class="min-w-0 text-left font-headline text-base font-extrabold leading-tight" :class="q.title === 'Kekuatan' ? 'text-white' : 'text-gm-ink'">{{ q.title }}</h2>
+              <h2 class="min-w-0 text-left font-headline text-base font-extrabold leading-tight" :class="q.title === 'Strengths' ? 'text-white' : 'text-gm-ink'">{{ q.title }}</h2>
             </div>
             <ul class="mt-2 space-y-0.5 text-left">
               <li v-for="it in q.items" :key="it" :class="q.itemText" class="flex min-w-0 items-start gap-2 break-words text-left text-base leading-snug">
@@ -295,7 +295,7 @@ const trans = (i: number) => ({
           </article>
         </Motion>
         <div class="hidden min-w-0 items-center justify-start lg:flex lg:order-4">
-          <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor luar</span>
+          <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">External factors</span>
         </div>
       </div>
     </div>

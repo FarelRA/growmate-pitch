@@ -55,16 +55,16 @@ const tabs: Array<{ name: string; stops: Stop[] }> = [
 const tilts = [-1.2, 0.8, -0.6, 1]
 
 const tab = ref(0)
-const hot = ref(0)
+const hot = ref(-1)
 const { pause, resume } = useIntervalFn(() => {
-  hot.value = (hot.value + 1) % 4
-}, 3000)
+  if (typeof document !== 'undefined' && document.hidden) return
+  tab.value = (tab.value + 1) % tabs.length
+}, 4000)
 onMounted(resume)
 onUnmounted(pause)
 
 function selectTab(i: number) {
   tab.value = i
-  hot.value = 0
   pause()
   resume()
 }

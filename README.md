@@ -16,7 +16,7 @@ bun run preview
 bun run generate # static output for cheap hosting
 ```
 
-Controls: swipe left/right on touch screens, arrow keys or space, `O` for overview, `F` for fullscreen, `Esc` to close. Scrolling never changes slides. No on-screen controls by design. All comparisons render side by side with no tabs to click: the firmware loop auto-plays with a play/pause transport, and the story carousel auto-advances with prev/next arrows.
+Controls: swipe left/right on touch screens, arrow keys or space, `O` for overview, `F` for fullscreen, `Esc` to close. Scrolling never changes slides. No on-screen controls by design. All comparisons render side by side with no tabs to click: the firmware loop auto-plays with a play/pause transport, and the story carousel auto-advances with prev/next arrows. The documentation gallery auto-advances its category tabs (Pra-Produksi, Produksi, Acara, Kemitraan, Uji dan Serah). The three bedah slides and the aplikasi slide draw measured leader lines from every numbered dot to its callout card (hover either end to highlight, dim the rest); no click needed.
 
 ## Deploy / present (recommended)
 
@@ -59,12 +59,17 @@ fast boots can mount before the browser exposes `location.hash`.
 - `app/data/deck.ts` is the single source of truth: section order, kickers
   (without numbers), titles, subs. Slide numbers are derived from array
   position at render time. No filename, kicker, or component contains a number.
-- `app/components/sections/*.vue`: 20 semantic sections (`CoverHero`,
-  `ProblemSolution`, `UniqueSelling`, `ProductionLine`, `ProductEvolution`,
-  `MarketScope`, `StpBrief`, `CompetitorDuel`, `GoToMarket`, `SocialImpact`,
-  `ImpactQuad`, `BusinessTraction`, `FieldProof`, `BusinessCanvas`,
-  `SwotMatrix`, `SipocMap`, `OfficialEvidence`, `DocGallery`, `FieldVoices`,
-  `RoadmapAsk`). `app/pages/index.vue` maps section id to component.
+- `app/components/sections/*.vue`: 31 semantic sections (`CoverHero`,
+  `ProblemStory`, `ProblemSolution`, `UniqueSelling`, `PodsBedah`,
+  `TechBedah`, `AddonBedah`, `AplikasiFitur`, `ProductionLine`,
+  `ProductEvolution`, `MarketScope`, `StpBrief`, `CompetitorDuel`,
+  `GoToMarket`, `SiteShowcase`, `SocialImpact`, `ImpactQuad`,
+  `BusinessTraction`, `UnitEconomics`, `FieldProof`, `BusinessCanvas`,
+  `SwotMatrix`, `SipocMap`, `OfficialEvidence`, `DocGallery`,
+  `FieldVoices`, `RoadmapAsk`, `ClosingCall`, plus `PodsShowcase`,
+  `TechSquad`, `MarketAlternatives`). `app/pages/index.vue` maps section
+  id to component. The bedah trio shares `BedahLayout` (centered render,
+  numbered dots, measured leader lines to the callout rails).
   `VoiceCarousel` (8 testimoni foto, autoplay + counter + panah) dipakai `FieldVoices`.
   Helper visual per slide (SVG + koreografi GSAP/motion-v; aturan klik: hanya panah slide + thumbnail bukti):
   cover `decor/CoverGridSvg`; latar `LatarRiver` + `LatarValveCard`; usp `UspDuelStrip` +
@@ -119,7 +124,7 @@ After converting, swap the section's `src` URL to `/photos/<name>.webp`
 16 foto dokumentasi sudah diekstrak dari deck lama (Canva, render 150dpi,
 crop ketat, WebP q80/82) dan langsung dipakai:
 
-ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
+ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Pengecualian yang disetujui: titik sorot angka dan panah penunjuk di atas render produk pada slide Bedah dan Aplikasi. Kunci saat ini:
 
 | File | Sumber | Dipakai di (terkunci) |
 |------|--------|------------------------|

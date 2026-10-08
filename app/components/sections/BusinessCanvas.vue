@@ -18,8 +18,8 @@ type Cell = {
 const topCells: Cell[] = [
   {
     id: 'kp',
-    title: 'Mitra Kunci',
-    sub: 'Key Partners',
+    title: 'Key Partners',
+    sub: '',
     icon: 'lucide:truck',
     hue: 'sky',
     art: 'partners',
@@ -37,8 +37,8 @@ const topCells: Cell[] = [
   },
   {
     id: 'ka',
-    title: 'Aktivitas Kunci',
-    sub: 'Key Activities',
+    title: 'Key Activities',
+    sub: '',
     icon: 'lucide:factory',
     hue: 'amber',
     art: 'activities',
@@ -47,8 +47,8 @@ const topCells: Cell[] = [
   },
   {
     id: 'kr',
-    title: 'Sumber Daya Kunci',
-    sub: 'Key Resources',
+    title: 'Key Resources',
+    sub: '',
     icon: 'lucide:cpu',
     hue: 'deep',
     art: 'resources',
@@ -57,8 +57,8 @@ const topCells: Cell[] = [
   },
   {
     id: 'vp',
-    title: 'Proposisi Nilai',
-    sub: 'Value Propositions',
+    title: 'Value Propositions',
+    sub: '',
     icon: 'lucide:sprout',
     hero: true,
     hue: 'brand',
@@ -74,8 +74,8 @@ const topCells: Cell[] = [
   },
   {
     id: 'cr',
-    title: 'Hubungan Pelanggan',
-    sub: 'Customer Relationships',
+    title: 'Customer Relationships',
+    sub: '',
     icon: 'lucide:heart-handshake',
     hue: 'sky',
     art: 'relations',
@@ -90,8 +90,8 @@ const topCells: Cell[] = [
   },
   {
     id: 'ch',
-    title: 'Kanal',
-    sub: 'Channels',
+    title: 'Channels',
+    sub: '',
     icon: 'lucide:store',
     hue: 'amber',
     items: ['Shopee dan web', 'Luring mitra usaha'],
@@ -100,8 +100,8 @@ const topCells: Cell[] = [
   },
   {
     id: 'cs',
-    title: 'Segmen Pelanggan',
-    sub: 'Customer Segments',
+    title: 'Customer Segments',
+    sub: '',
     icon: 'lucide:users',
     hue: 'deep',
     items: ['Petani teknologi', 'Properti kantor'],
@@ -113,8 +113,8 @@ const topCells: Cell[] = [
 const bottomCells: Cell[] = [
   {
     id: 'cost',
-    title: 'Struktur Biaya',
-    sub: 'Cost Structure',
+    title: 'Cost Structure',
+    sub: '',
     icon: 'lucide:coins',
     hue: 'deep',
     items: ['Riset AI IoT', 'Produksi', 'Server', 'Gaji'],
@@ -123,8 +123,8 @@ const bottomCells: Cell[] = [
   },
   {
     id: 'rev',
-    title: 'Arus Pendapatan',
-    sub: 'Revenue Streams',
+    title: 'Revenue Streams',
+    sub: '',
     icon: 'lucide:banknote',
     hue: 'amber',
     items: ['Jual Pods', 'Jual Tech', 'Langganan AI'],

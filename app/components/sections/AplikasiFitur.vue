@@ -1,95 +1,165 @@
 <script setup lang="ts">
-const features = [
-  { src: '/photos/app-dash.webp', alt: 'Ringkasan sensor live di aplikasi GrowMate', icon: 'lucide:gauge', title: 'Ringkasan', desc: 'Tanah, cahaya, tangki, dan jadwal tiap unit dalam satu layar.' },
-  { src: '/photos/app-rawat.webp', alt: 'Rutinitas perawatan di aplikasi GrowMate', icon: 'lucide:calendar-check', title: 'Perawatan', desc: 'Rutinitas harian terpandu dari tanam sampai panen.' },
-  { src: '/photos/app-pasar.webp', alt: 'Pasar perlengkapan dan panen di aplikasi GrowMate', icon: 'lucide:store', title: 'Pasar', desc: 'Produk resmi, lapak komunitas, dan studio penjual.' },
-  { src: '/photos/app-komunitas.webp', alt: 'Feed komunitas pengguna di aplikasi GrowMate', icon: 'lucide:users', title: 'Komunitas', desc: 'Feed, komentar, dan papan peringkat sesama growers.' },
-  { src: '/photos/app-asisten.webp', alt: 'Floral Assistant menjawab di aplikasi GrowMate', icon: 'lucide:bot', title: 'Floral Assistant', desc: 'Tanya gejala tanaman, dapat dosis dan langkah.' },
-  { src: '/photos/app-tanam.webp', alt: 'Pustaka tanaman di aplikasi GrowMate', icon: 'lucide:leaf', title: 'Pustaka Tanaman', desc: 'Profil kemangi sampai Monstera per fase tumbuh.' },
+interface AppShot {
+  src: string
+  alt: string
+  x: number
+  y: number
+  title: string
+  desc: string
+}
+
+const shots: AppShot[] = [
+  { src: '/photos/app-dash.webp', alt: 'Ringkasan sensor live di aplikasi GrowMate', x: 50, y: 72, title: 'Ringkasan', desc: 'Tanah, cahaya, tangki, jadwal live.' },
+  { src: '/photos/app-rawat.webp', alt: 'Tombol siram dan rutinitas di aplikasi GrowMate', x: 36, y: 63, title: 'Perawatan', desc: 'Rutinitas terpandu sampai panen.' },
+  { src: '/photos/app-pasar.webp', alt: 'Kartu produk di pasar aplikasi GrowMate', x: 50, y: 58, title: 'Pasar', desc: 'Produk resmi dan lapak komunitas.' },
+  { src: '/photos/app-komunitas.webp', alt: 'Postingan feed di komunitas GrowMate', x: 50, y: 52, title: 'Komunitas', desc: 'Feed dan papan peringkat growers.' },
+  { src: '/photos/app-asisten.webp', alt: 'Tombol kirim chat Floral Assistant di aplikasi GrowMate', x: 78, y: 55, title: 'Floral Assistant', desc: 'Tanya gejala, dapat dosis.' },
+  { src: '/photos/app-tanam.webp', alt: 'Foto tanaman di pustaka aplikasi GrowMate', x: 50, y: 16, title: 'Pustaka', desc: 'Profil tanaman per fase.' },
 ]
 
-const sel = ref(0)
+const activeIdx = ref(-1)
 
-function nextShot() {
-  if (typeof document !== 'undefined' && document.hidden) return
-  sel.value = (sel.value + 1) % features.length
+const boardRef = ref<HTMLElement | null>(null)
+const tileEls = ref<HTMLElement[]>([])
+const cardEls = ref<HTMLElement[]>([])
+const box = ref({ w: 0, h: 0 })
+const paths = ref<{ i: number; pts: string }[]>([])
+const wide = useMediaQuery('(min-width: 1024px)')
+
+function setTileEl(i: number, el: unknown) {
+  if (el) tileEls.value[i] = el as HTMLElement
 }
 
-const { pause: pauseCycle, resume: resumeCycle } = useIntervalFn(nextShot, 3000)
-
-function selectShot(i: number) {
-  sel.value = i
-  pauseCycle()
-  resumeCycle()
+function setCardEl(i: number, el: unknown) {
+  if (el) cardEls.value[i] = el as HTMLElement
 }
 
-onMounted(resumeCycle)
-onUnmounted(pauseCycle)
+function measure() {
+  const b = boardRef.value
+  if (!b || !wide.value) {
+    paths.value = []
+    return
+  }
+  const br = b.getBoundingClientRect()
+  box.value = { w: br.width, h: br.height }
+
+  const out: { i: number; pts: string }[] = []
+  shots.forEach((s, i) => {
+    const t = tileEls.value[i]
+    const c = cardEls.value[i]
+    if (!t || !c) return
+    const tr = t.getBoundingClientRect()
+    const cr = c.getBoundingClientRect()
+    const x0 = tr.left - br.left + (s.x / 100) * tr.width
+    const y0 = tr.top - br.top + (s.y / 100) * tr.height
+    const tileBottom = tr.bottom - br.top
+    const cardTop = cr.top - br.top
+    const cardCx = cr.left - br.left + cr.width / 2
+    const midY = tileBottom + (cardTop - tileBottom) / 2
+    out.push({ i, pts: `${x0},${y0} ${x0},${midY} ${cardCx},${midY} ${cardCx},${cardTop}` })
+  })
+  paths.value = out
+}
+
+let rafId = 0
+let stopAt = 0
+
+function tick() {
+  measure()
+  if (performance.now() < stopAt) rafId = requestAnimationFrame(tick)
+}
+
+function trackFor(ms = 1600) {
+  cancelAnimationFrame(rafId)
+  stopAt = performance.now() + ms
+  rafId = requestAnimationFrame(tick)
+}
+
+const onResize = () => measure()
+
+onMounted(() => {
+  trackFor()
+  window.addEventListener('resize', onResize, { passive: true })
+  document.fonts.ready.then(() => measure()).catch(() => {})
+})
+
+onUnmounted(() => {
+  cancelAnimationFrame(rafId)
+  window.removeEventListener('resize', onResize)
+})
+
+watch(wide, (v) => {
+  if (v) nextTick(() => trackFor(500))
+})
 </script>
 
 <template>
   <DeckShell section="aplikasi">
     <div class="flex min-h-full w-full min-w-0 flex-col justify-center gap-2 md:gap-2.5">
-      <div class="grid w-full min-w-0 grid-cols-1 items-center gap-3 lg:grid-cols-12">
-        <div class="mx-auto w-full min-w-0 max-w-[180px] lg:col-span-4 xl:max-w-[210px] 2xl:max-w-[230px]">
-          <div class="w-full overflow-hidden rounded-[1.75rem] border-2 border-gm-ink bg-white">
-            <div class="flex flex-col items-center gap-1 border-b-2 border-gm-line bg-gm-panel px-2 pb-1.5 pt-2">
-              <span class="h-1.5 w-16 shrink-0 rounded-full bg-gm-ink" aria-hidden="true" />
-              <span class="flex w-full min-w-0 items-center justify-start gap-1 rounded-full bg-white px-2 py-0.5 text-left">
-                <Icon name="lucide:sprout" class="size-3.5 shrink-0 text-gm-primary" />
-                <span class="truncate text-base font-semibold text-gm-ink">{{ features[sel]!.title }} • GrowMate App</span>
-              </span>
-            </div>
-            <div class="p-1.5">
-              <Transition name="deck" mode="out-in">
-                <img
-                  :key="sel"
-                  :src="features[sel]!.src"
-                  :alt="features[sel]!.alt"
-                  class="h-auto w-full rounded-2xl border-2 border-gm-line"
-                  draggable="false"
-                />
-              </Transition>
-            </div>
-          </div>
-          <div class="mt-2 grid w-full grid-cols-6 gap-1.5">
-            <button
-              v-for="(f, i) in features"
-              :key="f.src"
-              type="button"
-              :aria-label="`Lihat ${f.title}`"
-              class="overflow-hidden rounded-lg border-2 transition-all"
-              :class="i === sel ? 'border-gm-primary shadow-md' : 'border-gm-line opacity-70 hover:opacity-100'"
-              @click="selectShot(i)"
-            >
-              <img :src="f.src" :alt="f.title" class="h-10 w-full object-cover object-top" draggable="false" />
-            </button>
-          </div>
-        </div>
-        <ol class="grid w-full min-w-0 grid-cols-1 gap-1.5 sm:grid-cols-2 lg:col-span-8">
+      <div ref="boardRef" class="relative flex w-full min-w-0 flex-col gap-2 md:gap-2.5">
+        <ol class="grid w-full grid-cols-3 gap-1.5 sm:grid-cols-6">
           <li
-            v-for="(f, i) in features"
-            :key="f.title"
+            v-for="(s, i) in shots"
+            :key="s.src"
+            :ref="(el) => setTileEl(i, el)"
+            class="relative w-full min-w-0 overflow-hidden rounded-2xl border-2 bg-gm-panel transition-all"
+            :class="activeIdx === i ? 'border-gm-primary shadow-md' : 'border-gm-line'"
+            @mouseenter="activeIdx = i"
+            @mouseleave="activeIdx = -1"
           >
-            <button
-              type="button"
-              class="flex h-full w-full items-start justify-start gap-2.5 rounded-2xl border-2 p-2.5 text-left transition-all"
-              :class="i === sel ? 'border-gm-primary bg-gm-amberbg/60 shadow-md' : 'border-gm-line bg-white'"
-              @click="selectShot(i)"
-            >
-              <span
-                class="grid size-10 shrink-0 place-items-center rounded-xl"
-                :class="i === sel ? 'bg-gm-primary text-white' : 'bg-gm-mist text-gm-primary'"
-              >
-                <Icon :name="f.icon" class="size-5" />
-              </span>
-              <span class="min-w-0">
-                <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">{{ i + 1 }}. {{ f.title }}</span>
-                <span class="mt-0.5 block text-base leading-snug text-gm-muted">{{ f.desc }}</span>
-              </span>
-            </button>
+            <img :src="s.src" :alt="s.alt" class="block h-auto w-full" draggable="false" @load="measure" />
+            <span
+              class="absolute z-20 grid size-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full font-headline text-base font-extrabold text-white shadow-md transition-transform"
+              :class="activeIdx === i ? 'scale-125 bg-gm-amber' : 'bg-gm-primary'"
+              :style="{ left: `${s.x}%`, top: `${s.y}%` }"
+            >{{ i + 1 }}</span>
           </li>
         </ol>
+        <ol class="grid w-full grid-cols-2 gap-1.5 sm:grid-cols-3 lg:grid-cols-6">
+          <li
+            v-for="(s, i) in shots"
+            :key="s.title"
+            :ref="(el) => setCardEl(i, el)"
+            class="flex h-full w-full items-start justify-start gap-2 rounded-2xl border-2 p-2 text-left transition-all"
+            :class="activeIdx === i ? 'border-gm-primary bg-gm-amberbg/60 shadow-md' : 'border-gm-line bg-white'"
+            @mouseenter="activeIdx = i"
+            @mouseleave="activeIdx = -1"
+          >
+            <span
+              class="grid size-8 shrink-0 place-items-center rounded-full font-headline text-base font-extrabold text-white"
+              :class="activeIdx === i ? 'bg-gm-amber' : 'bg-gm-primary'"
+            >{{ i + 1 }}</span>
+            <span class="min-w-0">
+              <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">{{ s.title }}</span>
+              <span class="mt-0.5 block text-base leading-snug text-gm-muted">{{ s.desc }}</span>
+            </span>
+          </li>
+        </ol>
+        <svg
+          v-if="wide && paths.length"
+          class="pointer-events-none absolute inset-0 z-10 h-full w-full"
+          :viewBox="`0 0 ${box.w} ${box.h}`"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <marker id="app-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.4" markerHeight="3.4" orient="auto-start-reverse">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#006e1c" />
+            </marker>
+          </defs>
+          <polyline
+            v-for="p in paths"
+            :key="p.i"
+            :points="p.pts"
+            fill="none"
+            stroke="#006e1c"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            marker-end="url(#app-arrow)"
+            :opacity="activeIdx === -1 || activeIdx === p.i ? 1 : 0.25"
+          />
+        </svg>
       </div>
     </div>
   </DeckShell>

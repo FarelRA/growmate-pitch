@@ -27,7 +27,7 @@ export const BEDAH_PODS: BedahData = {
     { x: 31.5, y: 46, title: 'Sensor iklim DHT22', desc: 'Baca suhu dan kelembapan udara untuk validasi ganda.' },
     { x: 50, y: 60, title: 'Sensor tanah kapasitif', desc: 'ADC 12 bit skala 0 sampai 4095. Siram hanya saat tanah butuh.' },
     { x: 37, y: 76, title: 'Pompa celup 5V', desc: 'Dosis presisi 30 detik. Aman dengan dioda flyback kelas 3 A.' },
-    { x: 55, y: 82, title: 'Otak ESP32-CAM', desc: 'ESP32-S dengan WiFi. PSRAM dioptimalkan untuk kamera.' },
+    { x: 47, y: 71, title: 'Otak ESP32-CAM', desc: 'ESP32-S dengan WiFi. PSRAM dioptimalkan untuk kamera.' },
     { x: 73, y: 80, title: 'Kamera dan tangki UPS', desc: 'OV2640 foto tiap 900 detik. Baterai 4230 mAh jaga siram saat mati lampu.' },
   ],
   steps: [
