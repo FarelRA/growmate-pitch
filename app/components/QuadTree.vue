@@ -78,7 +78,7 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <div ref="box" aria-hidden="true" class="pointer-events-none w-full shrink-0 overflow-hidden rounded-2xl border border-gm-line">
-    <svg viewBox="0 0 1200 178" preserveAspectRatio="none" class="hidden h-[100px] w-full md:block lg:h-[108px] 2xl:h-[118px]">
+    <svg viewBox="0 0 1200 178" preserveAspectRatio="none" class="hidden h-[130px] w-full md:block lg:h-[150px] 2xl:h-[175px]">
       <defs>
         <linearGradient id="quadSky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#dceffa" />
@@ -261,7 +261,7 @@ onUnmounted(() => ctx?.revert())
         <text x="1050" y="169.5">Jerami</text>
       </g>
     </svg>
-    <svg viewBox="0 0 360 138" preserveAspectRatio="none" class="block h-[88px] w-full md:hidden">
+    <svg viewBox="0 0 360 138" preserveAspectRatio="none" class="block h-[110px] w-full md:hidden">
       <rect x="0" y="0" width="360" height="96" fill="#e4f1fa" />
       <g transform="translate(140,22)">
         <circle r="13" fill="#f7c948" opacity="0.22" />

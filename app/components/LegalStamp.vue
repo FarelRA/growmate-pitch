@@ -13,14 +13,14 @@ let tl: ReturnType<typeof gsap.timeline> | null = null
 const boxClass = computed(() => (props.size === 'sm' ? 'size-24' : 'size-28 md:size-32'))
 
 const checks = [
-  { x: 64, y: 0 },
-  { x: 45, y: -45 },
-  { x: 0, y: -64 },
-  { x: -45, y: -45 },
-  { x: -64, y: 0 },
-  { x: -45, y: 45 },
-  { x: 0, y: 64 },
-  { x: 45, y: 45 },
+  { x: 40, y: 0 },
+  { x: 28, y: -28 },
+  { x: 0, y: -40 },
+  { x: -28, y: -28 },
+  { x: -40, y: 0 },
+  { x: -28, y: 28 },
+  { x: 0, y: 40 },
+  { x: 28, y: 28 },
 ]
 
 onMounted(() => {
@@ -50,15 +50,17 @@ onUnmounted(() => {
       <svg viewBox="0 0 120 120" class="size-full" aria-hidden="true">
         <circle cx="60" cy="60" r="56" fill="rgba(0, 110, 28, 0.08)" stroke="#006e1c" stroke-width="5" />
         <circle cx="60" cy="60" r="45" fill="none" stroke="#006e1c" stroke-width="2" />
-        <path
-          d="M60 32 L63.1 40.2 L71.6 40.6 L64.9 45.9 L67.2 54.1 L60 49.2 L52.8 54.1 L55.1 45.9 L48.4 40.6 L56.9 40.2 Z"
-          fill="none"
-          stroke="#006e1c"
-          stroke-width="2.5"
-          stroke-linejoin="round"
-        />
-        <text x="60" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#006e1c" letter-spacing="0.5" font-family="Manrope, sans-serif" textLength="76" lengthAdjust="spacingAndGlyphs">LULUS UJI</text>
-        <text x="60" y="94" text-anchor="middle" font-size="16" font-weight="700" fill="#006e1c" letter-spacing="0.5" font-family="Manrope, sans-serif" textLength="76" lengthAdjust="spacingAndGlyphs">DKPP BANTUL</text>
+        <g transform="translate(60 40) scale(0.9) translate(-60 -43)">
+          <path
+            d="M60 32 L63.1 40.2 L71.6 40.6 L64.9 45.9 L67.2 54.1 L60 49.2 L52.8 54.1 L55.1 45.9 L48.4 40.6 L56.9 40.2 Z"
+            fill="none"
+            stroke="#006e1c"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+        </g>
+        <text x="60" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#006e1c" letter-spacing="0.5" font-family="Manrope, sans-serif" textLength="72" lengthAdjust="spacingAndGlyphs">LULUS UJI</text>
+        <text x="60" y="94" text-anchor="middle" font-size="16" font-weight="700" fill="#006e1c" letter-spacing="0.5" font-family="Manrope, sans-serif" textLength="72" lengthAdjust="spacingAndGlyphs">DKPP BANTUL</text>
       </svg>
     </div>
     <template v-if="burst">
@@ -68,7 +70,7 @@ onUnmounted(() => {
         :initial="{ opacity: 0, scale: 0, x: 0, y: 0 }"
         :animate="{ opacity: 1, scale: 1, x: c.x, y: c.y }"
         :transition="{ duration: 0.45, delay: 0.9 + i * 0.06, ease: [0.22, 1, 0.36, 1] }"
-        class="absolute left-1/2 top-1/2 grid size-6 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gm-primary text-white shadow-md"
+        class="absolute left-1/2 top-1/2 grid size-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gm-primary text-white shadow-md"
       >
         <Icon name="lucide:check" class="size-4" />
       </Motion>

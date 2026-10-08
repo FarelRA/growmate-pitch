@@ -53,16 +53,39 @@ onUnmounted(() => ctx?.revert())
           </div>
         </template>
         <template #secondary>
-          <div class="flex w-full flex-col justify-center text-left">
+          <div class="flex w-full flex-col justify-center gap-1.5 text-left">
             <Reveal :delay="0.2" class="w-full">
-              <UiPhotoFigure src="/photos/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" class="gtm-frame" />
+              <div class="gtm-frame flex w-full items-start justify-start gap-2 rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left">
+                <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist">
+                  <Icon name="lucide:store" class="size-5 text-gm-primary" />
+                </span>
+                <span class="min-w-0">
+                  <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">Ritel mitra</span>
+                  <span class="block text-base font-medium leading-snug text-gm-muted">Unit pajang di Matra dan ToolsKu, siap dicoba pengunjung.</span>
+                </span>
+              </div>
             </Reveal>
-            <div class="gtm-banner mt-1 w-full">
+            <Reveal :delay="0.27" class="w-full">
+              <div class="gtm-frame flex w-full items-start justify-start gap-2 rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left">
+                <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist">
+                  <Icon name="lucide:calendar-check" class="size-5 text-gm-primary" />
+                </span>
+                <span class="min-w-0">
+                  <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">Agenda Bantul</span>
+                  <span class="block text-base font-medium leading-snug text-gm-muted">Expo dan demo tani terjadwal di Bantul bersama komunitas.</span>
+                </span>
+              </div>
+            </Reveal>
+            <div class="gtm-banner mt-0.5 w-full">
               <Reveal :delay="0.35" class="w-full">
                 <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
                   Katalog dan demo live selalu terbuka di growmate.bond.
                 </UiCalloutBanner>
               </Reveal>
+              <p class="mt-1 flex items-center justify-start gap-1.5 text-left text-base font-semibold text-gm-muted">
+                <Icon name="lucide:monitor-smartphone" class="size-5 shrink-0 text-gm-primary" />
+                <span>Detail situs ada di halaman Platform Digital.</span>
+              </p>
             </div>
           </div>
         </template>

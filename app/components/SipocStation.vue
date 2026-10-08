@@ -14,11 +14,11 @@ defineProps<{
 
 <template>
   <article
-    class="sipoc-station relative flex h-full min-w-0 flex-1 flex-col justify-between overflow-hidden rounded-2xl border-2 p-3 text-left lg:p-4"
+    class="sipoc-station relative flex h-full min-w-0 flex-1 flex-col justify-between overflow-hidden rounded-2xl border-2 p-2 text-left lg:p-2"
     :class="hero ? 'border-gm-primary bg-gm-primary text-white shadow-md' : 'border-gm-line bg-white'"
   >
     <div
-      class="sipoc-scene relative mb-2 h-12 w-full shrink-0 overflow-hidden rounded-xl border lg:h-14"
+      class="sipoc-scene relative mb-2 h-10 w-full shrink-0 overflow-hidden rounded-xl border lg:h-12"
       :class="hero ? 'hot border-white/25 bg-white/10' : 'border-gm-line bg-gm-panel'"
       aria-hidden="true"
     >

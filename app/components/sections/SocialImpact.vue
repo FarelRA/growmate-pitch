@@ -74,7 +74,7 @@ const frames = [
         <template #primary>
           <div class="relative min-w-0 pl-8 text-left md:pl-10">
             <SosialVine />
-            <div class="relative z-10 flex w-full flex-col justify-center gap-2.5">
+            <div class="relative z-10 flex w-full flex-col justify-center gap-2">
               <Motion
                 v-for="(f, i) in frames"
                 :key="f.title"
@@ -83,7 +83,7 @@ const frames = [
                 :transition="spring(0.12 + i * 0.12)"
                 class="w-full"
               >
-                <article class="flex w-full items-start justify-start gap-3 rounded-2xl border-2 border-gm-line bg-white p-4 text-left">
+                <article class="flex w-full items-start justify-start gap-2.5 rounded-2xl border-2 border-gm-line bg-white p-2.5 text-left">
                   <span class="relative grid size-11 shrink-0 place-items-center rounded-xl bg-gm-mist lg:size-12">
                     <Icon :name="f.icon" class="size-6 text-gm-primary lg:size-7" />
                     <span
@@ -111,12 +111,12 @@ const frames = [
         </template>
 
         <template #secondary>
-          <div class="flex w-full min-w-0 max-w-[390px] flex-col text-left 2xl:max-w-[560px]">
+          <div class="flex w-full min-w-0 max-w-none flex-col text-left lg:max-w-[410px] xl:max-w-[430px] 2xl:max-w-[620px]">
             <UiPhotoFigure src="/photos/farmer.webp" alt="Petani mitra memegang unit GrowMate Tech di lapangan" ratio="4 / 3" />
-            <div class="mt-2 px-0.5">
+            <div class="mt-2 w-full px-0.5">
               <SosialTimer />
             </div>
-            <div class="mt-2 flex items-center justify-start gap-2.5 rounded-2xl bg-gm-primary px-4 py-2.5 text-left text-white">
+            <div class="mt-1.5 flex w-full items-center justify-start gap-2.5 rounded-2xl bg-gm-primary px-4 py-2 text-left text-white">
               <Icon name="lucide:badge-check" class="size-6 shrink-0 lg:size-7" />
               <p class="font-headline text-base font-extrabold leading-tight lg:text-lg">8 testimoni resmi terdokumentasi</p>
             </div>

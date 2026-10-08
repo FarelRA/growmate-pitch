@@ -7,33 +7,33 @@ const cols = [
   {
     icon: 'lucide:map', title: 'Ekspansi Pasar',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: 'Bantul: referral, studi kasus. DIY: DKPP, komunitas, sekolah. Luar DIY: Pods online.' },
-      { h: 'Menengah • 2-5 thn', t: 'Jateng Jatim: reseller. Jabodetabek Bandung: marketplace. Luar Jawa: pilot pemda.' },
-      { h: 'Panjang • >5 thn', t: 'Luar Jawa: distributor. B2B greenhouse, UMKM. Ekspor ASEAN tropis.' },
+      { h: 'Pendek • 1-12 bln', t: 'Bantul: referral, studi kasus. DIY: DKPP, komunitas, sekolah. Luar DIY: Pods online plus demo stan.' },
+      { h: 'Menengah • 2-5 thn', t: 'Jateng Jatim: reseller. Jabodetabek Bandung: marketplace. Luar Jawa: pilot pemda plus pendampingan.' },
+      { h: 'Panjang • >5 thn', t: 'Luar Jawa: distributor. B2B greenhouse, UMKM. Ekspor ASEAN tropis plus layanan purna jual.' },
     ],
   },
   {
     icon: 'lucide:flask-conical', title: 'Inovasi Lanjutan',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: 'Validasi 12 mangsa, data lokal. Mode Liburan. Hemat air, nutrisi, energi.' },
-      { h: 'Menengah • 2-5 thn', t: 'Mangsa Engine 2.0. Anomali iklim. Dosis fase tumbuh. Deteksi hama.' },
-      { h: 'Panjang • >5 thn', t: 'Farm multi-zona komersial. Prediksi panen, jadwal tanam. Kalender multidaerah.' },
+      { h: 'Pendek • 1-12 bln', t: 'Validasi 12 mangsa, data lokal. Mode Liburan. Hemat air, nutrisi, energi plus panduan harian.' },
+      { h: 'Menengah • 2-5 thn', t: 'Mangsa Engine 2.0. Anomali iklim. Dosis fase tumbuh. Deteksi hama plus rekomendasi harian.' },
+      { h: 'Panjang • >5 thn', t: 'Farm multi-zona komersial. Prediksi panen, jadwal tanam. Kalender multidaerah plus kurikulum tani.' },
     ],
   },
   {
     icon: 'lucide:cpu', title: 'Inovasi Teknologi',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: 'Telemetri cloud, latih Floral. Mode Liburan firmware. Dasbor hemat.' },
-      { h: 'Menengah • 2-5 thn', t: 'API BMKG, model cloud. Dosing EC pH presisi. ESP32-CAM hama.' },
-      { h: 'Panjang • >5 thn', t: 'Gateway MQTT, edge AI offline. ML panen multimusim. Kalender plus ahli lokal.' },
+      { h: 'Pendek • 1-12 bln', t: 'Telemetri cloud, latih Floral. Mode Liburan firmware. Dasbor hemat plus pembaruan berkala.' },
+      { h: 'Menengah • 2-5 thn', t: 'API BMKG, model cloud. Dosing EC pH presisi. ESP32-CAM hama plus notifikasi WA.' },
+      { h: 'Panjang • >5 thn', t: 'Gateway MQTT, edge AI offline. ML panen multimusim. Kalender multidaerah plus dukungan ahli lokal.' },
     ],
   },
   {
     icon: 'lucide:trending-up', title: 'Pertumbuhan Usaha',
     rows: [
-      { h: 'Pendek • 1-12 bln', t: '8 ke 12 unit per bulan. Rp201 jt (3,4x). 95 AI. Margin 28 persen.' },
-      { h: 'Menengah • 2-5 thn', t: '20 ke 100 per bulan, 2.390 total. Rp175 jt per bulan. 1.459 AI.' },
-      { h: 'Panjang • >5 thn', t: '10.000 unit tahun ke-9. Rp500 jt per bulan. 6.100 AI. Refurbish regional.' },
+      { h: 'Pendek • 1-12 bln', t: '8 ke 12 unit per bulan. Rp201 jt (3,4x). 95 AI. Margin 28 persen plus langganan AI.' },
+      { h: 'Menengah • 2-5 thn', t: '20 ke 100 per bulan, 2.390 total. Rp175 jt per bulan. 1.459 AI plus paket langganan lanjutan.' },
+      { h: 'Panjang • >5 thn', t: '10.000 unit tahun ke-9. Rp500 jt per bulan. 6.100 AI plus refurbish terjadwal regional.' },
     ],
   },
 ]
@@ -89,7 +89,7 @@ onUnmounted(() => ctx?.revert())
         <svg
           viewBox="0 0 1200 96"
           preserveAspectRatio="xMidYMid slice"
-          class="block h-14 w-full sm:h-16 md:h-[72px]"
+          class="block h-12 w-full sm:h-14 md:h-[60px]"
           role="img"
           aria-label="Langit pendakian GrowMate dari Bantul menuju puncak ketahanan pangan"
         >
@@ -212,7 +212,7 @@ onUnmounted(() => ctx?.revert())
         <article
           v-for="(c, i) in cols"
           :key="c.title"
-          class="scale-col flex h-full min-w-0 flex-col rounded-2xl border-2 border-gm-line bg-white p-3 text-left md:p-4"
+          class="scale-col flex h-full min-w-0 flex-col rounded-2xl border-2 border-gm-line bg-white p-2.5 text-left"
         >
           <div class="flex min-w-0 items-center justify-start gap-2">
             <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-gm-mist">

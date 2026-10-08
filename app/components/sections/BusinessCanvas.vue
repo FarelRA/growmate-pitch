@@ -12,6 +12,7 @@ type Cell = {
   hero?: boolean
   hue: Hue
   place: string
+  art?: 'none' | 'segments' | 'channels' | 'cost' | 'revenue' | 'partners' | 'activities' | 'resources' | 'relations' | 'value'
 }
 
 const topCells: Cell[] = [
@@ -91,6 +92,7 @@ const topCells: Cell[] = [
     hue: 'amber',
     items: ['Shopee dan web', 'Luring mitra usaha'],
     place: 'md:col-start-4 md:row-start-2',
+    art: 'channels',
   },
   {
     id: 'cs',
@@ -100,6 +102,7 @@ const topCells: Cell[] = [
     hue: 'deep',
     items: ['Petani teknologi', 'Properti kantor'],
     place: 'md:col-start-5 md:row-start-1 md:row-span-2',
+    art: 'segments',
   },
 ]
 
@@ -112,6 +115,7 @@ const bottomCells: Cell[] = [
     hue: 'deep',
     items: ['Riset AI IoT', 'Produksi', 'Server', 'Gaji'],
     place: '',
+    art: 'cost',
   },
   {
     id: 'rev',
@@ -121,6 +125,7 @@ const bottomCells: Cell[] = [
     hue: 'amber',
     items: ['Jual Pods', 'Jual Tech', 'Langganan AI'],
     place: '',
+    art: 'revenue',
   },
 ]
 
@@ -161,15 +166,15 @@ onUnmounted(() => ctx?.revert())
         </g>
       </svg>
 
-      <div class="relative grid w-full grid-cols-1 content-center gap-1 md:grid-cols-5 md:gap-1">
+      <div class="relative grid w-full flex-1 grid-cols-1 content-stretch gap-1 md:grid-cols-5 md:gap-1">
         <div v-for="(c, i) in topCells" :key="c.id" class="min-w-0" :class="c.place">
-          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hero="c.hero" :hue="c.hue" :index="i" />
+          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hero="c.hero" :hue="c.hue" :index="i" :art="c.art ?? 'none'" />
         </div>
       </div>
 
       <div class="relative mt-1 grid w-full grid-cols-1 gap-1 md:mt-1 md:grid-cols-2 md:gap-1">
         <div v-for="(c, i) in bottomCells" :key="c.id" class="min-w-0">
-          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hue="c.hue" :index="topCells.length + i" />
+          <KanvasPlot :title="c.title" :sub="c.sub" :icon="c.icon" :items="c.items" :hue="c.hue" :index="topCells.length + i" :art="c.art ?? 'none'" />
         </div>
       </div>
     </div>

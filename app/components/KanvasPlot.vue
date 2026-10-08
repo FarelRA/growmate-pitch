@@ -8,8 +8,9 @@ const props = withDefaults(
     hero?: boolean
     hue?: 'sky' | 'amber' | 'brand' | 'deep'
     index?: number
+    art?: 'none' | 'segments' | 'channels' | 'cost' | 'revenue' | 'partners' | 'activities' | 'resources' | 'relations' | 'value'
   }>(),
-  { sub: '', hero: false, hue: 'brand', index: 0 },
+  { sub: '', hero: false, hue: 'brand', index: 0, art: 'none' },
 )
 
 const tileBg = computed(() => {
@@ -100,6 +101,150 @@ const tileShadow
         <span class="min-w-0 break-words">{{ item }}</span>
       </li>
     </ul>
+    <div v-if="art === 'segments' || art === 'channels' || art === 'cost' || art === 'revenue'" aria-hidden="true" class="pointer-events-none relative mt-auto pt-1">
+      <svg
+        v-if="art === 'segments'"
+        class="h-9 w-full opacity-90"
+        viewBox="0 0 200 56"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <defs>
+          <linearGradient id="seg-podium" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" />
+            <stop offset="1" stop-color="#dfe9dc" />
+          </linearGradient>
+          <linearGradient id="seg-a" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8fc3e8" />
+            <stop offset="1" stop-color="#4a8ab5" />
+          </linearGradient>
+          <linearGradient id="seg-b" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0e7a2e" />
+            <stop offset="1" stop-color="#0a4a1e" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="50" rx="52" ry="4.5" fill="#0a3d1a" opacity="0.12" />
+        <rect x="58" y="40" width="84" height="10" rx="4" fill="#0a3d1a" opacity="0.28" />
+        <rect x="58" y="38" width="84" height="10" rx="4" fill="url(#seg-podium)" stroke="#cfd8cc" stroke-width="1.2" />
+        <rect x="58" y="38" width="84" height="4" rx="2" fill="#ffffff" opacity="0.8" />
+        <circle cx="80" cy="22" r="9.5" fill="#0a3d1a" opacity="0.22" />
+        <circle cx="79" cy="21" r="9.5" fill="url(#seg-a)" />
+        <circle cx="79" cy="21" r="9.5" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.7" />
+        <path d="M68 42 C68 33 73 30 79 30 C85 30 90 33 90 42 Z" fill="#0a3d1a" opacity="0.22" />
+        <path d="M67 41 C67 32 72 29 78 29 C84 29 89 32 89 41 Z" fill="url(#seg-a)" stroke="#ffffff" stroke-width="1" opacity="1" />
+        <circle cx="122" cy="19" r="10.5" fill="#0a3d1a" opacity="0.22" />
+        <circle cx="121" cy="18" r="10.5" fill="url(#seg-b)" />
+        <circle cx="121" cy="18" r="10.5" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.7" />
+        <path d="M109 42 C109 32 115 28.5 121 28.5 C127 28.5 133 32 133 42 Z" fill="#0a3d1a" opacity="0.22" />
+        <path d="M108 41 C108 31 114 27.5 120 27.5 C126 27.5 132 31 132 41 Z" fill="url(#seg-b)" stroke="#ffffff" stroke-width="1" opacity="1" />
+      </svg>
+      <svg
+        v-else-if="art === 'channels'"
+        class="h-9 w-full opacity-90"
+        viewBox="0 0 200 56"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <defs>
+          <linearGradient id="ch-box" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff7e8" />
+            <stop offset="1" stop-color="#f0dfbe" />
+          </linearGradient>
+          <linearGradient id="ch-globe" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#9fd0ef" />
+            <stop offset="1" stop-color="#4a8ab5" />
+          </linearGradient>
+          <linearGradient id="ch-amber" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e7b45a" />
+            <stop offset="1" stop-color="#b7791f" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="50" rx="56" ry="4.5" fill="#0a3d1a" opacity="0.12" />
+        <rect x="46" y="22" width="62" height="26" rx="5" fill="#0a3d1a" opacity="0.22" />
+        <rect x="45" y="20" width="62" height="26" rx="5" fill="url(#ch-box)" stroke="#d8c9a6" stroke-width="1.2" />
+        <rect x="45" y="20" width="62" height="9" rx="4.5" fill="url(#ch-amber)" />
+        <path d="M52 20v9M60 20v9M68 20v9M76 20v9M84 20v9M92 20v9M100 20v9" stroke="#ffffff" stroke-width="2" opacity="0.85" />
+        <rect x="46" y="28" width="60" height="3" rx="1.5" fill="#0a3d1a" opacity="0.18" />
+        <rect x="66" y="32" width="18" height="14" rx="2" fill="#0e7a2e" opacity="0.9" />
+        <rect x="66" y="32" width="18" height="5" rx="2" fill="#ffffff" opacity="0.35" />
+        <rect x="48" y="33" width="12" height="9" rx="1.5" fill="#8fc3e8" opacity="0.9" />
+        <rect x="90" y="33" width="12" height="9" rx="1.5" fill="#8fc3e8" opacity="0.9" />
+        <ellipse cx="148" cy="48" rx="20" ry="3.5" fill="#0a3d1a" opacity="0.18" />
+        <rect x="144" y="40" width="8" height="7" rx="1.5" fill="#0a3d1a" opacity="0.25" />
+        <circle cx="149" cy="26" r="15" fill="#0a3d1a" opacity="0.2" />
+        <circle cx="148" cy="24.5" r="15" fill="url(#ch-globe)" stroke="#ffffff" stroke-width="1.2" />
+        <ellipse cx="148" cy="24.5" rx="7" ry="15" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+        <path d="M133.5 24.5h29M135 17c7 3.5 19 3.5 26 0M135 32c7-3.5 19-3.5 26 0" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.8" />
+      </svg>
+      <svg
+        v-else-if="art === 'cost'"
+        class="h-9 w-full opacity-90"
+        viewBox="0 0 200 56"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <defs>
+          <linearGradient id="co-coin" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f6d488" />
+            <stop offset="1" stop-color="#c08a24" />
+          </linearGradient>
+          <linearGradient id="co-gear" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3f7a52" />
+            <stop offset="1" stop-color="#0a3d1a" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="50" rx="56" ry="4.5" fill="#0a3d1a" opacity="0.12" />
+        <g>
+          <rect x="52" y="38" width="52" height="9" rx="4.5" fill="#7a5416" opacity="0.9" />
+          <ellipse cx="78" cy="38" rx="26" ry="7" fill="#7a5416" />
+          <ellipse cx="78" cy="36.5" rx="26" ry="7" fill="url(#co-coin)" stroke="#ffffff" stroke-width="1" />
+          <rect x="52" y="31" width="52" height="9" rx="4.5" fill="#8a611c" opacity="0.95" />
+          <ellipse cx="78" cy="31" rx="26" ry="7" fill="#8a611c" />
+          <ellipse cx="78" cy="29.5" rx="26" ry="7" fill="url(#co-coin)" stroke="#ffffff" stroke-width="1" />
+          <rect x="52" y="24" width="52" height="9" rx="4.5" fill="#9a6f22" opacity="0.95" />
+          <ellipse cx="78" cy="24" rx="26" ry="7" fill="#9a6f22" />
+          <ellipse cx="78" cy="22.5" rx="26" ry="7" fill="url(#co-coin)" stroke="#ffffff" stroke-width="1" />
+          <ellipse cx="78" cy="22.5" rx="14" ry="3.8" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+        </g>
+        <g>
+          <circle cx="142" cy="30" r="16" fill="#0a3d1a" opacity="0.22" />
+          <g fill="url(#co-gear)" stroke="#ffffff" stroke-width="1">
+            <rect x="138.5" y="12" width="7" height="36" rx="2" />
+            <rect x="124" y="26.5" width="36" height="7" rx="2" />
+            <rect x="128" y="16.5" width="28" height="7" rx="2" transform="rotate(45 142 20)" />
+            <rect x="128" y="36.5" width="28" height="7" rx="2" transform="rotate(-45 142 40)" />
+            <circle cx="143" cy="28.5" r="13" fill="url(#co-gear)" />
+          </g>
+          <circle cx="143" cy="28.5" r="6.5" fill="#fff7e8" stroke="#0a3d1a" stroke-width="1.4" />
+          <circle cx="143" cy="28.5" r="2.4" fill="#0a3d1a" opacity="0.8" />
+        </g>
+      </svg>
+      <svg
+        v-else-if="art === 'revenue'"
+        class="h-9 w-full opacity-90"
+        viewBox="0 0 200 56"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <defs>
+          <linearGradient id="rv-note" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e9f4e7" />
+            <stop offset="1" stop-color="#bcd8b8" />
+          </linearGradient>
+          <linearGradient id="rv-arrow" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#0e7a2e" />
+            <stop offset="1" stop-color="#37b24d" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="50" rx="56" ry="4.5" fill="#0a3d1a" opacity="0.12" />
+        <rect x="44" y="26" width="76" height="20" rx="5" fill="#0a3d1a" opacity="0.22" />
+        <rect x="43" y="24" width="76" height="20" rx="5" fill="url(#rv-note)" stroke="#0e7a2e" stroke-width="1.3" />
+        <rect x="49" y="28" width="64" height="12" rx="3" fill="none" stroke="#0e7a2e" stroke-width="1" opacity="0.6" />
+        <circle cx="81" cy="34" r="7.5" fill="#0a3d1a" opacity="0.2" />
+        <circle cx="80" cy="33" r="7.5" fill="url(#rv-arrow)" stroke="#ffffff" stroke-width="1.2" />
+        <circle cx="80" cy="33" r="3" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.9" />
+        <path d="M134 44 L134 22 M134 22 L124 31 M134 22 L144 31" fill="none" stroke="#0a3d1a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.2" />
+        <path d="M132.5 42.5 L132.5 20.5 M132.5 20.5 L122.5 29.5 M132.5 20.5 L142.5 29.5" fill="none" stroke="url(#rv-arrow)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M132.5 20.5 L122.5 29.5 M132.5 20.5 L142.5 29.5" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
+        <rect x="126" y="42" width="15" height="4" rx="2" fill="#0e7a2e" opacity="0.35" />
+      </svg>
+    </div>
   </article>
 </template>
 

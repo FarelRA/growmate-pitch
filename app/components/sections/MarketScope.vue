@@ -17,10 +17,10 @@ const tamText = computed(() => fmtID(tamVal.value))
 const samText = computed(() => fmtID(samVal.value))
 const somText = computed(() => String(Math.round(somVal.value)))
 
-const tracks = [
-  { label: 'Pijakan hari ini', pct: '0,14%', w: '4px', c: 'bg-gm-muted/50' },
-  { label: 'Target operasional', pct: '5%', w: '5%', c: 'bg-gm-amber' },
-  { label: 'SAM DIY', pct: '100%', w: '100%', c: 'bg-gm-primary' },
+const progress = [
+  { label: 'Pijakan terkumpul', detail: '83 dari 2.850', pct: '2,9%', w: '2.9%', c: 'bg-gm-amber' },
+  { label: 'Target operasional', detail: '2.850 dari 57.006', pct: '5%', w: '5%', c: 'bg-gm-primary' },
+  { label: 'SAM terpetakan', detail: '57.006 dari 6.183.009', pct: '0,92%', w: '0.92%', c: 'bg-gm-ink' },
 ]
 
 onMounted(() => {
@@ -206,16 +206,17 @@ onMounted(() => {
       <Reveal :delay="0.38" :y="16" class="w-full min-w-0">
         <div class="w-full min-w-0 rounded-2xl border border-gm-line bg-white p-4 text-left">
           <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-            <p class="font-headline text-lg font-extrabold text-gm-ink">Jalan menuju 5% SAM</p>
-            <p class="text-base text-gm-muted">Skala 0 hingga 100% SAM</p>
+            <p class="font-headline text-lg font-extrabold text-gm-ink">Progres menuju 2.850 tech farmer</p>
+            <p class="text-base text-gm-muted">Setiap baris memakai skala sendiri</p>
           </div>
           <div class="mt-2 space-y-2">
-            <div v-for="t in tracks" :key="t.label" class="flex items-center gap-3">
-              <span class="w-44 shrink-0 text-base font-semibold text-gm-muted">{{ t.label }}</span>
+            <div v-for="t in progress" :key="t.label" class="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="w-28 shrink-0 truncate text-base font-semibold text-gm-muted sm:w-44">{{ t.label }}</span>
               <span class="h-4 min-w-0 flex-1 overflow-hidden rounded-full bg-gm-panel">
-                <span class="block h-full rounded-full transition-all duration-1000" :class="t.c" :style="{ width: ready ? t.w : '0px' }" />
+                <span class="block h-full rounded-full transition-all duration-1000" :class="t.c" :style="{ width: ready ? t.w : '0px', minWidth: ready ? '4px' : '0px' }" />
               </span>
-              <span class="w-14 shrink-0 text-right font-headline text-lg font-extrabold tabular-nums text-gm-ink">{{ t.pct }}</span>
+              <span class="w-auto shrink-0 whitespace-nowrap text-base font-semibold tabular-nums text-gm-ink sm:w-52">{{ t.detail }}</span>
+              <span class="w-16 shrink-0 text-right font-headline text-lg font-extrabold tabular-nums text-gm-ink">{{ t.pct }}</span>
             </div>
           </div>
         </div>
@@ -223,7 +224,7 @@ onMounted(() => {
 
       <Reveal :delay="0.46" :y="16" class="w-full">
         <UiCalloutBanner icon="lucide:map-pin" tone="brand" class="banner-fix">
-          Pijakan 0,14% DIY hari ini, target operasional 2.850 tech farmer atau 5% SAM, lalu ekspansi nasional bertahap.
+          Pijakan terkumpul 83 dari 2.850 target operasional atau 2,9 persen, mewakili 5 persen SAM dan 0,92 persen TAM, lalu ekspansi nasional bertahap.
         </UiCalloutBanner>
       </Reveal>
     </div>

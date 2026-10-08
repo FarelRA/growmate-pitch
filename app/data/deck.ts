@@ -20,6 +20,7 @@ export const SECTIONS: DeckSection[] = [
   { id: 'stp', kicker: 'Analisis STP', title: 'Fokus DIY, posisi pelopor', sub: 'Misi bidik DIY: kenali segmennya, kunci targetnya, tegakkan posisinya.' },
   { id: 'kompetitor', kicker: 'Analisis Kompetitor', title: 'Hanya GrowMate yang berpikir', sub: 'Tuya dan Click & Grow menyiram pakai jadwal. GrowMate menyiram pakai data.' },
   { id: 'pemasaran', kicker: 'Strategi Pemasaran', title: 'Ditemukan daring, dibuktikan luring', sub: 'Penemuan terjadi daring di lima kanal. Kepercayaan dibangun luring di dua ritel dan dua agenda Bantul.' },
+  { id: 'situs', kicker: 'Platform Digital', title: 'Katalog selalu terbuka', sub: 'Situs growmate.bond versi desktop dan mobile dalam satu bingkai.' },
   { id: 'sosial', kicker: 'Dampak Sosial', title: 'Tani makmur, muda kembali', sub: 'Estafet tani tiga bingkai. Waktu rawat turun dari 45 menit menjadi 5 menit sehari.' },
   { id: 'quad', kicker: 'Quadruple Bottom Line', title: 'Planet, profit, people, purpose', sub: 'Bisnis hijau adalah modelnya, bukan sekadar pemasaran.' },
   { id: 'keuangan', kicker: 'Analisis Keuangan', title: 'Pendapatan sudah tumbuh', sub: 'Pendapatan hardware + layanan AI Januari sampai September 2026. Mei titik lepas: 6 kali lipat bulan sebelumnya.' },

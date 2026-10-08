@@ -101,9 +101,9 @@ onUnmounted(() => {
         <template #secondary>
           <Reveal :delay="0.1" class="w-full">
             <div class="legal-scores relative w-full rounded-3xl border-2 border-gm-line bg-white p-3 lg:p-4">
-              <div class="flex items-center justify-start gap-3">
-                <LegalStamp size="sm" :burst="true" />
-                <p class="text-left font-headline text-lg font-extrabold uppercase tracking-[0.1em] text-gm-primary">Hasil uji kelayakan DKPP</p>
+              <div class="flex items-center justify-start gap-4">
+                <LegalStamp size="sm" :burst="true" class="shrink-0" />
+                <p class="min-w-0 text-left font-headline text-lg font-extrabold uppercase tracking-[0.1em] text-gm-primary">Hasil uji kelayakan DKPP</p>
               </div>
               <div class="mt-2 grid w-full grid-cols-2 gap-3">
                 <LegalGauge :value="60" :max="64" label="Fisik Sangat Baik" caption="Skor uji produk" />

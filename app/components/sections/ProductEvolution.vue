@@ -46,11 +46,8 @@ const stages = [
 <template>
   <DeckShell section="kembang">
     <div class="flex min-h-full w-full min-w-0 flex-col justify-between gap-2 overflow-x-clip md:gap-2.5 2xl:gap-4">
-      <Reveal :x="-32" :y="0" :delay="0.05" class="w-full min-w-0">
-        <KembangRiver :active="2" class="river-compact" />
-      </Reveal>
       <DeckAutoGrid :cols="3">
-        <Reveal v-for="(s, i) in stages" :key="s.title" :delay="0.15 + i * 0.12" class="h-full min-w-0">
+        <Reveal v-for="(s, i) in stages" :key="s.title" :delay="0.05 + i * 0.12" class="h-full min-w-0">
           <article class="flex h-full min-w-0 flex-col justify-between gap-2 rounded-2xl border-2 border-gm-line bg-white p-4 text-left">
             <UiPhotoFigure :src="s.src" :alt="s.alt" ratio="16 / 10" />
             <div class="flex items-center justify-start gap-2.5">
@@ -70,6 +67,9 @@ const stages = [
           </article>
         </Reveal>
       </DeckAutoGrid>
+      <Reveal :x="-32" :y="0" :delay="0.5" class="w-full min-w-0">
+        <KembangRiver :active="2" class="river-compact" />
+      </Reveal>
     </div>
   </DeckShell>
 </template>
@@ -80,7 +80,7 @@ const stages = [
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 :deep(.river-compact svg text) {
   font-size: 16px;

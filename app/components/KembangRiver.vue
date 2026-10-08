@@ -47,7 +47,7 @@ onUnmounted(() => ctx?.revert())
 </script>
 
 <template>
-  <div ref="riverBox" class="w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-gm-panel px-4 pb-1 pt-2">
+  <div ref="riverBox" class="w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-gm-panel px-4 pb-2 pt-2">
     <svg
       viewBox="0 0 1200 112"
       class="block h-auto w-full"
@@ -61,15 +61,15 @@ onUnmounted(() => ctx?.revert())
         <path d="M 110 72 C 160 72 175 32 225 52 C 265 68 290 38 326 56" stroke="#b7791f" />
         <path d="M 120 94 C 160 86 190 28 240 44 C 280 58 296 82 336 74" stroke="#2471a3" />
       </g>
-      <!-- Jejak PCB siku di bawah tahap dua -->
+      <!-- Jejak PCB siku di bawah tahap dua, digeser naik agar tidak menyentuh label -->
       <g fill="none" stroke="#004d13" stroke-width="4">
-        <path d="M 600 62 L 600 86 L 660 86" />
-        <path d="M 716 62 L 716 82 L 752 82" />
+        <path d="M 600 58 L 600 78 L 660 78" />
+        <path d="M 716 58 L 716 74 L 752 74" />
       </g>
       <g fill="#004d13">
-        <rect x="653" y="79" width="14" height="14" rx="2" />
-        <rect x="745" y="75" width="14" height="14" rx="2" />
-        <circle cx="628" cy="86" r="5" />
+        <rect x="653" y="71" width="14" height="14" rx="2" />
+        <rect x="745" y="67" width="14" height="14" rx="2" />
+        <circle cx="628" cy="78" r="5" />
       </g>
       <!-- Selang bening pembungkus dan air hijau di dalamnya -->
       <path ref="casing" :d="RIVER_D" fill="none" stroke="#dfe6df" stroke-width="26" stroke-linecap="round" />
@@ -111,7 +111,7 @@ onUnmounted(() => ctx?.revert())
         />
         <circle :cx="n.x" cy="52" r="22" fill="#ffffff" :stroke="i === active ? '#006e1c' : '#1a1c1c'" stroke-width="4" />
         <text :x="n.x" y="52" text-anchor="middle" dy="0.35em" font-size="16" font-weight="800" :fill="i === active ? '#006e1c' : '#1a1c1c'" font-family="Manrope, sans-serif">{{ n.no }}</text>
-        <text :x="n.x" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#3f4a3c" font-family="Manrope, sans-serif">{{ n.short }}</text>
+        <text :x="n.x" y="104" text-anchor="middle" font-size="16" font-weight="700" fill="#3f4a3c" font-family="Manrope, sans-serif">{{ n.short }}</text>
       </g>
     </svg>
   </div>

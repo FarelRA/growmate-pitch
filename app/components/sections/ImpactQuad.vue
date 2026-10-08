@@ -6,7 +6,7 @@ const quads = [
     icon: 'lucide:leaf',
     eyebrow: 'Buah 01',
     title: 'Planet',
-    desc: 'Bodi rPLA, kayu limbah, honeycomb, jerami, plus guna ulang.',
+    desc: 'Bodi rPLA, kayu limbah, honeycomb, jerami, guna ulang.',
     border: 'border-gm-primary',
     badge: 'bg-gm-mist text-gm-primary',
     dot: 'bg-gm-primary',
@@ -15,7 +15,7 @@ const quads = [
     icon: 'lucide:coins',
     eyebrow: 'Buah 02',
     title: 'Profit',
-    desc: 'Hardware lokal dan langganan AI kalahkan impor bergaransi.',
+    desc: 'Hardware lokal dan langganan AI kalahkan impor.',
     border: 'border-gm-amber',
     badge: 'bg-gm-amberbg text-gm-amber',
     dot: 'bg-gm-amber',
@@ -24,7 +24,7 @@ const quads = [
     icon: 'lucide:users',
     eyebrow: 'Buah 03',
     title: 'People',
-    desc: 'Floral membimbing pemula. Komunitas mengantar panen ke pembeli.',
+    desc: 'Floral dan komunitas mengantar pemula hingga pembeli.',
     border: 'border-gm-sky',
     badge: 'bg-gm-panel text-gm-sky',
     dot: 'bg-gm-sky',
@@ -33,7 +33,7 @@ const quads = [
     icon: 'lucide:target',
     eyebrow: 'Buah 04',
     title: 'Purpose',
-    desc: 'Asta Cita butir 2, Indonesia Emas 2045, dan SDGs tujuan 12.',
+    desc: 'Asta Cita 2, Indonesia Emas 2045, SDGs 12.',
     border: 'border-gm-deep',
     badge: 'bg-gm-mist text-gm-deep',
     dot: 'bg-gm-deep',
@@ -57,7 +57,7 @@ const tilts = ['-1.2deg', '1deg', '-0.9deg', '1.2deg']
           class="h-full min-h-0"
         >
           <div
-            class="flex h-full min-h-0 flex-col items-start rounded-2xl border-2 bg-white p-2.5 text-left shadow-[0_8px_20px_rgba(0,77,19,0.07)]"
+            class="flex h-full min-h-0 flex-col items-start rounded-2xl border-2 bg-white p-2 text-left shadow-[0_8px_20px_rgba(0,77,19,0.07)]"
             :class="q.border"
             :style="{ transform: `rotate(${tilts[i]})` }"
           >
@@ -65,8 +65,8 @@ const tilts = ['-1.2deg', '1deg', '-0.9deg', '1.2deg']
             <span aria-hidden="true" class="mx-auto grid size-3 shrink-0 place-items-center rounded-full border-2 bg-white" :class="q.border">
               <span class="size-1 rounded-full bg-[#c9cfc8]" />
             </span>
-            <span class="mt-1 grid size-7 shrink-0 place-items-center rounded-xl" :class="q.badge">
-              <Icon :name="q.icon" class="size-5" />
+            <span class="mt-1 grid size-6 shrink-0 place-items-center rounded-xl" :class="q.badge">
+              <Icon :name="q.icon" class="size-4" />
             </span>
             <p class="mt-1 text-base font-bold uppercase leading-none tracking-[0.12em] text-gm-muted">{{ q.eyebrow }}</p>
             <div class="mt-1 flex items-center gap-1.5 font-headline text-base font-extrabold leading-tight">
@@ -74,7 +74,7 @@ const tilts = ['-1.2deg', '1deg', '-0.9deg', '1.2deg']
               <span>{{ q.title }}</span>
               <Icon v-if="q.title === 'Purpose'" name="lucide:star" class="anim-pulse-dot size-4 text-gm-amber" />
             </div>
-            <p class="mt-0.5 text-base leading-[1.35] text-gm-muted">{{ q.desc }}</p>
+            <p class="mt-0 text-base leading-[1.35] text-gm-muted">{{ q.desc }}</p>
           </div>
         </Motion>
       </DeckAutoGrid>

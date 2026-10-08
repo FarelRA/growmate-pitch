@@ -10,6 +10,7 @@ import MarketScope from '~/components/sections/MarketScope.vue'
 import StpBrief from '~/components/sections/StpBrief.vue'
 import CompetitorDuel from '~/components/sections/CompetitorDuel.vue'
 import GoToMarket from '~/components/sections/GoToMarket.vue'
+import SiteShowcase from '~/components/sections/SiteShowcase.vue'
 import SocialImpact from '~/components/sections/SocialImpact.vue'
 import ImpactQuad from '~/components/sections/ImpactQuad.vue'
 import BusinessTraction from '~/components/sections/BusinessTraction.vue'
@@ -35,6 +36,7 @@ const registry: Record<string, Component> = {
   stp: StpBrief,
   kompetitor: CompetitorDuel,
   pemasaran: GoToMarket,
+  situs: SiteShowcase,
   sosial: SocialImpact,
   quad: ImpactQuad,
   keuangan: BusinessTraction,

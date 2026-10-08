@@ -2,16 +2,20 @@
 </script>
 
 <template>
-  <div class="relative overflow-hidden rounded-2xl border-2 border-gm-line bg-white px-5 py-3.5 text-left">
-    <div class="grid grid-cols-2 items-center gap-10 sm:gap-16">
+  <div class="rounded-2xl border-2 border-gm-line bg-white px-5 py-3.5 text-left">
+    <div class="flex flex-col items-stretch gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-6">
       <div class="flex min-w-0 items-center gap-3">
         <span class="grid size-12 shrink-0 place-items-center rounded-xl bg-gm-panel">
           <Icon name="lucide:timer" class="usp-tick size-7 text-gm-muted" />
         </span>
         <p class="min-w-0 leading-tight">
           <span class="block font-headline text-base font-extrabold uppercase tracking-[0.08em] text-gm-muted">Timer biasa</span>
-          <span class="block truncate text-base font-medium text-gm-ink">siram tiap jam</span>
+          <span class="block text-base font-medium text-gm-ink">siram tiap jam</span>
         </p>
+      </div>
+      <div class="flex shrink-0 items-center gap-1.5 self-start rounded-full bg-gm-ink px-4 py-2.5 font-headline text-base font-extrabold uppercase tracking-[0.08em] text-white sm:self-center sm:justify-self-center">
+        <Icon name="lucide:zap" class="size-5 text-amber-300" />
+        <span>Beda</span>
       </div>
       <div class="flex min-w-0 items-center gap-3">
         <span class="relative grid size-12 shrink-0 place-items-center rounded-xl bg-gm-mist">
@@ -20,13 +24,9 @@
         </span>
         <p class="min-w-0 leading-tight">
           <span class="block font-headline text-base font-extrabold uppercase tracking-[0.08em] text-gm-primary">GrowMate</span>
-          <span class="block truncate text-base font-medium text-gm-ink">siram saat tanah butuh</span>
+          <span class="block text-base font-medium text-gm-ink">siram saat tanah butuh</span>
         </p>
       </div>
-    </div>
-    <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-full bg-gm-ink px-4 py-2.5 font-headline text-base font-extrabold uppercase tracking-[0.08em] text-white">
-      <Icon name="lucide:zap" class="size-5 text-amber-300" />
-      <span>Beda</span>
     </div>
   </div>
 </template>
