@@ -25,59 +25,58 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="situs">
-    <div ref="root" class="flex min-h-full w-full flex-col justify-center">
-      <DeckSplitPanel>
-        <template #primary>
-          <div class="flex w-full flex-col justify-center gap-1 text-left">
-            <Reveal :delay="0.1" class="w-full">
-              <div class="situs-frame w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white">
-                <div class="flex items-center gap-1.5 border-b-2 border-gm-line bg-gm-panel px-2.5 py-1.5">
-                  <span class="flex shrink-0 items-center gap-1" aria-hidden="true">
-                    <span class="size-2.5 rounded-full bg-gm-amber" />
-                    <span class="size-2.5 rounded-full bg-gm-primary/60" />
-                    <span class="size-2.5 rounded-full bg-gm-line" />
-                  </span>
-                  <span class="flex min-w-0 flex-1 items-center justify-start gap-1 rounded-full bg-white px-2.5 py-1 text-left">
-                    <Icon name="lucide:lock" class="size-4 shrink-0 text-gm-primary" />
-                    <span class="truncate text-base font-semibold text-gm-ink">growmate.bond</span>
-                  </span>
-                </div>
-                <div class="p-1.5">
-                  <UiPhotoFigure src="/photos/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" />
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </template>
-        <template #secondary>
-          <div class="flex w-full flex-col justify-center gap-1.5 text-left">
-            <div class="flex w-full items-stretch justify-start gap-2">
-              <Reveal :delay="0.2" class="w-[132px] shrink-0 md:w-[148px]">
-                <UiPhotoSlot ratio="9 / 16" label="Situs mobile growmate.bond" spec="Tampilan mobile 9/16" icon="lucide:smartphone" class="situs-frame slot-tight" />
-              </Reveal>
-              <ul class="flex min-w-0 flex-1 flex-col justify-center gap-1.5">
-                <li v-for="(f, i) in facts" :key="f.text" class="situs-fact">
-                  <Reveal :delay="0.25 + i * 0.07" class="w-full">
-                    <span class="flex w-full items-start justify-start gap-2 rounded-2xl border-2 border-gm-line bg-white p-2 text-left">
-                      <span class="grid size-8 shrink-0 place-items-center rounded-xl bg-gm-mist">
-                        <Icon :name="f.icon" class="size-4 text-gm-primary" />
-                      </span>
-                      <span class="min-w-0 text-base font-medium leading-snug text-gm-ink">{{ f.text }}</span>
-                    </span>
-                  </Reveal>
-                </li>
-              </ul>
+    <div ref="root" class="flex min-h-full w-full flex-col justify-center gap-2">
+      <div class="flex w-full items-center justify-center gap-3">
+        <Reveal :delay="0.1" class="w-full min-w-0 max-w-[520px]">
+          <div class="situs-frame w-full overflow-hidden rounded-3xl border-2 border-gm-line bg-white">
+            <div class="flex items-center gap-1.5 border-b-2 border-gm-line bg-gm-panel px-2.5 py-1.5">
+              <span class="flex shrink-0 items-center gap-1" aria-hidden="true">
+                <span class="size-2.5 rounded-full bg-gm-amber" />
+                <span class="size-2.5 rounded-full bg-gm-primary/60" />
+                <span class="size-2.5 rounded-full bg-gm-line" />
+              </span>
+              <span class="flex min-w-0 flex-1 items-center justify-start gap-1 rounded-full bg-white px-2.5 py-1 text-left">
+                <Icon name="lucide:lock" class="size-4 shrink-0 text-gm-primary" />
+                <span class="truncate text-base font-semibold text-gm-ink">growmate.bond</span>
+              </span>
             </div>
-            <div class="situs-banner w-full">
-              <Reveal :delay="0.4" class="w-full">
-                <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
-                  Katalog dan demo live selalu terbuka di growmate.bond.
-                </UiCalloutBanner>
-              </Reveal>
+            <div class="p-1.5">
+              <UiPhotoFigure src="/photos/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" />
             </div>
           </div>
-        </template>
-      </DeckSplitPanel>
+        </Reveal>
+        <Reveal :delay="0.2" class="w-[150px] shrink-0 md:w-[170px]">
+          <div class="situs-frame w-full overflow-hidden rounded-[1.75rem] border-2 border-gm-ink bg-white">
+            <div class="flex flex-col items-center gap-1 border-b-2 border-gm-line bg-gm-panel px-2 pb-1.5 pt-2">
+              <span class="h-1.5 w-16 shrink-0 rounded-full bg-gm-ink" aria-hidden="true" />
+              <span class="flex w-full min-w-0 items-center justify-start gap-1 rounded-full bg-white px-2 py-0.5 text-left">
+                <Icon name="lucide:lock" class="size-3.5 shrink-0 text-gm-primary" />
+                <span class="truncate text-base font-semibold text-gm-ink">growmate.bond</span>
+              </span>
+            </div>
+            <div class="p-1.5">
+              <UiPhotoSlot ratio="9 / 16" label="Situs mobile growmate.bond" spec="Tampilan mobile 9/16" icon="lucide:smartphone" class="slot-tight" />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+      <div class="grid w-full grid-cols-1 gap-1.5 sm:grid-cols-3">
+        <Reveal v-for="(f, i) in facts" :key="f.text" :delay="0.25 + i * 0.07" class="situs-fact w-full">
+          <span class="flex h-full w-full items-start justify-start gap-2 rounded-2xl border-2 border-gm-line bg-white p-2 text-left">
+            <span class="grid size-8 shrink-0 place-items-center rounded-xl bg-gm-mist">
+              <Icon :name="f.icon" class="size-4 text-gm-primary" />
+            </span>
+            <span class="min-w-0 text-base font-medium leading-snug text-gm-ink">{{ f.text }}</span>
+          </span>
+        </Reveal>
+      </div>
+      <div class="situs-banner w-full">
+        <Reveal :delay="0.4" class="w-full">
+          <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
+            Katalog dan demo live selalu terbuka di growmate.bond.
+          </UiCalloutBanner>
+        </Reveal>
+      </div>
     </div>
   </DeckShell>
 </template>

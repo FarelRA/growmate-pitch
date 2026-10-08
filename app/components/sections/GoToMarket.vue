@@ -4,10 +4,10 @@ import { useTransition } from '@vueuse/core'
 
 // Bingkai tangkapan layar per kanal. Ganti UiPhotoSlot dengan foto asli saat aset tersedia.
 const phones = [
-  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', spec: 'Feed Instagram 9/16', src: '', alt: '' },
-  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '', alt: '' },
-  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', spec: 'Profil TikTok 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
-  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', spec: 'Etalase Shopee 9/16', src: '', alt: '' },
+  { icon: 'lucide:instagram', label: 'Instagram @grow.mateai', cap: 'Instagram', sub: '@grow.mateai', spec: 'Feed Instagram 9/16', src: '', alt: '' },
+  { icon: 'lucide:message-circle', label: 'WhatsApp +62 877-8445-4555', cap: 'WhatsApp', sub: '+62 877-8445-4555', spec: 'Chat WhatsApp 9/16', src: '', alt: '' },
+  { icon: 'lucide:music-2', label: 'TikTok @growmate.41', cap: 'TikTok', sub: '@growmate.41', spec: 'Profil TikTok 9/16', src: '/photos/gtm-tiktok.webp', alt: 'Profil TikTok GrowMate' },
+  { icon: 'lucide:shopping-bag', label: 'Shopee grow_mate', cap: 'Shopee', sub: 'grow_mate', spec: 'Etalase Shopee 9/16', src: '', alt: '' },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -35,57 +35,76 @@ onUnmounted(() => ctx?.revert())
 
 <template>
   <DeckShell section="pemasaran">
-    <div ref="root" class="flex min-h-full w-full flex-col justify-center">
-      <DeckSplitPanel>
-        <template #primary>
-          <div class="flex w-full flex-col justify-center gap-1.5 text-left">
-            <GtmOrbit />
-            <div class="grid w-full max-w-[540px] grid-cols-4 gap-0.5">
-              <Reveal v-for="(p, i) in phones" :key="p.label" :delay="0.15 + i * 0.07" class="w-full">
-                <UiPhotoFigure v-if="p.src" :src="p.src" :alt="p.alt" ratio="9 / 16" class="gtm-frame" />
-                <UiPhotoSlot v-else ratio="9 / 16" :label="p.label" :spec="p.spec" :icon="p.icon" class="gtm-frame slot-tight" />
-              </Reveal>
+    <div ref="root" class="flex min-h-full w-full flex-col justify-center gap-2">
+      <div class="mx-auto w-full max-w-5xl">
+        <GtmOrbit />
+      </div>
+      <div class="mx-auto grid w-full max-w-5xl grid-cols-5 gap-2">
+        <div v-for="(p, i) in phones" :key="p.label" class="min-w-0">
+          <Reveal :delay="0.15 + i * 0.07" class="w-full">
+            <div class="mx-auto w-full max-w-[150px]">
+              <UiPhotoFigure v-if="p.src" :src="p.src" :alt="p.alt" ratio="9 / 16" class="gtm-frame" />
+              <UiPhotoSlot v-else ratio="9 / 16" :label="p.label" :spec="p.spec" :icon="p.icon" class="gtm-frame slot-tight" />
             </div>
-            <p class="flex items-center justify-start gap-1.5 text-left text-base font-semibold leading-tight text-gm-muted">
-              <span class="gtm-kanal-dot size-2 shrink-0 rounded-full bg-gm-amber" aria-hidden="true" />
-              <span><span class="font-headline text-xl font-extrabold tabular-nums text-gm-ink">{{ cKanal }}</span> kanal digital aktif dalam satu alur penemuan.</span>
+            <p class="mx-auto mt-1 w-full max-w-[150px] text-left">
+              <span class="block truncate text-base font-extrabold leading-tight text-gm-ink">{{ p.cap }}</span>
+              <span class="block truncate text-base font-medium leading-tight text-gm-muted">{{ p.sub }}</span>
             </p>
-          </div>
-        </template>
-        <template #secondary>
-          <div class="flex w-full flex-col justify-center gap-1.5 text-left">
-            <Reveal :delay="0.2" class="w-full">
-              <div class="gtm-frame flex w-full items-start justify-start gap-2 rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left">
-                <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist">
-                  <Icon name="lucide:store" class="size-5 text-gm-primary" />
-                </span>
-                <span class="min-w-0">
-                  <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">Ritel mitra</span>
-                  <span class="block text-base font-medium leading-snug text-gm-muted">Unit pajang di Matra dan ToolsKu, siap dicoba pengunjung.</span>
-                </span>
-              </div>
-            </Reveal>
-            <Reveal :delay="0.27" class="w-full">
-              <div class="gtm-frame flex w-full items-start justify-start gap-2 rounded-3xl border-2 border-gm-line bg-white p-2.5 text-left">
-                <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist">
-                  <Icon name="lucide:calendar-check" class="size-5 text-gm-primary" />
-                </span>
-                <span class="min-w-0">
-                  <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">Agenda Bantul</span>
-                  <span class="block text-base font-medium leading-snug text-gm-muted">Expo dan demo tani terjadwal di Bantul bersama komunitas.</span>
-                </span>
-              </div>
-            </Reveal>
-            <div class="gtm-banner mt-0.5 w-full">
-              <Reveal :delay="0.35" class="w-full">
-                <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
-                  Katalog dan demo live selalu terbuka di growmate.bond.
-                </UiCalloutBanner>
-              </Reveal>
+          </Reveal>
+        </div>
+        <div class="min-w-0">
+          <Reveal :delay="0.43" class="w-full">
+            <div class="gtm-frame mx-auto flex w-full max-w-[150px] flex-col items-center gap-1 rounded-2xl border-2 border-dashed border-gm-primary/50 bg-gm-mist/60 p-2 text-center">
+              <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-white shadow-sm">
+                <Icon name="lucide:globe" class="size-5 text-gm-primary" />
+              </span>
+              <span class="text-base font-extrabold leading-tight text-gm-ink">Situs</span>
+              <span class="break-all text-base font-medium leading-tight text-gm-muted">growmate.bond</span>
             </div>
+            <p class="mx-auto mt-1 w-full max-w-[150px] text-left">
+              <span class="block truncate text-base font-extrabold leading-tight text-gm-ink">Situs</span>
+              <span class="block truncate text-base font-medium leading-tight text-gm-muted">desktop dan mobile</span>
+            </p>
+          </Reveal>
+        </div>
+      </div>
+      <div class="mx-auto grid w-full max-w-5xl grid-cols-1 gap-2 md:grid-cols-3">
+        <Reveal :delay="0.2" class="w-full">
+          <div class="flex h-full w-full items-center justify-start gap-2 rounded-2xl border-2 border-gm-line bg-white p-2 text-left">
+            <span class="grid size-8 shrink-0 place-items-center rounded-xl bg-gm-mist">
+              <Icon name="lucide:store" class="size-5 text-gm-primary" />
+            </span>
+            <span class="min-w-0">
+              <span class="block truncate font-headline text-base font-extrabold leading-tight text-gm-ink">Ritel mitra</span>
+              <span class="block text-base font-medium leading-snug text-gm-muted">Pajang di Matra dan ToolsKu.</span>
+            </span>
           </div>
-        </template>
-      </DeckSplitPanel>
+        </Reveal>
+        <Reveal :delay="0.27" class="w-full">
+          <div class="flex h-full w-full items-center justify-start gap-2 rounded-2xl border-2 border-gm-line bg-white p-2 text-left">
+            <span class="grid size-8 shrink-0 place-items-center rounded-xl bg-gm-mist">
+              <Icon name="lucide:calendar-check" class="size-5 text-gm-primary" />
+            </span>
+            <span class="min-w-0">
+              <span class="block truncate font-headline text-base font-extrabold leading-tight text-gm-ink">Agenda Bantul</span>
+              <span class="block text-base font-medium leading-snug text-gm-muted">Expo dan demo tani terjadwal.</span>
+            </span>
+          </div>
+        </Reveal>
+        <Reveal :delay="0.32" class="w-full">
+          <div class="flex h-full w-full items-center justify-start gap-2 rounded-2xl border-2 border-gm-amber/50 bg-gm-amberbg p-2 text-left">
+            <span class="gtm-kanal-dot size-2.5 shrink-0 rounded-full bg-gm-amber" aria-hidden="true" />
+            <span class="min-w-0 text-base font-semibold leading-snug text-gm-ink"><span class="font-headline text-xl font-extrabold tabular-nums">{{ cKanal }}</span> kanal digital aktif.</span>
+          </div>
+        </Reveal>
+      </div>
+      <div class="gtm-banner mx-auto w-full max-w-5xl">
+        <Reveal :delay="0.35" class="w-full">
+          <UiCalloutBanner icon="lucide:qr-code" tone="brand" class="banner-fix">
+            Katalog dan demo live selalu terbuka di growmate.bond.
+          </UiCalloutBanner>
+        </Reveal>
+      </div>
     </div>
   </DeckShell>
 </template>

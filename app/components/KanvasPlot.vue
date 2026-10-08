@@ -36,7 +36,7 @@ const tileShadow
 
 <template>
   <article
-    class="kanvas-plot relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl border-2 p-2 text-left"
+    class="kanvas-plot relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl border-2 p-1.5 text-left"
     :class="hero
       ? 'plot-hero border-gm-primary bg-gradient-to-br from-gm-primary to-gm-deep text-white shadow-xl'
       : 'border-gm-line bg-white text-gm-ink'"
@@ -67,12 +67,12 @@ const tileShadow
 
     <div class="relative flex min-w-0 items-center gap-2.5 text-left">
       <span
-        class="plot-tile plot-float relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-xl"
+        class="plot-tile plot-float relative grid size-8 shrink-0 place-items-center overflow-hidden rounded-xl"
         :class="tileBg"
         :style="{ boxShadow: tileShadow, animationDelay: floatDelay }"
       >
         <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-white/30 via-white/0 to-black/25" />
-        <Icon :name="icon" class="relative size-5 text-white drop-shadow-sm" />
+        <Icon :name="icon" class="relative size-4 text-white drop-shadow-sm" />
       </span>
       <div class="min-w-0 text-left">
         <h3
@@ -90,7 +90,7 @@ const tileShadow
         </p>
       </div>
     </div>
-    <ul class="relative mt-1.5 space-y-0 text-left">
+    <ul class="relative mt-1 space-y-0 text-left">
       <li
         v-for="item in items"
         :key="item"
@@ -101,10 +101,10 @@ const tileShadow
         <span class="min-w-0 break-words">{{ item }}</span>
       </li>
     </ul>
-    <div v-if="art === 'segments' || art === 'channels' || art === 'cost' || art === 'revenue'" aria-hidden="true" class="pointer-events-none relative mt-auto pt-1">
+    <div v-if="art === 'segments' || art === 'channels' || art === 'cost' || art === 'revenue' || art === 'partners'" aria-hidden="true" class="pointer-events-none relative mt-auto pt-1.5">
       <svg
         v-if="art === 'segments'"
-        class="h-9 w-full opacity-90"
+        class="h-16 w-full opacity-90 2xl:h-24"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -136,10 +136,18 @@ const tileShadow
         <circle cx="121" cy="18" r="10.5" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.7" />
         <path d="M109 42 C109 32 115 28.5 121 28.5 C127 28.5 133 32 133 42 Z" fill="#0a3d1a" opacity="0.22" />
         <path d="M108 41 C108 31 114 27.5 120 27.5 C126 27.5 132 31 132 41 Z" fill="url(#seg-b)" stroke="#ffffff" stroke-width="1" opacity="1" />
+        <g stroke="#0e7a2e" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85">
+          <path d="M36 48 v-8 M32 42 q4 -4 8 0" />
+          <path d="M164 48 v-8 M160 42 q4 -4 8 0" />
+        </g>
+        <g fill="none" stroke="#0e7a2e" stroke-width="1.6" stroke-linecap="round" opacity="0.7">
+          <path d="M52 8v8M48 12h8" />
+          <path d="M148 6v8M144 10h8" />
+        </g>
       </svg>
       <svg
         v-else-if="art === 'channels'"
-        class="h-9 w-full opacity-90"
+        class="h-10 w-full opacity-90 2xl:h-16"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -173,10 +181,14 @@ const tileShadow
         <circle cx="148" cy="24.5" r="15" fill="url(#ch-globe)" stroke="#ffffff" stroke-width="1.2" />
         <ellipse cx="148" cy="24.5" rx="7" ry="15" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
         <path d="M133.5 24.5h29M135 17c7 3.5 19 3.5 26 0M135 32c7-3.5 19-3.5 26 0" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.8" />
+        <rect x="113" y="36" width="18" height="12" rx="2.5" fill="#0a3d1a" opacity="0.22" />
+        <rect x="112" y="34.5" width="18" height="12" rx="2.5" fill="#e7b45a" stroke="#ffffff" stroke-width="1" />
+        <path d="M112 40.5h18M121 34.5v12" stroke="#ffffff" stroke-width="1.2" opacity="0.9" />
+        <path d="M170 8 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#b7791f" opacity="0.9" />
       </svg>
       <svg
         v-else-if="art === 'cost'"
-        class="h-9 w-full opacity-90"
+        class="h-8 w-full opacity-90 2xl:h-14"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -214,11 +226,13 @@ const tileShadow
           </g>
           <circle cx="143" cy="28.5" r="6.5" fill="#fff7e8" stroke="#0a3d1a" stroke-width="1.4" />
           <circle cx="143" cy="28.5" r="2.4" fill="#0a3d1a" opacity="0.8" />
+          <ellipse cx="112" cy="42" rx="9" ry="9" fill="url(#co-coin)" stroke="#ffffff" stroke-width="1" />
+          <ellipse cx="112" cy="42" rx="4.5" ry="4.5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.8" />
         </g>
       </svg>
       <svg
         v-else-if="art === 'revenue'"
-        class="h-9 w-full opacity-90"
+        class="h-8 w-full opacity-90 2xl:h-14"
         viewBox="0 0 200 56"
         preserveAspectRatio="xMidYMax meet"
       >
@@ -243,7 +257,53 @@ const tileShadow
         <path d="M132.5 42.5 L132.5 20.5 M132.5 20.5 L122.5 29.5 M132.5 20.5 L142.5 29.5" fill="none" stroke="url(#rv-arrow)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
         <path d="M132.5 20.5 L122.5 29.5 M132.5 20.5 L142.5 29.5" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
         <rect x="126" y="42" width="15" height="4" rx="2" fill="#0e7a2e" opacity="0.35" />
+        <ellipse cx="40" cy="46" rx="12" ry="3.6" fill="#0a3d1a" opacity="0.15" />
+        <ellipse cx="37" cy="43" rx="10" ry="5" fill="#e7b45a" stroke="#ffffff" stroke-width="1" />
+        <ellipse cx="47" cy="41" rx="10" ry="5" fill="#f6d488" stroke="#ffffff" stroke-width="1" />
+        <path d="M164 8 l1.6 3.4 3.4 1.6 -3.4 1.6 -1.6 3.4 -1.6 -3.4 -3.4 -1.6 3.4 -1.6 Z" fill="#0e7a2e" opacity="0.7" />
       </svg>
+      <svg
+        v-else-if="art === 'partners'"
+        class="h-10 w-full opacity-90 2xl:h-16"
+        viewBox="0 0 200 56"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <defs>
+          <linearGradient id="pt-box" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" />
+            <stop offset="1" stop-color="#d7e8d4" />
+          </linearGradient>
+          <linearGradient id="pt-cab" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e7b45a" />
+            <stop offset="1" stop-color="#b7791f" />
+          </linearGradient>
+          <linearGradient id="pt-crate" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#c9a06a" />
+            <stop offset="1" stop-color="#8a5f2e" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="50" rx="62" ry="4.5" fill="#0a3d1a" opacity="0.12" />
+        <rect x="52" y="20" width="66" height="24" rx="4" fill="#0a3d1a" opacity="0.22" />
+        <rect x="50" y="18" width="66" height="24" rx="4" fill="url(#pt-box)" stroke="#cfd8cc" stroke-width="1.2" />
+        <rect x="50" y="18" width="66" height="7" rx="3.5" fill="#ffffff" opacity="0.7" />
+        <path d="M64 18v24M78 18v24M92 18v24M104 18v24" stroke="#cfd8cc" stroke-width="1.4" />
+        <rect x="118" y="28" width="26" height="16" rx="3" fill="#0a3d1a" opacity="0.22" />
+        <rect x="116" y="26" width="26" height="16" rx="3" fill="url(#pt-cab)" stroke="#ffffff" stroke-width="1" />
+        <rect x="128" y="29" width="11" height="7" rx="1.5" fill="#9fd0ef" />
+        <circle cx="68" cy="44" r="6" fill="#1a1c1c" />
+        <circle cx="68" cy="44" r="2.4" fill="#cfd8cc" />
+        <circle cx="98" cy="44" r="6" fill="#1a1c1c" />
+        <circle cx="98" cy="44" r="2.4" fill="#cfd8cc" />
+        <circle cx="131" cy="44" r="6" fill="#1a1c1c" />
+        <circle cx="131" cy="44" r="2.4" fill="#cfd8cc" />
+        <rect x="152" y="34" width="20" height="12" rx="2" fill="#0a3d1a" opacity="0.22" />
+        <rect x="151" y="32.5" width="20" height="12" rx="2" fill="url(#pt-crate)" stroke="#ffffff" stroke-width="1" />
+        <path d="M151 38.5h20M161 32.5v12" stroke="#ffffff" stroke-width="1.1" opacity="0.85" />
+        <rect x="156" y="22" width="14" height="10" rx="2" fill="#0a3d1a" opacity="0.22" />
+        <rect x="155" y="20.5" width="14" height="10" rx="2" fill="url(#pt-crate)" stroke="#ffffff" stroke-width="1" />
+        <path d="M30 12 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 Z" fill="#0e7a2e" opacity="0.75" />
+      </svg>
+      
     </div>
   </article>
 </template>

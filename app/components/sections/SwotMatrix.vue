@@ -38,7 +38,7 @@ const quads: Quad[] = [
   {
     title: 'Kekuatan',
     icon: 'lucide:sun',
-    iconAnim: 'anim-float',
+    iconAnim: '',
     iconTone: 'text-white',
     items: [
       'Agen AI dan rawat otomatis',
@@ -101,7 +101,7 @@ const quads: Quad[] = [
   {
     title: 'Ancaman',
     icon: 'lucide:cloud-lightning',
-    iconAnim: 'anim-pulse-dot',
+    iconAnim: '',
     iconTone: 'text-gm-danger',
     items: [
       'Adopsi petani konvensional sulit',
@@ -157,7 +157,7 @@ const trans = (i: number) => ({
         </span>
       </div>
 
-      <div class="relative grid w-full grid-cols-1 gap-1.5 lg:grid-cols-[96px_1fr_1fr]">
+      <div class="relative grid w-full flex-1 grid-cols-1 content-stretch gap-1.5 lg:auto-rows-fr lg:grid-cols-[96px_1fr_1fr]">
         <div class="hidden min-w-0 items-center justify-start lg:flex lg:order-1">
           <span class="rounded-full border border-gm-line bg-white px-3 py-1.5 text-left font-headline text-base font-extrabold uppercase leading-tight tracking-wide text-gm-muted shadow-sm">Faktor dalam</span>
         </div>
@@ -174,54 +174,54 @@ const trans = (i: number) => ({
             <div
               v-if="q.title === 'Kekuatan'"
               aria-hidden="true"
-              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-white/10 lg:h-[44px]"
+              class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-white/10 lg:h-[60px]"
             >
-              <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
-                <line x1="14" y1="46" x2="206" y2="46" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" />
+              <svg viewBox="0 0 440 56" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+                <line x1="28" y1="50" x2="412" y2="50" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" />
                 <g stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round">
-                  <path d="M30 46 v-6 M26 41 q4 -5 8 0 M34 41 q4 -5 8 0" fill="none" />
-                  <path d="M178 46 v-6 M174 41 q4 -5 8 0 M182 41 q4 -5 8 0" fill="none" />
-                  <path d="M52 46 v-5 M48 42 q4 -4 8 0" fill="none" stroke-opacity="0.35" />
-                  <path d="M160 46 v-5 M156 42 q4 -4 8 0" fill="none" stroke-opacity="0.35" />
+                  <path d="M60 50 v-6 M56 45 q4 -5 8 0 M68 45 q4 -5 8 0" fill="none" />
+                  <path d="M356 50 v-6 M352 45 q4 -5 8 0 M364 45 q4 -5 8 0" fill="none" />
+                  <path d="M104 50 v-5 M100 46 q4 -4 8 0" fill="none" stroke-opacity="0.35" />
+                  <path d="M320 50 v-5 M316 46 q4 -4 8 0" fill="none" stroke-opacity="0.35" />
                 </g>
-                <g class="swot-rays" style="transform-origin: 110px 26px">
+                <g class="swot-rays" style="transform-origin: 220px 28px">
                   <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.9">
-                    <line x1="110" y1="4" x2="110" y2="10" />
-                    <line x1="110" y1="42" x2="110" y2="48" stroke-opacity="0.35" />
-                    <line x1="88" y1="26" x2="94" y2="26" />
-                    <line x1="126" y1="26" x2="132" y2="26" />
-                    <line x1="94.4" y1="10.4" x2="98.6" y2="14.6" />
-                    <line x1="121.4" y1="37.4" x2="125.6" y2="41.6" stroke-opacity="0.35" />
-                    <line x1="125.6" y1="10.4" x2="121.4" y2="14.6" />
-                    <line x1="98.6" y1="37.4" x2="94.4" y2="41.6" stroke-opacity="0.35" />
+                    <line x1="220" y1="8" x2="220" y2="14" />
+                    <line x1="220" y1="42" x2="220" y2="48" stroke-opacity="0.35" />
+                    <line x1="198" y1="28" x2="204" y2="28" />
+                    <line x1="236" y1="28" x2="242" y2="28" />
+                    <line x1="204.4" y1="12.4" x2="208.6" y2="16.6" />
+                    <line x1="231.4" y1="43.4" x2="235.6" y2="47.6" stroke-opacity="0.35" />
+                    <line x1="235.6" y1="12.4" x2="231.4" y2="16.6" />
+                    <line x1="208.6" y1="43.4" x2="204.4" y2="47.6" stroke-opacity="0.35" />
                   </g>
                 </g>
-                <circle cx="110" cy="26" r="11" fill="#ffffff" />
-                <circle cx="110" cy="26" r="7.5" fill="#ffd84d" />
-                <circle cx="107.5" cy="24" r="2" fill="#ffffff" fill-opacity="0.9" />
+                <circle cx="220" cy="28" r="11" fill="#ffffff" />
+                <circle cx="220" cy="28" r="7.5" fill="#ffd84d" />
+                <circle cx="217.5" cy="26" r="2" fill="#ffffff" fill-opacity="0.9" />
               </svg>
             </div>
 
             <div
               v-else-if="q.title === 'Kelemahan'"
               aria-hidden="true"
-              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-[#eef0ea] lg:h-[44px]"
+              class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-[#eef0ea] lg:h-[60px]"
             >
-              <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+              <svg viewBox="0 0 440 56" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
                 <g class="swot-drift-a" fill="#c9cfc9">
-                  <ellipse cx="40" cy="16" rx="16" ry="7" />
-                  <ellipse cx="52" cy="13" rx="11" ry="6" />
+                  <ellipse cx="80" cy="18" rx="16" ry="7" />
+                  <ellipse cx="92" cy="15" rx="11" ry="6" />
                 </g>
                 <g class="swot-drift-b" fill="#d8dcd8">
-                  <ellipse cx="180" cy="14" rx="18" ry="7" />
-                  <ellipse cx="168" cy="11" rx="10" ry="5.5" />
+                  <ellipse cx="360" cy="16" rx="18" ry="7" />
+                  <ellipse cx="348" cy="13" rx="10" ry="5.5" />
                 </g>
-                <g transform="rotate(-35 110 27)" stroke="#b7791f" stroke-width="4" stroke-linecap="round" fill="none">
-                  <line x1="110" y1="30" x2="110" y2="46" />
+                <g transform="rotate(-35 220 29)" stroke="#b7791f" stroke-width="4" stroke-linecap="round" fill="none">
+                  <line x1="220" y1="32" x2="220" y2="50" />
                 </g>
-                <g transform="rotate(-35 110 27)">
-                  <circle cx="110" cy="20" r="8" fill="none" stroke="#b7791f" stroke-width="4" />
-                  <circle cx="110" cy="20" r="8" fill="none" stroke="#eef0ea" stroke-width="2.5" stroke-dasharray="6 5" transform="rotate(40 110 20)" />
+                <g transform="rotate(-35 220 29)">
+                  <circle cx="220" cy="22" r="9" fill="none" stroke="#b7791f" stroke-width="4" />
+                  <circle cx="220" cy="22" r="9" fill="none" stroke="#eef0ea" stroke-width="2.5" stroke-dasharray="6 5" transform="rotate(40 220 22)" />
                 </g>
               </svg>
               <span class="swot-drip" style="left: 19%" />
@@ -231,47 +231,47 @@ const trans = (i: number) => ({
             <div
               v-else-if="q.title === 'Peluang'"
               aria-hidden="true"
-              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-white lg:h-[44px]"
+              class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-white lg:h-[60px]"
             >
-              <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
-                <line x1="30" y1="44" x2="130" y2="44" stroke="#006e1c" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M80 44 C80 34 80 28 80 20" stroke="#006e1c" stroke-width="2.5" stroke-linecap="round" fill="none" />
-                <path d="M80 32 C70 32 64 26 62 18 C72 19 79 24 80 32 Z" fill="#2e9e4f" />
-                <path d="M80 28 C90 28 96 22 98 14 C88 15 81 20 80 28 Z" fill="#006e1c" />
-                <circle cx="80" cy="14" r="3" fill="#2e9e4f" />
+              <svg viewBox="0 0 440 56" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+                <line x1="100" y1="48" x2="320" y2="48" stroke="#006e1c" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M210 48 C210 38 210 32 210 24" stroke="#006e1c" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                <path d="M210 36 C200 36 194 30 192 22 C202 23 209 28 210 36 Z" fill="#2e9e4f" />
+                <path d="M210 32 C220 32 226 26 228 18 C218 19 211 24 210 32 Z" fill="#006e1c" />
+                <circle cx="210" cy="18" r="3" fill="#2e9e4f" />
                 <g stroke="#006e1c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" class="swot-rise">
-                  <line x1="160" y1="40" x2="160" y2="16" />
-                  <polyline points="151,25 160,15 169,25" />
+                  <line x1="330" y1="44" x2="330" y2="20" />
+                  <polyline points="321,29 330,19 339,29" />
                 </g>
                 <g fill="#b7791f">
-                  <path class="swot-twinkle" d="M52 12 l1.6 3.4 3.4 1.6 -3.4 1.6 -1.6 3.4 -1.6 -3.4 -3.4 -1.6 3.4 -1.6 Z" />
-                  <path class="swot-twinkle swot-twinkle-b" d="M110 8 l1.3 2.8 2.8 1.3 -2.8 1.3 -1.3 2.8 -1.3 -2.8 -2.8 -1.3 2.8 -1.3 Z" />
-                  <path class="swot-twinkle swot-twinkle-c" d="M188 30 l1.3 2.8 2.8 1.3 -2.8 1.3 -1.3 2.8 -1.3 -2.8 -2.8 -1.3 2.8 -1.3 Z" />
+                  <path class="swot-twinkle" d="M122 14 l1.6 3.4 3.4 1.6 -3.4 1.6 -1.6 3.4 -1.6 -3.4 -3.4 -1.6 3.4 -1.6 Z" />
+                  <path class="swot-twinkle swot-twinkle-b" d="M262 10 l1.3 2.8 2.8 1.3 -2.8 1.3 -1.3 2.8 -1.3 -2.8 -2.8 -1.3 2.8 -1.3 Z" />
+                  <path class="swot-twinkle swot-twinkle-c" d="M388 32 l1.3 2.8 2.8 1.3 -2.8 1.3 -1.3 2.8 -1.3 -2.8 -2.8 -1.3 2.8 -1.3 Z" />
                 </g>
-                <circle class="swot-twinkle swot-twinkle-b" cx="132" cy="18" r="2" fill="#2e9e4f" />
+                <circle class="swot-twinkle swot-twinkle-b" cx="292" cy="20" r="2" fill="#2e9e4f" />
               </svg>
             </div>
 
             <div
               v-else
               aria-hidden="true"
-              class="relative h-[40px] w-full shrink-0 overflow-hidden rounded-xl bg-[#2e3533] lg:h-[44px]"
+              class="relative h-[56px] w-full shrink-0 overflow-hidden rounded-xl bg-[#2e3533] lg:h-[60px]"
             >
-              <svg viewBox="0 0 220 52" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+              <svg viewBox="0 0 440 56" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
                 <g stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5" stroke-linecap="round">
-                  <line class="swot-wind" x1="8" y1="14" x2="52" y2="14" />
-                  <line class="swot-wind swot-wind-b" x1="4" y1="24" x2="40" y2="24" />
-                  <line class="swot-wind swot-wind-c" x1="176" y1="38" x2="214" y2="38" />
+                  <line class="swot-wind" x1="16" y1="16" x2="104" y2="16" />
+                  <line class="swot-wind swot-wind-b" x1="8" y1="26" x2="80" y2="26" />
+                  <line class="swot-wind swot-wind-c" x1="352" y1="40" x2="428" y2="40" />
                 </g>
                 <g fill="#4a5552">
-                  <ellipse cx="110" cy="18" rx="26" ry="10" />
-                  <ellipse cx="94" cy="14" rx="14" ry="8" />
-                  <ellipse cx="126" cy="14" rx="15" ry="8.5" />
+                  <ellipse cx="220" cy="20" rx="26" ry="10" />
+                  <ellipse cx="204" cy="16" rx="14" ry="8" />
+                  <ellipse cx="236" cy="16" rx="15" ry="8.5" />
                 </g>
                 <g fill="#3a423f">
-                  <ellipse cx="110" cy="21" rx="22" ry="7" />
+                  <ellipse cx="220" cy="23" rx="22" ry="7" />
                 </g>
-                <polygon class="swot-bolt" points="114,24 102,38 109,38 105,50 119,35 112,35 117,24" fill="#ffd84d" />
+                <polygon class="swot-bolt" points="228,26 216,40 223,40 219,52 233,37 225,37 230,26" fill="#ffd84d" />
               </svg>
             </div>
 
@@ -287,7 +287,8 @@ const trans = (i: number) => ({
                 <span class="min-w-0">{{ it }}</span>
               </li>
             </ul>
-            <div :class="q.replyBar" class="mt-2 flex min-w-0 items-start gap-2 rounded-xl px-2.5 py-1 text-left text-base font-bold leading-snug">
+            <div aria-hidden="true" class="min-h-2 flex-1" />
+            <div :class="q.replyBar" class="flex min-w-0 items-start gap-2 rounded-xl px-2.5 py-1 text-left text-base font-bold leading-snug">
               <Icon :name="q.replyIcon" :class="q.replyIconTone" class="mt-0.5 size-4 shrink-0" />
               <span class="min-w-0 break-words">{{ q.reply }}</span>
             </div>

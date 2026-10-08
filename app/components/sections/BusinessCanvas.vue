@@ -22,6 +22,7 @@ const topCells: Cell[] = [
     sub: 'Key Partners',
     icon: 'lucide:truck',
     hue: 'sky',
+    art: 'partners',
     items: [
       'Komponen IoT',
       'Kemasan hijau',

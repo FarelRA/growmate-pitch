@@ -18,12 +18,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative overflow-hidden rounded-2xl border-2 border-gm-ink bg-gm-ink p-4 text-left text-white" style="transform: rotate(1deg)">
+  <div class="relative overflow-hidden rounded-2xl border-2 border-gm-ink bg-gm-ink p-3 text-left text-white" style="transform: rotate(1deg)">
     <Icon name="lucide:droplet" class="anim-float pointer-events-none absolute right-10 top-2 size-6 text-sky-300/50" aria-hidden="true" />
     <Icon name="lucide:droplet" class="anim-float pointer-events-none absolute right-4 top-6 size-5 text-emerald-300/50" style="animation-delay: 1.1s" aria-hidden="true" />
     <div class="relative flex items-center justify-start gap-2.5">
-      <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/10 lg:size-12">
-        <Icon name="lucide:timer" class="size-6 text-emerald-300 lg:size-7" />
+      <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10">
+        <Icon name="lucide:timer" class="size-6 text-emerald-300" />
       </span>
       <p class="font-headline text-base font-bold uppercase tracking-wide text-white/70">Waktu rawat harian</p>
       <span class="ml-auto flex shrink-0 items-center gap-1.5">
@@ -33,15 +33,24 @@ onMounted(() => {
       </span>
     </div>
     <div class="relative mt-2 flex items-end justify-start gap-3">
-      <span class="font-headline text-6xl font-extrabold leading-none tabular-nums 2xl:text-7xl">{{ rounded }}</span>
+      <span class="font-headline text-5xl font-extrabold leading-none tabular-nums 2xl:text-6xl">{{ rounded }}</span>
       <span class="pb-1 text-base leading-snug text-white/70">menit<br />rawat per hari</span>
     </div>
-    <div class="relative mt-2 flex items-center justify-start gap-2.5">
-      <Icon name="lucide:droplets" class="size-6 shrink-0 text-sky-300" />
-      <div class="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-white/15">
-        <div class="h-full rounded-full bg-sky-300" :style="{ width: `${barPct}%` }" />
+    <div class="relative mt-1.5 space-y-1">
+      <div class="flex items-center justify-start gap-2">
+        <span class="w-20 shrink-0 font-mono text-base font-bold text-white/70">Sebelum</span>
+        <span class="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-white/15">
+          <span class="block h-full w-full rounded-full bg-amber-300" />
+        </span>
+        <span class="w-12 shrink-0 text-right font-mono text-base font-bold tabular-nums text-white/70">45</span>
+      </div>
+      <div class="flex items-center justify-start gap-2">
+        <span class="w-20 shrink-0 font-mono text-base font-bold text-emerald-300">Sesudah</span>
+        <span class="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-white/15">
+          <span class="block h-full rounded-full bg-emerald-300 transition-all duration-500" :style="{ width: `${barPct}%` }" />
+        </span>
+        <span class="w-12 shrink-0 text-right font-mono text-base font-bold tabular-nums text-emerald-300">{{ rounded }}</span>
       </div>
     </div>
-    <p class="relative mt-2 text-left text-base leading-snug text-white/60">Air dan pupuk tepat sasaran.</p>
   </div>
 </template>
