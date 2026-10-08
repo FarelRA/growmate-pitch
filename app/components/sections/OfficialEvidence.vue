@@ -2,11 +2,14 @@
 import gsap from 'gsap'
 
 const pages = [
-  { src: '/bukti/uji2p-1.webp', label: 'Uji produk • hal 1', alt: 'Formulir uji kelayakan produk GrowMate halaman 1, DKPP Bantul' },
-  { src: '/bukti/uji2p-2.webp', label: 'Uji produk • hal 2', alt: 'Formulir uji kelayakan produk GrowMate halaman 2, DKPP Bantul' },
-  { src: '/bukti/uji2p-3.webp', label: 'Uji produk • hal 3', alt: 'Formulir uji kelayakan produk GrowMate halaman 3, DKPP Bantul' },
-  { src: '/bukti/uji2s-1.webp', label: 'Uji sistem • hal 1', alt: 'Formulir uji kelayakan sistem GrowMate halaman 1, DKPP Bantul' },
-  { src: '/bukti/uji2s-2.webp', label: 'Uji sistem • hal 2', alt: 'Formulir uji kelayakan sistem GrowMate halaman 2, DKPP Bantul' },
+  { src: '/bukti/uji2p-1.webp', label: 'Uji produk • hal 1', alt: 'Formulir uji kelayakan produk GrowMate halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/bukti/uji2p-2.webp', label: 'Uji produk • hal 2', alt: 'Formulir uji kelayakan produk GrowMate halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/bukti/uji2p-3.webp', label: 'Uji produk • hal 3', alt: 'Formulir uji kelayakan produk GrowMate halaman 3, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/bukti/uji2s-1.webp', label: 'Uji sistem • hal 1', alt: 'Formulir uji kelayakan sistem GrowMate halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/bukti/uji2s-2.webp', label: 'Uji sistem • hal 2', alt: 'Formulir uji kelayakan sistem GrowMate halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/bukti/nib-1.webp', label: 'NIB • hal 1', alt: 'Nomor Induk Berusaha GrowMate halaman 1', org: 'OSS RBA' },
+  { src: '/bukti/cipta.webp', label: 'Hak Cipta', alt: 'Sertifikat pencatatan Hak Cipta GrowMate EC002026055570', org: 'DJKI Kemenkum' },
+  { src: '/bukti/desain.webp', label: 'Desain Industri', alt: 'Checklist pengajuan Desain Industri GrowMate', org: 'DJKI Kemenkum' },
 ]
 
 const sel = ref(0)
@@ -80,7 +83,7 @@ onUnmounted(() => {
                   :class="i === sel ? 'w-10 bg-gm-primary' : 'w-2.5 bg-gm-line'"
                 />
               </div>
-              <div class="mt-2.5 grid w-full grid-cols-5 gap-2.5">
+              <div class="mt-2.5 grid w-full grid-cols-8 gap-1.5">
                 <button
                   v-for="(p, i) in pages"
                   :key="p.src"
@@ -93,7 +96,7 @@ onUnmounted(() => {
                 </button>
               </div>
               <p class="mt-2 text-left text-base font-semibold text-gm-muted">
-                {{ pages[sel]!.label }} • DKPP Kabupaten Bantul
+                {{ pages[sel]!.label }} • {{ pages[sel]!.org }}
               </p>
             </div>
           </Reveal>

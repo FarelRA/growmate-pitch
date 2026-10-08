@@ -18,10 +18,10 @@ onMounted(() => {
 const stages = [
   {
     src: '/photos/kembang-proto-1.webp',
-    alt: 'Prototipe 1 Arduino dan breadboard GrowMate',
+    alt: 'Founder menyolder prototipe GrowMate di meja kerja',
     badge: 'Tahap 1',
     title: 'Validasi Konsep',
-    desc: 'Rangkaian breadboard terbuka. Satu sensor statis dan relai manual.',
+    desc: 'Rangkaian prototipe terbuka di meja kerja. Satu sensor statis dan relai manual.',
     icon: 'lucide:flask-conical',
   },
   {

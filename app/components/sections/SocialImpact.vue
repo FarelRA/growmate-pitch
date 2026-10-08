@@ -119,6 +119,10 @@ const frames = [
               <Icon name="lucide:badge-check" class="size-6 shrink-0 lg:size-7" />
               <p class="font-headline text-base font-extrabold leading-tight lg:text-lg">8 testimoni resmi terdokumentasi</p>
             </div>
+            <div class="mt-1.5 grid w-full grid-cols-2 gap-1.5">
+              <UiPhotoFigure src="/photos/dok-pengguna.webp" alt="Pengguna memegang Pods dengan grow light" ratio="4 / 3" />
+              <UiPhotoFigure src="/photos/sosial-grup.webp" alt="Foto bersama banner GrowMate di acara luar ruang" ratio="4 / 3" />
+            </div>
           </div>
         </template>
       </DeckSplitPanel>

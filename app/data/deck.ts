@@ -29,7 +29,7 @@ export const SECTIONS: DeckSection[] = [
   { id: 'swot', kicker: 'SWOT', title: 'Kuat di dalam, awas di luar', sub: 'Radar cuaca tani: kekuatan dan kelemahan di dalam, peluang dan ancaman di luar, lengkap dengan aksi SO, WO, ST, dan WT.' },
   { id: 'sipoc', kicker: 'SIPOC', title: 'Dari pemasok ke pelanggan', sub: 'Alur air dari pemasok sampai pelanggan dalam satu pipa hidup.' },
   { id: 'legalitas', kicker: 'Legalitas', title: 'Diuji dinas, dicatat negara', sub: 'Lulus uji kelayakan DKPP Kabupaten Bantul dengan nilai sangat baik plus kekayaan intelektual yang tercatat negara.' },
-  { id: 'dokumentasi', kicker: 'Dokumentasi', title: 'Jejak kerja di lapangan', sub: 'Enam pos ekspedisi dari stan pameran hingga meja produksi. Setiap langkah terdokumentasi.' },
+  { id: 'dokumentasi', kicker: 'Dokumentasi', title: 'Jejak kerja di lapangan', sub: 'Lima kategori berisi 20 momen: pra-produksi, produksi, acara, kemitraan, hingga uji dan serah terima.' },
   { id: 'testimoni', kicker: 'Testimoni', title: 'Dipercaya pejabat, dipakai warga', sub: 'Delapan testimoni dari dinas, sekolah, dan penghobi. Delapan sudut pandang, satu kesimpulan.' },
   { id: 'scaleup', kicker: 'Scale Up', title: 'Dari 36 unit ke ketahanan pangan', sub: 'Empat jalur, tiga horizon. Dari Bantul menuju ketahanan pangan.' },
   { id: 'closing', kicker: 'Penutup', title: 'Tumbuh bersama kami', sub: 'Pilot, atap hijau, atau satu pertanyaan tajam. Setiap jalan menumbuhkan dataset.' },

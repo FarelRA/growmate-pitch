@@ -18,6 +18,8 @@ const aimTotal = ref(0)
 const tTotal = useTransition(aimTotal, { duration: 1600 })
 const heroTotal = computed(() => `Rp${tTotal.value.toFixed(2).replace('.', ',')} jt`)
 
+const showBukti = ref(false)
+
 onMounted(() => {
   aimTotal.value = 59.07
 })
@@ -33,9 +35,21 @@ onMounted(() => {
       </div>
       <Reveal :delay="0.12" class="w-full">
         <div class="flex w-full flex-col rounded-3xl border-2 border-gm-line bg-white p-4 text-left">
-          <div class="text-left font-headline text-base font-extrabold text-gm-ink lg:text-lg">Bulanan (batang) dan kumulatif (garis), juta Rp</div>
+          <div class="flex w-full items-center justify-between gap-2">
+            <div class="text-left font-headline text-base font-extrabold text-gm-ink lg:text-lg">Bulanan (batang) dan kumulatif (garis), juta Rp</div>
+            <button
+              class="flex shrink-0 items-center gap-2 rounded-xl border-2 px-2 py-1 text-left transition-all"
+              :class="showBukti ? 'border-gm-primary shadow-md' : 'border-gm-line opacity-80 hover:opacity-100'"
+              :aria-label="showBukti ? 'Kembali ke grafik deck' : 'Lihat grafik pendapatan asli FIKSI 2026'"
+              @click="showBukti = !showBukti"
+            >
+              <img src="/photos/keu-chart.webp" alt="Bukti grafik pendapatan GrowMate Januari sampai September 2026" class="h-10 w-auto rounded-md object-contain" draggable="false" />
+              <span class="font-headline text-base font-extrabold text-gm-primary">{{ showBukti ? 'Deck' : 'Bukti' }}</span>
+            </button>
+          </div>
           <div class="mt-1.5 h-[200px] w-full sm:h-[220px] lg:h-[232px] 2xl:h-[300px]">
-            <TractionChart />
+            <TractionChart v-if="!showBukti" />
+            <img v-else src="/photos/keu-chart.webp" alt="Grafik pendapatan hardware dan layanan AI Januari sampai September 2026" class="h-full w-full rounded-xl object-contain" draggable="false" />
           </div>
           <div class="mt-2 grid grid-cols-2 gap-2 text-left xl:grid-cols-4">
             <div class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-amber/60 bg-gm-amberbg p-4">

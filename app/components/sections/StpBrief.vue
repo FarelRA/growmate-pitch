@@ -69,9 +69,12 @@ onUnmounted(() => ctx?.revert())
         </template>
         <template #secondary>
           <Reveal class="w-full min-w-0">
-            <UiPhotoFigure src="/photos/stp-stan.webp" alt="Demo stan GrowMate bersama pengunjung" ratio="16 / 10" />
+            <div class="grid w-full grid-cols-2 gap-2">
+              <UiPhotoFigure src="/photos/stp-stan.webp" alt="Demo stan GrowMate bersama pengunjung" ratio="1 / 1" />
+              <UiPhotoFigure src="/photos/dok-demo.webp" alt="Founder demo unit GrowMate ke pengunjung" ratio="1 / 1" />
+            </div>
           </Reveal>
-          <Reveal :delay="0.3" class="w-full min-w-0">
+          <Reveal :delay="0.4" class="w-full min-w-0">
             <UiCalloutBanner icon="lucide:flag" tone="brand" class="banner-compact mt-2">
               Semangat posisi kami: Petani Makmur, Tanpa Lumpur.
             </UiCalloutBanner>

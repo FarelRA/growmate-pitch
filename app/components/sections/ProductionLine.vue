@@ -3,8 +3,8 @@ const active = ref(0)
 
 const gates = [
   { icon: 'lucide:clipboard-list', title: 'Pra', desc: 'Riset sebelum rakit', items: ['Riset kebutuhan', 'Validasi pasar', 'Desain CAD 3D', 'Firmware dan UI'], card: 'bg-white', chip: 'bg-gm-mist', src: '/photos/proses-riset.webp', alt: 'Desain bodi Pods di Blender' },
-  { icon: 'lucide:factory', title: 'Produksi', desc: 'Mutu selama rakit', items: ['Perakitan unit', 'Pasang firmware', 'Kalibrasi sensor', 'Uji mutu lolos'], card: 'bg-gm-mist', chip: 'bg-white', src: '/photos/proses-rakit.webp', alt: 'Perakitan unit oleh tim' },
-  { icon: 'lucide:package-check', title: 'Pasca', desc: 'Garansi setelah kirim', items: ['Kemas tanpa plastik', 'Pengiriman tercatat', 'Garansi 3 bulan', 'Komunitas purnajual'], card: 'bg-gm-amberbg', chip: 'bg-white', src: '/photos/proses-kemas.webp', alt: 'Unit Tech dan kemasan siap kirim' },
+  { icon: 'lucide:factory', title: 'Produksi', desc: 'Mutu selama rakit', items: ['Perakitan unit', 'Pasang firmware', 'Kalibrasi sensor', 'Uji mutu lolos'], card: 'bg-gm-mist', chip: 'bg-white', src: '/photos/proses-rakit.webp', alt: 'Founder merakit unit di meja produksi' },
+  { icon: 'lucide:package-check', title: 'Pasca', desc: 'Garansi setelah kirim', items: ['Kemas tanpa plastik', 'Pengiriman tercatat', 'Garansi 3 bulan', 'Komunitas purnajual'], card: 'bg-gm-amberbg', chip: 'bg-white', src: '/photos/proses-kemas.webp', alt: 'Paket unit siap serah ke ekspedisi' },
 ]
 
 function onGate(v: number) {

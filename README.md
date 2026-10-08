@@ -128,8 +128,13 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `tech-field.webp` | lama | `CompetitorDuel` |
 | `farmer.webp` | lama | `SocialImpact` |
 | `roadmap.webp` | lama | `ImpactQuad` |
-| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder.webp` | pameran/Mulyo/Matra/Toolsku/alur-produksi | `DocGallery` pos 1-5 |
-| `kembang-proto-1/2.webp` | KTI Images Arduino + smart pot | `ProductEvolution` tahap 1-2 |
+| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder.webp` | pameran/Mulyo/Matra/Toolsku/alur-produksi | `DocGallery` Acara + Kemitraan + Produksi |
+| `pra-brain/wawancara/coding/blender.webp` | Foto Awal Pembuatan (asli) | `DocGallery` Pra-Produksi |
+| `prod-rakit/kemas.webp` | Foto Alur Produksi 3/5 (asli) | `DocGallery` Produksi |
+| `acara-bazar/jelas/serah.webp` | Foto Bazar + Sosialisasi HEIF (asli) | `DocGallery` Acara |
+| `mitra-qinjeng.webp` | Qinjeng Kardus (asli, crop 4/3) | `DocGallery` Kemitraan |
+| `uji-presentasi/sistem/komposit/serah.webp` | Foto Uji dan Review + DKPP (asli) | `DocGallery` Uji dan Serah |
+| `kembang-proto-1/2.webp` | KTI Images solder asli + smart pot | `ProductEvolution` tahap 1-2 |
 | `kembang-addon.webp` | PU Images boks surya | `ProductEvolution` tahap 3 Tech Add-on |
 | `dok-printer.webp` | KTI Images printer 3D | `DocGallery` pos 6 |
 | `usp-pods-glow/sensor-sawah.webp` + `usp-tech-box.webp` | Profil usaha + PU Images boks kayu | `UniqueSelling` st 1-3 |
@@ -137,13 +142,16 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `sipoc-solder/pods/serah.webp` | rakit solder / P1680691 / DSC02286 | `SipocMap` Proses/Keluaran/Pelanggan |
 | `sipoc-pemasok/mikro.webp` | PU Images toko elektronik / papan mikro | `SipocMap` Pemasok/Masukan |
 | `stp-stan.webp` | PU Images demo stan | `StpBrief` |
-| `proses-riset/rakit/kemas.webp` | KTI Images Blender/rakit/kemas | `ProductionLine` Pra/Produksi/Pasca |
+| `proses-riset/rakit/kemas.webp` | Blender + PU rakit asli + ekspedisi asli | `ProductionLine` Pra/Produksi/Pasca |
+| `keu-chart.webp` | FIKSI grafik pendapatan 2026 (asli) | `BusinessTraction` toggle Bukti |
+| `sosial-grup.webp` | Foto Pameran HEIF (asli, crop 4/3) | `SocialImpact` |
 | `gtm-tiktok/situs.webp` | PU Images tangkapan asli | `GoToMarket` TikTok + `SiteShowcase` situs |
 | `gtm-instagram/whatsapp/shopee.webp` | tangkapan asli (crop tengah 9/16) | `GoToMarket` Instagram + WhatsApp + Shopee |
 | `gtm-situs-mobile.webp` | tangkapan asli (crop atas 9/16) | `SiteShowcase` bingkai mobile |
-| `dok-pengguna/demo.webp` | PU Images pengguna/demo | `DocGallery` pos 7-8 |
+| `dok-pengguna.webp` | PU Images pengguna (asli) | `SocialImpact` |
+| `dok-demo.webp` | PU Images demo (asli) | `StpBrief` |
 | `testi-*.webp` (8) | foto grup asli utuh 16/9 | `FieldVoices` |
-| `bukti/*.webp` (5) | lama | `OfficialEvidence` |
+| `bukti/*.webp` (8) | uji DKPP + NIB + Cipta + Desain | `OfficialEvidence` |
 
 Slide lain memakai `UiPhotoSlot` (bingkai penanda: `ratio` + `label` + `spec` foto yang
 dibutuhkan). Saat foto asli tiba, ganti slot dengan `UiPhotoFigure` dan catat di tabel ini.
