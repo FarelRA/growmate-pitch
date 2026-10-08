@@ -128,7 +128,7 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Kunci saat ini:
 | `tech-field.webp` | lama | `CompetitorDuel` |
 | `farmer.webp` | lama | `SocialImpact` |
 | `roadmap.webp` | lama | `ImpactQuad` |
-| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder.webp` | lama | `DocGallery` pos 1-5 |
+| `gt-expo/mulyo/mitra-matra/mitra-toolsku/prod-solder.webp` | pameran/Mulyo/Matra/Toolsku/alur-produksi | `DocGallery` pos 1-5 |
 | `kembang-proto-1/2.webp` | KTI Images Arduino + smart pot | `ProductEvolution` tahap 1-2 |
 | `kembang-addon.webp` | PU Images boks surya | `ProductEvolution` tahap 3 Tech Add-on |
 | `dok-printer.webp` | KTI Images printer 3D | `DocGallery` pos 6 |

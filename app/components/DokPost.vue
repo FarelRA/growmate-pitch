@@ -22,7 +22,7 @@ function pinTransition(delay: number) {
 
 <template>
   <article
-    class="flex h-full flex-col justify-between rounded-2xl border border-gm-line bg-white p-3 text-left shadow-[0_8px_24px_rgba(26,28,28,0.08)] transition-shadow duration-300 lg:p-4"
+    class="flex h-full flex-col justify-between rounded-2xl border border-gm-line bg-white p-2.5 text-left shadow-[0_8px_24px_rgba(26,28,28,0.08)] transition-shadow duration-300 lg:p-3"
     :class="props.active ? 'shadow-[0_10px_28px_rgba(183,121,31,0.25)] ring-2 ring-gm-amber ring-offset-2 ring-offset-white' : ''"
     :style="{ transform: `rotate(${props.tilt}deg)` }"
   >
