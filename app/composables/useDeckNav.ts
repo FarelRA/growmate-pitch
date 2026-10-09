@@ -6,32 +6,46 @@ export function useDeckNav(stage: Ref<HTMLElement | null>, scroller: Ref<HTMLEle
   const { toggle: toggleFullscreen } = useFullscreen(stage)
   provide('toggleFullscreen', toggleFullscreen)
 
+  // Sentuh: tekan-tahan membuka dan menutup lapisan detail.
+  const lp = useLongPress(() => stage.value)
+
   onKeyStroke(['ArrowRight', 'PageDown', ' '], (e) => {
+    if (store.hidden) return
     e.preventDefault()
     store.next()
   })
   onKeyStroke(['ArrowLeft', 'PageUp'], (e) => {
+    if (store.hidden) return
     e.preventDefault()
     store.prev()
   })
   onKeyStroke(['Home'], (e) => {
+    if (store.hidden) return
     e.preventDefault()
     store.go(0)
   })
   onKeyStroke(['End'], (e) => {
+    if (store.hidden) return
     e.preventDefault()
     store.go(store.total - 1)
   })
-  onKeyStroke(['o', 'O'], () => store.toggleOverview())
+  onKeyStroke(['o', 'O'], () => {
+    if (store.hidden) store.hOverview = !store.hOverview
+    else store.toggleOverview()
+  })
   onKeyStroke(['f', 'F'], () => toggleFullscreen())
+  // Satu-satunya gerbang ke lapisan rahasia: tombol H.
+  onKeyStroke(['h', 'H'], () => store.toggleHidden())
   onKeyStroke(['Escape'], () => {
-    if (store.overview) store.overview = false
+    if (store.hOverview) store.hOverview = false
+    else if (store.hidden) store.exitHidden()
+    else if (store.overview) store.overview = false
   })
 
   useSwipe(stage, {
     threshold: 60,
     onSwipeEnd(_e, dir) {
-      if (store.overview) return
+      if (store.overview || store.hidden) return
       if (dir === 'left') store.next()
       if (dir === 'right') store.prev()
     },
@@ -41,7 +55,9 @@ export function useDeckNav(stage: Ref<HTMLElement | null>, scroller: Ref<HTMLEle
   // Interactive elements (buttons, links, sliders, carousels, 3D) are ignored.
   const NAV_IGNORE = 'a, button, input, select, textarea, [role="button"], canvas, .embla, .ba-wrap'
   function onPointerNav(e: MouseEvent) {
+    if (lp.blocked()) return
     if (!window.matchMedia('(pointer: fine)').matches || store.overview) return
+    if (store.hidden) return
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return
     const t = e.target as HTMLElement | null
     if (t?.closest?.(NAV_IGNORE)) return
@@ -50,6 +66,7 @@ export function useDeckNav(stage: Ref<HTMLElement | null>, scroller: Ref<HTMLEle
   }
 
   function readHash() {
+    if (store.hidden) return
     const m = window.location.hash.match(/#\/(\d+)/)
     if (m) store.go(Number(m[1]))
   }
@@ -73,6 +90,7 @@ export function useDeckNav(stage: Ref<HTMLElement | null>, scroller: Ref<HTMLEle
   watch(
     () => store.index,
     (i) => {
+      if (store.hidden) return
       window.history.replaceState(null, '', `#/${i}`)
       scroller.value?.scrollTo({ top: 0 })
     },

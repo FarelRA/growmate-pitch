@@ -30,6 +30,10 @@ import ClosingCall from '~/components/sections/ClosingCall.vue'
 
 const store = useDeckStore()
 
+// Lapisan arsip (tombol H) dimuat malas: data grafik dan Mermaid tidak
+// ikut mengangkut bundle deck utama.
+const HiddenLayer = defineAsyncComponent(() => import('~/components/hidden/HiddenLayer.vue'))
+
 const registry: Record<string, Component> = {
   cover: CoverHero,
   latar: ProblemSolution,
@@ -81,4 +85,7 @@ useHead({ title: 'Pitch Deck GrowMate' })
       </div>
     </Transition>
   </DeckStage>
+  <Transition name="archive">
+    <HiddenLayer v-if="hydrated && store.hidden" />
+  </Transition>
 </template>

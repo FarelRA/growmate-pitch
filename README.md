@@ -10,13 +10,15 @@ All diagrams are rebuilt in the web stack (Vue + SVG/divs). Nothing is copy-past
 
 ```sh
 bun install
-bun run dev      # http://localhost:3000 with hash routing #/0 to #/17
+bun run dev      # http://localhost:3000 with hash routing #/0 to #/25
 bun run build    # production build
 bun run preview
 bun run generate # static output for cheap hosting
 ```
 
 Controls: swipe left/right on touch screens, arrow keys or space, `O` for overview, `F` for fullscreen, `Esc` to close. Scrolling never changes slides. No on-screen controls by design. All comparisons render side by side with no tabs to click: the firmware loop auto-plays with a play/pause transport, and the story carousel auto-advances with prev/next arrows. The documentation gallery auto-advances its category tabs (Pra-Produksi, Produksi, Acara, Kemitraan, Uji dan Serah). The three bedah slides and the aplikasi slide draw measured leader lines from every numbered dot to its callout card (hover either end to highlight, dim the rest); no click needed.
+
+Hidden archive layer: 24 detail pages (3 product deep-dives, 6 per-screen app explainers, 14 platform graphs rendered live from the Mermaid sources). Desktop: `H` alone toggles between the deck and the layer, returning to the exact deck slide that was showing. Touch/mobile: a 600 ms press-and-hold anywhere on the slide toggles the same way (ignored over buttons, links, and the graph canvas; cancelled if the finger moves more than 10 px, so swipes keep navigating). The layer never opens from a hash, a click, or any deck control, and it deliberately shows no hints or self-description: no footer bar, no keyboard legend, no hidden-page wording, a plain deck-style header and a plain `NN / NN` counter. Inside the layer: arrows / space / `Home` / `End` move between pages, `O` opens its 24-card index (click a card to jump), `Esc` returns to the deck, swipe and desktop right/left click work as in the deck. Page swaps are a pure fade with no translation, so no state ever produces horizontal scroll. Graph pages add their own zoom viewer (wheel zoom, drag to pan, fit / 1:1 buttons) because the diagrams are rendered live.
 
 ## Deploy / present (recommended)
 
@@ -28,7 +30,7 @@ bun run generate   # prerender to .output/public
 cd .output/public && python3 -m http.server 4321 --bind 0.0.0.0
 ```
 
-Then open `http://<host>:4321/#/0` … `#/17`. Hash routing needs no server
+Then open `http://<host>:4321/#/0` … `#/25`. Hash routing needs no server
 fallback. Stock photos use plain `<img>` (Unsplash CDN URLs are already
 optimized) because `@nuxt/image`'s `/_ipx` optimizer has no runtime on static
 hosting. Proof documents in `public/bukti/` also use plain `<img>` for the
@@ -53,6 +55,7 @@ fast boots can mount before the browser exposes `location.hash`.
 | Overview smooth scroll | `lenis` |
 | 3D case slot | `three` + `@tresjs/core` |
 | QR codes | `qrcode` |
+| Hidden-layer graphs (live SVG from `.mmd` sources) | `mermaid` (dynamic import, one diagram at a time) |
 
 ## Architecture (reusable components, no hardcoded sequence)
 
@@ -93,8 +96,22 @@ fast boots can mount before the browser exposes `location.hash`.
   (+ `compact` density), `UiPillTag`, `UiPhotoFigure` (fixed-ratio clean photo,
   no overlays, no captions), `UiQrFigure` (QR with quiet zone + padding), `UiCalloutBanner`.
 - `app/composables/useDeckNav.ts`: keyboard, swipe, desktop click
-  (right = next, left = back), hash sync. `app/composables/useCardQr.ts`:
-  QR data URLs + vCard download + share for the name card.
+  (right = next, left = back), hash sync. All navigation keys stand down
+  while the hidden layer is open; `H` is the layer's only entrance.
+  `app/composables/useCardQr.ts`: QR data URLs + vCard download + share for the name card.
+- Hidden archive layer (`H` only, 24 pages, lazy-loaded out of the main
+  bundle): `app/data/hidden.ts` (section list + product/app detail copy),
+  `app/data/graphs.ts` (imports all 14 `.mmd` sources from
+  `~/projects/personal/growmate/stackgraph` with `?raw` plus the official
+  captions from `penjelasan-grafik-kti.md`), and
+  `app/components/hidden/`: `HiddenLayer` (amber-accent shell: header,
+  title block, swipe/click nav, footer hints), `HiddenCover` (index +
+  hotkeys), `ProductDetail` (specs, senses, commands, parts, steps per
+  product), `AppDetail` (phone frame + element-by-element screen
+  explanation), `GraphPage` (palette legend + kind chip + official
+  caption), `GraphFigure` (Mermaid render to live SVG with wheel zoom,
+  drag pan, fit / 1:1, brand theme), `HiddenOverview` (clickable 24-card
+  index). Deck store holds `hidden`, `hIndex`, `hOverview`.
 - `app/data/card.ts` + `app/components/card/`: name-card content and sections
   (`CardHero`, `CardStats`, `CardGallery`, `CardTeam`), composed by `app/pages/card.vue`.
 - Fluid type lives in `app/assets/main.css` as Tailwind v4 utilities
@@ -116,7 +133,7 @@ then run `./scripts/assets.sh`. It center-crops + encodes to `public/photos/*.we
 | 4b | `raw-versus-segar` + `raw-versus-stres` (optional, overrides 4) | `photos/versus-segar.webp` + `photos/versus-stres.webp` | 2× 1600×1000, q80, MATCHED pair: same plant, same angle | `HeadToHead` via `stock2` prop on `BeforeAfter` |
 | 5 | `raw-roadmap` | `photos/roadmap.webp` | 1600×800, q80 | `RoadmapAsk`: kerumunan stan demo / tangan + bibit |
 | 6 | `raw-logo` (optional, square ≥512px) | `photos/logo.webp` | 512×512, q90 | favicon/OG (wired when provided) |
-| 7 | `case.glb` → `public/models/` directly | — | binary glTF, Y-up, meter, ideally < 5 MB | `CaseViewer` auto-loads it (done: bukti forms already converted to `public/bukti/*.webp`, ~80% smaller)
+| 7 | `case.glb` → `public/models/` directly | (none) | binary glTF, Y-up, meter, ideally < 5 MB | `CaseViewer` auto-loads it (done: bukti forms already converted to `public/bukti/*.webp`, ~80% smaller)
 
 After converting, swap the section's `src` URL to `/photos/<name>.webp`
 (or any URL) and drop the `draft` prop on `UiPhotoFigure`.
@@ -124,7 +141,7 @@ After converting, swap the section's `src` URL to `/photos/<name>.webp`
 16 foto dokumentasi sudah diekstrak dari deck lama (Canva, render 150dpi,
 crop ketat, WebP q80/82) dan langsung dipakai:
 
-ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Pengecualian yang disetujui: titik sorot angka dan panah penunjuk di atas render produk pada slide Bedah dan Aplikasi. Kunci saat ini:
+ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Pengecualian yang disetujui: titik sorot angka dan panah penunjuk di atas render produk pada slide Bedah dan Aplikasi; dan pemakaian ulang render produk `bedah-*.webp` serta tangkapan layar `app-*.webp` pada halaman detail lapisan arsip (tombol H), sesuai permintaan untuk mendetailkan tiap produk dan tiap layar. Kunci saat ini:
 
 | File | Sumber | Dipakai di (terkunci) |
 |------|--------|------------------------|
@@ -157,8 +174,8 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Pengecualian yang
 | `dok-demo.webp` | PU Images demo (asli) | `StpBrief` |
 | `testi-*.webp` (8) | foto grup asli utuh 16/9 | `FieldVoices` |
 | `bukti/*.webp` (8) | NIB + Cipta + Desain + uji DKPP (urut kepentingan) | `OfficialEvidence` |
-| `bedah-pods/tech/addon.webp` | render produk Tahap 3 (dengan titik sorot) | `PodsBedah` + `TechBedah` + `AddonBedah` |
-| `app-dash/rawat/pasar/komunitas/asisten/tanam.webp` | Buku Manual tangkapan asli | `AplikasiFitur` |
+| `bedah-pods/tech/addon.webp` | render produk Tahap 3 (dengan titik sorot) | `PodsBedah` + `TechBedah` + `AddonBedah` + arsip `hidden/ProductDetail` |
+| `app-dash/rawat/pasar/komunitas/asisten/tanam.webp` | Buku Manual tangkapan asli | `AplikasiFitur` + arsip `hidden/AppDetail` |
 
 Slide lain memakai `UiPhotoSlot` (bingkai penanda: `ratio` + `label` + `spec` foto yang
 dibutuhkan). Saat foto asli tiba, ganti slot dengan `UiPhotoFigure` dan catat di tabel ini.

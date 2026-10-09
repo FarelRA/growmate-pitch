@@ -29,6 +29,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* ---------- fluid display type (Tailwind v4 utilities) ---------- */
@@ -58,6 +59,17 @@ body {
   opacity: 0;
   transform: translateX(-56px);
   filter: blur(6px);
+}
+
+/* Lapisan detail: ganti halaman dengan pudar murni, tanpa geser sama sekali
+   supaya tidak pernah ada limbahan gulir horizontal sekecil apa pun. */
+.archive-enter-active,
+.archive-leave-active {
+  transition: opacity 240ms ease;
+}
+.archive-enter-from,
+.archive-leave-to {
+  opacity: 0;
 }
 
 @keyframes gm-float {
@@ -98,7 +110,8 @@ body {
   .anim-float, .anim-flow, .anim-pulse-dot {
     animation: none !important;
   }
-  .deck-enter-active, .deck-leave-active {
+  .deck-enter-active, .deck-leave-active,
+  .archive-enter-active, .archive-leave-active {
     transition: none !important;
   }
 }
