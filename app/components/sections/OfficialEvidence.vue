@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 
+// Urut berdasarkan kepentingan: legalitas usaha dulu, kekayaan intelektual,
+// lalu hasil uji kelayakan.
 const pages = [
+  { src: '/bukti/nib-1.webp', label: 'NIB • hal 1', alt: 'Nomor Induk Berusaha GrowMate halaman 1', org: 'OSS RBA' },
+  { src: '/bukti/cipta.webp', label: 'Hak Cipta', alt: 'Sertifikat pencatatan Hak Cipta GrowMate EC002026055570', org: 'DJKI Kemenkum' },
+  { src: '/bukti/desain.webp', label: 'Desain Industri', alt: 'Checklist pengajuan Desain Industri GrowMate', org: 'DJKI Kemenkum' },
   { src: '/bukti/uji2p-1.webp', label: 'Uji produk • hal 1', alt: 'Formulir uji kelayakan produk GrowMate halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
   { src: '/bukti/uji2p-2.webp', label: 'Uji produk • hal 2', alt: 'Formulir uji kelayakan produk GrowMate halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
   { src: '/bukti/uji2p-3.webp', label: 'Uji produk • hal 3', alt: 'Formulir uji kelayakan produk GrowMate halaman 3, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
   { src: '/bukti/uji2s-1.webp', label: 'Uji sistem • hal 1', alt: 'Formulir uji kelayakan sistem GrowMate halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
   { src: '/bukti/uji2s-2.webp', label: 'Uji sistem • hal 2', alt: 'Formulir uji kelayakan sistem GrowMate halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
-  { src: '/bukti/nib-1.webp', label: 'NIB • hal 1', alt: 'Nomor Induk Berusaha GrowMate halaman 1', org: 'OSS RBA' },
-  { src: '/bukti/cipta.webp', label: 'Hak Cipta', alt: 'Sertifikat pencatatan Hak Cipta GrowMate EC002026055570', org: 'DJKI Kemenkum' },
-  { src: '/bukti/desain.webp', label: 'Desain Industri', alt: 'Checklist pengajuan Desain Industri GrowMate', org: 'DJKI Kemenkum' },
 ]
 
 const sel = ref(0)

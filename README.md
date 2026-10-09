@@ -156,7 +156,7 @@ ATURAN FOTO: satu file foto HANYA BOLEH dipakai di SATU slide. Pengecualian yang
 | `dok-pengguna.webp` | PU Images pengguna (asli) | `SocialImpact` |
 | `dok-demo.webp` | PU Images demo (asli) | `StpBrief` |
 | `testi-*.webp` (8) | foto grup asli utuh 16/9 | `FieldVoices` |
-| `bukti/*.webp` (8) | uji DKPP + NIB + Cipta + Desain | `OfficialEvidence` |
+| `bukti/*.webp` (8) | NIB + Cipta + Desain + uji DKPP (urut kepentingan) | `OfficialEvidence` |
 | `bedah-pods/tech/addon.webp` | render produk Tahap 3 (dengan titik sorot) | `PodsBedah` + `TechBedah` + `AddonBedah` |
 | `app-dash/rawat/pasar/komunitas/asisten/tanam.webp` | Buku Manual tangkapan asli | `AplikasiFitur` |
 
