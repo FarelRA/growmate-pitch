@@ -1,12 +1,30 @@
 <script setup lang="ts">
 import { useDeckStore } from '~/stores/deck'
 import { HIDDEN_SECTIONS, type HiddenKind } from '~/data/hidden'
-import HiddenCover from './HiddenCover.vue'
 import ProductDetail from './ProductDetail.vue'
 import AppDetail from './AppDetail.vue'
+import WebsiteDetail from './WebsiteDetail.vue'
+import ConsignDetail from './ConsignDetail.vue'
+import RiskMitigationDetail from './RiskMitigationDetail.vue'
+import RiskMatrixDetail from './RiskMatrixDetail.vue'
 import GraphPage from './GraphPage.vue'
-import HiddenOverview from './HiddenOverview.vue'
+import UnitEconDetail from './UnitEconDetail.vue'
+import InvestDetail from './InvestDetail.vue'
+import KalibrasiDetail from './KalibrasiDetail.vue'
+import OrderOrang from './OrderOrang.vue'
+import OrderWaktu from './OrderWaktu.vue'
+import OrderCampuran from './OrderCampuran.vue'
+import OrderCara from './OrderCara.vue'
+import MonthDetail from './MonthDetail.vue'
+import SupplyDetail from './SupplyDetail.vue'
+import AiEconDetail from './AiEconDetail.vue'
 
+/**
+ * Lapisan detail: kerangkanya identik dengan DeckStage (main yang sama,
+ * max-w 1600, DeckShell bernomor, ikhtisar bersama) sehingga tata letak,
+ * tipografi, dan komponen rekursifnya persis seperti slide biasa.
+ * Gerbang: tombol H (desktop) atau tekan-tahan (sentuh).
+ */
 const store = useDeckStore()
 const root = ref<HTMLElement | null>(null)
 const scroller = ref<HTMLElement | null>(null)
@@ -14,7 +32,7 @@ const scroller = ref<HTMLElement | null>(null)
 // Sentuh: tekan-tahan membuka dan menutup lapisan ini (padanan H di desktop).
 const lp = useLongPress(() => root.value)
 
-// Keyboard untuk arsip: panah dan spasi memindahkan halaman arsip.
+// Keyboard untuk lapisan: panah dan spasi memindahkan halaman.
 // Deck menahan diri selama lapisan ini terbuka (lihat useDeckNav).
 onKeyStroke(['ArrowRight', 'PageDown', ' '], (e) => {
   e.preventDefault()
@@ -36,15 +54,32 @@ onKeyStroke(['End'], (e) => {
 const section = computed(() => HIDDEN_SECTIONS[store.hIndex]!)
 
 const registry: Record<HiddenKind, Component> = {
-  cover: HiddenCover,
   product: ProductDetail,
   app: AppDetail,
+  website: WebsiteDetail,
+  dist: ConsignDetail,
+  risk: RiskMatrixDetail,
   graph: GraphPage,
+  // Satu kind bisa melayani beberapa halaman: entri default menangani
+  // kasus yang mengalihkan sendiri lewat ref (h-econ-month/econ-sales).
+  econ: MonthDetail,
+  order: OrderOrang,
+  lab: KalibrasiDetail,
+  resilience: SupplyDetail,
+  ai: AiEconDetail,
 }
 
-const current = computed(() => registry[section.value.kind])
-const hNo = computed(() => String(store.hIndex + 1).padStart(2, '0'))
-const hTotal = computed(() => String(store.hTotal).padStart(2, '0'))
+/** Halaman yang dibedakan lewat id, bukan kind (empat halaman satu kind). */
+const byId: Record<string, Component> = {
+  'h-econ-unit': UnitEconDetail,
+  'h-econ-invest': InvestDetail,
+  'h-order-waktu': OrderWaktu,
+  'h-order-campuran': OrderCampuran,
+  'h-order-cara': OrderCara,
+  'h-risk-mitigasi': RiskMitigationDetail,
+}
+
+const current = computed(() => byId[section.value.id] ?? registry[section.value.kind])
 
 useSwipe(root, {
   threshold: 60,
@@ -85,41 +120,28 @@ watch(
 </script>
 
 <template>
-  <div ref="root" class="fixed inset-0 z-50 flex flex-col bg-white">
-    <header class="flex shrink-0 items-center justify-between gap-3 border-b-2 border-gm-line px-4 py-2 sm:px-6 md:px-10">
-      <div class="flex min-w-0 items-center gap-2.5 md:gap-4">
-        <span class="grid size-9 shrink-0 place-items-center overflow-hidden rounded-xl bg-gm-primary md:size-11 md:rounded-2xl">
-          <img src="/logo.svg" alt="Logo GrowMate" class="size-full object-cover" draggable="false" />
-        </span>
-        <span class="min-w-0 truncate font-headline text-sm font-bold uppercase leading-tight tracking-[0.08em] text-gm-primary md:text-lg md:leading-normal">
-          {{ section.kicker }}
-        </span>
-      </div>
-      <span class="shrink-0 font-headline text-sm font-bold tabular-nums text-gm-ink/30 md:text-lg">
-        {{ hNo }} / {{ hTotal }}
-      </span>
-    </header>
-
-    <main ref="scroller" class="nice-scroll min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain">
-      <div class="mx-auto flex min-h-full w-full max-w-[1600px] flex-col px-4 py-3 sm:px-6 md:px-10">
-        <div class="shrink-0">
-          <h1 class="font-headline text-2xl font-extrabold tracking-tight text-gm-ink md:text-4xl">
-            {{ section.title }}
-          </h1>
-          <p class="mt-1.5 max-w-4xl text-base leading-snug text-gm-muted md:text-lg">
-            {{ section.sub }}
-          </p>
-        </div>
-        <div class="mt-3 grid min-h-0 w-full flex-1 place-items-stretch">
-          <Transition name="archive" mode="out-in">
-            <div :key="section.id" class="flex h-full w-full min-w-0 flex-col">
-              <component :is="current" :section="section" />
-            </div>
-          </Transition>
-        </div>
+  <div ref="root" data-layer="detail" class="fixed inset-0 flex flex-col overflow-hidden bg-white">
+    <main ref="scroller" class="nice-scroll slide-scroll min-h-0 flex-1 overflow-y-auto overscroll-x-hidden overscroll-contain">
+      <div class="mx-auto flex min-h-full w-full max-w-[1600px] flex-col">
+        <Transition name="archive" mode="out-in">
+          <DeckShell
+            :key="section.id"
+            :meta="section"
+            :index="store.hIndex"
+            :total="store.hTotal"
+          >
+            <component :is="current" :section="section" />
+          </DeckShell>
+        </Transition>
       </div>
     </main>
-
-    <HiddenOverview v-if="store.hOverview" />
+    <DeckOverview
+      v-if="store.hOverview"
+      :sections="HIDDEN_SECTIONS"
+      :active-index="store.hIndex"
+      title="Semua halaman"
+      @close="store.hOverview = false"
+      @pick="store.hGo"
+    />
   </div>
 </template>

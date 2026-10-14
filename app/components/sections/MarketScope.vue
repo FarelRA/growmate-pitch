@@ -18,9 +18,9 @@ const samText = computed(() => fmtID(samVal.value))
 const somText = computed(() => String(Math.round(somVal.value)))
 
 const progress = [
-  { label: 'Pijakan terkumpul', detail: '83 dari 2.850', pct: '2,9%', w: '2.9%', c: 'bg-gm-amber' },
-  { label: 'Target operasional', detail: '2.850 dari 57.006', pct: '5%', w: '5%', c: 'bg-gm-primary' },
-  { label: 'SAM terpetakan', detail: '57.006 dari 6.183.009', pct: '0,92%', w: '0.92%', c: 'bg-gm-ink' },
+  { label: 'TAM nasional', detail: '6.183.009 pasar nasional', pct: '100%', w: '100%', c: 'bg-gm-ink' },
+  { label: 'SAM DIY', detail: '57.006 dari 6.183.009', pct: '0,92%', w: '0.92%', c: 'bg-gm-primary' },
+  { label: 'SOM 2026', detail: '36 dari 80 tech farmer', pct: '45%', w: '45%', c: 'bg-gm-amber' },
 ]
 
 onMounted(() => {
@@ -38,9 +38,9 @@ onMounted(() => {
         <Reveal class="w-full min-w-0 md:h-full" :y="16">
           <div class="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gm-line bg-white p-4 text-left">
             <p class="font-headline text-xl font-extrabold uppercase tracking-[0.1em] text-gm-primary">Indonesia</p>
-            <p class="mt-1 text-base leading-snug text-gm-muted">Fokus DIY di dalam pasar nasional.</p>
+            <p class="mt-1 text-base leading-snug text-gm-muted">DIY dipetakan di dalam pasar nasional.</p>
             <div class="relative mt-2 w-full min-w-0 flex-1">
-              <svg viewBox="0 0 220 118" class="h-20 w-full md:h-[120px] lg:h-[130px]" aria-hidden="true">
+              <svg viewBox="0 0 220 118" class="h-20 w-full md:h-[120px] lg:h-[110px]" aria-hidden="true">
                 <!-- Peta Indonesia: batas asli GADM v4.1 (gadm.org), disederhanakan Douglas-Peucker. Bukan gambar tangan. -->
                 <g fill="#e9f4ea" stroke="#006e1c" stroke-width="0.5" stroke-linejoin="round">
                   <path d="M99.3 64.0L94.2 66.2L94.0 63.9L93.5 63.3L93.6 62.4L93.5 63.3L91.5 62.3L89.5 63.0L89.4 61.6L88.3 62.1L88.1 61.8L88.2 62.1L86.8 60.7L86.3 61.4L86.8 61.4L84.6 62.9L83.2 62.3L81.4 63.3L80.9 63.2L81.2 61.1L80.7 60.1L79.9 60.9L79.0 60.4L77.4 61.1L76.4 60.7L75.8 61.0L75.4 60.1L74.0 60.7L74.0 59.7L73.5 59.1L73.7 58.3L73.1 57.4L73.4 56.4L72.4 55.5L73.0 54.8L73.1 53.3L72.4 52.6L72.6 52.2L71.6 51.6L71.7 51.0L71.2 50.7L71.3 50.1L68.9 49.6L68.7 48.7L69.0 48.8L68.6 48.3L69.2 48.1L69.6 48.3L69.1 48.0L69.0 46.9L70.0 47.2L67.8 45.5L67.9 44.2L67.5 43.3L68.1 42.5L67.8 41.7L68.1 41.7L68.5 40.1L69.4 39.4L69.8 38.2L70.9 37.9L71.2 37.5L70.7 38.3L70.9 38.9L71.4 38.9L71.3 39.6L72.1 40.5L72.6 40.7L73.0 41.5L73.7 41.7L74.1 42.5L75.5 43.2L76.4 42.8L76.5 43.1L77.0 42.4L78.5 42.1L79.9 42.7L80.5 42.3L81.4 42.5L81.8 41.9L82.7 41.8L83.0 40.4L84.2 39.8L86.7 39.9L86.5 40.6L87.1 40.5L88.5 41.2L89.1 41.0L89.5 41.5L91.1 40.4L92.1 40.6L93.0 40.1L93.8 40.5L94.4 39.6L94.5 38.5L95.2 38.3L95.3 37.8L94.9 37.8L94.6 37.0L97.0 35.5L96.2 35.1L96.5 34.3L96.2 34.1L97.1 33.1L97.3 33.4L98.0 33.2L98.4 32.6L98.3 31.6L98.8 31.3L98.4 29.1L99.8 26.9L100.7 27.5L101.1 27.0L102.0 27.0L102.4 27.4L103.0 26.9L103.2 27.2L106.1 27.0L107.1 27.9L107.7 27.9L106.9 28.2L107.1 29.0L108.3 29.6L107.2 29.8L106.9 30.2L107.2 30.4L105.0 30.6L104.7 30.1L103.9 30.6L104.6 30.5L104.7 30.1L104.8 30.6L106.0 30.5L106.0 31.3L105.5 31.2L105.7 31.5L106.0 31.1L106.4 31.2L106.1 31.5L106.5 31.5L106.3 31.9L106.4 31.2L106.8 31.5L106.5 32.3L105.3 31.9L106.2 32.2L105.9 32.5L106.4 32.4L106.1 32.7L106.5 32.5L106.6 32.8L107.1 32.7L106.6 32.8L106.5 33.7L106.2 33.4L106.6 34.2L105.6 34.6L104.5 34.0L103.8 34.7L104.5 34.0L105.6 34.6L106.3 34.5L106.7 33.9L108.5 34.5L108.6 35.1L110.0 36.6L109.6 37.0L108.1 37.1L108.2 37.7L108.7 37.8L109.2 38.8L109.8 38.9L110.1 39.6L111.4 40.2L111.3 40.5L112.2 40.9L113.4 42.2L114.1 42.5L113.2 43.4L112.6 43.1L111.2 43.4L109.8 42.9L109.0 42.0L109.7 43.5L109.1 43.2L108.4 43.6L107.5 45.1L107.1 46.3L107.4 46.5L107.0 46.6L107.3 47.2L106.7 47.0L107.3 47.2L106.9 48.1L107.0 49.1L106.6 49.7L106.1 49.7L106.2 50.7L105.8 50.7L106.1 50.8L106.1 51.2L104.9 52.6L104.4 52.9L104.0 52.7L103.8 53.3L102.9 53.7L102.9 54.5L101.3 55.2L102.4 55.2L102.5 56.5L102.0 56.8L102.7 56.8L102.2 57.2L103.1 57.0L102.8 58.7L102.6 58.9L101.5 58.2L102.2 58.6L101.1 58.6L101.8 58.7L101.6 59.2L101.2 59.1L101.6 59.2L101.3 59.5L102.0 58.8L102.3 58.9L102.0 60.3L101.4 60.9L101.0 59.8L101.0 60.2L100.7 60.1L101.0 60.3L100.5 61.1L101.1 60.9L101.6 61.4L100.5 61.4L100.8 61.5L100.5 61.7L101.0 61.5L101.2 62.0L100.4 62.6L100.2 63.6L99.3 64.0Z" />
@@ -152,18 +152,18 @@ onMounted(() => {
               </span>
               <span class="absolute font-headline text-lg font-extrabold text-gm-amber" style="left: calc(33.9% + 22px); top: calc(70.2% - 4px);">DIY</span>
             </div>
-            <p class="mt-2 border-t border-gm-line pt-2 text-base leading-snug text-gm-muted">Teras menyempit dari nasional ke pijakan awal.</p>
+            <p class="mt-2 border-t border-gm-line pt-2 text-base leading-snug text-gm-muted">Pasar menyempit dari nasional ke wilayah yang dijangkau lebih dulu.</p>
           </div>
         </Reveal>
 
-        <div class="flex w-full min-w-0 flex-col items-stretch gap-2">
+        <div class="flex w-full min-w-0 flex-col items-stretch gap-1.5">
           <Reveal :delay="0.08" :x="-30" class="w-full min-w-0">
-            <div class="w-full rounded-2xl border border-gm-line bg-white p-4 text-left">
+            <div class="w-full rounded-2xl border border-gm-line bg-white p-3 text-left">
               <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span class="rounded-lg bg-gm-ink px-3 py-1 font-headline text-base font-extrabold text-white">TAM</span>
-                <span class="text-base font-semibold text-gm-muted">Total pasar nasional</span>
-                <span class="ml-auto font-headline text-3xl font-extrabold tabular-nums text-gm-primary md:text-4xl">{{ tamText }}</span>
-                <span class="text-base font-semibold text-gm-ink">petani + 770 properti</span>
+                <span class="rounded-lg bg-gm-ink px-3 py-1 font-headline text-lg font-extrabold text-white">TAM</span>
+                <span class="text-lg font-bold leading-tight tracking-tight text-gm-muted">Seluruh pasar nasional</span>
+                <span class="ml-auto font-headline text-4xl font-extrabold tabular-nums leading-none tracking-tight text-gm-primary md:text-5xl">{{ tamText }}</span>
+                <span class="text-lg font-bold leading-tight text-gm-ink">petani dan 770 properti</span>
               </div>
               <div class="mt-1.5 flex items-center gap-1.5" aria-hidden="true">
                 <span v-for="d in 12" :key="d" class="size-2 rounded-full bg-gm-ink/15" />
@@ -172,12 +172,12 @@ onMounted(() => {
           </Reveal>
 
           <Reveal :delay="0.18" :x="-30" class="w-full min-w-0 md:mx-10 md:w-auto">
-            <div class="w-full rounded-2xl border border-gm-line bg-white p-4 text-left">
+            <div class="w-full rounded-2xl border border-gm-line bg-white p-3 text-left">
               <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span class="rounded-lg bg-gm-primary/10 px-3 py-1 font-headline text-base font-extrabold text-gm-primary">SAM</span>
-                <span class="text-base font-semibold text-gm-muted">Terjangkau di DIY</span>
-                <span class="ml-auto font-headline text-3xl font-extrabold tabular-nums text-gm-primary md:text-4xl">{{ samText }}</span>
-                <span class="text-base font-semibold text-gm-ink">petani + 27 properti aktif</span>
+                <span class="rounded-lg bg-gm-primary/10 px-3 py-1 font-headline text-lg font-extrabold text-gm-primary">SAM</span>
+                <span class="text-lg font-bold leading-tight tracking-tight text-gm-muted">Yang dapat dijangkau di DIY</span>
+                <span class="ml-auto font-headline text-4xl font-extrabold tabular-nums leading-none tracking-tight text-gm-primary md:text-5xl">{{ samText }}</span>
+                <span class="text-lg font-bold leading-tight text-gm-ink">petani dan 27 properti aktif</span>
               </div>
               <div class="mt-1.5 flex items-center gap-1.5" aria-hidden="true">
                 <span v-for="d in 6" :key="d" class="size-2 rounded-full bg-gm-soft/60" />
@@ -186,12 +186,12 @@ onMounted(() => {
           </Reveal>
 
           <Reveal :delay="0.28" :x="-30" class="w-full min-w-0 md:mx-20 md:w-auto">
-            <div class="w-full rounded-2xl bg-gm-primary p-4 text-left text-white shadow-[0_16px_44px_rgba(0,110,28,0.4)]">
+            <div class="w-full rounded-2xl bg-gm-primary p-3 text-left text-white shadow-[0_16px_44px_rgba(0,110,28,0.4)]">
               <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span class="rounded-lg bg-white/15 px-3 py-1 font-headline text-base font-extrabold text-white">SOM</span>
-                <span class="text-base font-semibold text-white/80">Pijakan awal 2026</span>
-                <span class="ml-auto font-headline text-3xl font-extrabold tabular-nums text-white md:text-4xl">{{ somText }} + 3</span>
-                <span class="text-base font-semibold text-white/90">tech farmer + properti</span>
+                <span class="rounded-lg bg-white/15 px-3 py-1 font-headline text-lg font-extrabold text-white">SOM</span>
+                <span class="text-lg font-bold leading-tight tracking-tight text-white/80">Target awal 2026</span>
+                <span class="ml-auto font-headline text-4xl font-extrabold tabular-nums leading-none tracking-tight text-white md:text-5xl">{{ somText }} + 3</span>
+                <span class="text-lg font-bold leading-tight text-white/90">tech farmer + properti</span>
               </div>
               <div class="mt-1.5 flex items-center gap-1.5" aria-hidden="true">
                 <span class="size-2 rounded-full bg-gm-deep ring-1 ring-white/60" />
@@ -206,17 +206,17 @@ onMounted(() => {
       <Reveal :delay="0.38" :y="16" class="w-full min-w-0">
         <div class="w-full min-w-0 rounded-2xl border border-gm-line bg-white p-4 text-left">
           <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-            <p class="font-headline text-lg font-extrabold text-gm-ink">Progres menuju 2.850 tech farmer</p>
-            <p class="text-base text-gm-muted">Setiap baris memakai skala sendiri</p>
+            <p class="font-headline text-xl font-extrabold tracking-tight text-gm-ink">Capaian penjualan menuju SOM</p>
+            <p class="text-base leading-snug text-gm-muted">36 unit terjual senilai Rp59,07 jt pada Jan s/d Sep 2026, menuju target 80 tech farmer + 3 properti pada 2026. Tiap baris grafik memakai skala sendiri.</p>
           </div>
-          <div class="mt-2 space-y-2">
+          <div class="mt-1.5 space-y-1.5">
             <div v-for="t in progress" :key="t.label" class="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span class="w-28 shrink-0 truncate text-base font-semibold text-gm-muted sm:w-44">{{ t.label }}</span>
+              <span class="w-28 shrink-0 truncate text-base font-bold text-gm-muted sm:w-44">{{ t.label }}</span>
               <span class="h-4 min-w-0 flex-1 overflow-hidden rounded-full bg-gm-panel">
                 <span class="block h-full rounded-full transition-all duration-1000" :class="t.c" :style="{ width: ready ? t.w : '0px', minWidth: ready ? '4px' : '0px' }" />
               </span>
-              <span class="w-auto shrink-0 whitespace-nowrap text-base font-semibold tabular-nums text-gm-ink sm:w-52">{{ t.detail }}</span>
-              <span class="w-16 shrink-0 text-right font-headline text-lg font-extrabold tabular-nums text-gm-ink">{{ t.pct }}</span>
+              <span class="w-auto shrink-0 whitespace-nowrap text-base font-bold tabular-nums leading-tight text-gm-ink sm:w-52">{{ t.detail }}</span>
+              <span class="w-16 shrink-0 text-right font-headline text-xl font-extrabold tabular-nums leading-none text-gm-ink">{{ t.pct }}</span>
             </div>
           </div>
         </div>
@@ -224,7 +224,7 @@ onMounted(() => {
 
       <Reveal :delay="0.46" :y="16" class="w-full">
         <UiCalloutBanner icon="lucide:map-pin" tone="brand" class="banner-fix">
-          Pijakan terkumpul 83 dari 2.850 target operasional atau 2,9 persen, mewakili 5 persen SAM dan 0,92 persen TAM, lalu ekspansi nasional bertahap.
+          36 unit terjual, setara 45 persen dari target SOM 80 pada 2026; pijakannya 57.006 pada SAM dan 6.183.009 pada TAM, disusul perluasan nasional bertahap.
         </UiCalloutBanner>
       </Reveal>
     </div>

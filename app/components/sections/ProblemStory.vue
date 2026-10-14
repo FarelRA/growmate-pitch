@@ -7,29 +7,35 @@ const pains = [
 </script>
 
 <template>
-  <DeckShell section="problem">
-    <DeckSplitPanel>
-      <template #primary>
-        <Reveal class="w-full">
-          <DeckAutoGrid :cols="2">
-            <UiStatCard value="45:00" label="menit per hari, tiap hari" />
-            <UiStatCard value="05:00" label="menit per hari, cukup cek aplikasi" tone="brand" />
-          </DeckAutoGrid>
-        </Reveal>
-        <Reveal :delay="0.12" class="w-full">
-          <DeckAutoGrid :cols="3" class="mt-3 md:mt-5">
-            <UiStatCard v-for="p in pains" :key="p.label" :value="p.value" :label="p.label" tone="ink" />
-          </DeckAutoGrid>
-        </Reveal>
-      </template>
-      <template #secondary>
-        <Reveal :delay="0.08" class="w-full">
-          <UiPhotoFigure
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1400&auto=format&fit=crop"
-            alt="Lahan saat senja"
-          />
-        </Reveal>
-      </template>
-    </DeckSplitPanel>
-  </DeckShell>
+  <div class="flex min-h-0 w-full min-w-0 flex-col gap-2 text-left">
+    <Reveal class="w-full">
+      <div class="flex w-full flex-wrap items-stretch gap-2">
+        <div class="flex min-w-0 flex-1 items-center gap-2.5 rounded-2xl border-2 border-gm-line bg-white p-3 text-left">
+          <Icon name="lucide:timer" class="size-6 shrink-0 text-gm-muted" />
+          <span class="min-w-0">
+            <span class="block font-headline text-xl font-extrabold tabular-nums text-gm-ink">45 menit</span>
+            <span class="block text-base leading-snug text-gm-muted">per hari, tiap hari, rawat manual</span>
+          </span>
+        </div>
+        <div class="flex min-w-0 flex-1 items-center gap-2.5 rounded-2xl border-2 border-gm-primary bg-gm-mist p-3 text-left">
+          <Icon name="lucide:smartphone" class="size-6 shrink-0 text-gm-primary" />
+          <span class="min-w-0">
+            <span class="block font-headline text-xl font-extrabold tabular-nums text-gm-primary">5 menit</span>
+            <span class="block text-base leading-snug text-gm-muted">per hari, cukup cek aplikasi</span>
+          </span>
+        </div>
+        <UiPhotoFigure
+          src="/images/field/lahan-sawah.webp"
+          alt="Petak sawah lokasi uji lapangan"
+          ratio="16 / 10"
+          class="min-w-0 flex-1"
+        />
+      </div>
+    </Reveal>
+    <Reveal :delay="0.12" class="w-full">
+      <DeckAutoGrid :cols="3">
+        <UiStatCard v-for="p in pains" :key="p.label" :value="p.value" :label="p.label" tone="ink" />
+      </DeckAutoGrid>
+    </Reveal>
+  </div>
 </template>

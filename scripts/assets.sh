@@ -10,7 +10,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 RAW=assets-raw
-OUT=public/photos
+OUT=public/images/misc
 mkdir -p "$OUT"
 
 need() { command -v "$1" >/dev/null 2>&1 || { echo "missing tool: $1"; exit 1; }; }

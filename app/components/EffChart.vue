@@ -41,6 +41,7 @@ const option = {
   grid: { left: 56, right: 16, top: 38, bottom: 36 },
   tooltip: {
     trigger: 'axis',
+    textStyle: { fontSize: 16 },
     valueFormatter: (v: number) => fmtPct(v),
   },
   xAxis: {
@@ -87,7 +88,7 @@ const option = {
       animationDelay: (idx: number) => idx * 120,
     },
     {
-      name: 'Hemat hero',
+      name: 'Penghematan utama',
       type: 'bar',
       data: ['-', '-', '-', 88.9],
       barWidth: '80%',

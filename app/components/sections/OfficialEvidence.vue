@@ -4,14 +4,14 @@ import gsap from 'gsap'
 // Urut berdasarkan kepentingan: legalitas usaha dulu, kekayaan intelektual,
 // lalu hasil uji kelayakan.
 const pages = [
-  { src: '/bukti/nib-1.webp', label: 'NIB • hal 1', alt: 'Nomor Induk Berusaha GrowMate halaman 1', org: 'OSS RBA' },
-  { src: '/bukti/cipta.webp', label: 'Hak Cipta', alt: 'Sertifikat pencatatan Hak Cipta GrowMate EC002026055570', org: 'DJKI Kemenkum' },
-  { src: '/bukti/desain.webp', label: 'Desain Industri', alt: 'Checklist pengajuan Desain Industri GrowMate', org: 'DJKI Kemenkum' },
-  { src: '/bukti/uji2p-1.webp', label: 'Uji produk • hal 1', alt: 'Formulir uji kelayakan produk GrowMate halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
-  { src: '/bukti/uji2p-2.webp', label: 'Uji produk • hal 2', alt: 'Formulir uji kelayakan produk GrowMate halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
-  { src: '/bukti/uji2p-3.webp', label: 'Uji produk • hal 3', alt: 'Formulir uji kelayakan produk GrowMate halaman 3, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
-  { src: '/bukti/uji2s-1.webp', label: 'Uji sistem • hal 1', alt: 'Formulir uji kelayakan sistem GrowMate halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
-  { src: '/bukti/uji2s-2.webp', label: 'Uji sistem • hal 2', alt: 'Formulir uji kelayakan sistem GrowMate halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/images/bukti/nib-1.webp', label: 'NIB • hal 1', alt: 'Nomor Induk Berusaha GrowMate, halaman 1', org: 'OSS RBA' },
+  { src: '/images/bukti/cipta.webp', label: 'Hak Cipta', alt: 'Sertifikat pencatatan Hak Cipta GrowMate EC002026055570', org: 'DJKI Kemenkum' },
+  { src: '/images/bukti/desain.webp', label: 'Desain Industri', alt: 'Daftar periksa pengajuan Desain Industri GrowMate', org: 'DJKI Kemenkum' },
+  { src: '/images/bukti/uji2p-1.webp', label: 'Uji produk • hal 1', alt: 'Formulir uji kelayakan produk GrowMate, halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/images/bukti/uji2p-2.webp', label: 'Uji produk • hal 2', alt: 'Formulir uji kelayakan produk GrowMate, halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/images/bukti/uji2p-3.webp', label: 'Uji produk • hal 3', alt: 'Formulir uji kelayakan produk GrowMate, halaman 3, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/images/bukti/uji2s-1.webp', label: 'Uji sistem • hal 1', alt: 'Formulir uji kelayakan sistem GrowMate, halaman 1, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
+  { src: '/images/bukti/uji2s-2.webp', label: 'Uji sistem • hal 2', alt: 'Formulir uji kelayakan sistem GrowMate, halaman 2, DKPP Bantul', org: 'DKPP Kabupaten Bantul' },
 ]
 
 const sel = ref(0)
@@ -108,7 +108,7 @@ onUnmounted(() => {
             <div class="legal-scores relative w-full rounded-3xl border-2 border-gm-line bg-white p-3 lg:p-4">
               <div class="flex items-center justify-start gap-4">
                 <LegalStamp size="sm" :burst="true" class="shrink-0" />
-                <p class="min-w-0 text-left font-headline text-lg font-extrabold uppercase tracking-[0.1em] text-gm-primary">Hasil uji kelayakan DKPP</p>
+                <p class="min-w-0 text-left font-headline text-lg font-extrabold uppercase tracking-[0.1em] text-gm-primary">Hasil uji kelayakan dari DKPP</p>
               </div>
               <div class="mt-2 grid w-full grid-cols-2 gap-3">
                 <LegalGauge :value="60" :max="64" label="Fisik Sangat Baik" caption="Skor uji produk" />
@@ -120,7 +120,7 @@ onUnmounted(() => {
             <div class="mt-3 w-full rounded-3xl bg-gm-ink p-3 text-left text-white lg:p-4">
               <div class="flex items-center justify-start gap-3 font-headline text-lg font-extrabold">
                 <Icon name="lucide:award" class="size-7 shrink-0 text-emerald-300" />
-                Kekayaan intelektual terdaftar
+                Kekayaan intelektual yang terdaftar
               </div>
               <div class="mt-2.5 grid w-full grid-cols-1 gap-2.5 sm:grid-cols-2">
                 <div class="anim-float flex items-center justify-start gap-3 rounded-2xl bg-white/[0.07] p-3 text-left">

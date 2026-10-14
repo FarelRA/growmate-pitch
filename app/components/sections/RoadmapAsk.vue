@@ -195,15 +195,15 @@ onUnmounted(() => ctx?.revert())
           <Icon name="lucide:flag" class="scale-flag size-5 text-gm-primary" />
           <span class="font-headline text-lg font-extrabold uppercase tracking-wide text-gm-primary">Lintasan angka</span>
         </span>
-        <span class="text-base font-semibold text-gm-ink">8 ke 12 unit per bulan</span>
+        <span class="text-base font-bold text-gm-ink">8 ke 12 unit per bulan</span>
         <span aria-hidden="true" class="text-base font-bold text-gm-primary">•</span>
-        <span class="text-base font-semibold text-gm-ink">2.390 kumulatif</span>
+        <span class="text-base font-bold text-gm-ink">2.390 kumulatif</span>
         <span aria-hidden="true" class="text-base font-bold text-gm-primary">•</span>
-        <span class="text-base font-semibold text-gm-ink"><strong class="font-headline font-extrabold tabular-nums text-gm-primary">{{ heroCount }}</strong> unit tahun ke-9</span>
+        <span class="text-base font-bold text-gm-ink"><strong class="font-headline font-extrabold tabular-nums text-gm-primary">{{ heroCount }}</strong> unit tahun ke-9</span>
         <span aria-hidden="true" class="text-base font-bold text-gm-primary">•</span>
-        <span class="text-base font-semibold text-gm-ink">Rp201 jt</span>
+        <span class="text-base font-bold text-gm-ink">Rp201 jt</span>
         <span aria-hidden="true" class="text-base font-bold text-gm-primary">•</span>
-        <span class="text-base font-semibold text-gm-ink">Rp500 jt per bulan</span>
+        <span class="text-base font-bold text-gm-ink">Rp500 jt per bulan</span>
         <div class="scale-shine pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-transparent via-gm-mist/80 to-transparent" aria-hidden="true" />
       </div>
 
@@ -231,7 +231,7 @@ onUnmounted(() => ctx?.revert())
               <div class="flex min-w-0 items-center justify-start gap-1.5">
                 <span
                   class="shrink-0 rounded-md px-3 py-1.5 font-headline text-base font-extrabold tabular-nums"
-                  :class="j === 2 ? 'bg-white/20 text-white' : 'bg-gm-primary text-white'"
+                  :class="j === 2 ? 'bg-white/30 font-extrabold text-white' : 'bg-gm-primary text-white'"
                 >{{ horizonBadge[j] }}</span>
                 <div
                   class="min-w-0 font-headline text-base font-extrabold uppercase tracking-wide"
@@ -239,8 +239,8 @@ onUnmounted(() => ctx?.revert())
                 >{{ r.h }}</div>
               </div>
               <div
-                class="mt-0.5 min-w-0 break-words text-base leading-snug"
-                :class="j === 2 ? 'text-white/95' : 'text-gm-ink'"
+                class="mt-0.5 min-w-0 break-words text-base font-medium leading-snug"
+                :class="j === 2 ? 'font-bold text-white' : 'text-gm-ink'"
               >{{ r.t }}</div>
               <div v-if="j === 2" class="scale-shine pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" aria-hidden="true" />
             </div>

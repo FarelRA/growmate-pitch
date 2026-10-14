@@ -43,10 +43,10 @@ export const CARD_STATS = [
 ]
 
 export const GALLERY = [
-  { src: '/photos/hero.webp', title: 'Pods + kemasan', desc: 'Soka demo dengan LED spektrum penuh.' },
-  { src: '/photos/roadmap.webp', title: 'Pilot sawah', desc: 'Unit Tech terpasang di lahan mitra.' },
-  { src: '/photos/versus.webp', title: 'Soka subur', desc: 'Terawat dengan Pranata Mangsa adaptif.' },
-  { src: '/photos/farmer.webp', title: 'Tech farmer', desc: 'Petani mitra memegang unit Tech.' },
+  { src: '/images/misc/hero.webp', title: 'Pods + kemasan', desc: 'Soka demo dengan LED spektrum penuh.' },
+  { src: '/images/misc/roadmap.webp', title: 'Pilot sawah', desc: 'Unit Tech terpasang di lahan mitra.' },
+  { src: '/images/misc/versus.webp', title: 'Soka subur', desc: 'Terawat dengan Pranata Mangsa adaptif.' },
+  { src: '/images/impact/farmer.webp', title: 'Tech farmer', desc: 'Petani mitra memegang unit Tech.' },
 ]
 
 export const SOCIALS = [

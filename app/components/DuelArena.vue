@@ -10,11 +10,11 @@ interface DuelRow {
 // Baris 3 sampai 7 hanya milik GrowMate. Skor akhir 7 lawan 2.
 const rows: DuelRow[] = [
   { label: 'Otomatisasi', foe: 'yes' },
-  { label: 'Konektivitas Web/App', foe: 'yes' },
-  { label: 'Integrasi AI Agen', foe: 'no' },
+  { label: 'Konektivitas web dan aplikasi', foe: 'yes' },
+  { label: 'Integrasi agen AI', foe: 'no' },
   { label: 'Harga lebih kompetitif', foe: 'no' },
   { label: 'Fleksibilitas ukuran lahan', foe: 'no' },
-  { label: 'Fitur Komunitas', foe: 'no' },
+  { label: 'Fitur komunitas', foe: 'no' },
   { label: 'Fitur Marketplace', foe: 'no' },
 ]
 

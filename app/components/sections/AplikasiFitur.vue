@@ -9,12 +9,12 @@ interface AppShot {
 }
 
 const shots: AppShot[] = [
-  { src: '/photos/app-dash.webp', alt: 'Ringkasan sensor live di aplikasi GrowMate', x: 50, y: 72, title: 'Ringkasan', desc: 'Tanah, cahaya, tangki, jadwal live.' },
-  { src: '/photos/app-rawat.webp', alt: 'Tombol siram dan rutinitas di aplikasi GrowMate', x: 36, y: 63, title: 'Perawatan', desc: 'Rutinitas terpandu sampai panen.' },
-  { src: '/photos/app-pasar.webp', alt: 'Kartu produk di pasar aplikasi GrowMate', x: 50, y: 58, title: 'Pasar', desc: 'Produk resmi dan lapak komunitas.' },
-  { src: '/photos/app-komunitas.webp', alt: 'Postingan feed di komunitas GrowMate', x: 50, y: 52, title: 'Komunitas', desc: 'Feed dan papan peringkat growers.' },
-  { src: '/photos/app-asisten.webp', alt: 'Tombol kirim chat Floral Assistant di aplikasi GrowMate', x: 78, y: 55, title: 'Floral Assistant', desc: 'Tanya gejala, dapat dosis.' },
-  { src: '/photos/app-tanam.webp', alt: 'Foto tanaman di pustaka aplikasi GrowMate', x: 50, y: 16, title: 'Pustaka', desc: 'Profil tanaman per fase.' },
+  { src: '/images/ui/app-dash.webp', alt: 'Ringkasan bacaan sensor langsung di aplikasi GrowMate', x: 50, y: 72, title: 'Ringkasan', desc: 'Bacaan tanah, cahaya, tangki, dan jadwal secara langsung.' },
+  { src: '/images/ui/app-rawat.webp', alt: 'Tombol siram dan daftar rutinitas di aplikasi GrowMate', x: 36, y: 63, title: 'Perawatan', desc: 'Rutinitas terpandu dari tanam sampai panen.' },
+  { src: '/images/ui/app-pasar.webp', alt: 'Kartu produk di layar Pasar aplikasi GrowMate', x: 50, y: 58, title: 'Pasar', desc: 'Produk resmi dan lapak dari komunitas.' },
+  { src: '/images/ui/app-komunitas.webp', alt: 'Unggahan di feed komunitas GrowMate', x: 50, y: 52, title: 'Komunitas', desc: 'Feed dan papan peringkat pengguna.' },
+  { src: '/images/ui/app-asisten.webp', alt: 'Tombol kirim pada chat Floral Assistant di aplikasi GrowMate', x: 78, y: 55, title: 'Floral Assistant', desc: 'Tanyakan gejala, terima dosis dan langkah perawatan.' },
+  { src: '/images/ui/app-tanam.webp', alt: 'Foto tanaman di Pustaka Tanaman aplikasi GrowMate', x: 50, y: 16, title: 'Pustaka', desc: 'Profil tiap tanaman per fase tumbuh.' },
 ]
 
 const activeIdx = ref(-1)
@@ -95,8 +95,8 @@ watch(wide, (v) => {
 
 <template>
   <DeckShell section="aplikasi">
-    <div class="flex min-h-full w-full min-w-0 flex-col justify-center gap-2 md:gap-2.5">
-      <div ref="boardRef" class="relative flex w-full min-w-0 flex-col gap-2 md:gap-2.5">
+    <div class="flex min-h-full w-full min-w-0 flex-col justify-center gap-2">
+      <div ref="boardRef" class="relative flex w-full min-w-0 flex-col gap-2">
         <ol class="grid w-full grid-cols-3 gap-1.5 sm:grid-cols-6">
           <li
             v-for="(s, i) in shots"
@@ -120,7 +120,7 @@ watch(wide, (v) => {
             v-for="(s, i) in shots"
             :key="s.title"
             :ref="(el) => setCardEl(i, el)"
-            class="flex h-full w-full items-start justify-start gap-2 rounded-2xl border-2 p-2 text-left transition-all"
+            class="flex h-full w-full items-start justify-start gap-2 rounded-2xl border-2 p-1 text-left transition-all"
             :class="activeIdx === i ? 'border-gm-primary bg-gm-amberbg/60 shadow-md' : 'border-gm-line bg-white'"
             @mouseenter="activeIdx = i"
             @mouseleave="activeIdx = -1"
@@ -131,7 +131,7 @@ watch(wide, (v) => {
             >{{ i + 1 }}</span>
             <span class="min-w-0">
               <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">{{ s.title }}</span>
-              <span class="mt-0.5 block text-base leading-snug text-gm-muted">{{ s.desc }}</span>
+              <span class="mt-0.5 block text-base leading-tight text-gm-muted">{{ s.desc }}</span>
             </span>
           </li>
         </ol>

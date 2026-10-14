@@ -26,71 +26,71 @@ const rows = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 md:gap-[20px]">
-    <div class="flex flex-wrap items-center gap-2.5 md:gap-4">
-      <span class="rounded-full bg-gm-amber px-4 py-2 font-headline text-sm font-bold text-white">Pranata Mangsa AKTIF</span>
-      <span class="rounded-full bg-gm-ink px-4 py-2 font-headline text-sm font-bold text-white">Jadwal tetap</span>
-      <span class="text-sm text-gm-muted md:text-[15px]">60 hari, Mei sampai Juni 2026, Dhesta ke Kasa</span>
+  <div class="flex flex-col gap-2 text-left">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="rounded-full bg-gm-amber px-3.5 py-1.5 font-headline text-base font-bold text-white">Pranata Mangsa AKTIF</span>
+      <span class="rounded-full bg-gm-ink px-3.5 py-1.5 font-headline text-base font-bold text-white">Jadwal tetap</span>
+      <span class="text-base text-gm-muted">Uji banding 60 hari</span>
     </div>
 
-    <div class="grid grid-cols-4 gap-1.5 sm:grid-cols-6 md:gap-[8px] xl:grid-cols-12">
+    <div class="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
       <div
         v-for="m in mangsa"
         :key="m.n"
-        class="rounded-lg border-2 px-1 py-1.5 text-center md:rounded-xl md:py-[10px]"
+        class="rounded-xl border-2 px-1 py-1.5 text-center"
         :class="seasonBg(m.s)"
       >
-        <div class="font-headline text-xs font-extrabold leading-tight text-gm-ink md:text-[13px]">{{ m.n }}</div>
-        <div class="mt-0.5 hidden h-[20px] text-[11px] leading-tight text-gm-muted sm:block">{{ m.note }}</div>
+        <div class="font-headline text-base font-extrabold leading-tight text-gm-ink">{{ m.n }}</div>
+        <div v-if="m.note" class="mt-0.5 text-base leading-tight text-gm-muted">{{ m.note }}</div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-4 md:gap-[20px] lg:grid-cols-[1fr_1fr_1fr]">
-      <div class="rounded-2xl border-2 border-gm-line bg-gm-panel p-4 md:rounded-[20px] md:p-[26px]">
-        <div class="font-headline text-lg font-extrabold text-gm-ink md:text-[18px]">Cara memadukannya</div>
-        <p class="mt-2 text-[12px] leading-snug text-gm-muted md:mt-[10px] md:text-[17px]">
-          Setiap mangsa menetapkan <strong class="text-gm-ink">prior</strong>: perkiraan hujan, tekanan hama, ambang siram.
-          Sensor langsung adalah <strong class="text-gm-ink">likelihood</strong>. Data waktu nyata selalu mengalahkan riwayat.
+    <div class="grid grid-cols-1 gap-2 lg:grid-cols-[1fr_1fr_1fr]">
+      <div class="rounded-3xl border-2 border-gm-line bg-gm-panel p-3 text-left">
+        <div class="font-headline text-base font-extrabold text-gm-ink">Cara memadukannya</div>
+        <p class="mt-1.5 text-base leading-snug text-gm-muted">
+          Tiap mangsa menetapkan <strong class="text-gm-ink">prior</strong>: perkiraan hujan, tekanan hama, ambang siram.
+          Sensor langsung dipakai sebagai <strong class="text-gm-ink">likelihood</strong>. Data waktu nyata selalu mengalahkan riwayat.
         </p>
-        <div class="mt-3 flex items-center gap-2.5 rounded-2xl bg-white p-3.5 shadow-sm md:mt-[16px] md:p-[16px]">
-          <Icon name="lucide:scale" class="h-8 w-8 shrink-0 text-gm-amber md:h-[34px] md:w-[34px]" />
-          <p class="text-[12px] leading-snug text-gm-ink md:text-[15px]">Hujan turun di Kasa yang kering? Mesin menahan pompa. Pewaktu justru menggenangi akar.</p>
+        <div class="mt-2 flex items-center gap-2 rounded-2xl bg-white p-2.5 shadow-sm">
+          <Icon name="lucide:scale" class="size-7 shrink-0 text-gm-amber" />
+          <p class="text-base leading-snug text-gm-ink">Hujan turun di Kasa yang kering? Mesin menahan pompa. Pewaktu justru menggenangi akar.</p>
         </div>
       </div>
-      <div class="rounded-2xl border-2 border-gm-primary bg-gm-mist p-4 md:rounded-[20px] md:p-[26px]">
-        <div class="font-headline text-lg font-extrabold text-gm-deep md:text-[18px]">Pranata Mangsa AKTIF: adaptif</div>
-        <div class="mt-3 space-y-3 md:mt-[16px] md:space-y-[14px]">
+      <div class="rounded-3xl border-2 border-gm-primary bg-gm-mist p-3 text-left">
+        <div class="font-headline text-base font-extrabold text-gm-deep">Pranata Mangsa AKTIF: adaptif</div>
+        <div class="mt-2 space-y-2.5">
           <div v-for="r in rows" :key="r.label">
-            <div class="mb-1 flex justify-between text-[12px] text-gm-muted md:mb-[6px] md:text-[15px]">
+            <div class="mb-1 flex justify-between text-base text-gm-muted">
               <span>{{ r.label }}</span>
-              <span class="font-mono font-bold text-gm-ink">{{ r.a }}{{ r.unit }}</span>
+              <span class="font-mono font-bold tabular-nums text-gm-ink">{{ r.a }}{{ r.unit }}</span>
             </div>
-            <div class="h-4 overflow-hidden rounded-full bg-gm-line md:h-[18px]">
+            <div class="h-4 overflow-hidden rounded-full bg-gm-line">
               <div class="h-full rounded-full bg-gm-soft transition-all duration-700" :style="{ width: `${(r.a / 18) * 100}%` }" />
             </div>
           </div>
         </div>
-        <div class="mt-3.5 flex flex-wrap gap-2 md:mt-[18px] md:gap-3">
-          <span class="rounded-full bg-gm-primary px-3.5 py-1.5 font-headline text-[12px] font-bold text-white md:px-[16px] md:py-[8px] md:text-[15px]">kesehatan 87</span>
-          <span class="rounded-full bg-white px-3.5 py-1.5 font-headline text-[12px] font-bold text-gm-deep md:px-[16px] md:py-[8px] md:text-[15px]">air 6,8 L / 60 hari</span>
+        <div class="mt-2.5 flex flex-wrap gap-1.5">
+          <span class="rounded-full bg-gm-primary px-3 py-1 font-headline text-base font-bold text-white">kesehatan 87</span>
+          <span class="rounded-full bg-white px-3 py-1 font-headline text-base font-bold text-gm-deep">air 6,8 L / 60 hari</span>
         </div>
       </div>
-      <div class="rounded-2xl border-2 border-gm-ink bg-[#20241f] p-4 md:rounded-[20px] md:p-[26px]">
-        <div class="font-headline text-lg font-extrabold text-white md:text-[18px]">Jadwal tetap: menyiram buta</div>
-        <div class="mt-3 space-y-3 md:mt-[16px] md:space-y-[14px]">
+      <div class="rounded-3xl border-2 border-gm-ink bg-[#20241f] p-3 text-left">
+        <div class="font-headline text-base font-extrabold text-white">Jadwal tetap: menyiram buta</div>
+        <div class="mt-2 space-y-2.5">
           <div v-for="r in rows" :key="r.label">
-            <div class="mb-1 flex justify-between text-[12px] text-white/70 md:mb-[6px] md:text-[15px]">
+            <div class="mb-1 flex justify-between text-base text-white/70">
               <span>{{ r.label }}</span>
-              <span class="font-mono font-bold text-white">{{ r.b }}{{ r.unit }}</span>
+              <span class="font-mono font-bold tabular-nums text-white">{{ r.b }}{{ r.unit }}</span>
             </div>
-            <div class="h-4 overflow-hidden rounded-full bg-white/12 md:h-[18px]">
+            <div class="h-4 overflow-hidden rounded-full bg-white/12">
               <div class="h-full rounded-full bg-red-400 transition-all duration-700" :style="{ width: `${(r.b / 18) * 100}%` }" />
             </div>
           </div>
         </div>
-        <div class="mt-3.5 flex flex-wrap gap-2 md:mt-[18px] md:gap-3">
-          <span class="rounded-full bg-white/10 px-3.5 py-1.5 font-headline text-[12px] font-bold text-white/85 md:px-[16px] md:py-[8px] md:text-[15px]">kesehatan 68</span>
-          <span class="rounded-full bg-white/10 px-3.5 py-1.5 font-headline text-[12px] font-bold text-white/85 md:px-[16px] md:py-[8px] md:text-[15px]">air 9,4 L / 60 hari</span>
+        <div class="mt-2.5 flex flex-wrap gap-1.5">
+          <span class="rounded-full bg-white/10 px-3 py-1 font-headline text-base font-bold text-white/85">kesehatan 68</span>
+          <span class="rounded-full bg-white/10 px-3 py-1 font-headline text-base font-bold text-white/85">air 9,4 L / 60 hari</span>
         </div>
       </div>
     </div>

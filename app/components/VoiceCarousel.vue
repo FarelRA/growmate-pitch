@@ -1,15 +1,17 @@
 <script setup lang="ts">
+const props = defineProps<{ active?: number }>()
+
 const emit = defineEmits<{ select: [index: number] }>()
 
 const voices = [
-  { photo: '/photos/testi-wabup.webp', name: 'Aris Suharyanto', role: 'Wakil Bupati Bantul', quote: 'Modernisasi pertanian bukan lagi impian. Pemerintah Kabupaten Bantul mendukung penuh adopsi inovasi ini di lapangan.' },
-  { photo: '/photos/testi-dkpp.webp', name: 'Joko Waluyo', role: 'Kepala DKPP Bantul', quote: 'Satu solusi untuk dua ekosistem. Tech mengotomatiskan lahan luas, Pods mengurus tanaman indoor secara mandiri.' },
-  { photo: '/photos/testi-dkumpp.webp', name: 'Praptanugraha', role: 'Kepala DKUMPP Bantul', quote: 'Tech berjalan tanpa listrik PLN berkat surya. Pods mengurus air dan cahaya indoor. Semua terintegrasi Floral Assistant.' },
-  { photo: '/photos/testi-bunda.webp', name: 'Emi Masruroh Halim', role: 'Bunda Literasi Bantul', quote: 'Langkah nyata memodernkan pertanian sekaligus menarik kembali minat bertani generasi muda.' },
-  { photo: '/photos/testi-kemenperin.webp', name: 'Benedictus Hermasto', role: 'Kemenperin', quote: 'Solusi nyata efisiensi lahan luas dan modernisasi usaha indoor. Mendongkrak daya saing agroindustri lokal.' },
-  { photo: '/photos/testi-dosen.webp', name: 'Rizki Octavianto', role: 'Dosen Ekonomi', quote: 'Memantau kondisi dan kesehatan tanaman, lalu mengatur cahaya dan airnya sendiri tepat saat dibutuhkan.' },
-  { photo: '/photos/testi-kepsek.webp', name: 'Indrati Sayuto', role: 'Kepala SMPN 1 Galur', quote: 'Sangat efektif bagi penghobi tanam yang tidak punya banyak waktu untuk berkebun dan merawat tanaman.' },
-  { photo: '/photos/testi-pegiat.webp', name: 'Rohmat Subekti', role: 'Pegiat Teknologi', quote: 'Enam sensor memberi tahu kebutuhan tanaman lewat aplikasi. Tanaman di rumah tetap subur.' },
+  { photo: '/images/impact/testi-wabup.webp', name: 'Aris Suharyanto', role: 'Wakil Bupati Bantul', quote: 'Modernisasi pertanian bukan lagi impian. Pemerintah Kabupaten Bantul mendukung penuh adopsi inovasi ini di lapangan.' },
+  { photo: '/images/impact/testi-dkpp.webp', name: 'Joko Waluyo', role: 'Kepala DKPP Bantul', quote: 'Satu solusi untuk dua ekosistem. Tech mengotomatiskan lahan luas, Pods mengurus tanaman indoor secara mandiri.' },
+  { photo: '/images/impact/testi-dkumpp.webp', name: 'Praptanugraha', role: 'Kepala DKUMPP Bantul', quote: 'Tech berjalan tanpa listrik berkat surya. Pods mengurus air dan cahaya indoor. Semua terintegrasi Floral Assistant.' },
+  { photo: '/images/impact/testi-bunda.webp', name: 'Emi Masruroh Halim', role: 'Bunda Literasi Bantul', quote: 'Langkah nyata memodernkan pertanian sekaligus menarik kembali minat bertani generasi muda.' },
+  { photo: '/images/impact/testi-kemenperin.webp', name: 'Benedictus Hermasto', role: 'Kemenperin', quote: 'Solusi nyata efisiensi lahan luas dan modernisasi usaha indoor. Mendongkrak daya saing agroindustri lokal.' },
+  { photo: '/images/impact/testi-dosen.webp', name: 'Rizki Octavianto', role: 'Dosen Ekonomi', quote: 'Memantau kondisi dan kesehatan tanaman, lalu mengatur cahaya dan airnya sendiri tepat saat dibutuhkan.' },
+  { photo: '/images/impact/testi-kepsek.webp', name: 'Indrati Sayuto', role: 'Kepala SMPN 1 Galur', quote: 'Sangat efektif bagi penghobi tanam yang tidak punya banyak waktu untuk berkebun dan merawat tanaman.' },
+  { photo: '/images/impact/testi-pegiat.webp', name: 'Rohmat Subekti', role: 'Pegiat Teknologi', quote: 'Enam sensor memberi tahu kebutuhan tanaman lewat aplikasi. Tanaman di rumah tetap subur.' },
 ]
 
 const DINAS = new Set(['Wakil Bupati Bantul', 'Kepala DKPP Bantul', 'Kepala DKUMPP Bantul', 'Kemenperin'])
@@ -23,6 +25,13 @@ function badgeClass(role: string) {
 
 /* Satu sumber kebenaran untuk bingkai utama. Nilai idx yang sama diteruskan ke tribun. */
 const idx = ref(0)
+
+/* Pilihan dari tribun luar. Hanya mengikuti nilai baru yang sah. Siklus lama tidak diubah. */
+watch(() => props.active, (v) => {
+  if (v === undefined) return
+  const safe = Math.min(Math.max(v, 0), voices.length - 1)
+  if (safe !== idx.value) idx.value = safe
+})
 
 /* Siklus otomatis 0 sampai 7 tiap 3 detik. Dilewati saat tab tersembunyi. Berhenti saat lepas dan mulai lagi saat pasang. */
 const { pause, resume } = useIntervalFn(() => {
@@ -47,13 +56,13 @@ onUnmounted(() => {
 
     <p class="relative flex shrink-0 items-center gap-1.5 px-4 pt-3 font-headline text-lg font-extrabold uppercase tracking-[0.12em] text-gm-muted md:px-5">
       <span class="anim-pulse-dot size-2 rounded-full bg-gm-amber" aria-hidden="true" />
-      <Icon name="lucide:mic" class="size-4 text-gm-amber" /> Kursi sorot
+      <Icon name="lucide:mic" class="size-4 text-gm-amber" /> Kursi sorotan
     </p>
 
     <div class="relative min-h-0 flex-1 px-4 pb-3 pt-2 md:px-5">
       <Transition name="voice-spot" mode="out-in">
         <div :key="voices[idx]!.name" class="flex h-full flex-col items-center justify-center gap-2 text-center md:gap-3">
-          <div class="mx-auto flex h-[240px] w-full shrink-0 items-center justify-center md:h-[240px] xl:h-[280px] 2xl:h-[340px]">
+          <div class="mx-auto flex h-[240px] w-full shrink-0 items-center justify-center md:h-[240px] xl:h-[266px] 2xl:h-[340px]">
             <img :src="voices[idx]!.photo" :alt="voices[idx]!.name" class="h-full w-auto max-w-full rounded-3xl border-2 border-gm-line object-contain" loading="lazy" decoding="async" draggable="false" />
           </div>
           <div class="flex min-w-0 flex-col items-center justify-center text-center">

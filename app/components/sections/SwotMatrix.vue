@@ -41,12 +41,12 @@ const quads: Quad[] = [
     iconAnim: '',
     iconTone: 'text-white',
     items: [
-      'Agen AI dan rawat otomatis',
-      'Pantau cerdas sensor titik',
-      'Komunitas dan kemas hijau',
-      'Harga hemat servis lokal',
+      'Agen AI dan perawatan otomatis',
+      'Pemantauan sensor di tiap titik',
+      'Komunitas dan kemasan ramah lingkungan',
+      'Harga hemat dengan servis lokal',
     ],
-    reply: 'Action SO: rebut pasar milenial.',
+    reply: 'Action SO: menjangkau Gen Z yang berminat bertani.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-primary bg-gm-primary rounded-2xl rounded-tl-3xl shadow-[0_14px_32px_rgba(0,77,19,0.30)]',
     itemText: 'text-white/90',
@@ -62,12 +62,12 @@ const quads: Quad[] = [
     iconAnim: '',
     iconTone: 'text-gm-primary',
     items: [
-      'Minat agrikultur Gen Z tinggi',
-      'Pasar nasional sangat besar',
+      'Minat Gen Z terhadap pertanian tinggi',
+      'Pasar nasional yang besar',
       'Asta Cita 2 dan SDGs 12',
-      'Kanal luring masih luas',
+      'Kanal luring yang masih luas',
     ],
-    reply: 'Action ST: jaga langganan lewat AI.',
+    reply: 'Action ST: mempertahankan langganan lewat layanan agen AI.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line bg-gm-mist rounded-2xl shadow-[0_10px_24px_rgba(0,77,19,0.12)]',
     itemText: 'text-gm-ink',
@@ -83,12 +83,12 @@ const quads: Quad[] = [
     iconAnim: '',
     iconTone: 'text-gm-amber',
     items: [
-      'Butuh koneksi atau server',
-      'Sensor bisa rusak fisik',
+      'Butuh koneksi internet atau server',
+      'Sensor berisiko rusak fisik',
       'Komponen kadang langka',
-      'Kemasan rentan lembap',
+      'Kemasan rentan terhadap kelembapan',
     ],
-    reply: 'Action WO: amankan stok dan kemasan.',
+    reply: 'Action WO: mengamankan stok komponen dan kemasan.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line border-l-4 border-l-gm-amber bg-white rounded-2xl shadow-[0_10px_24px_rgba(183,121,31,0.12)]',
     itemText: 'text-gm-ink',
@@ -104,12 +104,12 @@ const quads: Quad[] = [
     iconAnim: '',
     iconTone: 'text-gm-danger',
     items: [
-      'Adopsi petani konvensional sulit',
-      'Cuaca ekstrem gagalkan panen',
-      'Kompetitor sejenis bermunculan',
-      'Enggan perpanjang langganan',
+      'Adopsi oleh petani konvensional sulit',
+      'Cuaca ekstrem dapat menggagalkan panen',
+      'Kompetitor sejenis mulai bermunculan',
+      'Pengguna enggan memperpanjang langganan',
     ],
-    reply: 'Action WT: cegah gangguan jaga nama.',
+    reply: 'Action WT: mencegah gangguan layanan agar nama baik terjaga.',
     replyIcon: 'lucide:shield-check',
     card: 'border-gm-line border-l-4 border-l-gm-danger bg-white rounded-2xl shadow-[0_10px_24px_rgba(192,57,43,0.12)]',
     itemText: 'text-gm-ink',
@@ -138,7 +138,7 @@ const trans = (i: number) => ({
 
       <div aria-hidden="true" class="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block lg:ml-[53px]">
         <span class="grid size-16 place-items-center rounded-full border border-gm-line bg-white shadow-md">
-          <svg ref="compass" width="56" height="56" viewBox="0 0 56 56" role="img" aria-label="Kompas Pranata Mangsa">
+          <svg ref="compass" width="56" height="56" viewBox="0 0 56 56" role="img" aria-label="Matriks SWOT">
             <circle cx="28" cy="28" r="25" fill="#ffffff" />
             <circle cx="28" cy="28" r="19" fill="#f6f8f5" stroke="#006e1c" stroke-opacity="0.25" stroke-width="1" />
             <g>

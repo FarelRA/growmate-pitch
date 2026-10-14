@@ -5,12 +5,14 @@ const props = withDefaults(defineProps<{
   src?: string
   alt?: string
   no: number
+  /** Posisi di dalam tab (0-based); menentukan jeda animasi PIN. */
+  pos?: number
   label: string
   slotSpec?: string
   tilt?: number
   active?: boolean
   ratio?: string
-}>(), { src: '', alt: '', slotSpec: '', tilt: 0, active: false, ratio: '16 / 10' })
+}>(), { src: '', alt: '', slotSpec: '', tilt: 0, active: false, ratio: '16 / 10', pos: 0 })
 
 const reduced = usePreferredReducedMotion()
 
@@ -32,7 +34,7 @@ function pinTransition(delay: number) {
       <Motion
         :initial="{ opacity: 0, scale: 0 }"
         :animate="{ opacity: 1, scale: 1 }"
-        :transition="pinTransition(0.45 + (props.no - 1) * 0.1)"
+        :transition="pinTransition(0.45 + props.pos * 0.1)"
         class="grid size-10 shrink-0 place-items-center rounded-full bg-gm-primary font-headline text-lg font-extrabold tabular-nums text-white max-md:absolute max-md:-left-[44px] max-md:top-1/2 max-md:-translate-y-1/2"
       >
         {{ props.no }}

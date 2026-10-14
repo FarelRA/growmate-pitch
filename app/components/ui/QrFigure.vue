@@ -4,18 +4,22 @@ import QRCode from 'qrcode'
 const props = defineProps<{ text: string; label: string; sub?: string }>()
 const url = ref('')
 
-onMounted(async () => {
+async function render(text: string) {
   try {
-    url.value = await QRCode.toDataURL(props.text, {
-      width: 480,
-      margin: 3,
-      color: { dark: '#1a1c1c', light: '#ffffff' },
-    })
+    url.value = text
+      ? await QRCode.toDataURL(text, {
+        width: 480,
+        margin: 3,
+        color: { dark: '#1a1c1c', light: '#ffffff' },
+      })
+      : ''
   }
   catch {
     url.value = ''
   }
-})
+}
+
+watch(() => props.text, render, { immediate: true })
 </script>
 
 <template>

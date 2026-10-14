@@ -28,28 +28,28 @@ onMounted(() => {
     <DeckSplitPanel>
       <template #primary>
         <Reveal class="h-full w-full">
-          <VoiceCarousel @select="activeVoice = $event" />
+          <VoiceCarousel :active="activeVoice" @select="activeVoice = $event" />
         </Reveal>
       </template>
       <template #secondary>
         <Reveal class="w-full">
-          <SuaraTribune :active="activeVoice" />
+          <SuaraTribune :active="activeVoice" @select="activeVoice = $event" />
         </Reveal>
         <Reveal :delay="0.1" class="w-full">
           <div class="mt-2 flex w-full flex-col justify-center gap-1 rounded-2xl bg-gm-ink p-3 text-left text-white md:p-4">
             <span class="flex items-center gap-2 font-headline text-lg font-extrabold">
-              <Icon name="lucide:compass" class="size-6 text-emerald-300" /> Posisi kami di pasar
+              <Icon name="lucide:compass" class="size-6 text-emerald-300" /> Posisi di pasar
             </span>
             <p class="text-lg leading-snug text-white/80">
-              Pelopor smart farming IoT dan AI Agen lokal untuk tech farmer dan properti di DIY.
+              Pelopor smart farming IoT dengan agen AI lokal untuk tech farmer dan properti di DIY.
             </p>
-            <p class="font-headline text-lg font-bold text-emerald-300">Semangat: Petani Makmur, Tanpa Lumpur.</p>
+            <p class="font-headline text-lg font-bold text-emerald-300">Tagline pada kemasan: Petani Makmur, Tanpa Lumpur.</p>
           </div>
         </Reveal>
         <Reveal :delay="0.18" class="w-full">
           <div class="mt-2 grid grid-cols-3 gap-2">
             <UiStatCard class="[&>div:first-child]:text-3xl md:[&>div:first-child]:text-4xl" :value="vA" label="Testimoni terdokumentasi" tone="brand" />
-            <UiStatCard class="[&>div:first-child]:text-3xl md:[&>div:first-child]:text-4xl" :value="vB" label="Instansi resmi mendukung" tone="brand" />
+            <UiStatCard class="[&>div:first-child]:text-3xl md:[&>div:first-child]:text-4xl" :value="vB" label="Instansi resmi yang mendukung" tone="brand" />
             <UiStatCard class="[&>div:first-child]:text-3xl md:[&>div:first-child]:text-4xl" :value="vC" label="Segmen pengguna aktif" tone="brand" />
           </div>
         </Reveal>

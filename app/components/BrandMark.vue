@@ -18,7 +18,7 @@ defineProps<{ brand: BrandKind }>()
       x="11"
       y="21"
       font-family="Manrope, Inter, ui-sans-serif, system-ui, sans-serif"
-      font-size="17"
+      font-size="18"
       font-weight="800"
       letter-spacing="-0.5"
       fill="#f2eee1"
@@ -41,19 +41,19 @@ defineProps<{ brand: BrandKind }>()
   </svg>
   <svg
     v-else-if="brand === 'clickgrow'"
-    viewBox="0 0 118 30"
+    viewBox="0 0 152 30"
     class="h-6 w-auto max-w-full shrink-0 md:h-7"
     role="img"
     aria-label="Logo Click dan Grow"
   >
     <title>Logo Click dan Grow</title>
-    <rect x="0" y="0" width="118" height="30" rx="15" fill="#df5a32" />
+    <rect x="0" y="0" width="152" height="30" rx="15" fill="#df5a32" />
     <text
-      x="59"
-      y="19.8"
+      x="76"
+      y="21"
       text-anchor="middle"
       font-family="Inter, Manrope, ui-sans-serif, system-ui, sans-serif"
-      font-size="12.5"
+      font-size="18"
       font-weight="700"
       letter-spacing="-0.2"
       fill="#ffffff"
@@ -61,14 +61,14 @@ defineProps<{ brand: BrandKind }>()
   </svg>
   <svg
     v-else
-    viewBox="0 0 112 30"
+    viewBox="0 0 134 30"
     class="h-6 w-auto max-w-full shrink-0 md:h-7"
     role="img"
     aria-label="Logo GrowMate"
   >
     <title>Logo GrowMate</title>
-    <rect x="0" y="0" width="112" height="30" rx="15" fill="#006e1c" />
-    <rect x="0" y="0" width="112" height="30" rx="15" fill="none" stroke="#004d13" stroke-width="1.5" />
+    <rect x="0" y="0" width="134" height="30" rx="15" fill="#006e1c" />
+    <rect x="0" y="0" width="134" height="30" rx="15" fill="none" stroke="#004d13" stroke-width="1.5" />
     <path
       d="M19 23 C19 19 19 16 19 12.5"
       fill="none"
@@ -85,10 +85,10 @@ defineProps<{ brand: BrandKind }>()
       fill="#e9f4ea"
     />
     <text
-      x="30"
-      y="20"
+      x="32"
+      y="21.5"
       font-family="Manrope, Inter, ui-sans-serif, system-ui, sans-serif"
-      font-size="13.5"
+      font-size="18"
       font-weight="800"
       letter-spacing="-0.3"
       fill="#faf6ec"

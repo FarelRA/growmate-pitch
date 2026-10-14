@@ -3,16 +3,18 @@ import gsap from 'gsap'
 
 const props = defineProps<{ active: number }>()
 
-/* Urutan sama dengan suara di VoiceCarousel. Tampilan pasif tanpa interaksi. */
+const emit = defineEmits<{ select: [index: number] }>()
+
+/* Urutan sama dengan suara di VoiceCarousel. Lingkaran bisa diklik untuk memilih suara. */
 const items = [
-  { photo: '/photos/testi-wabup.webp', name: 'Aris Suharyanto' },
-  { photo: '/photos/testi-dkpp.webp', name: 'Joko Waluyo' },
-  { photo: '/photos/testi-dkumpp.webp', name: 'Praptanugraha' },
-  { photo: '/photos/testi-bunda.webp', name: 'Emi Masruroh Halim' },
-  { photo: '/photos/testi-kemenperin.webp', name: 'Benedictus Hermasto' },
-  { photo: '/photos/testi-dosen.webp', name: 'Rizki Octavianto' },
-  { photo: '/photos/testi-kepsek.webp', name: 'Indrati Sayuto' },
-  { photo: '/photos/testi-pegiat.webp', name: 'Rohmat Subekti' },
+  { photo: '/images/impact/testi-wabup.webp', name: 'Aris Suharyanto' },
+  { photo: '/images/impact/testi-dkpp.webp', name: 'Joko Waluyo' },
+  { photo: '/images/impact/testi-dkumpp.webp', name: 'Praptanugraha' },
+  { photo: '/images/impact/testi-bunda.webp', name: 'Emi Masruroh Halim' },
+  { photo: '/images/impact/testi-kemenperin.webp', name: 'Benedictus Hermasto' },
+  { photo: '/images/impact/testi-dosen.webp', name: 'Rizki Octavianto' },
+  { photo: '/images/impact/testi-kepsek.webp', name: 'Indrati Sayuto' },
+  { photo: '/images/impact/testi-pegiat.webp', name: 'Rohmat Subekti' },
 ]
 
 const wrapRef = ref<HTMLElement | null>(null)
@@ -68,9 +70,9 @@ onUnmounted(() => {
   <div class="w-full overflow-hidden rounded-2xl border-2 border-gm-line bg-gm-cream px-3 pb-3 pt-2 text-left" aria-label="Tribun delapan saksi">
     <div class="flex items-center justify-between gap-2">
       <p class="flex items-center gap-1.5 font-headline text-base font-extrabold uppercase tracking-[0.12em] text-gm-muted">
-        <Icon name="lucide:users" class="size-4 text-gm-amber" /> Tribun 8 saksi
+        <Icon name="lucide:users" class="size-4 text-gm-amber" /> Barisan 8 testimoni
       </p>
-      <p class="text-base font-semibold text-gm-muted">Mengikuti sorot otomatis</p>
+      <p class="text-base font-semibold text-gm-muted">Sorotan berpindah otomatis</p>
     </div>
     <div ref="wrapRef" class="relative mt-1">
       <div
@@ -80,17 +82,20 @@ onUnmounted(() => {
         aria-hidden="true"
       />
       <div ref="rowRef" class="relative flex flex-wrap items-start justify-start gap-1.5">
-        <div
+        <button
           v-for="(p, i) in items"
           :key="p.photo"
+          type="button"
           :title="p.name"
-          class="relative z-10 grid aspect-square shrink-0 place-items-center rounded-full bg-white p-0.5 transition-all duration-500 ease-out"
+          :aria-label="`Lihat testimoni ${p.name}`"
+          class="relative z-10 grid aspect-square shrink-0 cursor-pointer place-items-center rounded-full bg-white p-0.5 transition-all duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gm-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gm-cream"
           :class="i === active ? 'size-12 scale-[1.15] ring-2 ring-gm-primary ring-offset-2 ring-offset-gm-cream md:size-14' : 'size-12 opacity-60 ring-1 ring-gm-line md:size-14'"
           :style="{ marginTop: `${arcTop(i)}px` }"
+          @click="emit('select', i)"
         >
           <img :src="p.photo" :alt="p.name" class="aspect-square size-full rounded-full object-cover" loading="lazy" decoding="async" draggable="false" />
           <span v-if="i === active" class="anim-pulse-dot absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-gm-primary ring-2 ring-white" aria-hidden="true" />
-        </div>
+        </button>
       </div>
       <div
         ref="glowRef"

@@ -42,8 +42,8 @@ onMounted(() => {
             <Motion :initial="{ opacity: 0 }" :animate="{ opacity: 1 }" :transition="t(0, 0.5)">
               <div class="flex w-full min-w-0 flex-wrap items-center gap-2.5">
                 <span class="anim-pulse-dot inline-block size-3 shrink-0 rounded-full bg-gm-soft" aria-hidden="true" />
-                <span class="rounded-full bg-white/10 px-4 py-2 font-mono text-base font-bold uppercase tracking-[0.16em] text-white">Live</span>
-                <span class="min-w-0 text-base tracking-wide text-white/70">Memantau 6 titik sensor aktif</span>
+                <span class="rounded-full bg-white/10 px-4 py-2 font-mono text-base font-bold uppercase tracking-[0.16em] text-white">Langsung</span>
+                <span class="min-w-0 text-base tracking-wide text-white/70">6 titik sensor terpantau langsung</span>
               </div>
             </Motion>
 
@@ -61,7 +61,7 @@ onMounted(() => {
             </Motion>
 
             <Motion :initial="{ opacity: 0, y: 14, filter: 'blur(6px)' }" :animate="{ opacity: 1, y: 0, filter: 'blur(0px)' }" :transition="t(0.35, 0.5)">
-              <p class="mt-1.5 max-w-xl text-base leading-snug text-white/70">Presisi AI dan IoT tropis yang terjangkau dan mudah dirawat.</p>
+              <p class="mt-1.5 max-w-xl text-base leading-snug text-white/70">IoT dan AI untuk iklim tropis, dengan perawatan yang terjangkau.</p>
             </Motion>
 
             <Motion :initial="{ opacity: 0 }" :animate="{ opacity: 1 }" :transition="t(0.4, 0.4)">
@@ -73,7 +73,7 @@ onMounted(() => {
                   <UiPillTag icon="lucide:tractor" style="font-size:16px">Tech lahan luas</UiPillTag>
                 </Motion>
                 <Motion :initial="{ opacity: 0, scale: 0.8 }" :animate="{ opacity: 1, scale: 1 }" :transition="t(0.52, 0.4)">
-                  <UiPillTag icon="lucide:sparkles" tone="amber" style="font-size:16px">Floral Assistant AI</UiPillTag>
+                  <UiPillTag icon="lucide:sparkles" tone="amber" style="font-size:16px">Floral Assistant</UiPillTag>
                 </Motion>
               </div>
             </Motion>
@@ -90,11 +90,11 @@ onMounted(() => {
               <div class="mt-3 grid w-full grid-cols-4 gap-2.5">
                 <div class="flex h-full flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ airText }}</div>
-                  <div class="mt-1 text-base font-bold leading-snug text-white/70">hemat air</div>
+                  <div class="mt-1 text-base font-bold leading-snug text-white/70">penghematan air</div>
                 </div>
                 <div class="flex h-full flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ liveText }}</div>
-                  <div class="mt-1 text-base font-bold leading-snug text-white/70">kesintasan</div>
+                  <div class="mt-1 text-base font-bold leading-snug text-white/70">tanaman hidup</div>
                 </div>
                 <div class="flex h-full flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ roiText }}</div>
@@ -102,7 +102,7 @@ onMounted(() => {
                 </div>
                 <div class="flex h-full flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center">
                   <div class="font-headline text-2xl font-extrabold tabular-nums text-white xl:text-3xl">{{ timeText }}</div>
-                  <div class="mt-1 text-base font-bold leading-snug text-white/70">hemat waktu</div>
+                  <div class="mt-1 text-base font-bold leading-snug text-white/70">waktu rawat</div>
                 </div>
               </div>
             </Motion>
@@ -116,7 +116,7 @@ onMounted(() => {
             <div class="relative w-full max-w-[480px] xl:max-w-[520px]" style="perspective: 1200px;">
               <div class="anim-float absolute inset-0 translate-x-3 translate-y-3 rounded-[1.75rem] bg-gm-mist" aria-hidden="true" />
               <div class="tilt-inner relative overflow-hidden rounded-[1.75rem] shadow-[0_24px_60px_rgba(0,110,28,0.28)]">
-                <UiPhotoFigure src="/photos/hero.webp" alt="GrowMate Pods dengan bunga soka di ruang kendali tani" ratio="6 / 5" />
+                <UiPhotoFigure src="/images/misc/hero.webp" alt="Pods GrowMate dengan bunga soka di ruang kendali tani" ratio="6 / 5" />
                 <div class="absolute inset-x-3 bottom-3 flex max-w-[calc(100%-1.5rem)] flex-col items-start gap-2">
                   <Motion :initial="{ opacity: 0, y: 12 }" :animate="{ opacity: 1, y: 0 }" :transition="t(0.55, 0.45)" class="max-w-full">
                     <div class="flex max-w-full items-center gap-2.5 rounded-full bg-white/95 py-2 pl-3 pr-4 shadow-lg backdrop-blur">
@@ -129,8 +129,8 @@ onMounted(() => {
                     <div class="flex max-w-full items-start gap-2.5 rounded-full bg-white/95 px-4 py-2.5 text-left shadow-lg backdrop-blur">
                       <Icon name="lucide:sparkles" class="mt-0.5 size-6 shrink-0 text-gm-primary" />
                       <span class="min-w-0">
-                        <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">Hujan Kanem terbaca.</span>
-                        <span class="block font-mono text-base leading-tight text-gm-muted">Tunda siram hari ini.</span>
+                        <span class="block font-headline text-base font-extrabold leading-tight text-gm-ink">Hujan mangsa Kanem terbaca.</span>
+                        <span class="block font-mono text-base leading-tight text-gm-muted">Penyiraman hari ini ditunda.</span>
                       </span>
                     </div>
                   </Motion>
@@ -145,11 +145,11 @@ onMounted(() => {
     <div class="mt-3 grid w-full grid-cols-2 gap-2 lg:hidden">
       <div class="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ airText }}</div>
-        <div class="mt-1 text-base font-bold leading-snug text-gm-muted">hemat air</div>
+        <div class="mt-1 text-base font-bold leading-snug text-gm-muted">penghematan air</div>
       </div>
       <div class="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ liveText }}</div>
-        <div class="mt-1 text-base font-bold leading-snug text-gm-muted">kesintasan</div>
+        <div class="mt-1 text-base font-bold leading-snug text-gm-muted">tanaman hidup</div>
       </div>
       <div class="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ roiText }}</div>
@@ -157,7 +157,7 @@ onMounted(() => {
       </div>
       <div class="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-gm-line bg-white px-4 py-3.5 text-center">
         <div class="font-headline text-2xl font-extrabold tabular-nums text-gm-ink">{{ timeText }}</div>
-        <div class="mt-1 text-base font-bold leading-snug text-gm-muted">hemat waktu</div>
+        <div class="mt-1 text-base font-bold leading-snug text-gm-muted">waktu rawat</div>
       </div>
     </div>
   </DeckBare>

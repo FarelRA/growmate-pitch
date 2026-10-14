@@ -61,8 +61,8 @@ const option = {
         symbol: 'roundRect',
         symbolSize: [112, 34],
         itemStyle: { color: '#b7791f', shadowBlur: 12, shadowColor: 'rgba(183,121,31,0.5)' },
-        label: { show: true, color: '#fff', fontSize: 16, fontWeight: 800, formatter: 'Titik lepas' },
-        data: [{ name: 'Titik lepas', xAxis: 'Mei', yAxis: 10.6 }],
+        label: { show: true, color: '#fff', fontSize: 16, fontWeight: 800, formatter: 'Lonjakan pada Mei' },
+        data: [{ name: 'Lonjakan pada Mei', xAxis: 'Mei', yAxis: 10.6 }],
       },
       markLine: {
         symbol: 'none',

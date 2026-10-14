@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
-        { rel: 'icon', type: 'image/png', href: '/logo-512.png' },
+        { rel: 'icon', type: 'image/webp', href: '/logo-512.webp' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

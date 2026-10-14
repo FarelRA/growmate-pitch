@@ -23,17 +23,17 @@ const cards: PriceCard[] = [
   {
     name: 'GrowMate',
     brand: 'growmate',
-    tag: 'Hero lokal cerdas',
+    tag: 'Perangkat lokal dengan agen AI',
     price: 'Rp803 rb hingga Rp2.409 jt',
     score: '7 dari 7',
     hero: true,
     cells: [
-      { label: 'AI Agen', ok: true },
+      { label: 'Agen AI', ok: true },
       { label: 'Data tropis', ok: true },
-      { label: 'Mode offline', ok: true },
+      { label: 'Mode luring', ok: true },
       { label: 'Surya dan SIM', ok: true },
-      { label: 'Servis lokal', ok: true },
-      { label: 'Harga ramah', ok: true },
+      { label: 'Layanan servis lokal', ok: true },
+      { label: 'Harga terjangkau', ok: true },
     ],
   },
   {
@@ -43,12 +43,12 @@ const cards: PriceCard[] = [
     price: 'harga bervariasi',
     score: '2 dari 7',
     cells: [
-      { label: 'AI Agen', ok: false },
+      { label: 'Agen AI', ok: false },
       { label: 'Data tropis', ok: false },
-      { label: 'Mode offline', ok: true },
+      { label: 'Mode luring', ok: true },
       { label: 'Surya dan SIM', ok: false },
-      { label: 'Servis lokal', ok: false },
-      { label: 'Harga ramah', ok: true },
+      { label: 'Layanan servis lokal', ok: false },
+      { label: 'Harga terjangkau', ok: true },
     ],
   },
   {
@@ -58,12 +58,12 @@ const cards: PriceCard[] = [
     price: 'harga premium impor',
     score: '2 dari 7',
     cells: [
-      { label: 'AI Agen', ok: false },
+      { label: 'Agen AI', ok: false },
       { label: 'Data tropis', ok: false },
-      { label: 'Mode offline', ok: true },
+      { label: 'Mode luring', ok: true },
       { label: 'Surya dan SIM', ok: false },
-      { label: 'Servis lokal', ok: false },
-      { label: 'Harga ramah', ok: false },
+      { label: 'Layanan servis lokal', ok: false },
+      { label: 'Harga terjangkau', ok: false },
     ],
   },
 ]
@@ -90,15 +90,15 @@ onUnmounted(() => ctx?.revert())
     <div ref="root" class="flex min-h-full w-full flex-col justify-center gap-1 text-left">
       <DuelArena class="w-full" />
       <UiCalloutBanner icon="lucide:crown" tone="brand" class="banner-fix w-full">
-        AI Agen, komunitas, marketplace: hanya di GrowMate.
+        Agen AI, komunitas, dan marketplace hanya ada di GrowMate.
       </UiCalloutBanner>
       <div class="price-round w-full rounded-3xl border-2 border-gm-line bg-gm-panel p-1 text-left">
         <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
           <p class="min-w-0 truncate font-headline text-base font-extrabold uppercase tracking-[0.14em] text-gm-muted">
-            Ronde 2 • Kartu harga dan fitur
+            Ronde 2 • Harga dan fitur
           </p>
           <p class="shrink-0 text-base text-gm-muted">
-            6 fitur penentu pilihan
+            6 fitur yang menentukan pilihan
           </p>
         </div>
         <div class="mt-1 grid grid-cols-1 gap-1.5 md:grid-cols-3">

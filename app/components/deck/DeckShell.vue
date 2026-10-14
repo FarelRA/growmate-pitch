@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { useDeckStore } from '~/stores/deck'
-import { SECTIONS, sectionNumber } from '~/data/deck'
+import { SECTIONS, sectionNumber, type DeckSection } from '~/data/deck'
 
-const props = defineProps<{ section: string }>()
+/**
+ * Shell standar deck: header bernomor, blok judul fluid, wadah konten.
+ * Dipakai slide deck biasa lewat `section`, dan lapisan detail lewat
+ * `meta` + `index` + `total` supaya keduanya identik tampilannya.
+ */
+const props = defineProps<{
+  section?: string
+  meta?: Pick<DeckSection, 'kicker' | 'title' | 'sub'>
+  index?: number
+  total?: number
+}>()
 
 const store = useDeckStore()
-const meta = computed(() => SECTIONS.find(s => s.id === props.section)!)
+const m = computed(() => props.meta ?? SECTIONS.find(s => s.id === props.section!)!)
+const no = computed(() => props.index ?? store.index)
+const tot = computed(() => props.total ?? store.total)
 </script>
 
 <template>
@@ -16,20 +28,20 @@ const meta = computed(() => SECTIONS.find(s => s.id === props.section)!)
           <img src="/logo.svg" alt="Logo GrowMate" class="size-full object-cover" draggable="false" />
         </span>
         <span class="font-headline text-sm font-bold uppercase leading-tight tracking-[0.08em] text-gm-primary md:text-lg md:leading-normal">
-          {{ sectionNumber(store.index) }} • {{ meta.kicker }}
+          {{ sectionNumber(no) }} • {{ m.kicker }}
         </span>
       </div>
       <span class="shrink-0 font-headline text-sm font-bold tabular-nums text-gm-ink/30 md:text-lg">
-        {{ sectionNumber(store.index) }} / {{ store.total }}
+        {{ sectionNumber(no) }} / {{ tot }}
       </span>
     </header>
 
     <div class="mt-3 md:mt-4">
       <h1 class="text-display font-headline font-extrabold tracking-tight text-gm-ink">
-        {{ meta.title }}
+        {{ m.title }}
       </h1>
-      <p v-if="meta.sub" class="text-lead mt-2 max-w-4xl text-gm-muted md:mt-3">
-        {{ meta.sub }}
+      <p v-if="m.sub" class="text-lead mt-2 max-w-4xl text-gm-muted md:mt-3">
+        {{ m.sub }}
       </p>
     </div>
 

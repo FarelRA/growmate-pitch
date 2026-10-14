@@ -22,48 +22,49 @@ const { pause, resume } = useIntervalFn(() => {
 onMounted(resume)
 onUnmounted(pause)
 
+// Seluruh angka terverifikasi: uji DKPP, ledger 9 bulan, dan konversi AI.
 const cards = [
-  { tag: 'Pengguna A • hias urban', title: 'Biaya Rp85 rb → Rp52 rb / bln', desc: 'Omzet Rp675 rb → Rp1,125 jt / bln. Tanaman tumbuh sehat, usaha sampingan mulai membayar.', icon: 'lucide:trending-up' },
-  { tag: 'Pengguna B • cabai, 6 m²', title: 'Rawat 120 → 20 mnt / hari', desc: 'Panen 8 → 11,5 kg per siklus. Lahan sama, waktu seperenam, cabai +44%.', icon: 'lucide:flame' },
-  { tag: 'DKPP Bantul • validasi resmi', title: 'Fisik 60 • Sistem 43', desc: 'Perangkat keras “Sangat Baik”, sistem “Sangat Layak”, setelah satu putaran perbaikan.', icon: 'lucide:badge-check' },
+  { tag: 'DKPP Bantul • validasi resmi', title: 'Fisik 60 • Sistem 43', desc: 'Perangkat keras Sangat Baik, sistem Sangat Layak, setelah satu putaran perbaikan.', icon: 'lucide:badge-check' },
+  { tag: 'Penjualan 9 bulan • terverifikasi', title: '36 unit • Rp59,07 jt', desc: 'Januari sampai September 2026. Kas Rp25,03 jt tanpa liabilitas.', icon: 'lucide:trending-up' },
+  { tag: 'Langganan AI • Advance', title: '22 dari 36 pembeli • 61,1%', desc: 'Floral Assistant Advance Rp9.000 per bulan dengan laba Rp6.000.', icon: 'lucide:sparkles' },
 ]
 </script>
 
 <template>
   <ClientOnly>
-    <div class="h-full rounded-2xl border-2 border-gm-line bg-gm-panel p-4 md:rounded-[20px] md:p-[24px]">
-      <div ref="emblaRef" class="embla">
-        <div class="embla__container">
+    <div class="flex h-full min-h-0 w-full min-w-0 flex-col rounded-3xl border-2 border-gm-line bg-gm-panel p-2.5 text-left">
+      <div ref="emblaRef" class="embla min-h-0 flex-1">
+        <div class="embla__container h-full items-stretch">
           <div v-for="c in cards" :key="c.tag" class="embla__slide">
-            <div class="rounded-2xl bg-white p-5 shadow-sm md:p-[28px]">
-              <div class="flex items-center gap-2.5">
-                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gm-mist md:h-[54px] md:w-[54px] md:rounded-2xl">
-                  <Icon :name="c.icon" class="h-6 w-6 text-gm-primary md:h-[28px] md:w-[28px]" />
+            <div class="flex h-full flex-col justify-center rounded-2xl bg-white p-2.5 shadow-sm">
+              <div class="flex items-center gap-2">
+                <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-gm-mist">
+                  <Icon :name="c.icon" class="size-5 text-gm-primary" />
                 </span>
-                <span class="font-headline text-[11px] font-bold uppercase tracking-wide text-gm-primary md:text-[15px]">{{ c.tag }}</span>
+                <span class="font-headline text-base font-bold uppercase tracking-wide text-gm-primary">{{ c.tag }}</span>
               </div>
-              <div class="mt-2.5 font-headline text-[18px] font-extrabold leading-tight text-gm-ink md:mt-[12px] md:text-[27px]">{{ c.title }}</div>
-              <p class="mt-1.5 text-[12px] leading-snug text-gm-muted md:mt-[8px] md:text-[17px]">{{ c.desc }}</p>
+              <div class="mt-1 font-headline text-lg font-extrabold leading-tight text-gm-ink">{{ c.title }}</div>
+              <p class="mt-0.5 text-base leading-snug text-gm-muted">{{ c.desc }}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-3.5 flex items-center justify-between md:mt-[18px]">
-        <div class="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 font-headline text-xs font-bold text-gm-primary shadow-sm">
+      <div class="mt-1.5 flex shrink-0 items-center justify-between">
+        <div class="flex items-center gap-1.5 rounded-full bg-white px-3 py-1 font-headline text-base font-bold tabular-nums text-gm-primary shadow-sm">
           Cerita {{ idx + 1 }} / {{ cards.length }}
         </div>
-        <div class="flex gap-1.5 md:gap-2">
-          <button aria-label="Cerita sebelumnya" class="grid h-11 w-11 place-items-center rounded-full bg-white shadow transition hover:bg-gm-primary hover:text-white md:h-[48px] md:w-[48px]" @click="emblaApi?.scrollPrev()">
-            <Icon name="lucide:chevron-left" class="h-5 w-5 md:h-[24px] md:w-[24px]" />
+        <div class="flex gap-1.5">
+          <button aria-label="Cerita sebelumnya" class="grid size-9 place-items-center rounded-full bg-white shadow transition hover:bg-gm-primary hover:text-white" @click="emblaApi?.scrollPrev()">
+            <Icon name="lucide:chevron-left" class="size-5" />
           </button>
-          <button aria-label="Cerita berikut" class="grid h-11 w-11 place-items-center rounded-full bg-white shadow transition hover:bg-gm-primary hover:text-white md:h-[48px] md:w-[48px]" @click="emblaApi?.scrollNext()">
-            <Icon name="lucide:chevron-right" class="h-5 w-5 md:h-[24px] md:w-[24px]" />
+          <button aria-label="Cerita berikut" class="grid size-9 place-items-center rounded-full bg-white shadow transition hover:bg-gm-primary hover:text-white" @click="emblaApi?.scrollNext()">
+            <Icon name="lucide:chevron-right" class="size-5" />
           </button>
         </div>
       </div>
     </div>
     <template #fallback>
-      <div class="h-full rounded-2xl border-2 border-gm-line bg-gm-panel p-4 text-[12px] text-gm-muted md:p-[24px] md:text-[16px]">Memuat cerita…</div>
+      <div class="grid h-full min-h-[140px] place-items-center rounded-3xl border-2 border-gm-line bg-gm-panel text-base text-gm-muted">Memuat cerita…</div>
     </template>
   </ClientOnly>
 </template>

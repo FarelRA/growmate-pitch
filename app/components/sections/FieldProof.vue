@@ -24,7 +24,7 @@ onMounted(() => {
           <Reveal class="flex w-full flex-col">
             <div class="relative flex w-full max-w-full flex-col overflow-hidden rounded-2xl border-2 border-gm-line bg-white p-4 text-left">
               <div class="text-left font-headline text-xl font-extrabold text-gm-ink">
-                Hemat lawan rawat manual (%)
+                Penghematan dibanding perawatan manual (%)
               </div>
               <div class="relative mt-2 h-[220px] w-full max-w-full sm:h-[240px] lg:h-[260px]">
                 <EffChart />
@@ -51,7 +51,7 @@ onMounted(() => {
                   {{ fromInt }}% ke {{ toInt }}%
                 </div>
                 <p class="mt-2 text-left text-base leading-snug text-white/90">
-                  Kesintasan 60 hari naik 22 poin.
+                  Tanaman yang bertahan hidup pada 60 hari naik 22 poin.
                 </p>
               </div>
             </Reveal>
@@ -60,20 +60,20 @@ onMounted(() => {
                 <div class="w-full rounded-2xl border border-gm-line bg-white p-4 text-left">
                   <div class="text-left font-headline text-3xl font-extrabold text-gm-ink">60/64</div>
                   <p class="mt-2 text-left text-base leading-snug text-gm-muted">
-                    Siap dipasarkan.
+                    Unit dinyatakan siap dipasarkan.
                   </p>
                 </div>
                 <div class="w-full rounded-2xl border border-gm-line bg-white p-4 text-left">
                   <div class="text-left font-headline text-3xl font-extrabold text-gm-ink">43/48</div>
                   <p class="mt-2 text-left text-base leading-snug text-gm-muted">
-                    Sangat stabil.
+                    Sistem dinyatakan sangat stabil.
                   </p>
                 </div>
               </div>
             </Reveal>
             <Reveal :delay="0.24" class="w-full">
               <UiCalloutBanner icon="lucide:clipboard-check" tone="amber" class="w-full text-left [&]:justify-start [&_p]:!text-left [&_p]:!text-base">
-                Formulir ditandatangani DKPP Kab. Bantul.
+                Formulir hasil uji ditandatangani DKPP Kab. Bantul.
               </UiCalloutBanner>
             </Reveal>
             <Reveal :delay="0.3" class="w-full">
@@ -82,7 +82,7 @@ onMounted(() => {
                   <svg viewBox="0 0 24 24" class="size-6 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M12 3 s6 6.2 6 10.5 a6 6 0 0 1 -12 0 C6 9.2 12 3 12 3z" />
                   </svg>
-                  Irigasi presisi
+                  Irigasi sesuai bacaan
                 </span>
                 <span class="inline-flex items-center gap-2 rounded-full border border-gm-line bg-white px-4 py-2 text-left text-base leading-snug text-gm-ink">
                   <svg viewBox="0 0 24 24" class="size-6 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -95,7 +95,7 @@ onMounted(() => {
                   <svg viewBox="0 0 24 24" class="size-6 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M9 18 h6 M10 21 h4 M12 3 a6 6 0 0 0 -3.5 10.9 c.8.6 1.5 1.3 1.5 2.1 h4 c0 -.8.7 -1.5 1.5 -2.1 A6 6 0 0 0 12 3z" />
                   </svg>
-                  Lampu ikut sensor
+                  Lampu mengikuti sensor
                 </span>
               </div>
             </Reveal>

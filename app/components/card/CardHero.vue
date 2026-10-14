@@ -14,7 +14,7 @@ onMounted(async () => {
 
 <template>
   <section class="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden px-4 py-10 text-center text-white sm:px-6">
-    <img src="/photos/tech-field.webp" alt="" aria-hidden="true" class="absolute inset-0 size-full object-cover" draggable="false" />
+    <img src="/images/products/tech-field.webp" alt="" aria-hidden="true" class="absolute inset-0 size-full object-cover" draggable="false" />
     <div class="absolute inset-0 bg-gm-ink/80" />
     <div aria-hidden="true" class="pointer-events-none absolute -left-32 -top-32 size-[480px] rounded-full bg-gm-primary/40 blur-[140px]" />
     <div class="relative mx-auto w-full max-w-5xl">

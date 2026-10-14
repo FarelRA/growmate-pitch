@@ -17,27 +17,27 @@ onMounted(() => {
 
 const stages = [
   {
-    src: '/photos/kembang-proto-1.webp',
-    alt: 'Founder menyolder prototipe GrowMate di meja kerja',
+    src: '/images/products/kembang-proto-1.webp',
+    alt: 'Prototipe 1 dengan Arduino dan breadboard',
     badge: 'Tahap 1',
     title: 'Validasi Konsep',
-    desc: 'Rangkaian prototipe terbuka di meja kerja. Satu sensor statis dan relai manual.',
+    desc: 'Rangkaian breadboard terbuka dengan satu sensor dan satu relai yang dikendalikan manual.',
     icon: 'lucide:flask-conical',
   },
   {
-    src: '/photos/kembang-proto-2.webp',
-    alt: 'Prototipe 2 smart pot dengan sensor tanah',
+    src: '/images/products/kembang-proto-2.webp',
+    alt: 'Prototipe 2 berupa pot pintar dengan sensor tanah',
     badge: 'Tahap 2',
     title: 'Integrasi Modular',
-    desc: 'PCB permanen berumah awal. Jaringan meluas hingga 6 titik.',
+    desc: 'PCB permanen di rumah awal; jumlah titik sensor bertambah sampai 6.',
     icon: 'lucide:cpu',
   },
   {
-    src: '/photos/kembang-addon.webp',
-    alt: 'Tech Add-on mandiri surya GrowMate',
+    src: '/images/products/kembang-addon.webp',
+    alt: 'Tech Add-on mandiri surya dari GrowMate',
     badge: 'Tahap 3',
     title: 'Tech Add-on',
-    desc: 'Boks kayu surya dan LTE. Siap massal dengan Floral Assistant.',
+    desc: 'Boks kayu bertenaga surya dan LTE, siap produksi massal bersama Floral Assistant.',
     icon: 'lucide:rocket',
   },
 ]
@@ -62,7 +62,7 @@ const stages = [
               <Icon :name="s.icon" class="size-6 shrink-0" />
               <span v-if="i === 0">{{ Math.round(numOne) }} titik baca</span>
               <span v-else-if="i === 1">{{ Math.round(numSix) }} titik baca</span>
-              <span v-else>Siap massal dan AI</span>
+              <span v-else>Siap produksi massal dan AI</span>
             </div>
           </article>
         </Reveal>

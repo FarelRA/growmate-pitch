@@ -11,26 +11,26 @@ const spring = (delay: number) => ({
 
 const frames = [
   {
-    no: 'Estafet 1',
+    no: 'Dampak 1',
     icon: 'lucide:sprout',
-    title: 'Regenerasi petani teknologi',
-    desc: 'Mentor AI membimbing anak muda bertani dengan data.',
+    title: 'Regenerasi petani berteknologi',
+    desc: 'Asisten AI membantu anak muda bertani berdasarkan data.',
     halo: true,
     leaf: false,
   },
   {
-    no: 'Estafet 2',
+    no: 'Dampak 2',
     icon: 'lucide:handshake',
     title: 'Transfer antargenerasi',
-    desc: 'Komunitas GrowMate mempertemukan petani senior dan junior.',
+    desc: 'Komunitas GrowMate mempertemukan petani berpengalaman dan pemula.',
     halo: false,
     leaf: false,
   },
   {
-    no: 'Estafet 3',
+    no: 'Dampak 3',
     icon: 'lucide:timer',
-    title: 'Biaya operasional turun',
-    desc: 'Rawat 45 menit menjadi 5 menit. Air dan pupuk tepat sasaran.',
+    title: 'Biaya operasional menurun',
+    desc: 'Waktu rawat turun dari 45 menit ke 5 menit; air dan pupuk terpakai sesuai kebutuhan.',
     halo: false,
     leaf: true,
   },
@@ -117,11 +117,11 @@ const frames = [
             </div>
             <div class="mt-1.5 flex w-full items-center justify-start gap-2.5 rounded-2xl bg-gm-primary px-4 py-1.5 text-left text-white">
               <Icon name="lucide:badge-check" class="size-6 shrink-0 lg:size-7" />
-              <p class="font-headline text-base font-extrabold leading-tight lg:text-lg">8 testimoni resmi terdokumentasi</p>
+              <p class="font-headline text-base font-extrabold leading-tight lg:text-lg">8 testimoni resmi yang terdokumentasi</p>
             </div>
             <div class="mt-1.5 grid w-full grid-cols-2 gap-1.5">
-              <UiPhotoFigure src="/photos/dok-pengguna.webp" alt="Pengguna memegang Pods dengan grow light" ratio="4 / 3" />
-              <UiPhotoFigure src="/photos/sosial-grup.webp" alt="Foto bersama banner GrowMate di acara luar ruang" ratio="4 / 3" />
+              <UiPhotoFigure src="/images/impact/dok-pengguna.webp" alt="Pengguna memegang Pods dengan grow light" ratio="4 / 3" />
+              <UiPhotoFigure src="/images/impact/sosial-grup.webp" alt="Foto bersama banner GrowMate di acara luar ruang" ratio="4 / 3" />
             </div>
           </div>
         </template>

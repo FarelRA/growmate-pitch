@@ -2,9 +2,9 @@
 const active = ref(0)
 
 const gates = [
-  { icon: 'lucide:clipboard-list', title: 'Pra', desc: 'Riset sebelum rakit', items: ['Riset kebutuhan', 'Validasi pasar', 'Desain CAD 3D', 'Firmware dan UI'], card: 'bg-white', chip: 'bg-gm-mist', src: '/photos/proses-riset.webp', alt: 'Desain bodi Pods di Blender' },
-  { icon: 'lucide:factory', title: 'Produksi', desc: 'Mutu selama rakit', items: ['Perakitan unit', 'Pasang firmware', 'Kalibrasi sensor', 'Uji mutu lolos'], card: 'bg-gm-mist', chip: 'bg-white', src: '/photos/proses-rakit.webp', alt: 'Founder merakit unit di meja produksi' },
-  { icon: 'lucide:package-check', title: 'Pasca', desc: 'Garansi setelah kirim', items: ['Kemas tanpa plastik', 'Pengiriman tercatat', 'Garansi 3 bulan', 'Komunitas purnajual'], card: 'bg-gm-amberbg', chip: 'bg-white', src: '/photos/proses-kemas.webp', alt: 'Paket unit siap serah ke ekspedisi' },
+  { icon: 'lucide:clipboard-list', title: 'Pra', desc: 'Riset sebelum perakitan', items: ['Riset kebutuhan', 'Validasi pasar', 'Desain CAD 3D', 'Firmware dan UI'], card: 'bg-white', chip: 'bg-gm-mist', src: '/images/process/proses-riset.webp', alt: 'Desain bodi Pods di Blender' },
+  { icon: 'lucide:factory', title: 'Produksi', desc: 'Uji mutu saat perakitan', items: ['Perakitan unit', 'Pasang firmware', 'Kalibrasi sensor', 'Lulus uji mutu'], card: 'bg-gm-mist', chip: 'bg-white', src: '/images/process/proses-rakit.webp', alt: 'Founder merakit unit di meja produksi' },
+  { icon: 'lucide:package-check', title: 'Pasca', desc: 'Garansi setelah kirim', items: ['Kemas tanpa plastik', 'Pengiriman tercatat', 'Garansi 3 bulan', 'Komunitas purnajual'], card: 'bg-gm-amberbg', chip: 'bg-white', src: '/images/packaging/proses-kemas.webp', alt: 'Paket unit diserahkan ke ekspedisi' },
 ]
 
 function onGate(v: number) {
@@ -22,7 +22,7 @@ function onGate(v: number) {
             class="flex h-full min-w-0 flex-col justify-between gap-1.5 rounded-2xl border-2 p-3 text-left transition-all duration-300"
             :class="[g.card, active === i ? 'scale-[1.03] border-gm-primary shadow-md' : 'border-gm-line']"
           >
-            <UiPhotoFigure v-if="g.src" :src="g.src" :alt="g.alt" ratio="16 / 10" class="slot-compact" />
+            <UiPhotoFigure v-if="g.src" :src="g.src" :alt="g.alt" ratio="16 / 12" class="slot-compact" />
             <UiPhotoSlot v-else ratio="16 / 10" :label="g.slotLabel" :spec="g.slotSpec" class="slot-compact" />
             <div class="flex items-center justify-start gap-2">
               <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-white shadow-sm ring-1 ring-gm-line">
@@ -35,7 +35,7 @@ function onGate(v: number) {
                 <div class="truncate text-base text-gm-muted">{{ g.desc }}</div>
               </div>
             </div>
-            <ul class="space-y-0 border-t border-gm-ink/10 pt-1">
+            <ul class="grid grid-cols-2 gap-x-2 gap-y-1 border-t border-gm-ink/10 pt-1">
               <li v-for="(it, j) in g.items" :key="it" class="flex items-center justify-start gap-2 text-left text-base leading-snug text-gm-ink">
                 <span class="grid size-7 shrink-0 place-items-center rounded-full font-mono text-base font-bold text-gm-primary" :class="g.chip">{{ j + 1 }}</span>
                 <span class="min-w-0">{{ it }}</span>

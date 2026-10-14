@@ -8,9 +8,10 @@ const props = withDefaults(
     hero?: boolean
     hue?: 'sky' | 'amber' | 'brand' | 'deep'
     index?: number
+    cols?: 1 | 2
     art?: 'none' | 'segments' | 'channels' | 'cost' | 'revenue' | 'partners' | 'activities' | 'resources' | 'relations' | 'value'
   }>(),
-  { sub: '', hero: false, hue: 'brand', index: 0, art: 'none' },
+  { sub: '', hero: false, hue: 'brand', index: 0, cols: 1, art: 'none' },
 )
 
 const tileBg = computed(() => {
@@ -36,7 +37,7 @@ const tileShadow
 
 <template>
   <article
-    class="kanvas-plot relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl border-2 p-1.5 text-left"
+    class="kanvas-plot relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl border-2 p-0.5 text-left"
     :class="hero
       ? 'plot-hero border-gm-primary bg-gradient-to-br from-gm-primary to-gm-deep text-white shadow-xl'
       : 'border-gm-line bg-white text-gm-ink'"
@@ -65,9 +66,9 @@ const tileShadow
       <path d="M216 91v10M211 96h10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
     </svg>
 
-    <div class="relative flex min-w-0 items-center gap-2.5 text-left">
+    <div class="relative flex min-w-0 items-center gap-2 text-left">
       <span
-        class="plot-tile plot-float relative grid size-8 shrink-0 place-items-center overflow-hidden rounded-xl"
+        class="plot-tile plot-float relative grid size-7 shrink-0 place-items-center overflow-hidden rounded-xl"
         :class="tileBg"
         :style="{ boxShadow: tileShadow, animationDelay: floatDelay }"
       >
@@ -90,7 +91,7 @@ const tileShadow
         </p>
       </div>
     </div>
-    <ul class="relative mt-1 space-y-0 text-left">
+    <ul class="relative mt-0.5 space-y-0 text-left" :class="cols === 2 ? 'grid grid-cols-2 gap-x-2' : ''">
       <li
         v-for="item in items"
         :key="item"

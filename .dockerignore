@@ -1,0 +1,12 @@
+node_modules
+.nuxt
+.output
+dist
+.git
+scripts
+docs
+*.pdf
+*.log
+.opencode
+README.md
+tmp/

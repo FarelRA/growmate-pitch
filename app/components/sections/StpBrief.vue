@@ -36,7 +36,7 @@ onUnmounted(() => ctx?.revert())
                   letter="S"
                   icon="lucide:users"
                   title="Segmentation"
-                  desc="Tech farmer, properti dan kantor DIY yang sibuk dan melek teknologi."
+                  desc="Tech farmer serta properti dan kantor di DIY yang sibuk dan terbiasa dengan teknologi."
                   variant="segment"
                 />
               </Reveal>
@@ -48,7 +48,7 @@ onUnmounted(() => ctx?.revert())
                   letter="T"
                   icon="lucide:crosshair"
                   title="Targeting"
-                  desc="Kuasai DIY dengan purnajual penuh, capai 5% SAM nasional."
+                  desc="Kuasai DIY dengan layanan purnajual penuh, lalu menuju 5% SAM nasional."
                   variant="target"
                 />
               </Reveal>
@@ -60,7 +60,7 @@ onUnmounted(() => ctx?.revert())
                   letter="P"
                   icon="lucide:flag"
                   title="Positioning"
-                  desc="Pelopor smart farming IoT dan AI Agen lokal. Praktis, hijau, terjangkau."
+                  desc="Pelopor smart farming IoT dengan agen AI lokal; praktis, hemat, dan terjangkau."
                   variant="position"
                 />
               </Reveal>
@@ -70,13 +70,13 @@ onUnmounted(() => ctx?.revert())
         <template #secondary>
           <Reveal class="w-full min-w-0">
             <div class="grid w-full grid-cols-2 gap-2">
-              <UiPhotoFigure src="/photos/stp-stan.webp" alt="Demo stan GrowMate bersama pengunjung" ratio="1 / 1" />
-              <UiPhotoFigure src="/photos/dok-demo.webp" alt="Founder demo unit GrowMate ke pengunjung" ratio="1 / 1" />
+              <UiPhotoFigure src="/images/events/stp-stan.webp" alt="Demo stan GrowMate bersama pengunjung" ratio="1 / 1" />
+              <UiPhotoFigure src="/images/events/dok-demo.webp" alt="Founder mendemokan unit GrowMate kepada pengunjung" ratio="1 / 1" />
             </div>
           </Reveal>
           <Reveal :delay="0.4" class="w-full min-w-0">
             <UiCalloutBanner icon="lucide:flag" tone="brand" class="banner-compact mt-2">
-              Semangat posisi kami: Petani Makmur, Tanpa Lumpur.
+              Slogan yang tertera di kemasan: Petani Makmur, Tanpa Lumpur.
             </UiCalloutBanner>
           </Reveal>
         </template>

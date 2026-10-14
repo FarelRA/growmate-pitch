@@ -27,11 +27,12 @@ import DocGallery from '~/components/sections/DocGallery.vue'
 import FieldVoices from '~/components/sections/FieldVoices.vue'
 import RoadmapAsk from '~/components/sections/RoadmapAsk.vue'
 import ClosingCall from '~/components/sections/ClosingCall.vue'
+import LoopGallery from '~/components/sections/LoopGallery.vue'
 
 const store = useDeckStore()
 
-// Lapisan arsip (tombol H) dimuat malas: data grafik dan Mermaid tidak
-// ikut mengangkut bundle deck utama.
+// Lapisan detail (tombol H) dimuat malas: data grafik dan mesin diagram
+// tidak ikut mengangkut bundle deck utama.
 const HiddenLayer = defineAsyncComponent(() => import('~/components/hidden/HiddenLayer.vue'))
 
 const registry: Record<string, Component> = {
@@ -61,6 +62,7 @@ const registry: Record<string, Component> = {
   testimoni: FieldVoices,
   scaleup: RoadmapAsk,
   closing: ClosingCall,
+  galeri: LoopGallery,
 }
 
 const current = computed(() => registry[SECTIONS[store.index]?.id ?? 'cover'] ?? CoverHero)

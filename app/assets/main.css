@@ -9,10 +9,10 @@
   --color-gm-soft: #4caf50;
   --color-gm-mist: #e9f4ea;
   --color-gm-cream: #faf6ec;
-  --color-gm-amber: #b7791f;
+  --color-gm-amber: #8a5c14;
   --color-gm-amberbg: #faf3e3;
   --color-gm-ink: #1a1c1c;
-  --color-gm-muted: #3f4a3c;
+  --color-gm-muted: #2f372d;
   --color-gm-line: #e5e8e3;
   --color-gm-panel: #f6f8f5;
   --color-gm-danger: #c0392b;
@@ -93,6 +93,19 @@ body {
   scrollbar-color: #c9cfc8 transparent;
 }
 
+/* ---------- slide scroller: selalu pas, tanpa scrollbar berkedip ----------
+ * Konten slide selalu pas di akhir animasi; saat animasi masuk elemen bisa
+ * sementara melampaui tepi, sehingga scrollbar akan muncul lalu hilang.
+ * Sembunyikan scrollbar dan potong luapan horizontal: tidak ada scroll yang
+ * dibutuhkan penonton, gulir roda tetap bekerja bila layar jauh lebih kecil. */
+.slide-scroll {
+  overflow-x: clip;
+  scrollbar-width: none;
+}
+.slide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* ---------- embla ---------- */
 .embla { overflow: hidden; }
 .embla__container { display: flex; gap: 1.5rem; }
@@ -114,4 +127,86 @@ body {
   .archive-enter-active, .archive-leave-active {
     transition: none !important;
   }
+}
+
+/* ---------- keterbacaan global ---------- */
+/* Bobot dasar ditegakkan agar teks terlihat tegas di semua halaman.
+   Aturan warisan ini tidak menimpa elemen yang memakai kelas bobot eksplisit. */
+body {
+  font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
+}
+.font-headline {
+  font-weight: 800;
+}
+strong,
+b {
+  font-weight: 700;
+}
+
+/* Teks redup di atas latar terang: warna token sudah digelapkan.
+   Bobot minimal 600 untuk teks yang belum memakai kelas bobot eksplisit. */
+.text-gm-muted:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black) {
+  font-weight: 600;
+}
+/* Nomor halaman dekoratif dibuat tetap terbaca tanpa mengubah tata letak. */
+.text-gm-ink\/30 {
+  color: rgba(26, 28, 28, 0.6);
+  font-weight: 600;
+}
+
+/* Teks kecil: bobot minimal 600 tanpa mengubah ukuran huruf,
+   sehingga kebutuhan tanpa gulir tetap terjaga. */
+.text-xs:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black),
+.text-sm:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black),
+[class*="text-[12px]"]:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black),
+[class*="text-[13px]"]:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black),
+[class*="text-[14px]"]:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black),
+[class*="text-[15px]"]:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black) {
+  font-weight: 600;
+}
+
+/* Jaring pengaman global: teks putih yang sangat transparan tidak boleh terlalu redup,
+   karena teks putih selalu berada di atas latar gelap. */
+.text-white\/40,
+.text-white\/45,
+.text-white\/50,
+.text-white\/60,
+.text-white\/65 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Permukaan gelap: penghalusan huruf dikuatkan agar tepi huruf bersih. */
+:is([class*="bg-gm-ink"], [class*="bg-gm-primary"], [class*="bg-gm-deep"], [class*="bg-black"]) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Permukaan gelap: semua teks putih transparan dinaikkan menuju putih hampir penuh. */
+:is([class*="bg-gm-ink"], [class*="bg-gm-primary"], [class*="bg-gm-deep"], [class*="bg-black"]) [class*="text-white/"] {
+  color: rgba(255, 255, 255, 0.95);
+}
+:is([class*="bg-gm-ink"], [class*="bg-gm-primary"], [class*="bg-gm-deep"], [class*="bg-black"]) .text-white {
+  color: #ffffff;
+}
+/* Permukaan gelap: bayangan halus agar huruf terang terangkat dari latar.
+   Bayangan teks tidak mengubah tata letak. */
+:is([class*="bg-gm-ink"], [class*="bg-gm-primary"], [class*="bg-gm-deep"], [class*="bg-black"]) [class*="text-white"] {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+/* Permukaan gelap: bobot minimal 600 untuk teks terang yang belum tebal. */
+:is([class*="bg-gm-ink"], [class*="bg-gm-primary"], [class*="bg-gm-deep"], [class*="bg-black"]) [class*="text-white"]:not(.font-medium):not(.font-semibold):not(.font-bold):not(.font-extrabold):not(.font-black) {
+  font-weight: 600;
+}
+/* Permukaan gelap: label kuning diganti emas terang agar kontras terhadap hitam. */
+:is([class*="bg-gm-ink"], [class*="bg-gm-primary"], [class*="bg-gm-deep"], [class*="bg-black"]) [class*="text-gm-amber"] {
+  color: #f3c96e;
+}
+/* Permukaan gelap: aksen hijau dilembutkan ke hijau muda agar terbaca di atas tinta. */
+:is([class*="bg-gm-ink"], [class*="bg-black"]) [class*="text-gm-soft"] {
+  color: #8bdc90;
 }

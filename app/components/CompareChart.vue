@@ -7,7 +7,7 @@ const option = {
   tooltip: { trigger: 'axis' },
   legend: {
     top: 0,
-    textStyle: { fontSize: 15, fontWeight: 700 },
+    textStyle: { fontSize: 16, fontWeight: 700 },
     data: ['Pranata Mangsa AKTIF', 'Jadwal tetap'],
   },
   xAxis: {
@@ -15,12 +15,12 @@ const option = {
     data: ['Kelebihan air', 'Kekurangan air', 'Perbaikan manual'],
     axisLine: { lineStyle: { color: '#c9cfc8' } },
     axisTick: { show: false },
-    axisLabel: { fontSize: 15, color: '#3f4a3c', fontWeight: 600 },
+    axisLabel: { fontSize: 16, color: '#3f4a3c', fontWeight: 600 },
   },
   yAxis: {
     type: 'value',
     splitLine: { lineStyle: { color: '#eef1ec' } },
-    axisLabel: { fontSize: 14, color: '#3f4a3c' },
+    axisLabel: { fontSize: 16, color: '#3f4a3c' },
   },
   series: [
     {
@@ -46,12 +46,12 @@ const option = {
       query: { maxWidth: 500 },
       option: {
         grid: { left: 30, right: 12, top: 64, bottom: 56 },
-        legend: { textStyle: { fontSize: 11 } },
-        xAxis: { axisLabel: { fontSize: 11, rotate: 25 } },
-        yAxis: { axisLabel: { fontSize: 11 } },
+        legend: { textStyle: { fontSize: 16 } },
+        xAxis: { axisLabel: { fontSize: 16, rotate: 25 } },
+        yAxis: { axisLabel: { fontSize: 16 } },
         series: [
-          { barWidth: '26%', label: { fontSize: 11 } },
-          { barWidth: '26%', label: { fontSize: 11 } },
+          { barWidth: '26%', label: { fontSize: 16 } },
+          { barWidth: '26%', label: { fontSize: 16 } },
         ],
       },
     },

@@ -36,26 +36,26 @@ onMounted(() => {
       <Reveal :delay="0.12" class="w-full">
         <div class="flex w-full flex-col rounded-3xl border-2 border-gm-line bg-white p-4 text-left">
           <div class="flex w-full items-center justify-between gap-2">
-            <div class="text-left font-headline text-base font-extrabold text-gm-ink lg:text-lg">Bulanan (batang) dan kumulatif (garis), juta Rp</div>
+            <div class="text-left font-headline text-base font-extrabold text-gm-ink lg:text-lg">Batang = pendapatan bulanan, garis = kumulatif, dalam juta Rp</div>
             <button
               class="flex shrink-0 items-center gap-2 rounded-xl border-2 px-2 py-1 text-left transition-all"
               :class="showBukti ? 'border-gm-primary shadow-md' : 'border-gm-line opacity-80 hover:opacity-100'"
-              :aria-label="showBukti ? 'Kembali ke grafik deck' : 'Lihat grafik pendapatan asli FIKSI 2026'"
+              :aria-label="showBukti ? 'Kembali ke grafik deck' : 'Lihat grafik pendapatan asli GrowMate 2026'"
               @click="showBukti = !showBukti"
             >
-              <img src="/photos/keu-chart.webp" alt="Bukti grafik pendapatan GrowMate Januari sampai September 2026" class="h-10 w-auto rounded-md object-contain" draggable="false" />
+              <img src="/images/market/keu-chart.webp" alt="Tangkapan layar grafik pendapatan asli GrowMate Januari sampai September 2026" class="h-10 w-auto rounded-md object-contain" draggable="false" />
               <span class="font-headline text-base font-extrabold text-gm-primary">{{ showBukti ? 'Deck' : 'Bukti' }}</span>
             </button>
           </div>
           <div class="mt-1.5 h-[200px] w-full sm:h-[220px] lg:h-[232px] 2xl:h-[300px]">
             <TractionChart v-if="!showBukti" />
-            <img v-else src="/photos/keu-chart.webp" alt="Grafik pendapatan hardware dan layanan AI Januari sampai September 2026" class="h-full w-full rounded-xl object-contain" draggable="false" />
+            <img v-else src="/images/market/keu-chart.webp" alt="Grafik pendapatan perangkat keras dan layanan AI Januari sampai September 2026" class="h-full w-full rounded-xl object-contain" draggable="false" />
           </div>
           <div class="mt-2 grid grid-cols-2 gap-2 text-left xl:grid-cols-4">
             <div class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-amber/60 bg-gm-amberbg p-4">
               <span class="size-2.5 rounded-full bg-gm-amber anim-pulse-dot" aria-hidden="true" />
               <div class="mt-1.5 font-headline text-2xl font-extrabold tabular-nums text-gm-ink 2xl:text-3xl">{{ heroTotal }}</div>
-              <div class="mt-0.5 text-base leading-snug text-gm-muted">total 9 bulan</div>
+              <div class="mt-0.5 text-base leading-snug text-gm-muted">pendapatan total 9 bulan</div>
             </div>
             <div v-for="s in stats" :key="s.label" class="flex h-full flex-col justify-center rounded-2xl border-2 border-gm-line bg-white p-4">
               <span class="size-2.5 rounded-full bg-gm-amber anim-pulse-dot" aria-hidden="true" />

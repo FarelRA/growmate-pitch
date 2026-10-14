@@ -15,7 +15,7 @@
       </div>
       <div class="flex shrink-0 items-center gap-1.5 self-start rounded-full bg-gm-ink px-4 py-2.5 font-headline text-base font-extrabold uppercase tracking-[0.08em] text-white sm:self-center sm:justify-self-center">
         <Icon name="lucide:zap" class="size-5 text-amber-300" />
-        <span>Beda</span>
+        <span>Perbedaan</span>
       </div>
       <div class="flex min-w-0 items-center gap-3">
         <span class="relative grid size-12 shrink-0 place-items-center rounded-xl bg-gm-mist">
@@ -24,7 +24,7 @@
         </span>
         <p class="min-w-0 leading-tight">
           <span class="block font-headline text-base font-extrabold uppercase tracking-[0.08em] text-gm-primary">GrowMate</span>
-          <span class="block text-base font-medium text-gm-ink">siram saat tanah butuh</span>
+          <span class="block text-base font-medium text-gm-ink">siram saat bacaan tanah kering</span>
         </p>
       </div>
     </div>

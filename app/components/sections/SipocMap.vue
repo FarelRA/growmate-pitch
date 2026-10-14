@@ -5,11 +5,11 @@ const wrap = ref<HTMLElement | null>(null)
 let ctx: gsap.Context | null = null
 
 const cols = [
-  { icon: 'lucide:truck', title: 'Supplier', items: ['Komponen IoT', 'Bodi 3D', 'Cloud AI', 'Kemas hijau'], hero: false, src: '/photos/sipoc-pemasok.webp', alt: 'Tim belanja komponen di toko elektronik', scene: 'supplier' },
-  { icon: 'lucide:package', title: 'Input', items: ['Mikrokontroler relai', 'Bodi Pods Tech', 'Firmware AI', 'Dataset tanaman', 'Kardus jerami'], hero: false, src: '/photos/sipoc-mikro.webp', alt: 'Papan mikrokontroler sebagai komponen masukan', scene: 'input' },
-  { icon: 'lucide:cog', title: 'Process', items: ['Desain 3D', 'Rakit solder', 'Flash firmware', 'Kalibrasi', 'Kemas', 'Dampingi'], hero: true, src: '/photos/sipoc-solder.webp', alt: 'Perakitan dan solder unit GrowMate', scene: 'process' },
-  { icon: 'lucide:shopping-bag', title: 'Output', items: ['Pods indoor', 'Tech lapangan', 'Dasbor Floral', 'Data telemetri'], hero: false, src: '/photos/sipoc-pods.webp', alt: 'Pods dan tanaman siap pakai', scene: 'output' },
-  { icon: 'lucide:users', title: 'Customer', items: ['Tech farmer', 'Properti', 'Kantor hijau', 'Tani kota'], hero: false, src: '/photos/sipoc-serah.webp', alt: 'Serah terima unit ke petani mitra', scene: 'customer' },
+  { icon: 'lucide:truck', title: 'Supplier', items: ['Komponen IoT', 'Bodi 3D', 'Cloud AI', 'Kemasan ramah lingkungan'], hero: false, src: '/images/process/sipoc-pemasok.webp', alt: 'Tim membeli komponen di toko elektronik', scene: 'supplier' },
+  { icon: 'lucide:package', title: 'Input', items: ['Mikrokontroler relai', 'Bodi Pods dan Tech', 'Firmware AI', 'Dataset tanaman', 'Kardus jerami'], hero: false, src: '/images/process/sipoc-mikro.webp', alt: 'Papan mikrokontroler sebagai salah satu komponen masukan', scene: 'input' },
+  { icon: 'lucide:cog', title: 'Process', items: ['Desain 3D', 'Rakit solder', 'Flash firmware', 'Kalibrasi', 'Kemas', 'Dampingi'], hero: true, src: '/images/process/sipoc-solder.webp', alt: 'Perakitan dan solder unit GrowMate', scene: 'process' },
+  { icon: 'lucide:shopping-bag', title: 'Output', items: ['Pods indoor', 'Tech lapangan', 'Dasbor Floral', 'Data telemetri'], hero: false, src: '/images/process/sipoc-pods.webp', alt: 'Pods dan tanaman siap pakai', scene: 'output' },
+  { icon: 'lucide:users', title: 'Customer', items: ['Tech farmer', 'Properti', 'Kantor hijau', 'Tani kota'], hero: false, src: '/images/process/sipoc-serah.webp', alt: 'Serah terima unit ke petani mitra', scene: 'customer' },
 ]
 
 function lightStations(tl: gsap.core.Timeline, stations: HTMLElement[]) {

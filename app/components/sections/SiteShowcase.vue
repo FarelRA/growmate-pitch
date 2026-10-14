@@ -4,9 +4,9 @@ import gsap from 'gsap'
 // Fakta singkat tentang situs. Foto desktop asli sudah tersedia,
 // bingkai mobile masih berupa slot sampai aset mentah dipasok.
 const facts = [
-  { icon: 'lucide:layout-grid', text: 'Katalog Pods, Tech, dan Floral Assistant tersusun rapi per kategori.' },
-  { icon: 'lucide:radio', text: 'Demo live Flora AI terbuka langsung dari beranda situs.' },
-  { icon: 'lucide:shopping-bag', text: 'Tautan Shopee dan WhatsApp tersedia di setiap halaman.' },
+  { icon: 'lucide:layout-grid', text: 'Katalog Pods, Tech, dan Floral Assistant tersusun per kategori.' },
+  { icon: 'lucide:radio', text: 'Demo langsung Flora AI dapat dibuka dari beranda situs.' },
+  { icon: 'lucide:shopping-bag', text: 'Setiap halaman memuat tautan Shopee dan WhatsApp.' },
 ]
 
 const root = ref<HTMLElement | null>(null)
@@ -41,7 +41,7 @@ onUnmounted(() => ctx?.revert())
               </span>
             </div>
             <div class="p-1.5">
-              <UiPhotoFigure src="/photos/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" />
+              <UiPhotoFigure src="/images/ui/gtm-situs.webp" alt="Beranda situs growmate.bond" ratio="16 / 10" />
             </div>
           </div>
         </Reveal>
@@ -55,7 +55,7 @@ onUnmounted(() => ctx?.revert())
               </span>
             </div>
             <div class="p-1.5">
-              <UiPhotoFigure src="/photos/gtm-situs-mobile.webp" alt="Tampilan mobile situs growmate.bond" ratio="9 / 16" />
+              <UiPhotoFigure src="/images/ui/gtm-situs-mobile.webp" alt="Tampilan mobile situs growmate.bond" ratio="9 / 16" />
             </div>
           </div>
         </Reveal>
